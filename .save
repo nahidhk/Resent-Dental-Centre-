@@ -1,0 +1,21 @@
+import React, { useRef } from "react";
+import { useReactToPrint } from "react-to-print";
+
+export default function Prescription() {
+  const printRef = useRef(); // print এর জন্য ref
+
+  const handlePrint = useReactToPrint({
+    content: () => printRef.current, // শুধু এই অংশটাই প্রিন্ট হবে
+  });
+
+  return (
+    <>
+      {/* presction ui */}
+      <div className="mailholdbox" ref={printRef}>
+        
+      </div>
+
+      <button onClick={handlePrint}>Print</button>
+    </>
+  );
+}

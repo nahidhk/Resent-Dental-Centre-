@@ -1,0 +1,32 @@
+{
+    "doctor_name": {
+        "bangla_name": "ডাঃ মোঃ আরিফুল ইসলাম",
+        "english_name": "Dr. Md. Ariful Islam"
+    },
+    "doctor_subname": {
+        "bangla_subname": "ওড়াল অ্যান্ড ডেন্টাল সার্জন",
+        "english_subname": "Oral and Dental Surgeon"
+    },
+    "doctor_degree": {
+        "bangla_degree": "বিডিএস, রংপুর মেডিকেল কলেজ",
+        "english_degree": "DBS, Rangpur Medical College"
+    },
+    "doctor_phone": "01760-642687",
+    "doctor_address": {
+        "bangla_address": "",
+        "english_address": ""
+    },
+    "mbdc_no": "11303",
+    "detels": {
+        "idaya": [
+            "দাঁত তোলার পর ১ ঘণ্টা তুলাটা কামর দিয়ে ধরে রাখবেন ।",
+            "দাঁত তোলার ১ দিন পর কুসম গরম লবণ পানি দিয়ে কুলি করবেন ।",
+            "রাতের খাবার পর ও সিকালের নাস্তার পর ব্রাশ করবেন ।",
+            "পান, জর্দা, সিগারেট খাবেন না । ",
+            "৬ মাস পর পর ডেন্টাল সার্জন দিয়ে দাঁত দেখাবেন"
+        ]
+    },
+    "bottomtext": "পরিবর্তী সাক্ষাতের সময় বাবস্তাপত্র সঙ্গে আনবেন। * নীরোগ দাঁত, সুন্দর হাসি, সুস্ত জীবন *",
+    "chamber_time":"প্রতিদিন সকাল ৯ টা থেকে রাত ৮ টা পর্যন্ত এবং শুক্রবার সকাল ৯ টা থেকে দুপুর ১২ টা পর্যন্ত।"
+
+}
