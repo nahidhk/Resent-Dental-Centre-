@@ -22,7 +22,7 @@ export default function Prescription() {
                     {/* nodiul 1 */}
                     <div className="flex w100 center">
                         <div className="flex around w95">
-                            <div className="stm300">
+                            <div className="w100">
                                 <h2>
                                     {DoctorData.doctor_name.bangla_name}
                                 </h2>
@@ -37,12 +37,12 @@ export default function Prescription() {
                                     মোবাইল: {DoctorData.doctor_phone}
                                 </p>
                             </div>
-                            <div className="stm300">
-                                <div className="banar">
+                            <div className="w100 flex center end">
+                                <div className="banar flex center medel">
                                     {siteinfo.fullName}
                                 </div>
                             </div>
-                            <div className="stm300 textRight">
+                            <div className="w100 textRight">
                                 <h2>
                                     {DoctorData.doctor_name.english_name}
                                 </h2>
@@ -94,8 +94,8 @@ export default function Prescription() {
                     </div>
 
                     {/* modiul 4 */}
-                    <div className="segestBox flex around">
-                        <div>
+                    <div className="segestBox flex beet">
+                        <div className="t16">
                             <ul>
                                 {DoctorData.detels.idaya.map((item, index) => (
                                     <li key={index}>{item}</li>

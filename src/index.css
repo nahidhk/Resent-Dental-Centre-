@@ -50,7 +50,9 @@ button {
 .around {
   justify-content: space-around;
 }
-
+.beet{
+  justify-content: space-between;
+}
 .logo {
   height: 50px;
   width: 50px;
@@ -185,11 +187,12 @@ button {
 .banar {
   background-color: #4680ff;
   color: #fff;
-  padding: 5px;
+  height: 40px;
   text-align: center;
-  border-radius: 100px 100px 0 0;
+  border-radius: 100px 100px 0 0 ;
   position: relative;
-  bottom: 0;
+  font-size: 16px;
+  width: 100%;
 }
 
 .nameBox {
@@ -201,7 +204,7 @@ button {
 .h90vh{
   height: 60vh;
   background-color: #a5c2ff55;
-  width: 380px;
+  width: 300px;
   border-right: 2px solid #000;
 }
 .cloman{
@@ -222,4 +225,10 @@ button {
   color: #fff;
   padding: 5px 10px 5px 10px;
   display: inline-block;
+}
+.end{
+align-items: flex-end;
+}
+.t16{
+  font-size: 13px;
 }
