@@ -41,6 +41,7 @@ button {
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 999;
 }
 
 .flex {
@@ -231,4 +232,8 @@ align-items: flex-end;
 }
 .t16{
   font-size: 13px;
+}
+.iconr{
+  font-size: 30px;
+  padding: 10px;
 }

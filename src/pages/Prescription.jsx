@@ -3,6 +3,13 @@ import { useReactToPrint } from "react-to-print";
 import DoctorData from "../data/config/prescription.json"
 import siteinfo from "../data/setting/siteDetels.json"
 
+
+
+
+// icons
+
+import { FaPrescription } from "react-icons/fa6";
+
 export default function Prescription() {
     const componentRef = useRef();
 
@@ -88,8 +95,10 @@ export default function Prescription() {
                                 </div>
                             </blockquote>
                         </div>
-                        <div className="">
-
+                        <div className=" w100">
+                            <span>
+                                <FaPrescription  className="iconr"/>
+                            </span>
                         </div>
                     </div>
 

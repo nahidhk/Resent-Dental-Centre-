@@ -5,7 +5,7 @@ import RightMenu from "../hooks/RightMenu";
 function Nav() {
     return (
         <>
-            <div className="nav flex around medel">
+            <div className="nav flex around medel ">
                 <div>
                     <div>
                         <span className="navText">
