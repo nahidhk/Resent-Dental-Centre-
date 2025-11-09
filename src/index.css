@@ -51,9 +51,11 @@ button {
 .around {
   justify-content: space-around;
 }
-.beet{
+
+.beet {
   justify-content: space-between;
 }
+
 .logo {
   height: 50px;
   width: 50px;
@@ -152,23 +154,6 @@ button {
 .w90 {
   width: 90%;
 }
-
-.test1 {
-  background-color: red;
-}
-
-.test2 {
-  background-color: yellow;
-}
-
-.test3 {
-  background-color: pink;
-}
-
-.test4 {
-  background-color: aqua;
-}
-
 .w100 {
   width: 100%;
 }
@@ -190,7 +175,7 @@ button {
   color: #fff;
   height: 40px;
   text-align: center;
-  border-radius: 100px 100px 0 0 ;
+  border-radius: 100px 100px 0 0;
   position: relative;
   font-size: 16px;
   width: 100%;
@@ -202,38 +187,56 @@ button {
   padding: 5px;
   background-color: #a5c1ff55;
 }
-.h90vh{
-  height: 60vh;
+
+.sideBar {
   background-color: #a5c2ff55;
   width: 300px;
   border-right: 2px solid #000;
 }
-.cloman{
+
+.cloman {
   height: 100%;
 }
-.bottomSystem{
+
+.bottomSystem {
   text-align: center;
   background-color: #4680ff;
-  color: #fff ;
+  color: #fff;
   padding: 5px;
+ 
 }
-.segestBox{
+
+.segestBox {
   border-top: 4px solid #000;
 }
-.mark{
+
+.mark {
   background-color: #4680ff;
   border-radius: 100px;
   color: #fff;
-  padding: 5px 10px 5px 10px;
+  padding: 2px 3px 2px 3px;
   display: inline-block;
+  font-size: 13px;
+  margin: 5px;
 }
-.end{
-align-items: flex-end;
+
+.end {
+  align-items: flex-end;
 }
-.t16{
+
+.t16 {
   font-size: 13px;
 }
-.iconr{
+
+.iconr {
   font-size: 30px;
   padding: 10px;
+}
+
+.ex {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+ align-items: stretch;
+  align-self: flex-end;
 }

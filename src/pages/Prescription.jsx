@@ -22,119 +22,150 @@ export default function Prescription() {
     return (
         <>
 
-            <div className="mailholdbox flex center" ref={componentRef}>
+            <div className="ex" ref={componentRef}>
 
-                <div className="w100">
-                    <br />
-                    {/* nodiul 1 */}
-                    <div className="flex w100 center">
-                        <div className="flex around w95">
-                            <div className="w100">
-                                <h2>
-                                    {DoctorData.doctor_name.bangla_name}
-                                </h2>
-                                <h3>
-                                    {DoctorData.doctor_subname.bangla_subname}
-                                </h3>
-                                <p>
-                                    {DoctorData.doctor_degree.bangla_degree}
-                                    <br />
-                                    বিডিএস রেজিঃ নং-{DoctorData.mbdc_no}
-                                    <br />
-                                    মোবাইল: {DoctorData.doctor_phone}
-                                </p>
-                            </div>
-                            <div className="w100 flex center end">
-                                <div className="banar flex center medel">
-                                    {siteinfo.fullName}
-                                </div>
-                            </div>
-                            <div className="w100 textRight">
-                                <h2>
-                                    {DoctorData.doctor_name.english_name}
-                                </h2>
-                                <h3>
-                                    {DoctorData.doctor_subname.english_subname}
-                                </h3>
-                                <p>
-                                    {DoctorData.doctor_degree.english_degree}
-                                    <br />
-                                    BMDC Reg. No.-{DoctorData.mbdc_no}
-                                    <br />
-                                    Mobile: {DoctorData.doctor_phone}
-                                </p>
+
+                {/* modiul setup 1 */}
+
+                {/* nodiul 1 */}
+                <div className="flex w100 center">
+                    <div className="flex around w95">
+                        <div className="w100">
+                            <h2>
+                                {DoctorData.doctor_name.bangla_name}
+                            </h2>
+                            <h3>
+                                {DoctorData.doctor_subname.bangla_subname}
+                            </h3>
+                            <p>
+                                {DoctorData.doctor_degree.bangla_degree}
+                                <br />
+                                বিডিএস রেজিঃ নং-{DoctorData.mbdc_no}
+                                <br />
+                                মোবাইল: {DoctorData.doctor_phone}
+                            </p>
+                        </div>
+                        <div className="w100 flex center end">
+                            <div className="banar flex center medel">
+                                {siteinfo.fullName}
                             </div>
                         </div>
-                    </div>
-
-                    {/* Modiul 2 */}
-                    <div className="nameBox flex around medel">
-                        <span>Name:</span>
-                        <span>Sex:</span>
-                        <span>Age:</span>
-                        <span>Date:</span>
-
-                    </div>
-
-                    {/* modiul 3 */}
-                    <div className="flex beet">
-                        <div className="h90vh">
-                            <blockquote>
-                                <div className="cloman">
-                                    C/C
-                                </div>
-
-                                <div className="cloman">
-                                    O/E
-                                </div>
-                                <div className="cloman">
-                                    ADV:
-                                </div>
-                                <div className="cloman">
-                                    X-Ray:
-                                </div>
-                            </blockquote>
+                        <div className="w100 textRight">
+                            <h2>
+                                {DoctorData.doctor_name.english_name}
+                            </h2>
+                            <h3>
+                                {DoctorData.doctor_subname.english_subname}
+                            </h3>
+                            <p>
+                                {DoctorData.doctor_degree.english_degree}
+                                <br />
+                                BMDC Reg. No.-{DoctorData.mbdc_no}
+                                <br />
+                                Mobile: {DoctorData.doctor_phone}
+                            </p>
                         </div>
-                        <div className=" w100">
-                            <span>
-                                <FaPrescription  className="iconr"/>
-                            </span>
-                        </div>
-                    </div>
-
-                    {/* modiul 4 */}
-                    <div className="segestBox flex beet">
-                        <div className="t16">
-                            <ul>
-                                {DoctorData.detels.idaya.map((item, index) => (
-                                    <li key={index}>{item}</li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div>
-                            <blockquote>
-                                <p className="mark">
-                                    চেম্নার : 
-                                </p>
-                                <h2>
-                                    {siteinfo.fullName}
-                                </h2>
-                                <p className="mark">
-                                    রোগী দেখার দেখার সময়: 
-                                </p>
-                                <p>
-                                    {DoctorData.chamber_time}
-                                </p>
-                            </blockquote>
-                        </div>
-                    </div>
-
-                    {/* modiul 5 */}
-                    <div className="bottomSystem">
-                        {DoctorData.bottomtext}
                     </div>
                 </div>
+
+                {/* Modiul 2 */}
+                <div className="nameBox flex around medel w100">
+                    <span>Name:</span>
+                    <span>Sex:</span>
+                    <span>Age:</span>
+                    <span>Date:</span>
+
+                </div>
+
+
+
+
+
+
+                {/* modiul setup 2 */}
+
+
+                {/* modiul 3 */}
+
+                <div className="flex beet w100">
+                    <div className="sideBar">
+                        <blockquote>
+                            <div className="cloman">
+                                C/C
+                            </div>
+
+                            <div className="cloman">
+                                O/E
+                            </div>
+                            <div className="cloman">
+                                ADV:
+                            </div>
+                            <div className="cloman">
+                                X-Ray:
+                            </div>
+                        </blockquote>
+                    </div>
+                    <div className=" w100">
+                        <span>
+                            <FaPrescription className="iconr" />
+                            <blockquote>
+                                <p>
+
+                                </p>
+                            </blockquote>
+                        </span>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                {/* moduil setup 3 */}
+
+
+
+                {/* modiul 4 */}
+                <div className="segestBox flex beet w100">
+                    <div className="t16">
+                        <ul>
+                            {DoctorData.detels.idaya.map((item, index) => (
+                                <li key={index}>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div>
+
+                        <p className="mark">
+                            চেম্নার :
+                        </p>
+                        <p>
+                            {siteinfo.fullName}
+                        </p>
+                        <p className="mark">
+                            রোগী দেখার দেখার সময়:
+                        </p>
+                        <p className="t16">
+                            {DoctorData.chamber_time}
+                        </p>
+
+                    </div>
+                </div>
+
+                {/* modiul 5 */}
+                <div className="bottomSystem t16 w100" >
+                    {DoctorData.bottomtext}
+                </div>
+
+
             </div>
+
+
+
+
+
 
             <button onClick={handlePrint}>Print</button>
 
