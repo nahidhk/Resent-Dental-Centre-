@@ -32,17 +32,26 @@ export default function Prescription() {
     const [pxAge, setAge] = useState("");
     const [pSex, setSex] = useState("");
     const [presentInfo, setpresentInfo] = useState([]);
+    const formattedDate = new Date().toLocaleDateString("en-GB");
 
     const addprsent = () => {
-const pAge = pxAge+"Y";
+        const pAge = pxAge + "Y";
         const presentData = {
             pName,
             pAge,
-            pSex
+            pSex,
+            formattedDate
         }
         setpresentInfo(presentData);
+        
+
+
 
     }
+
+
+
+
 
     // prescription list
     const [prescriptions, setPrescriptions] = useState([]);
@@ -126,7 +135,7 @@ const pAge = pxAge+"Y";
 
 
             {/* form */}
-            <div className="center flex medel vcc">
+            <div className="center flex medel ">
                 <div className="flex">
                     <div className="grap">
                         <label htmlFor="categore">
@@ -324,10 +333,10 @@ const pAge = pxAge+"Y";
                                 </span>
 
 
-                                 <span>
+                                <span>
                                     <b>Date : </b>
                                     <span className="styleText">
-                                        <i></i>
+                                        <i>{presentInfo.formattedDate}</i>
                                     </span>
                                 </span>
 
