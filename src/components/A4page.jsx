@@ -6,7 +6,6 @@ import { useReactToPrint } from "react-to-print";
 import { convertToBangla } from "../scripts/banglaConvart";
 import { FaPrescription } from "react-icons/fa6";
 import { IoMdPrint } from "react-icons/io";
-import { createBarcode } from "../scripts/barcode";
 import BarCodeSvg from "./BarCodeSvg";
 
 export default function A4page({ patientData, medicineData }) {

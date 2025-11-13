@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 
 // components
 import A4page from "../components/A4page";
@@ -8,7 +8,9 @@ import { brCodeID } from "../scripts/brCodeID";
 import { GrAdd } from "react-icons/gr";
 import { TbCategory } from "react-icons/tb";
 import { GiMedicines } from "react-icons/gi";
-import { MdAccessTime, MdOutlineEditNote, MdOutlineToday } from "react-icons/md";
+import { MdAccessTime, MdOutlineEditNote, MdOutlineToday, MdEditCalendar } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa";
+import { PiGenderIntersexLight } from "react-icons/pi";
 
 
 export default function Prescription() {
@@ -29,29 +31,19 @@ export default function Prescription() {
     const [presentInfo, setpresentInfo] = useState([]);
     const formattedDate = new Date().toLocaleDateString("en-GB");
     const brcodeid = brCodeID();
-    console.log(brcodeid)
 
-    const addprsent = () => {
-        const pAge = pxAge + "Y";
-        const presentData = {
-            pName,
-            pAge,
-            pSex,
-            formattedDate,
-            brcodeid
+    const addPresent = () => {
+        if (!pName || !pxAge || !pSex) {
+            alert("Please fill all fields");
+            return;
         }
-        setpresentInfo(presentData);
 
+        const pAge = pxAge + "Y";
+        const presentData = { pName, pAge, pSex, formattedDate, brcodeid };
 
-
-
-    }
-
-    console.log(new Date())
-
-
-
-
+        setpresentInfo(presentData); 
+        console.log(presentData)
+    };
 
     // prescription list
     const [prescriptions, setPrescriptions] = useState([]);
@@ -97,17 +89,26 @@ export default function Prescription() {
                 <div className="flex medel">
 
                     <div className="grap">
-                        <label htmlFor="">Patient Name:</label><br />
-                        <input type="text" className="input" onChange={(e) => setName(e.target.value)} />
+                        <label htmlFor=""> <FaRegUser /> Patient Name:</label><br />
+                        <input list="patientNameData" placeholder="Md. Rohim Khan" type="text" className="input" onChange={(e) => setName(e.target.value)} />
+                        <datalist id="patientNameData">
+                            <option value="Md. " />
+                            <option value="Mst. " />
+                            <option value="Mr. " />
+                            <option value="Mis. " />
+                            <option value="Dr. " />
+                            <option value="Dev. " />
+                            <option value="En. " />
+                        </datalist>
                     </div>
 
                     <div className="grap">
-                        <label htmlFor="">Patient Age:</label><br />
-                        <input type="number" className="input w50px" onChange={(e) => setAge(e.target.value)} />
+                        <label htmlFor=""> <MdEditCalendar /> Patient Age:</label><br />
+                        <input type="number" className="input w50px" onChange={(e) => setAge(e.target.value)} placeholder="00" />
                     </div>
 
                     <div className="grap">
-                        <label htmlFor="">Patient Sex:</label> <br />
+                        <label htmlFor=""><PiGenderIntersexLight /> Patient Sex:</label> <br />
                         <select
                             className="select"
                             value={pSex}
@@ -121,7 +122,7 @@ export default function Prescription() {
 
                     </div>
 
-                    <button onClick={addprsent} className="btn btn printBtn styleBtn">
+                    <button onClick={addPresent} className="btn btn printBtn styleBtn">
                         Add prsent
                     </button>
 
@@ -265,7 +266,7 @@ export default function Prescription() {
             <br />
 
             <div className="hash flex flex-end w100">
-               {}
+                { }
             </div>
 
             <br />
