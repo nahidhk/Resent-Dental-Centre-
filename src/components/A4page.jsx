@@ -6,7 +6,8 @@ import { useReactToPrint } from "react-to-print";
 import { convertToBangla } from "../scripts/banglaConvart";
 import { FaPrescription } from "react-icons/fa6";
 import { IoMdPrint } from "react-icons/io";
-import { brCode } = 
+import { createBarcode } from "../scripts/barcode";
+import BarCodeSvg from "./BarCodeSvg";
 
 export default function A4page({ patientData, medicineData }) {
     const componentRef = useRef();
@@ -90,7 +91,12 @@ export default function A4page({ patientData, medicineData }) {
                             </div>
 
                             <div className="w100">
-                                <FaPrescription className="iconr" />
+                                <div className="flex medel beet">
+                                    <FaPrescription className="iconr" />
+                                    <span>
+                                        <BarCodeSvg code={patientData.barcodeid} />
+                                    </span>
+                                </div>
                                 <blockquote>
                                     {medicineData?.length > 0 ? (
                                         medicineData.map((item, index) => (

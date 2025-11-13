@@ -2,6 +2,7 @@ import React, {  useState } from "react";
 
 // components
 import A4page from "../components/A4page";
+import { brCodeID } from "../scripts/brCodeID";
 
 // icons
 import { GrAdd } from "react-icons/gr";
@@ -27,6 +28,8 @@ export default function Prescription() {
     const [pSex, setSex] = useState("");
     const [presentInfo, setpresentInfo] = useState([]);
     const formattedDate = new Date().toLocaleDateString("en-GB");
+    const brcodeid = brCodeID();
+    console.log(brcodeid)
 
     const addprsent = () => {
         const pAge = pxAge + "Y";
@@ -34,7 +37,8 @@ export default function Prescription() {
             pName,
             pAge,
             pSex,
-            formattedDate
+            formattedDate,
+            brcodeid
         }
         setpresentInfo(presentData);
 
@@ -274,7 +278,8 @@ export default function Prescription() {
                         name: presentInfo.pName,
                         age: presentInfo.pAge,
                         sex: presentInfo.pSex,
-                        date: presentInfo.formattedDate
+                        date: presentInfo.formattedDate,
+                        barcodeid: presentInfo.brcodeid
                     }
                 }
             />
