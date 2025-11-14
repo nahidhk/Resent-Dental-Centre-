@@ -1,0 +1,5 @@
+{
+    "server":"localhost:8000",
+    "request":"http",
+    "apikey":""
+}

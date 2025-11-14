@@ -11,6 +11,9 @@
 # production
 /build
 
+/backend/config.php
+
+/src/api/api.json
 # misc
 .DS_Store
 .env.local

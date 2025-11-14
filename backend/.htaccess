@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Root এ গেলে backend/www/public/index.php লোড হবে
+RewriteRule ^$ www/public/index.php [L]
+
+# বাকি সব request public এ ফরোয়ার্ড হবে
+RewriteRule ^(.*)$ www/public/$1 [L]
