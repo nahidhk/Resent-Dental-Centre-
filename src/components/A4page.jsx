@@ -15,7 +15,7 @@ export default function A4page({ patientData, medicineData }) {
     });
 
     return (
-        <>
+        <div>
             <div className="mainBox flex center">
                 <div className="contBox">
                     <div className="ex" ref={componentRef}>
@@ -90,7 +90,7 @@ export default function A4page({ patientData, medicineData }) {
                             </div>
 
                             <div className="w100">
-                                <div className="flex medel beet">
+                                <div className="flex medel beet ">
                                     <FaPrescription className="iconr" />
                                     <span>
                                         <BarCodeSvg code={patientData.barcodeid} />
@@ -149,6 +149,6 @@ export default function A4page({ patientData, medicineData }) {
                     <IoMdPrint className="iconx" /> Print
                 </button>
             </div>
-        </>
+        </div>
     );
 }
