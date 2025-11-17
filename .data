@@ -3,3 +3,27 @@ medicine
 timeL1 timeL2 timeL3
 notes
 setDay1  setDay2
+
+
+<style>
+
+</style>
+
+
+<div class="table_component" role="region" tabindex="0">
+<table>
+    <caption>Table 1</caption>
+    <thead>
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+</div>

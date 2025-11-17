@@ -1,0 +1,15 @@
+<?php
+$host = "localhost";
+$user = "root";
+$pass = "N@hid123$#";
+$db   = "rds";
+
+$conn = mysqli_connect($host, $user, $pass, $db);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// UTF-8 support
+mysqli_set_charset($conn, "utf8mb4");
+?>
