@@ -14,7 +14,13 @@ export default function Insert() {
                         <br />
                         <input type="text" className="input" placeholder="e.g." />
                     </div>
-                    <Table />
+                    <Table  
+    tableData={[
+        { name: "nahid", age: "21",address:"ataikula" },
+        { name: "rifat", age: "18" },
+        { name: "keya", age: "18" }
+    ]}
+/>
                 </div>
             </div>
         </>
