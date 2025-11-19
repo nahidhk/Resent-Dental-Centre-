@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 // components
 import A4page from "../components/A4page";
 import { brCodeID } from "../scripts/brCodeID";
-import Category from "../components/Categore";
+// hooks
+import useCategory from "../hooks/useCategore";
 // icons
 import { GrAdd } from "react-icons/gr";
 import { TbCategory } from "react-icons/tb";
@@ -14,6 +15,9 @@ import { MdPersonAddAlt } from "react-icons/md";
 
 
 export default function Prescription() {
+
+    // Custom hook call করতে হবে
+    const categories = useCategory();
     // Step state
     const [step, setStep] = useState(1); // 1 = show patient form, 2 = show prescription form
 
@@ -47,12 +51,12 @@ export default function Prescription() {
         const presentData = { pName, pAge, pSex, formattedDate, brcodeid };
         setpresentInfo(presentData);
 
-        
+
         setStep(2);
     };
 
-    useEffect(()=>{
-      
+    useEffect(() => {
+
     })
 
     const addPre = () => {
@@ -135,7 +139,7 @@ export default function Prescription() {
                             </select>
                         </div>
                         <button onClick={addPresent} className="btn printBtn styleBtn">
-                          <MdPersonAddAlt/> &nbsp; Add Patient
+                            <MdPersonAddAlt /> &nbsp; Add Patient
                         </button>
                     </div>
                 </div>
@@ -159,10 +163,13 @@ export default function Prescription() {
                                 value={categore}
                                 onChange={(e) => setCategore(e.target.value)}
                             >
-                                <option value="" disabled>
-                                    Select
-                                </option>
-                                <Category />
+                                <option value="" disabled>Select</option>
+
+                                {categories.map((item) => (
+                                    <option key={item.id} value={item.id}>
+                                        {item.name}
+                                    </option>
+                                ))}
                             </select>
                         </div>
                         <div className="grap">
