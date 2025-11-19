@@ -1,7 +1,9 @@
-import react from "react";
+import react , { useState } from "react";
 import Table from "../components/Table";
 
 export default function Insert() {
+  const [categoryValue , setCategory] =useState();
+  
     return (
         <>
             <div className="flex center medel">
