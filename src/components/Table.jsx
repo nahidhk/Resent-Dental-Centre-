@@ -17,6 +17,8 @@ export default function Table({ tableData , title }) {
                         {headers.map((head, i) => (
                             <th key={i}>{head.toUpperCase()}</th>
                         ))}
+                        <th className="textCenter w100px">ACTION</th>
+
                     </tr>
                 </thead>
 
@@ -26,6 +28,12 @@ export default function Table({ tableData , title }) {
                             {headers.map((key, i) => (
                                 <td key={i}>{row[key]}</td>
                             ))}
+                            <td className="textCenter">
+                                <span>Delete</span>
+                                <span>Edit</span>
+                                <span>View</span>
+                            </td>
+                            
                         </tr>
                     ))}
                 </tbody>

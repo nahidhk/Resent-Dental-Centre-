@@ -1,4 +1,4 @@
-import react,{ useState } from "react";
+import react, { useState } from "react";
 import useCategory from "../../hooks/useCategore";
 import Table from "../Table"
 
@@ -12,13 +12,37 @@ import { RiPlayListAddFill } from "react-icons/ri";
 
 export default function Categ() {
     const categories = useCategory();
-    const [catVale , setCat] = useState();
+    const [catValue, setCat] = useState("");
 
 
-    const catgPost = () =>{
-        const jsonConvart = {name:catVale};
-        console.log(jsonConvart);
-    }
+    const catgPost = () => {
+
+        const jsonConvart = { name: catValue };
+
+        if (!catValue) {
+            alert("Please enter category name");
+            return;
+        }
+
+        fetch("http://localhost:8000/www/api/post/?key=65c607c0ae914e4e87203c11be3784a9eff3f72b&post=category", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(jsonConvart)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+                if (data.success) {
+                    setCat("");
+                    // window.location.reload();
+                } else {
+                    alert("Error: " + data.error);
+                }
+            })
+            .catch(err => console.error(err));
+    };
+
 
     return (
         <>
@@ -29,7 +53,9 @@ export default function Categ() {
                         <br />
                         <div className="fx">
                             <input
+                                id="catValue"
                                 type="text"
+                                value={catValue}
                                 className="fxInput"
                                 placeholder="e.g."
                                 onChange={(e) => setCat(e.target.value)}
