@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function Table({ tableData , title }) {
+// icons
+import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
+import { IoEyeOutline } from "react-icons/io5";
+
+export default function Table({ tableData, title, action }) {
 
     if (!tableData || tableData.length === 0) {
         return <p>No data found</p>;
@@ -17,7 +21,7 @@ export default function Table({ tableData , title }) {
                         {headers.map((head, i) => (
                             <th key={i}>{head.toUpperCase()}</th>
                         ))}
-                        <th className="textCenter w100px">ACTION</th>
+                        <th className="textCenter w200px">ACTION</th>
 
                     </tr>
                 </thead>
@@ -28,12 +32,31 @@ export default function Table({ tableData , title }) {
                             {headers.map((key, i) => (
                                 <td key={i}>{row[key]}</td>
                             ))}
-                            <td className="textCenter">
-                                <span>Delete</span>
-                                <span>Edit</span>
-                                <span>View</span>
+                            <td className="textCenter flex medel center">
+                                {
+                                    (action.deleteBtn) ? (
+                                        <div className="iconBtn">
+                                            <RiDeleteBin5Fill className="iconTab deleteBtn" />
+                                        </div>
+                                    ) : null
+                                }
+                                {
+                                    (action.editBtn) ? (
+                                        <div className="iconBtn">
+                                            <RiEditBoxLine className="iconTab editBtn" />
+                                        </div>
+                                    ) : null
+                                }
+                                {
+                                    (action.viewBtn) ? (
+                                        <div  className="iconBtn">
+                                            <IoEyeOutline className="iconTab viewBtn" />
+                                        </div>
+                                    ) : null
+                                }
+
                             </td>
-                            
+
                         </tr>
                     ))}
                 </tbody>

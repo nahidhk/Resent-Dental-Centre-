@@ -511,3 +511,22 @@ details p {
   border: 1px solid #4680ff;
   outline: none;
 }
+
+.iconTab {
+  background-color: #4680ff;
+  font-size: 20px;
+  color: #fff;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+  margin: 0 5px 0 5px;
+}
+
+.deleteBtn {
+  background-color: red;
+}
+.editBtn {
+  background-color: orange;
+}
+.viewBtn {
+  background-color: green;
+}
