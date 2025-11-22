@@ -6,6 +6,7 @@ import Prescription from './pages/Prescription';
 import { Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home';
 import Insert from './pages/Insert';
+import Toast from './components/Toast';
 
 function App() {
 var width = document.body.clientWidth;
@@ -26,6 +27,7 @@ if (width >= 960) {
             <Route path='/insert' element={<Insert />} />
           </Routes>
         </div>
+        <Toast />
       </div>
     </>
   )

@@ -1,7 +1,7 @@
 import react, { useState } from "react";
 import useCategory from "../../hooks/useCategore";
 import Table from "../Table"
-
+import { toast } from "react-toastify";
 
 // icons 
 import { RiPlayListAddFill } from "react-icons/ri";
@@ -20,7 +20,7 @@ export default function Categ() {
         const jsonConvart = { name: catValue };
 
         if (!catValue) {
-            alert("Please enter category name");
+            toast.error("Please enter a category name!");
             return;
         }
 
@@ -36,6 +36,7 @@ export default function Categ() {
                 if (data.success) {
                     setCat("");
                     // window.location.reload();
+                    toast.success("Category is add success.")
                 } else {
                     alert("Error: " + data.error);
                 }
