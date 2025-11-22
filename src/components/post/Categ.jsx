@@ -2,6 +2,7 @@ import react, { useState } from "react";
 import useCategory from "../../hooks/useCategore";
 import Table from "../Table"
 import { toast } from "react-toastify";
+import api from "../../api/api.json";
 
 // icons 
 import { RiPlayListAddFill } from "react-icons/ri";
@@ -22,9 +23,9 @@ export default function Categ() {
         if (!catValue) {
             toast.error("Please enter a category name!");
             return;
-        }
+        } 
 
-        fetch("http://localhost:8000/www/api/post/?key=65c607c0ae914e4e87203c11be3784a9eff3f72b&post=category", {
+        fetch(`${api.request}://${api.server}${api.postPath}?key=${api.apikey}&post=category`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(jsonConvart)

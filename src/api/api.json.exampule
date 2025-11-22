@@ -1,5 +1,7 @@
 {
     "server":"localhost:8000",
+    "getPath":"/www/api/get/",
+    "postPath":"/www/api/post/",
     "request":"http",
     "apikey":""
 }

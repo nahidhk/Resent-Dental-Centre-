@@ -14,13 +14,10 @@ export default function useCategory() {
                 .catch((error) => console.error("Error fetching data:", error));
         };
 
-        // প্রথমে একবার রান করাই
+
         fetchCategories();
 
-        // প্রতি ১ সেকেন্ডে auto reload
         const interval = setInterval(fetchCategories, 1000);
-
-        // Cleanup
         return () => clearInterval(interval);
 
     }, []);
