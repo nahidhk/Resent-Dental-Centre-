@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import A4page from "../components/A4page";
 import { brCodeID } from "../scripts/brCodeID";
 // hooks
-import useCategory from "../hooks/useCategore";
+import useCategory from "../hooks/getjson/useCategore";
 // icons
 import { GrAdd } from "react-icons/gr";
 import { TbCategory } from "react-icons/tb";
@@ -12,13 +12,17 @@ import { MdAccessTime, MdOutlineEditNote, MdOutlineToday, MdEditCalendar } from 
 import { FaRegUser } from "react-icons/fa";
 import { PiGenderIntersexLight } from "react-icons/pi";
 import { MdPersonAddAlt } from "react-icons/md";
+import { HiOutlinePhone } from "react-icons/hi";
+import { toast } from "react-toastify";
+
+
 
 
 export default function Prescription() {
 
 
     const categories = useCategory();
-    const [step, setStep] = useState(1); 
+    const [step, setStep] = useState(1);
 
     // input states
     const [categore, setCategore] = useState("");
@@ -40,18 +44,22 @@ export default function Prescription() {
     const [presentInfo, setpresentInfo] = useState({});
     const formattedDate = new Date().toLocaleDateString("en-GB");
     const brcodeid = brCodeID();
+    const [number, setNumber] = useState("");
 
     const addPresent = () => {
         if (!pName || !pxAge || !pSex) {
-            alert("Please fill all fields");
+            toast.error("Please fill all fields");
             return;
         }
         const pAge = pxAge + "Y";
-        const presentData = { pName, pAge, pSex, formattedDate, brcodeid };
+        const presentData = { pName, pAge, pSex, formattedDate, brcodeid, number };
         setpresentInfo(presentData);
-
-
-        setStep(2);
+        setName("");
+        setAge("");
+        setSex("");
+        setNumber("");
+        //setStep(2);
+        console.log(presentData);
     };
 
     useEffect(() => {
@@ -60,7 +68,7 @@ export default function Prescription() {
 
     const addPre = () => {
         if (!medicine) {
-            alert("Please enter medicine name!");
+            toast.error("Please enter medicine name!");
             return;
         }
         const timeL = `${timeL1 || 0} + ${timeL2 || 0} + ${timeL3 || 0}`;
@@ -87,6 +95,19 @@ export default function Prescription() {
                     <div className="flex medel">
                         <div className="grap">
                             <label htmlFor="">
+                                <HiOutlinePhone />  Patient Phone Number
+                            </label>
+                            <br />
+                            <input
+                                value={number}
+                                type="tel"
+                                className="input"
+                                placeholder="01812345678"
+                                onChange={(e) => setNumber(e.target.value)}
+                            />
+                        </div>
+                        <div className="grap">
+                            <label htmlFor="">
                                 <FaRegUser /> Patient Name:
                             </label>
                             <br />
@@ -96,6 +117,7 @@ export default function Prescription() {
                                 type="text"
                                 className="input"
                                 onChange={(e) => setName(e.target.value)}
+                                value={pName}
                             />
                             <datalist id="patientNameData">
                                 <option value="Md. " />
@@ -117,6 +139,7 @@ export default function Prescription() {
                                 className="input w50px"
                                 onChange={(e) => setAge(e.target.value)}
                                 placeholder="00"
+                                value={pxAge}
                             />
                         </div>
                         <div className="grap">
@@ -145,7 +168,7 @@ export default function Prescription() {
             )}
 
             {/* Step 2 - Prescription Form */}
-            {step === 2 && (
+            {step === 1 && (
                 <div className="center flex medel">
                     {/* Prescription form code here */}
                     {/* Category, Medicine, Time, Notes, Set Day */}

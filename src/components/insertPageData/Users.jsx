@@ -1,5 +1,5 @@
 import react, { useState } from "react";
-import useCategory from "../../hooks/useCategore";
+import useCategory from "../../hooks/getjson/useCategore";
 import Table from "../Table"
 import { toast } from "react-toastify";
 import api from "../../api/api.json";
@@ -50,7 +50,7 @@ export default function Categ() {
         <>
             <blockquote>
                 <details>
-                    <summary>View Category List</summary>
+                    <summary>View Users List</summary>
                     <div className="flex center medel w50%">
                         <div className="w50">
                             <div className="grap">

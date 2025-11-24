@@ -477,7 +477,8 @@ details {
 details summary {
   padding: 10px;
   font-size: 22px;
-  color: purple;
+  background-color: purple;
+  color: #fff;
 }
 
 details p {

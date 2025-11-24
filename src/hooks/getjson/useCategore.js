@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import api from "../api/api.json";
+import api from "../../api/api.json";
+import { toast } from "react-toastify";
 
 export default function useCategory() {
     const [categories, setCategories] = useState([]);
@@ -11,7 +12,7 @@ export default function useCategory() {
             fetch(url)
                 .then((response) => response.json())
                 .then((data) => setCategories(data))
-                .catch((error) => console.error("Error fetching data:", error));
+                .catch((error) => toast.error("Error fetching api data:", error));
         };
 
 
