@@ -81,6 +81,58 @@ if (isset($serverApiKeyData['apikey']) && $request === $serverApiKeyData['apikey
         exit();
     }
 
+   if ($post === "users") {
+
+    $rawData = file_get_contents("php://input");
+    $inputData = json_decode($rawData, true);
+
+    if ($inputData === null) {
+        echo json_encode(["error" => "Invalid JSON input!", "raw" => $rawData]);
+        exit();
+    }
+
+    // Check required fields
+    if (
+        isset($inputData['name']) &&
+        isset($inputData['age']) &&
+        isset($inputData['sex']) &&
+        isset($inputData['number'])
+    ) {
+
+        $name   = $inputData['name'];
+        $age    = $inputData['age'];
+        $sex    = $inputData['sex'];
+        $number = $inputData['number'];
+
+        if ($conn->connect_error) {
+            echo json_encode(["error" => "Database connection failed: " . $conn->connect_error]);
+            exit();
+        }
+
+        $stmt = $conn->prepare("INSERT INTO users (name, age, sex, number) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("siss", $name, $age, $sex, $number);
+
+        if ($stmt->execute()) {
+            echo json_encode([
+                "success" => true,
+                "message" => "User added successfully.",
+                "data" => $inputData
+            ]);
+        } else {
+            echo json_encode(["error" => "Failed to add user: " . $stmt->error]);
+        }
+
+        $stmt->close();
+        $conn->close();
+        exit();
+    } 
+    else {
+        echo json_encode(["error" => "Missing required fields! name, age, sex, number required"]);
+        exit();
+    }
+}
+
+
 } else {
     // Wrong API key response
     $jsonErrorData = file_get_contents('../../src/error.json');

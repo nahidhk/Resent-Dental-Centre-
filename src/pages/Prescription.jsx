@@ -2,17 +2,14 @@ import React, { useEffect, useState } from "react";
 // components
 import A4page from "../components/A4page";
 import { brCodeID } from "../scripts/brCodeID";
+import PresentAbbPrepction from "../components/PresentAbbPrepction";
 // hooks
 import useCategory from "../hooks/getjson/useCategore";
 // icons
 import { GrAdd } from "react-icons/gr";
 import { TbCategory } from "react-icons/tb";
 import { GiMedicines } from "react-icons/gi";
-import { MdAccessTime, MdOutlineEditNote, MdOutlineToday, MdEditCalendar } from "react-icons/md";
-import { FaRegUser } from "react-icons/fa";
-import { PiGenderIntersexLight } from "react-icons/pi";
-import { MdPersonAddAlt } from "react-icons/md";
-import { HiOutlinePhone } from "react-icons/hi";
+import { MdAccessTime, MdOutlineEditNote, MdOutlineToday } from "react-icons/md";
 import { toast } from "react-toastify";
 
 
@@ -37,30 +34,6 @@ export default function Prescription() {
     // prescription list
     const [prescriptions, setPrescriptions] = useState([]);
 
-    // patient info
-    const [pName, setName] = useState("");
-    const [pxAge, setAge] = useState("");
-    const [pSex, setSex] = useState("");
-    const [presentInfo, setpresentInfo] = useState({});
-    const formattedDate = new Date().toLocaleDateString("en-GB");
-    const brcodeid = brCodeID();
-    const [number, setNumber] = useState("");
-
-    const addPresent = () => {
-        if (!pName || !pxAge || !pSex) {
-            toast.error("Please fill all fields");
-            return;
-        }
-        const pAge = pxAge + "Y";
-        const presentData = { pName, pAge, pSex, formattedDate, brcodeid, number };
-        setpresentInfo(presentData);
-        setName("");
-        setAge("");
-        setSex("");
-        setNumber("");
-        //setStep(2);
-        console.log(presentData);
-    };
 
     useEffect(() => {
 
@@ -91,84 +64,11 @@ export default function Prescription() {
         <>
             {/* Step 1 - Patient Form */}
             {step === 1 && (
-                <div className="flex medel center">
-                    <div className="flex medel">
-                        <div className="grap">
-                            <label htmlFor="">
-                                <HiOutlinePhone />  Patient Phone Number
-                            </label>
-                            <br />
-                            <input
-                                value={number}
-                                type="tel"
-                                className="input"
-                                placeholder="01812345678"
-                                onChange={(e) => setNumber(e.target.value)}
-                            />
-                        </div>
-                        <div className="grap">
-                            <label htmlFor="">
-                                <FaRegUser /> Patient Name:
-                            </label>
-                            <br />
-                            <input
-                                list="patientNameData"
-                                placeholder="Md. Rohim Khan"
-                                type="text"
-                                className="input"
-                                onChange={(e) => setName(e.target.value)}
-                                value={pName}
-                            />
-                            <datalist id="patientNameData">
-                                <option value="Md. " />
-                                <option value="Mst. " />
-                                <option value="Mr. " />
-                                <option value="Mis. " />
-                                <option value="Dr. " />
-                                <option value="Dev. " />
-                                <option value="En. " />
-                            </datalist>
-                        </div>
-                        <div className="grap">
-                            <label htmlFor="">
-                                <MdEditCalendar /> Patient Age:
-                            </label>
-                            <br />
-                            <input
-                                type="number"
-                                className="input w50px"
-                                onChange={(e) => setAge(e.target.value)}
-                                placeholder="00"
-                                value={pxAge}
-                            />
-                        </div>
-                        <div className="grap">
-                            <label htmlFor="">
-                                <PiGenderIntersexLight /> Patient Sex:
-                            </label>
-                            <br />
-                            <select
-                                className="select"
-                                value={pSex}
-                                onChange={(e) => setSex(e.target.value)}
-                            >
-                                <option value="" disabled>
-                                    Select
-                                </option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <button onClick={addPresent} className="btn printBtn styleBtn">
-                            <MdPersonAddAlt /> &nbsp; Add Patient
-                        </button>
-                    </div>
-                </div>
+                <PresentAbbPrepction />
             )}
 
             {/* Step 2 - Prescription Form */}
-            {step === 1 && (
+            {step === 2 && (
                 <div className="center flex medel">
                     {/* Prescription form code here */}
                     {/* Category, Medicine, Time, Notes, Set Day */}
@@ -329,11 +229,7 @@ export default function Prescription() {
                 <div>
                     <A4page
                         patientData={{
-                            name: presentInfo.pName,
-                            age: presentInfo.pAge,
-                            sex: presentInfo.pSex,
-                            date: presentInfo.formattedDate,
-                            barcodeid: presentInfo.brcodeid,
+                            
                         }}
                         medicineData={prescriptions}
                     />

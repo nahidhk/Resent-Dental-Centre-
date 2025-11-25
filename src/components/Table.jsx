@@ -7,7 +7,7 @@ import { IoEyeOutline } from "react-icons/io5";
 export default function Table({ tableData, title, action }) {
 
     if (!tableData || tableData.length === 0) {
-        return <p>No data found</p>;
+        return <p className="error">This number is'n use!</p>;
     }
     const headers = Object.keys(tableData[0]);
 
@@ -31,8 +31,10 @@ export default function Table({ tableData, title, action }) {
                         <tr key={index}>
                             {headers.map((key, i) => (
                                 <td key={i}>{row[key]}</td>
+                                
                             ))}
-                            <td className="textCenter flex medel center">
+                             <td>
+                                <div className="flex center medel w100">
                                 {
                                     (action.deleteBtn) ? (
                                         <div className="iconBtn">
@@ -54,9 +56,11 @@ export default function Table({ tableData, title, action }) {
                                         </div>
                                     ) : null
                                 }
+                                </div>
 
                             </td>
 
+                           
                         </tr>
                     ))}
                 </tbody>

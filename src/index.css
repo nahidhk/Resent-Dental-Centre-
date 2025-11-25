@@ -531,3 +531,12 @@ details p {
 .viewBtn {
   background-color: green;
 }
+.error {
+  color: red;
+  font-size: 18px;
+  text-align: center;
+  margin: 20px;
+  border: 2px dotted red;
+  width: 100%;
+
+}
