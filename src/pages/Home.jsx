@@ -12,6 +12,9 @@ export default function Home() {
             <p>
                 { JSON.stringify(newPatient)  }
             </p>
+            <p>
+                {newPatient.name}
+            </p>
         </>
     );
 }

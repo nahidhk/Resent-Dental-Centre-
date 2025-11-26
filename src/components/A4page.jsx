@@ -61,19 +61,25 @@ export default function A4page({ patientData, medicineData }) {
                             <div className="nameBox flex around medel w100">
                                 <span>
                                     <b>Name : </b>
-                                    <i>{patientData.name}</i>
+                                    <i>
+                                        {patientData?.name || "____________________"}
+                                    </i>
                                 </span>
                                 <span>
                                     <b>Sex : </b>
-                                    <i>{patientData.sex}</i>
+                                    <i>
+                                        {patientData?.sex || "______"}
+                                    </i>
                                 </span>
                                 <span>
                                     <b>Age : </b>
-                                    <i>{patientData.age}</i>
+                                    <i>
+                                        {patientData?.age+"Y" || "____"}
+                                    </i>
                                 </span>
                                 <span>
                                     <b>Date : </b>
-                                    <i>{patientData.date}</i>
+                                    <i></i>
                                 </span>
                             </div>
                         </div>
@@ -93,7 +99,7 @@ export default function A4page({ patientData, medicineData }) {
                                 <div className="flex medel beet ">
                                     <FaPrescription className="iconr" />
                                     <span>
-                                        <BarCodeSvg code={patientData.barcodeid} />
+                                        <BarCodeSvg code={"1234567"} />
                                     </span>
                                 </div>
                                 <blockquote>

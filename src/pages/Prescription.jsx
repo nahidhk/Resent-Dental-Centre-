@@ -67,6 +67,7 @@ export default function Prescription() {
             {/* Step 1 - Patient Form */}
             {step === 1 && (
                 <PresentAbbPrepction onAddPatient={setNewPatient} />
+                
             )}
 
             {/* Step 2 - Prescription Form */}
@@ -230,7 +231,7 @@ export default function Prescription() {
                 </div>
                 <div>
                     <A4page
-                        patientData={JSON.stringify(newPatient)}
+                        patientData={newPatient}
                         medicineData={prescriptions}
                     />
                 </div>

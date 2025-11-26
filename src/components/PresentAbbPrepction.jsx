@@ -79,7 +79,6 @@ function PresentAbbPrepction({ onAddPatient }) {
             number: number
         };
 
-        // Send data to parent (Home.jsx)
         if (typeof onAddPatient === "function") {
             onAddPatient(newPatient);
         }
@@ -96,6 +95,7 @@ function PresentAbbPrepction({ onAddPatient }) {
                 .then(data => {
                     if (data.success) {
                         toast.success("New patient added to system");
+
                     } else {
                         alert("Error: " + data.error);
                     }
@@ -111,7 +111,7 @@ function PresentAbbPrepction({ onAddPatient }) {
         setAge("");
         setSex("");
         setNumber("");
-        setStep(1);
+        setStep(0);
     };
 
 
