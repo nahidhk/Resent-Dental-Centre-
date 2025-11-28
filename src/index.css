@@ -429,7 +429,6 @@ input:focus {
 }
 
 .table_component {
-  overflow: auto;
   width: 100%;
 }
 
@@ -465,6 +464,7 @@ input:focus {
 .w50 {
   width: 50%;
 }
+
 .fxBtn {
   height: 35px;
   width: auto;
@@ -502,12 +502,15 @@ input:focus {
 .deleteBtn {
   background-color: red;
 }
+
 .editBtn {
   background-color: orange;
 }
+
 .viewBtn {
   background-color: green;
 }
+
 .error {
   color: red;
   font-size: 18px;
@@ -544,4 +547,62 @@ details p {
   line-height: 1.2;
   margin: 5px;
   overflow: hidden;
+}
+
+details[open] p {
+  animation: expand 0.5s ease-in-out forwards;
+}
+
+.inBox {
+  height: 100px;
+  width: 100px;
+  border: 1px dotted #00000052;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: azure;
+  cursor: pointer;
+  box-shadow: 10px 10px 8px #00000008 inset;
+  transition: all 0.2s;
+  flex-direction: column;
+}
+.boxIcon{
+  height: 40px;
+}
+.inBox:hover {
+  box-shadow: none;
+}
+.popupNav{
+  padding: 10px;
+  background-color: #ffecec;
+  width: auto;
+}
+.backIcon{
+  font-size: 25px;
+  border-radius: 100px;
+  border: 1px solid #000;
+  padding:  5px;
+  margin-left: 10px;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.backIcon:hover{
+  background-color: #ff0000;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.popupContainer{
+  animation: openani 0.6s;
+}
+
+@keyframes openani {
+  0%{
+    transform: rotateX(50deg);
+  }
+  100%{
+    transform: rotateX(0);
+  }
 }

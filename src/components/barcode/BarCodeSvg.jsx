@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { createBarcode } from "../scripts/barcode";
+import { createBarcode } from "./barcode";
 
 export default function BarCodeSvg({ code }) {
   const barcodeRef = useRef(null);

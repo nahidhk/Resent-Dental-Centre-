@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Table from "../Table";
+import Table from "../system/Table/Table";
 import useUsers from "../../hooks/getjson/useUsers";
 
 // icons 
@@ -17,8 +17,6 @@ export default function Users() {
     return (
         <>
             <blockquote>
-                <details>
-                    <summary>View Users List</summary>
                     <div className="flex center medel">
                         <div>
                             <div className="grap">
@@ -53,7 +51,6 @@ export default function Users() {
                             </div>
                         </div>
                     </div>
-                </details>
             </blockquote>
         </>
     );

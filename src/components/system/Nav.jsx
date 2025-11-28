@@ -1,6 +1,6 @@
 import React from "react";
-import SiteName from "../hooks/SiteName";
-import RightMenu from "../hooks/RightMenu";
+import SiteName from "../../hooks/SiteName";
+import RightMenu from "../../hooks/RightMenu";
 
 function Nav() {
     return (

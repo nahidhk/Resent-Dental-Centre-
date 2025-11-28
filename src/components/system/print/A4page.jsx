@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
-import DoctorData from "../data/config/prescription.json";
-import siteinfo from "../data/setting/siteDetels.json";
-import logo from "../assets/img/logo.jpg";
+import DoctorData from "../../../data/config/prescription.json";
+import siteinfo from "../../../data/setting/siteDetels.json";
+import logo from "../../../assets/img/logo.jpg";
 import { useReactToPrint } from "react-to-print";
-import { convertToBangla } from "../scripts/banglaConvart";
+import { convertToBangla } from "../../../scripts/banglaConvart";
 import { FaPrescription } from "react-icons/fa6";
 import { IoMdPrint } from "react-icons/io";
-import BarCodeSvg from "./BarCodeSvg";
+import BarCodeSvg from "../../barcode/BarCodeSvg";
 
 export default function A4page({ patientData, medicineData }) {
     const componentRef = useRef();

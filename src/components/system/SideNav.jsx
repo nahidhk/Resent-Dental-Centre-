@@ -23,16 +23,16 @@ export default function SideNav() {
                     </span>
                 </button>
                 <button onClick={() => navigate("/prescription")} className="sideNavBtn btn flex medel">
-                    <LiaFilePrescriptionSolid className="icon"/>
+                    <LiaFilePrescriptionSolid className="icon" />
                     <span>
                         Prescription
                     </span>
                 </button>
                 <button onClick={() => navigate("insert")} className="sideNavBtn btn flex medel">
                     <VscInsert className="icon" />
-                    <span>
-                        Insert
-                    </span>
+                   <span>
+                        Insert Data
+                   </span>
                 </button>
             </div>
         </blockquote>

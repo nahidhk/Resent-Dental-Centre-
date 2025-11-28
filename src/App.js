@@ -1,12 +1,13 @@
 import React from 'react';
-import Nav from './components/Nav';
+import Nav from './components/system/Nav';
 import DeviceSizeErr from './components/Err/DeviceSizeErr';
-import SideNav from './components/SideNav';
+import SideNav from './components/system/SideNav';
 import Prescription from './pages/Prescription';
 import { Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home';
 import Insert from './pages/Insert';
-import Toast from './components/Toast';
+import Toast from './components/system/Toast';
+
 
 function App() {
 var width = document.body.clientWidth;

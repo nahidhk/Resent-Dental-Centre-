@@ -1,6 +1,6 @@
 import react, { useState } from "react";
 import useCategory from "../../hooks/getjson/useCategore";
-import Table from "../Table"
+import Table from "../system/Table/Table";
 import { toast } from "react-toastify";
 import api from "../../api/api.json";
 
@@ -49,8 +49,6 @@ export default function Categ() {
     return (
         <>
             <blockquote>
-                <details>
-                    <summary>View Category List</summary>
                     <div className="flex center medel w50%">
                         <div className="w50">
                             <div className="grap">
@@ -76,7 +74,7 @@ export default function Categ() {
                             </div>
                         </div>
                     </div>
-                </details>
+                
 
             </blockquote>
         </>

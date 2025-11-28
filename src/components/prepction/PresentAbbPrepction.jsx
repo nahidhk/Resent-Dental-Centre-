@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 // api data load 
-import useUsers from "../hooks/getjson/useUsers";
+import useUsers from "../../hooks/getjson/useUsers";
 // api
-import api from "../api/api.json";
+import api from "../../api/api.json";
 
 // icons
 import { FaRegUser } from "react-icons/fa";

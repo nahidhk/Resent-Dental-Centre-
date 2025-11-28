@@ -1,20 +1,13 @@
-import React, { useState } from "react";
-import PresentAbbPrepction from "../components/PresentAbbPrepction";
+import React from "react";
+import MedicineAddPrepction from "../components/prepction/medicineAddPrepction";
 
 export default function Home() {
 
-    const [newPatient, setNewPatient] = useState(null);
+    
 
     return (
         <>
-            <PresentAbbPrepction onAddPatient={setNewPatient} />
-
-            <p>
-                { JSON.stringify(newPatient)  }
-            </p>
-            <p>
-                {newPatient.name}
-            </p>
+            <MedicineAddPrepction />
         </>
     );
 }
