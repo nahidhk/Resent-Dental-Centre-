@@ -1,5 +1,5 @@
 import React from "react";
-
+import Loading from "../Loading"
 // icons
 import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
 import { IoEyeOutline } from "react-icons/io5";
@@ -7,7 +7,7 @@ import { IoEyeOutline } from "react-icons/io5";
 export default function Table({ tableData, title, action }) {
 
     if (!tableData || tableData.length === 0) {
-        return <p className="error">This number is'n use!</p>;
+        return <Loading />;
     }
     const headers = Object.keys(tableData[0]);
 
