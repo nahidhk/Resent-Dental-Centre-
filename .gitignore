@@ -4,14 +4,13 @@
 /node_modules
 /.pnp
 .pnp.js
+/backend/config.php
 
 # testing
 /coverage
 
 # production
 /build
-
-/app/config.php
 /app/vendor
 /app/.env
 /src/api/api.json
