@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-
+import Loading from "../system/Loading";
 // api data load 
 import useUsers from "../../hooks/getjson/useUsers";
 // api
@@ -15,6 +15,8 @@ import { GrLinkNext, GrLinkPrevious } from "react-icons/gr";
 
 
 function PresentAbbPrepction({ onAddPatient }) {
+    // loading
+    const [load, setLoad] = useState(false);
 
     // user data
     const users = useUsers();
@@ -71,7 +73,7 @@ function PresentAbbPrepction({ onAddPatient }) {
             toast.error("Fill all information");
             return;
         }
-
+        setLoad(true);
         const newPatient = {
             name: pName,
             age: pxAge,
@@ -95,6 +97,7 @@ function PresentAbbPrepction({ onAddPatient }) {
                 .then(data => {
                     if (data.success) {
                         toast.success("New patient added to system");
+                        setLoad(false);
 
                     } else {
                         alert("Error: " + data.error);
@@ -111,12 +114,13 @@ function PresentAbbPrepction({ onAddPatient }) {
         setAge("");
         setSex("");
         setNumber("");
-        setStep(0);
+        setStep(2);
     };
 
 
     return (
         <>
+            {load && <Loading />}
             <div className="flex medel center">
                 <div className="flex medel">
 
