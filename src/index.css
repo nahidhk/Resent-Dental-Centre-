@@ -87,7 +87,7 @@ button {
 }
 
 .darkSide {
-  background-color: rgba(0, 0, 0, 0.842);
+  background-color: rgba(0, 0, 0, 0.374);
 }
 
 .btn {
@@ -504,155 +504,153 @@ details[open] p {
 /* ====== A4 PAGE ONLY CSS ====== */
 
 .contBox {
-    width: 900px;
-    height: 120vh;          
-    border: 1px solid #000;
-    background: #fff;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;   
+  width: 900px;
+  height: 99vh;
+  border: 1px solid #000;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .nameBox {
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
-    padding: 5px;
-    background-color: #a5c1ff55;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  background-color: #a5c1ff55;
 }
 
 .pLogo {
-    height: 100px;
+  height: 100px;
 }
 
 .banar {
-    background-color: #4680ff;
-    color: #fff;
-    height: 40px;
-    text-align: center;
-    border-radius: 100px 100px 0 0;
-    position: relative;
-    font-size: 16px;
-    width: 100%;
+  background-color: #4680ff;
+  color: #fff;
+  height: 40px;
+  text-align: center;
+  border-radius: 100px 100px 0 0;
+  position: relative;
+  font-size: 16px;
+  width: 100%;
 }
 
 .sideBar {
-    background-color: #fffce9;
-    width: 350px;
-    height: 100%;
-    padding: 10px;
+  background-color: #fffce9;
+  width: 350px;
+  height: 100%;
+  padding: 10px;
 }
 
 .bigText {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .captext {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .modiul2 {
-    height: auto;
+  height: auto;
 }
 
 .lineStyle {
-    border-bottom: 1px dashed #000;
-    margin: 5px;
-    margin-top: 10px;
+  border-bottom: 1px dashed #000;
+  margin: 5px;
+  margin-top: 10px;
 }
 
 .bottomSystem {
-    text-align: center;
-    background-color: #4680ff;
-    color: #fff;
-    padding: 5px;
+  text-align: center;
+  background-color: #4680ff;
+  color: #fff;
 }
 
 .segestBox {
-    border-top: 4px solid #000;
-    padding: 10px 0;
+  border-top: 4px solid #000;
+  padding: 10px 0;
 }
 
 .mark {
-    background-color: #4680ff;
-    border-radius: 100px;
-    color: #fff;
-    padding: 2px 3px;
-    font-size: 13px;
-    margin: 5px 0;
+  background-color: #4680ff;
+  border-radius: 100px;
+  color: #fff;
+  padding: 2px 3px;
+  font-size: 13px;
+  margin: 5px 0;
 }
 
 .iconr {
-    font-size: 30px;
-    padding: 10px;
+  font-size: 30px;
+  padding: 10px;
 }
 
 .cloman {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .textCenter {
-    text-align: center;
+  text-align: center;
 }
 
 /* Checkbox layout boxes */
 .rayBox {
-    height: 30px;
-    width: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .borderRB {
-    border-bottom: 1px solid #000;
-    border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
 }
 
 .borderLB {
-    border-left: 1px solid #000;
-    border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
 }
 
 .borderRT {
-    border-top: 1px solid #000;
-    border-right: 1px solid #000;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
 }
 
 .borderLT {
-    border-left: 1px solid #000;
-    border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-top: 1px solid #000;
 }
 
 .checkSystem {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #ffffff;
-    border-radius: 4px;
-    cursor: pointer;
-    position: relative;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
 }
 
 .checkSystem:checked {
-    background-color: #ffffff;
-    border-color: #ffffff;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 .checkSystem:checked::after {
-    content: '';
-    position: absolute;
-    left: 0px;
-    bottom: 5px;
-    width: 9px;
-    height: 15px;
-    border: solid #000;
-    border-width: 0 1px 1px 0;
-    transform: rotate(45deg);
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom: 5px;
+  width: 9px;
+  height: 15px;
+  border: solid #000;
+  border-width: 0 1px 1px 0;
+  transform: rotate(45deg);
 }
-.borderset{
-      border-left: 2px solid #000;
+
+.borderset {
+  border-left: 2px solid #000;
 }
 
 
@@ -664,10 +662,11 @@ details[open] p {
 
 /* =======Css loader ========= */
 
-.fill{
+.fill {
   height: 100vh;
   width: 100%;
 }
+
 .loader {
   width: 50px;
   aspect-ratio: 1;
@@ -678,19 +677,21 @@ details[open] p {
   border-radius: 10px;
   transform: rotateZ(45deg);
 }
+
 .loader::before,
-.loader::after {    
-  content:"";
+.loader::after {
+  content: "";
   grid-area: 1/1;
-  --c:no-repeat radial-gradient(farthest-side,#25b09b 92%,#0000);
-  background: 
-    var(--c) 50%  0, 
-    var(--c) 50%  100%, 
-    var(--c) 100% 50%, 
-    var(--c) 0    50%;
+  --c: no-repeat radial-gradient(farthest-side, #25b09b 92%, #0000);
+  background:
+    var(--c) 50% 0,
+    var(--c) 50% 100%,
+    var(--c) 100% 50%,
+    var(--c) 0 50%;
   background-size: 12px 12px;
   animation: l12 1s infinite;
 }
+
 .loader::before {
   margin: 4px;
   filter: hue-rotate(45deg);
@@ -698,8 +699,16 @@ details[open] p {
   animation-timing-function: linear
 }
 
-@keyframes l12 { 
-  100%{transform: rotate(.5turn)}
+@keyframes l12 {
+  100% {
+    transform: rotate(.5turn)
+  }
 }
 
 /* ====end loader css===== */
+
+.nameBox,
+.bottomSystem {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}

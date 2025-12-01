@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Loading from "../system/Loading";
-// api data load 
+//#info- api data load 
 import useUsers from "../../hooks/getjson/useUsers";
 // api
 import api from "../../api/api.json";
