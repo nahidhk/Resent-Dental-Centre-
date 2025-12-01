@@ -31,36 +31,36 @@ export default function Table({ tableData, title, action }) {
                         <tr key={index}>
                             {headers.map((key, i) => (
                                 <td key={i}>{row[key]}</td>
-                                
+
                             ))}
-                             <td>
+                            <td>
                                 <div className="flex center medel w100">
-                                {
-                                    (action.deleteBtn) ? (
-                                        <div className="iconBtn">
-                                            <RiDeleteBin5Fill className="iconTab deleteBtn" />
-                                        </div>
-                                    ) : null
-                                }
-                                {
-                                    (action.editBtn) ? (
-                                        <div className="iconBtn">
-                                            <RiEditBoxLine className="iconTab editBtn" />
-                                        </div>
-                                    ) : null
-                                }
-                                {
-                                    (action.viewBtn) ? (
-                                        <div  className="iconBtn">
-                                            <IoEyeOutline className="iconTab viewBtn" />
-                                        </div>
-                                    ) : null
-                                }
+                                    {
+                                        (action.deleteBtn) ? (
+                                            <div className="iconBtn">
+                                                <RiDeleteBin5Fill className="iconTab deleteBtn" />
+                                            </div>
+                                        ) : null
+                                    }
+                                    {
+                                        (action.editBtn) ? (
+                                            <div className="iconBtn">
+                                                <RiEditBoxLine className="iconTab editBtn" />
+                                            </div>
+                                        ) : null
+                                    }
+                                    {
+                                        (action.viewBtn) ? (
+                                            <div className="iconBtn">
+                                                <IoEyeOutline className="iconTab viewBtn" />
+                                            </div>
+                                        ) : null
+                                    }
                                 </div>
 
                             </td>
 
-                           
+
                         </tr>
                     ))}
                 </tbody>

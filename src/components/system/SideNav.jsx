@@ -14,37 +14,37 @@ export default function SideNav() {
     const isActive = (path) => location.pathname === path;
 
     return (
-       
-            <div className="coner">
 
-                {/* Home */}
-                <button 
-                    onClick={() => navigate("/")} 
-                    className={`sideNavBtn flex medel ${isActive("/") ? "active" : ""}`}
-                >
-                    <AiOutlineHome className="icon" />
-                    <span>Home</span>
-                </button>
+        <div className="coner">
 
-                {/* Prescription */}
-                <button 
-                    onClick={() => navigate("/prescription")} 
-                    className={`sideNavBtn flex medel ${isActive("/prescription") ? "active" : ""}`}
-                >
-                    <LiaFilePrescriptionSolid className="icon" />
-                    <span>Prescription</span>
-                </button>
+            {/* Home */}
+            <button
+                onClick={() => navigate("/")}
+                className={`sideNavBtn flex medel ${isActive("/") ? "active" : ""}`}
+            >
+                <AiOutlineHome className="icon" />
+                <span>Home</span>
+            </button>
 
-                {/* Insert Data */}
-                <button 
-                    onClick={() => navigate("/insert")} 
-                    className={`sideNavBtn flex medel ${isActive("/insert") ? "active" : ""}`}
-                >
-                    <VscInsert className="icon" />
-                    <span>Insert Data</span>
-                </button>
+            {/* Prescription */}
+            <button
+                onClick={() => navigate("/prescription")}
+                className={`sideNavBtn flex medel ${isActive("/prescription") ? "active" : ""}`}
+            >
+                <LiaFilePrescriptionSolid className="icon" />
+                <span>Prescription</span>
+            </button>
 
-            </div>
-       
+            {/* Insert Data */}
+            <button
+                onClick={() => navigate("/insert")}
+                className={`sideNavBtn flex medel ${isActive("/insert") ? "active" : ""}`}
+            >
+                <VscInsert className="icon" />
+                <span>Insert Data</span>
+            </button>
+
+        </div>
+
     )
 }

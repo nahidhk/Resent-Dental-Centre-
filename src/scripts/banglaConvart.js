@@ -1,7 +1,7 @@
 // src/script/convert.js
 
 export function convertToBangla(num) {
-  const banglaDigits = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+  const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
   const english = num.toString();
   let bangla = "";
   for (let i = 0; i < english.length; i++) {

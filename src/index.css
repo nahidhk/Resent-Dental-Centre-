@@ -502,15 +502,14 @@ details[open] p {
 
 
 /* ====== A4 PAGE ONLY CSS ====== */
-
 .contBox {
-  width: 900px;
-  height: 99vh;
-  border: 1px solid #000;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    width: 100%;
+    height: auto;
+    border: 1px solid #000;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;   
 }
 
 .nameBox {
@@ -651,6 +650,19 @@ details[open] p {
 
 .borderset {
   border-left: 2px solid #000;
+}
+
+
+
+@media print {
+  @page{
+    margin:0;
+  }
+  .contBox {
+    height: 109vh;
+    overflow: hidden;
+    background-color: red;
+  }
 }
 
 

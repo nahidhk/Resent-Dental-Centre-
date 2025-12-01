@@ -10,7 +10,7 @@ import { MdAccessTime, MdOutlineEditNote, MdOutlineToday } from "react-icons/md"
 import useCategory from "../../hooks/getjson/useCategore";
 import { toast } from "react-toastify";
 
-export default function MedicineAddPrepction({onAddMedicine}) {
+export default function MedicineAddPrepction({ onAddMedicine }) {
 
     const categories = useCategory();
 
@@ -46,7 +46,7 @@ export default function MedicineAddPrepction({onAddMedicine}) {
 
         setPrescriptions([...prescriptions, newPrescription]);
 
-       // clear input
+        // clear input
         setCategore("");
         setMedicine("");
         setTimeL1("");
@@ -55,9 +55,9 @@ export default function MedicineAddPrepction({onAddMedicine}) {
         setNotes("");
         setSetDay1("");
         setSetDay2("");
-       
+
     };
-    
+
     if (typeof onAddMedicine === "function") {
         onAddMedicine(prescriptions)
     }

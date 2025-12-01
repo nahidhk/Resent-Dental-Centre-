@@ -67,65 +67,65 @@ function PresentAbbPrepction({ onAddPatient }) {
 
 
     // Add Patient Button
-const handleAddPatient = () => {
+    const handleAddPatient = () => {
 
-    if (!pName || !pxAge || !pSex) {
-        toast.error("Fill all information");
-        return;
-    }
-        
-    const newPatient = {
-        name: pName,
-        age: pxAge,
-        sex: pSex,
-        number: number
-    };
+        if (!pName || !pxAge || !pSex) {
+            toast.error("Fill all information");
+            return;
+        }
 
-    if (typeof onAddPatient === "function") {
-        onAddPatient(newPatient);
-    }
+        const newPatient = {
+            name: pName,
+            age: pxAge,
+            sex: pSex,
+            number: number
+        };
 
-    const isUserExist = users.find(user => user.number === number);
+        if (typeof onAddPatient === "function") {
+            onAddPatient(newPatient);
+        }
 
-    // Loading START (Always ON)
-    setLoad(true);
+        const isUserExist = users.find(user => user.number === number);
 
-    // If NOT exist → Save to DB
-    if (!isUserExist) {
+        // Loading START (Always ON)
+        setLoad(true);
 
-        fetch(`${api.request}://${api.server}${api.postPath}?key=${api.apikey}&post=users`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newPatient)
-        })
-            .then(res => res.json())
-            .then(data => {
-                setLoad(false); // Loading OFF
+        // If NOT exist → Save to DB
+        if (!isUserExist) {
 
-                if (data.success) {
-                    toast.success("New patient added to system");
-                } else {
-                    toast.error("Error: " + data.error);
-                }
+            fetch(`${api.request}://${api.server}${api.postPath}?key=${api.apikey}&post=users`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newPatient)
             })
-            .catch(err => {
-                setLoad(false); // Loading OFF on Error
-                console.error(err);
-                toast.error("Server Error");
-            });
+                .then(res => res.json())
+                .then(data => {
+                    setLoad(false); // Loading OFF
 
-    } else {
-        setLoad(false); // Loading OFF
-        toast.info("Patient already exists in the system");
-    }
+                    if (data.success) {
+                        toast.success("New patient added to system");
+                    } else {
+                        toast.error("Error: " + data.error);
+                    }
+                })
+                .catch(err => {
+                    setLoad(false); // Loading OFF on Error
+                    console.error(err);
+                    toast.error("Server Error");
+                });
 
-    // Reset Fields
-    setName("");
-    setAge("");
-    setSex("");
-    setNumber("");
-    setStep(2);
-};
+        } else {
+            setLoad(false); // Loading OFF
+            toast.info("Patient already exists in the system");
+        }
+
+        // Reset Fields
+        setName("");
+        setAge("");
+        setSex("");
+        setNumber("");
+        setStep(2);
+    };
 
     return (
         <>
