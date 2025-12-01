@@ -82,8 +82,6 @@ button {
 .index {
   position: fixed;
   z-index: 1000;
-  top: 0;
-  left: 0;
 }
 
 .darkSide {
@@ -659,9 +657,8 @@ details[open] p {
     margin:0;
   }
   .contBox {
-    height: 109vh;
+    height: 1100px;
     overflow: hidden;
-    background-color: red;
   }
 }
 
@@ -723,4 +720,21 @@ details[open] p {
 .bottomSystem {
   padding-bottom: 5px;
   padding-top: 5px;
+}
+.sampuleSetting{
+  padding: 8px;
+}
+
+.bottom{
+  bottom: 0;
+}
+.err{
+  color: #fff;
+  background-color: #ff0000;
+}
+.left{
+  left: 0;
+}
+.padding{
+  padding: 10px;
 }

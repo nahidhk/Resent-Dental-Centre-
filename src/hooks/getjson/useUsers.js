@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../../api/api.json";
 import { toast } from "react-toastify";
+import ErrApi from "../../components/Err/ErrApi";
 
 export default function useUsers() {
     const [users, setUsers] = useState([]);
@@ -12,7 +13,7 @@ export default function useUsers() {
             fetch(url)
                 .then((response) => response.json())
                 .then((data) => setUsers(data))
-                .catch((error) => toast.error("Error fetching api data:", error));
+                .catch((error) => {return <ErrApi />});
         };
 
 

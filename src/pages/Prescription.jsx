@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import A4page from "../components/system/print/A4page";
 import PresentAbbPrepction from "../components/prepction/PresentAbbPrepction";
 import MedicineAddPrepction from "../components/prepction/medicineAddPrepction";
+import CcOeADVX_ray from "../components/prepction/CcOeADVX_ray"
 
 
 
@@ -42,52 +43,8 @@ export default function Prescription() {
 
             {/* Print section */}
             <div className="flex">
-                <div className="ccOg">
-                    {/* C/C */}
-                    <div>
-                        <hr />
-                        <label htmlFor="">C/C</label>
-                        <blockquote>
-                            <label htmlFor="">Notes</label>
-                            <input type="text" className="input" />
-                            <div className="flex cloman">
-                                <div className="flex">
-                                    <div className="rayBox borderRB">
-                                        <input type="checkbox" className="checkSystem" />
-                                    </div>
-                                    <div className="rayBox borderLB">
-                                        <input type="checkbox" className="checkSystem" />
-                                    </div>
-                                </div>
-                                <div className="flex">
-                                    <div className="rayBox borderRT">
-                                        <input type="checkbox" className="checkSystem" />
-                                    </div>
-                                    <div className="rayBox borderLT">
-                                        <input type="checkbox" className="checkSystem" />
-                                    </div>
-                                </div>
-                            </div>
-                        </blockquote>
-                        <hr />
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+               {/* Add CC  */}
+               <CcOeADVX_ray />
                 <div>
                     <A4page
                         patientData={null}
@@ -98,3 +55,4 @@ export default function Prescription() {
         </>
     );
 }
+

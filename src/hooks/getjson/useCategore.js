@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../../api/api.json";
 import { toast } from "react-toastify";
+import ErrApi from "../../components/Err/ErrApi";
 
 export default function useCategory() {
     const [categories, setCategories] = useState([]);
@@ -12,7 +13,7 @@ export default function useCategory() {
             fetch(url)
                 .then((response) => response.json())
                 .then((data) => setCategories(data))
-                .catch((error) => toast.error("Error fetching api data:", error));
+                .catch((error) => {return <ErrApi />});
         };
 
 

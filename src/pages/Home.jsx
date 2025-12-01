@@ -1,10 +1,10 @@
 import React from "react";
-import Loading from "../components/system/Loading";
+import ErrApi from "../components/Err/ErrApi";
 
 export default function Home() {
     return (
         <>
-            <Loading />
+           <ErrApi />
         </>
     );
 }
