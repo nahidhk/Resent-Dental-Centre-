@@ -140,13 +140,6 @@ export default function A4page({ patientData, medicineData }) {
                                         )}
 
 
-                                        <div>
-
-                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, ipsa in? Aliquam officiis porro iure repudiandae distinctio expedita eum ea. Sint provident aliquam optio beatae rem placeat dicta animi reprehenderit illo tenetur atque consectetur et distinctio harum, nesciunt aut. Impedit, aliquam nulla. Quas quia, consectetur ipsam asperiores ratione itaque velit tenetur nam sapiente praesentium qui consequuntur eveniet obcaecati doloremque molestias animi cumque reprehenderit, reiciendis quisquam dolorem ut accusamus iusto omnis. Molestiae error accusamus laboriosam sint quisquam odit possimus ducimus perferendis quasi doloribus. At eaque quod doloremque reprehenderit. Aut aliquam magnam laudantium error quibusdam natus ratione inventore. Dicta totam minus eius obcaecati adipisci. Incidunt, itaque. Vel consectetur rerum dignissimos, accusamus architecto ea deserunt atque autem recusandae eos assumenda placeat, omnis in quae asperiores earum quam provident soluta explicabo eius aliquam id. Unde non aut ab dignissimos hic fugit, alias temporibus recusandae nesciunt maiores corporis repudiandae, consequuntur quaerat culpa quas ratione sed adipisci neque sapiente, rem natus. Impedit atque officiis blanditiis labore consequuntur doloremque, tempore at alias? Eligendi, cum obcaecati? Sunt ea repellendus recusandae, placeat consectetur fugiat accusantium ex dicta aliquid explicabo impedit similique nam voluptas fuga iure quaerat voluptatem, aut optio magnam architecto consequatur, eum maiores labore cum? Voluptatum, ipsum nisi.
-
-
-
-                                        </div>
 
 
 
