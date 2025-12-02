@@ -7,6 +7,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home';
 import Insert from './pages/Insert';
 import Toast from './components/system/Toast';
+import ErrApi from './components/Err/ErrApi';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             </Routes>
           </div>
           <Toast />
+          <ErrApi />
         </div>
       </>
     )

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../../api/api.json";
-import { toast } from "react-toastify";
-import ErrApi from "../../components/Err/ErrApi";
+
+
 
 export default function useCategory() {
     const [categories, setCategories] = useState([]);
@@ -13,7 +13,11 @@ export default function useCategory() {
             fetch(url)
                 .then((response) => response.json())
                 .then((data) => setCategories(data))
-                .catch((error) => {return <ErrApi />});
+                .catch((error) => console.error(
+                    "Error fetching api data, Page reload and try again!\nThis is a MySQL API Problem:",
+                    error
+                ));
+
         };
 
 
