@@ -2,10 +2,14 @@ import React, { useState } from "react";
 
 export default function CcOeADVX_ray() {
   const [ccnotes, setCcNotes] = useState(false);
+  const [ccgraps, setccgraps] = useState(false);
 
   const handleCcNotesChange = (e) => {
     setCcNotes(e.target.checked);
   };
+  const handleCcGraps = (e) => {
+    setccgraps(e.target.checked);
+  }
 
   return (
     <>
@@ -25,9 +29,26 @@ export default function CcOeADVX_ray() {
                   onChange={handleCcNotesChange}
                 />
               </p>
+              {
+                ccnotes === true ? (
+                <input className="input animation" type="text" />
+                ):("")
+              }
             </div>
             <div>
-              <div className="flex cloman">
+              
+              <p className="flex medel">
+             Eneble Graps Opction
+             <input
+             onChange={handleCcGraps}
+             checked={ccgraps}
+             type="checkbox" />
+             
+              </p>
+              {
+                ccgraps === true ? 
+                (
+               <div className="flex cloman animation">
                 <div className="flex">
                   <div className="rayBox borderRB">
                     <input type="checkbox" className="checkSystem" />
@@ -45,6 +66,11 @@ export default function CcOeADVX_ray() {
                   </div>
                 </div>
               </div>
+             
+                )
+                :
+                ("false")
+              }
               <hr />
             </div>
           </div>

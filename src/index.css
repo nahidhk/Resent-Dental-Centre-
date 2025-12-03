@@ -744,3 +744,14 @@ details[open] p {
 .wrap{
   flex-wrap: wrap;
 }
+.animation{
+  animation: animt 0.5s;
+}
+@keyframes animt{
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
