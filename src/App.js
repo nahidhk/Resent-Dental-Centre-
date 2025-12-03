@@ -7,6 +7,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home';
 import Insert from './pages/Insert';
 import Toast from './components/system/Toast';
+import Login from './components/login/Login';
 
 //console
 import eruda from "eruda";
@@ -33,6 +34,7 @@ function App() {
             </Routes>
           </div>
           <Toast />
+          <Login />
         </div>
       </>
     )

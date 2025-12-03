@@ -20,8 +20,8 @@ export default function CcOeADVX_ray() {
             <span className="bigText">C/C</span>
           </legend>
           <div>
-            <div>
-              <p className="flex medel">
+            <div className="border padding">
+              <p className="flex medel opction">
                 Enable Notes Option
                 <input
                   type="checkbox"
@@ -31,47 +31,46 @@ export default function CcOeADVX_ray() {
               </p>
               {
                 ccnotes === true ? (
-                <input className="input animation" type="text" />
-                ):("")
+                  <input className="input animation" type="text" />
+                ) : ("")
               }
             </div>
-            <div>
-              
-              <p className="flex medel">
-             Eneble Graps Opction
-             <input
-             onChange={handleCcGraps}
-             checked={ccgraps}
-             type="checkbox" />
-             
+
+            <div className="border padding">
+              <p className="flex medel opction">
+                Eneble Graps Opction
+                <input
+                  onChange={handleCcGraps}
+                  checked={ccgraps}
+                  type="checkbox" />
+
               </p>
               {
-                ccgraps === true ? 
-                (
-               <div className="flex cloman animation">
-                <div className="flex">
-                  <div className="rayBox borderRB">
-                    <input type="checkbox" className="checkSystem" />
-                  </div>
-                  <div className="rayBox borderLB">
-                    <input type="checkbox" className="checkSystem" />
-                  </div>
-                </div>
-                <div className="flex">
-                  <div className="rayBox borderRT">
-                    <input type="checkbox" className="checkSystem" />
-                  </div>
-                  <div className="rayBox borderLT">
-                    <input type="checkbox" className="checkSystem" />
-                  </div>
-                </div>
-              </div>
-             
-                )
-                :
-                ("false")
+                ccgraps === true ?
+                  (
+                    <div className="flex cloman animation">
+                      <div className="flex">
+                        <div className="rayBox borderRB">
+                          <input type="checkbox" className="checkSystem" />
+                        </div>
+                        <div className="rayBox borderLB">
+                          <input type="checkbox" className="checkSystem" />
+                        </div>
+                      </div>
+                      <div className="flex">
+                        <div className="rayBox borderRT">
+                          <input type="checkbox" className="checkSystem" />
+                        </div>
+                        <div className="rayBox borderLT">
+                          <input type="checkbox" className="checkSystem" />
+                        </div>
+                      </div>
+                    </div>
+
+                  )
+                  :
+                  ("")
               }
-              <hr />
             </div>
           </div>
         </fieldset>

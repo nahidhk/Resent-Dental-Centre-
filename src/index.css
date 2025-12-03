@@ -289,7 +289,7 @@ input:focus {
   position: relative;
 }
 
-/* tick mark */
+
 .checkSystem:checked::after {
   content: '';
   position: absolute;
@@ -302,7 +302,7 @@ input:focus {
   transform: rotate(45deg);
 }
 
-*/ .table_component {
+.table_component {
   width: 100%;
 }
 
@@ -492,22 +492,15 @@ details[open] p {
   padding: 10px;
 }
 
-
-
-
-
-
-
-
 /* ====== A4 PAGE ONLY CSS ====== */
 .contBox {
-    width: 100%;
-    height: auto;
-    border: 1px solid #000;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;   
+  width: 100%;
+  height: auto;
+  border: 1px solid #000;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .nameBox {
@@ -653,9 +646,10 @@ details[open] p {
 
 
 @media print {
-  @page{
-    margin:0;
+  @page {
+    margin: 0;
   }
+
   .contBox {
     height: 1100px;
     overflow: hidden;
@@ -721,37 +715,83 @@ details[open] p {
   padding-bottom: 5px;
   padding-top: 5px;
 }
-.sampuleSetting{
+
+.sampuleSetting {
   padding: 8px;
 }
 
-.bottom{
+.bottom {
   bottom: 0;
 }
-.err{
+
+.err {
   color: #fff;
   background-color: #ff0000;
 }
-.left{
+
+.left {
   left: 0;
 }
-.padding{
+
+.padding {
   padding: 10px;
 }
-.top{
+
+.top {
   top: 0;
 }
-.wrap{
+
+.wrap {
   flex-wrap: wrap;
 }
-.animation{
+
+.animation {
   animation: animt 0.5s;
 }
-@keyframes animt{
-  0%{
+
+@keyframes animt {
+  0% {
     transform: scale(0);
   }
-  100%{
+
+  100% {
     transform: scale(1);
   }
 }
+
+.border {
+  border: 1px dashed #4680ff;
+}
+
+.opction input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px dashed #4680ff;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  background-color: #fff;
+}
+
+.opction input[type="checkbox"]:checked {
+  background-color: #4680ff;
+  border-style: solid;
+}
+/* ========= login box css */
+.card{
+  height: auto;
+  width: 380px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.userImg{
+  border-radius: 100px;
+  height: 170px;
+  width: 170px;
+  border: 1px dashed #4680ff;
+}
+
+
+
