@@ -66,7 +66,7 @@ export default function MedicineAddPrepction({ onAddMedicine }) {
 
     return (
         <>
-            <div className="center flex medel">
+            <div className="center flex medel wrap">
 
                 <div className="flex">
 

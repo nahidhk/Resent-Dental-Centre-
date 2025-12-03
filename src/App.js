@@ -7,10 +7,13 @@ import { Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home';
 import Insert from './pages/Insert';
 import Toast from './components/system/Toast';
-import ErrApi from './components/Err/ErrApi';
+
+//console
+import eruda from "eruda";
 
 
 function App() {
+  eruda.init();
   var width = document.body.clientWidth;
 
   if (width >= 960) {
@@ -30,7 +33,6 @@ function App() {
             </Routes>
           </div>
           <Toast />
-          <ErrApi />
         </div>
       </>
     )
