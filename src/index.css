@@ -149,10 +149,7 @@ button {
   color: #fff;
 }
 
-.active {
-  background-color: #4681ff3a;
-  color: #000;
-}
+
 
 .mailholdbox {
   border: 1px solid #0000002a;
@@ -792,6 +789,12 @@ details[open] p {
   width: 170px;
   border: 1px dashed #4680ff;
 }
-
-
+.test{
+  background-color: red;
+}
+.false{
+  border: 1px dashed #00000032;
+  height: 25px;
+  width: 25px;
+}
 
