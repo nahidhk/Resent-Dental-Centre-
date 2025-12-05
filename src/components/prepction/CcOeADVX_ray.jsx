@@ -56,7 +56,6 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
     notes: oeNotesData,
     graph: oeGraph
   }
-  console.log(oE_Data)
   // O/E data export vareable (oE_Data)
   // =========================================
 
