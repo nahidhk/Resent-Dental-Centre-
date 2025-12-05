@@ -582,11 +582,18 @@ details[open] p {
 
 /* Checkbox layout boxes */
 .rayBox {
-  height: 30px;
-  width: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.ste {
+  height: 30px;
+  width: 30px;
+}
+.demo{
+  height: 100px;
+  width: 100px;
 }
 
 .borderRB {
@@ -776,25 +783,29 @@ details[open] p {
   background-color: #4680ff;
   border-style: solid;
 }
+
 /* ========= login box css */
-.card{
+.card {
   height: auto;
   width: 380px;
   background-color: #fff;
   border-radius: 10px;
 }
-.userImg{
+
+.userImg {
   border-radius: 100px;
   height: 170px;
   width: 170px;
   border: 1px dashed #4680ff;
 }
-.test{
+
+.test {
   background-color: red;
 }
-.false{
-  border: 1px dashed #00000032;
-  height: 25px;
-  width: 25px;
-}
 
+.false {
+  border: 1px dashed #00000032;
+  height: 30px;
+  width: 70px;
+  text-align: center;
+}

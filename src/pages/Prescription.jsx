@@ -14,6 +14,7 @@ export default function Prescription() {
     const [medicineData, setMedicineData] = useState(null)
     const [newPatient, setNewPatient] = useState(null);
     const [prepctionAllData, setPrepctionAllData] = useState(null)
+     const [on_CC_OE_ADV_XRY_Data, set_ON_CC_OE_ADV_XRY] = useState(null);
 
 
     const handeladd = () => {
@@ -21,12 +22,13 @@ export default function Prescription() {
             date: "30-03-2007",
             rpid: "12345678",
             userNumber: newPatient.number,
-            medicineData: medicineData
+            medicineData: medicineData,
+            cc_oe_avd_xry: on_CC_OE_ADV_XRY_Data
         }
         setPrepctionAllData(alldata)
     }
 
-
+  
 
     return (
         <>
@@ -44,7 +46,7 @@ export default function Prescription() {
             {/* Print section */}
             <div className="flex">
                {/* Add CC  */}
-               <CcOeADVX_ray />
+               <CcOeADVX_ray on_CC_OE_ADV_XRY={set_ON_CC_OE_ADV_XRY}/>
                 <div>
                     <A4page
                         patientData={null}
