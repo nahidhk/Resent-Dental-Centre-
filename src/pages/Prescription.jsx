@@ -49,8 +49,7 @@ export default function Prescription() {
                 <CcOeADVX_ray on_CC_OE_ADV_XRY={set_ON_CC_OE_ADV_XRY} />
                 <div>
                     <A4page
-                        patientData={null}
-                        medicineData={null}
+                    pageData={null}
                     />
                 </div>
             </div>

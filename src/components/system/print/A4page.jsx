@@ -9,14 +9,14 @@ import { IoMdPrint } from "react-icons/io";
 import BarCodeSvg from "../../barcode/BarCodeSvg";
 import "./A4page";
 
-export default function A4page({ patientData, medicineData }) {
-    const componentRef = useRef();
-    const handlePrint = useReactToPrint({
-        contentRef: componentRef,
-    });
-
-    return (
-        <div>
+export default function A4page({ pageData }) {
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    contentRef: componentRef,
+  });
+  
+  return (
+      <div>
             <div className="mainBox flex center">
                 <div>
                     <div className="contBox flex flex-col justify-between" ref={componentRef}>
@@ -62,15 +62,15 @@ export default function A4page({ patientData, medicineData }) {
                             <div className="nameBox flex around medel w100">
                                 <span>
                                     <b>Name : </b>
-                                    <i>{patientData?.name || "____________________"}</i>
+                                    <i>{ "____________________"}</i>
                                 </span>
                                 <span>
                                     <b>Sex : </b>
-                                    <i>{patientData?.sex || "______"}</i>
+                                    <i>{ "______"}</i>
                                 </span>
                                 <span>
                                     <b>Age : </b>
-                                    <i>{patientData?.age || "____"}Y</i>
+                                    <i>{ "____"}Y</i>
                                 </span>
                                 <span>
                                     <b>Date : </b>
@@ -82,34 +82,72 @@ export default function A4page({ patientData, medicineData }) {
                             <div className="flex beet w100 modiul2">
                                 <div className="sideBar">
                                     <div className="cloman">
-                                        <span className="bigText">C/C</span>
+                                        <span className="bigText">
+                                  C/C:
+                                  </span>
                                         <br />
                                         <div className="flex">
                                             <div>
-                                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis, delectus vitae amet ipsum excepturi perferendis corrupti? Placeat harum accusamus corrupti, repellendus vel, praesentium at quasi quibusdam velit fuga iusto beatae?
-                                            </div>
-                                            <div className="flex cloman">
-                                                <div className="flex">
-                                                    <div className="rayBox borderRB">
-                                                        <input type="checkbox" className="checkSystem" />
-                                                    </div>
-                                                    <div className="rayBox borderLB">
-                                                        <input type="checkbox" className="checkSystem" />
-                                                    </div>
-                                                </div>
-                                                <div className="flex">
-                                                    <div className="rayBox borderRT">
-                                                        <input type="checkbox" className="checkSystem" />
-                                                    </div>
-                                                    <div className="rayBox borderLT">
-                                                        <input type="checkbox" className="checkSystem" />
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                Lorem ipsum dolor sit, amet                            </div>
+                                        <div> 
+   
+  <div className="flex cloman">
+    <div className="flex">
+      <div className="rayBox borderRB">
+        {/* LT Value*/}
+      </div>
+      <div className="rayBox borderLB">
+        {/* RT Value*/}
+      </div>
+    </div>
+    <div className="flex">
+      <div className="rayBox borderRT">
+        {/* LB Value*/}
+      </div>
+      <div className="rayBox borderLT">
+        {/* RB Value*/}
+      </div>
+    </div>
+  </div>
+  
+                                     
                                         </div>
-                                    </div>
 
-                                    <div className="cloman">O/E</div>
+                                    <div className="cloman">
+            <span className="bigText">
+              O/E:
+            </span>
+            <br />
+   <div className="flex">
+     <div>
+      This Is A OE Notes 
+     </div>
+     <div>
+       
+       
+  <div className="flex cloman">
+    <div className="flex">
+      <div className="rayBox borderRB">
+        {/* LT Value*/}
+      </div>
+      <div className="rayBox borderLB">
+        {/* RT Value*/}
+      </div>
+    </div>
+    <div className="flex">
+      <div className="rayBox borderRT">
+        {/* LB Value*/}
+      </div>
+      <div className="rayBox borderLT">
+        {/* RB Value*/}
+      </div>
+    </div>
+    </div>
+    
+     </div>
+   </div>                                   
+                                      
+                                    </div>
                                     <div className="cloman">ADV:</div>
                                     <div className="cloman">X-Ray:</div>
                                 </div>
@@ -122,7 +160,7 @@ export default function A4page({ patientData, medicineData }) {
                                         </span>
                                     </div>
                                     <blockquote>
-                                        {medicineData?.length > 0 ? (
+              {/*}                          {medicineData?.length > 0 ? (
                                             medicineData.map((item, index) => (
                                                 <div key={index} className="flex beet lineStyle">
                                                     <div>
@@ -142,7 +180,7 @@ export default function A4page({ patientData, medicineData }) {
 
 
 
-
+*/}
                                     </blockquote>
                                 </div>
                             </div>
