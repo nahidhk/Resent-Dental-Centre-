@@ -1,60 +1,49 @@
 {
-    "date": "30-03-2007",
-    "rpid": "12345678",
-    "userNumber": "01877357091",
-    "medicineData": [
-        {
-            "categore": "1",
-            "medicine": "100",
-            "timeL": "10 + 3 + 4",
-            "notes": "45646",
-            "setDay": "445 দিন"
-        },
-        {
-            "categore": "2",
-            "medicine": "4545",
-            "timeL": "14545 + 4545 + 455",
-            "notes": "454",
-            "setDay": "4545 দিন"
-        }
-    ],
+    "date": "07/12/2025",
+    "rpid": "071225015302",
+    "userNumber": null,
+    "medicineData": [],
     "cc_oe_avd_xry": {
         "cc": {
-            "notes": "the CC notes",
+            "notes": "",
+            "graphOn": false,
             "graph": {
-                "RT": true,
-                "LT": true,
+                "RT": false,
+                "LT": false,
                 "RB": false,
                 "LB": false
             }
         },
         "oe": {
-            "notes": "The OE notes",
+            "notes": "",
+            "graphOn": false,
             "graph": {
-                "LT": "10",
-                "RT": "3",
-                "LB": "2",
-                "LR": "3"
+                "LT": "",
+                "RT": "",
+                "LB": "",
+                "LR": ""
             }
         },
         "avd": {
-            "notes": "avd notes",
+            "notes": false,
+            "graphOn": false,
             "graph": {
-                "LT": "10",
-                "RT": "20",
-                "LB": "10",
-                "LR": "2"
+                "LT": "",
+                "RT": "",
+                "LB": "",
+                "LR": ""
             }
         },
         "x_ray": {
-            "opg": "* OPG X-ray",
+            "opg": "",
             "iopa": {
-                "title": "* IOPA View",
+                "title": "",
+                "graphOn": false,
                 "graph": {
-                    "LT": "192",
-                    "RT": "12",
-                    "LB": "12",
-                    "LR": "12"
+                    "LT": "",
+                    "RT": "",
+                    "LB": "",
+                    "LR": ""
                 }
             }
         }

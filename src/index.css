@@ -587,7 +587,7 @@ details[open] p {
   align-items: center;
 }
 
-.ste {
+.set {
   height: 30px;
   width: 30px;
 }
@@ -657,6 +657,9 @@ details[open] p {
   .contBox {
     height: 1100px;
     overflow: hidden;
+    background-color: red;
+    justify-content: space-between;
+   flex-direction: column; 
   }
 }
 
