@@ -33,6 +33,26 @@ setDay1  setDay2
 
 
 
+  <div className="flex cloman">
+    <div className="flex">
+      <div className="rayBox borderRB">
+        {/* LT Value*/}
+      </div>
+      <div className="rayBox borderLB">
+        {/* RT Value*/}
+      </div>
+    </div>
+    <div className="flex">
+      <div className="rayBox borderRT">
+        {/* LB Value*/}
+      </div>
+      <div className="rayBox borderLT">
+        {/* RB Value*/}
+      </div>
+    </div>
+  </div>
+  
+
 
 
 
