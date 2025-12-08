@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Insert from './pages/Insert';
 import Toast from './components/system/Toast';
 //import Login from './components/login/Login';
+import ApiCheck from './components/Err/ApiCheck';
 
 //console
 import eruda from "eruda";
@@ -34,7 +35,7 @@ function App() {
             </Routes>
           </div>
           <Toast />
-          
+          <ApiCheck />
         </div>
       </>
     )

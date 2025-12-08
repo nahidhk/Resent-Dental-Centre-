@@ -812,3 +812,7 @@ details[open] p {
   width: 70px;
   text-align: center;
 }
+.err{
+  background-color: red;
+  color: #fff;
+}
