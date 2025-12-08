@@ -1,21 +1,11 @@
 import React from "react";
-import SiteName from "../../hooks/SiteName";
-import RightMenu from "../../hooks/RightMenu";
+import NavApp from "./NavApp";
 
 function Nav() {
     return (
         <>
-            <div className="nav flex around medel ">
-                <div>
-                    <div>
-                        <span className="navText">
-                            <SiteName />
-                        </span>
-                    </div>
-                </div>
-                <div>
-                    <RightMenu />
-                </div>
+            <div className="nav flex index bottom center medel animate__animated animate__fadeInUpBig">
+                <NavApp />
             </div>
         </>
     )

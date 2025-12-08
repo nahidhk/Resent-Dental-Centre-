@@ -1,11 +1,13 @@
 {
-    "siteName": "রিসেন্ট ডেন্টাল সার্জারি",
-    "fullName": "রিসেন্ট ডেন্টাল সার্জারি এন্ড ডেন্টাল এক্সরে",
-    "errNote":[{
-      "deviceErr":{
-        "title":"This device is not supported",
-        "infoText":"Maximum supported width: 1000px Your current width: ",
-        "helpText":"Please resize your window to continue."
+  "siteName": "রিসেন্ট ডেন্টাল সার্জারি",
+  "fullName": "রিসেন্ট ডেন্টাল সার্জারি এন্ড ডেন্টাল এক্সরে",
+  "errNote": [
+    {
+      "deviceErr": {
+        "title": "This device is not supported",
+        "infoText": "Maximum supported width: 1000px Your current width: ",
+        "helpText": "Please resize your window to continue."
       }
     }
+  ]
 }

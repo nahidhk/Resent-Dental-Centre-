@@ -1,7 +1,6 @@
 import React from 'react';
 import Nav from './components/system/Nav';
 import DeviceSizeErr from './components/Err/DeviceSizeErr';
-import SideNav from './components/system/SideNav';
 import Prescription from './pages/Prescription';
 import { Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home';
@@ -9,6 +8,13 @@ import Insert from './pages/Insert';
 import Toast from './components/system/Toast';
 //import Login from './components/login/Login';
 import ApiCheck from './components/Err/ApiCheck';
+import MainDesk from './components/ui/desk/MainDesk';
+
+
+
+// css
+import 'animate.css';
+
 
 //console
 import eruda from "eruda";
@@ -22,21 +28,16 @@ function App() {
     return (
       <>
         <Nav />
+        <MainDesk />
+        <Routes>
+          <Route path='/prescription' element={<Prescription />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/insert' element={<Insert />} />
+        </Routes>
 
-        <div className='flex'>
-          <div className='dop1'>
-            <SideNav />
-          </div>
-          <div className='dop2'>
-            <Routes>
-              <Route path='/prescription' element={<Prescription />} />
-              <Route path='/' element={<Home />} />
-              <Route path='/insert' element={<Insert />} />
-            </Routes>
-          </div>
-          <Toast />
-          <ApiCheck />
-        </div>
+        <Toast />
+        <ApiCheck />
+
       </>
     )
   } else {

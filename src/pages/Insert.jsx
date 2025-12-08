@@ -33,7 +33,7 @@ export default function Insert() {
   }
 
   return (
-    <>
+    <div className="uiModiul animate__animated animate__backInUp">
       {/* Popup show only when open */}
       {popupData.open && popupData.component && (
         <Popup
@@ -68,6 +68,6 @@ export default function Insert() {
         </div>
 
       </div>
-    </>
+    </div>
   );
 }
