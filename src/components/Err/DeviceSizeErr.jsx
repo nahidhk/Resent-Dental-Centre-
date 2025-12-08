@@ -1,5 +1,6 @@
 import React from "react";
 import errorImg from "../../assets/vector/error.png";
+import siteDetels from "../../data/setting/siteDetels.json"
 
 export default function DeviceSizeErr({ widthx }) {
   return (
@@ -15,7 +16,7 @@ export default function DeviceSizeErr({ widthx }) {
           }}
         />
         <h2 style={{ color: "#ff4d4d", marginBottom: "10px" }}>
-          This device is not supported
+          {siteDetels.errNote[0].deviceErr.title}
         </h2>
         <p style={{ color: "#444", fontSize: "16px", lineHeight: "1.5" }}>
           Maximum supported width: <b>1000px</b> <br />
