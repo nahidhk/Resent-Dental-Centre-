@@ -5,7 +5,7 @@ import Users from "../components/insertPageData/Users";
 
 import UserIcon from "../assets/vector/team.png";
 import CategoryIcon from "../assets/vector/menu.png";
-
+import UiModiulNav from "../components/ui/components/UiModiulNav";
 import Popup from "../components/popup/Popup";
 
 export default function Insert() {
@@ -34,6 +34,7 @@ export default function Insert() {
 
   return (
     <div className="uiModiul animate__animated animate__backInUp">
+      <UiModiulNav />
       {/* Popup show only when open */}
       {popupData.open && popupData.component && (
         <Popup

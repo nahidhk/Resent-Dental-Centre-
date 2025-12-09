@@ -838,3 +838,8 @@ overflow: scroll;
     font-size: 24px;
     color: #ffffff8a;
 }
+.uiTopNav{
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}

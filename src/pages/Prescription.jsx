@@ -5,6 +5,7 @@ import MedicineAddPrepction from "../components/prepction/medicineAddPrepction";
 import CcOeADVX_ray from "../components/prepction/CcOeADVX_ray";
 import { brCodeID } from "../components/barcode/brCodeID";
 import { todayDate } from "../scripts/todayDate";
+import UiModiulNav from "../components/ui/components/UiModiulNav";
 
 export default function Prescription() {
     const [medicineData, setMedicineData] = useState(null);
@@ -30,7 +31,8 @@ export default function Prescription() {
 
 
     return (
-        <>
+        <div className="uiModiul animate__animated animate__backInUp">
+            <UiModiulNav />
             <div>{JSON.stringify(prepctionAllData)}</div>
 
             <PresentAbbPrepction onAddPatient={setNewPatient} />
@@ -47,6 +49,6 @@ export default function Prescription() {
                     <A4page pageData={prepctionAllData} />
                 </div>
             </div>
-        </>
+        </div>
     );
 }
