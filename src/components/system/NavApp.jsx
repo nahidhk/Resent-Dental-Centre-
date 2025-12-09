@@ -5,6 +5,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { LiaFilePrescriptionSolid } from "react-icons/lia";
 import { VscInsert } from "react-icons/vsc";
+import { IoSettingsOutline } from "react-icons/io5";
+import { TbHelpHexagon } from "react-icons/tb";
 
 export default function SideNav() {
     const navigate = useNavigate();
@@ -42,6 +44,24 @@ export default function SideNav() {
             >
                 <VscInsert className="appicon" />
                 <span className="appBtnName">Insert Data</span>
+            </button>
+
+            {/* Setting */}
+            <button
+                onClick={() => navigate("/setting")}
+                className={`appBtn flex medel center ${isActive("/setting") ? "active" : ""}`}
+            >
+                <IoSettingsOutline className="appicon" />
+                <span className="appBtnName">Setting</span>
+            </button>
+
+            {/* Demo */}
+            <button
+                onClick={() => navigate("/help")}
+                className={`appBtn flex medel center ${isActive("/help") ? "active" : ""}`}
+            >
+                <TbHelpHexagon className="appicon" />
+                <span className="appBtnName">Helps</span>
             </button>
 
         </div>

@@ -9,6 +9,7 @@ import Toast from './components/system/Toast';
 //import Login from './components/login/Login';
 import ApiCheck from './components/Err/ApiCheck';
 import MainDesk from './components/ui/desk/MainDesk';
+import Help from './pages/Help';
 
 
 
@@ -33,6 +34,7 @@ function App() {
           <Route path='/prescription' element={<Prescription />} />
           <Route path='/' element={<Home />} />
           <Route path='/insert' element={<Insert />} />
+          <Route path='/help' element={<Help />} />
         </Routes>
 
         <Toast />

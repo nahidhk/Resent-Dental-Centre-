@@ -9,7 +9,17 @@
   --EnglishFont: "Sansation", sans-serif;
   --dualFont: banglaFont, var(--EnglishFont);
 }
-
+* {
+  overflow: auto;
+}
+* {
+  scrollbar-width: none;      
+  -ms-overflow-style: none;   
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; 
+}
 body {
   margin: 0;
   font-family: var(--dualFont);
@@ -806,4 +816,25 @@ z-index: 880;
 top: 0;
 left: 0;
 overflow: scroll;
+}
+.uiBorder{
+  border-bottom: 1px solid #ffffff1f;
+}
+.rghtNav{
+  height: 40px;
+  background-color: #ffffff33;
+  width: auto;
+}
+.uiNavBtn{
+  height: 40px;
+  width: 40px;
+  background-color: #ffffff00;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-right: 1px solid #ffffff4f;
+}
+.navIcon{
+    font-size: 24px;
+    color: #ffffff8a;
 }
