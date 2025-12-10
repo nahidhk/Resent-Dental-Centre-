@@ -1,24 +1,53 @@
 import React, { useEffect, useState } from "react";
 import ErrorNote from "../../hooks/ErrorNote";
+import api from "../../api/api.json"
 
-export default function ApiCheck() {
-    const [online, setOnline] = useState(null); // null = loading
-    const [error, setError] = useState(false);
+export default function OnlineCheck() {
+  const [status, setStatus] = useState(null); 
 
-    useEffect(() => {
-        fetch(`http://localhost:8000/online.php`)
-            .then(res => res.json())
-            .then(data => {
-                setOnline(data.online);
-            })
-            .catch(() => {
-                setError(true); // fetch fail হলে
-            });
-    }, []);
+  useEffect(() => {
+    const checkAPI = async () => {
+      try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 5000); 
+        const getApi = `${api.request}://${api.server}/online.php`
+        const res = await fetch(getApi, {
+          signal: controller.signal,
+        });
+        clearTimeout(timeout);
 
-    return (
-        <>
-            {error || online === false ? <ErrorNote /> : null}
-        </>
-    );
+        if (!res.ok) throw new Error("Server Error");
+
+        const data = await res.json();
+
+        if (data && data[0]?.status === "true") {
+          setStatus(null);
+        } else {
+          setStatus("dataError"); 
+        }
+      } catch (err) {
+        if (err.name === "AbortError") {
+          setStatus("network"); 
+        } else {
+          setStatus("dataError");
+        }
+      }
+    };
+
+    checkAPI();
+    const interval = setInterval(checkAPI, 3000); 
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <>
+      {status === "network" && (
+        <ErrorNote errorText="নেটওয়ার্ক সংযোগ নেই! অনুগ্রহ করে ইন্টারনেট সংযোগ চেক করুন।" />
+      )}
+      {status === "dataError" && (
+        <ErrorNote errorText="দুঃখিত পিএইচপি সার্ভের থেকে কোনো পাওয়া যাচ্ছেনা । অনুগ্রহ করে রিলোড করুন আবার চেষ্টা করুন !" />
+      )}
+    </>
+  );
 }

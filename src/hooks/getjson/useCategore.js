@@ -23,7 +23,7 @@ export default function useCategory() {
 
         fetchCategories();
 
-        const interval = setInterval(fetchCategories, 1000);
+        const interval = setInterval(fetchCategories, 3000);
         return () => clearInterval(interval);
 
     }, []);

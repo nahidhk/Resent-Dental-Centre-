@@ -1,33 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from './components/system/Nav';
 import DeviceSizeErr from './components/Err/DeviceSizeErr';
 import Prescription from './pages/Prescription';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Insert from './pages/Insert';
 import Toast from './components/system/Toast';
-//import Login from './components/login/Login';
 import ApiCheck from './components/Err/ApiCheck';
 import MainDesk from './components/ui/desk/MainDesk';
 import Help from './pages/Help';
-
-
-
-// css
 import 'animate.css';
-
-
-//console
 import eruda from "eruda";
-
-
+// Wallpapers
+import w1 from "./assets/wallpaper/w1.jpg";
+import w2 from "./assets/wallpaper/w2.jpg";
+import w3 from "./assets/wallpaper/w3.jpg";
+import w4 from "./assets/wallpaper/w4.jpg";
+import w5 from "./assets/wallpaper/w5.jpg";
+import w6 from "./assets/wallpaper/w6.jpg";
 function App() {
-  eruda.init();
-  var width = document.body.clientWidth;
-
+  const randomImages = [w1, w2, w3, w4, w5, w6];
+  const [randomBG, setRandomBG] = useState(null);
+  useEffect(() => {
+    const bg = randomImages[Math.floor(Math.random() * randomImages.length)];
+    setRandomBG(bg);
+    document.body.style.backgroundImage = `url(${bg})`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundRepeat = 'no-repeat';
+    document.body.style.backgroundPosition = 'center';
+    eruda.init();
+  }, []); 
+  const width = document.body.clientWidth;
   if (width >= 960) {
     return (
-      <>
+      <div className='wallpaper'>
         <Nav />
         <MainDesk />
         <Routes>
@@ -36,20 +42,12 @@ function App() {
           <Route path='/insert' element={<Insert />} />
           <Route path='/help' element={<Help />} />
         </Routes>
-
         <Toast />
         <ApiCheck />
-
-      </>
-    )
+      </div>
+    );
   } else {
-    return (
-      <>
-        <DeviceSizeErr widthx={width} />
-      </>
-    )
+    return <DeviceSizeErr widthx={width} />;
   }
-
 }
-
 export default App;

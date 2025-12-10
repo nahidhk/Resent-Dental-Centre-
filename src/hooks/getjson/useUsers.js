@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import api from "../../api/api.json";
-import { toast } from "react-toastify";
 
 
 export default function useUsers() {
@@ -19,8 +18,6 @@ export default function useUsers() {
 
         fetchCategories();
 
-        const interval = setInterval(fetchCategories, 1000);
-        return () => clearInterval(interval);
 
     }, []);
 
