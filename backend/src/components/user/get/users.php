@@ -1,5 +1,5 @@
 <?php
-
+include_once "../../config.php";
 $sql = "SELECT * FROM users";
 $result = mysqli_query($conn, $sql);
 

@@ -870,3 +870,44 @@ details[open] p {
   background: #4680ff;
   cursor: pointer;
 }
+
+.uiBox {
+  background-color: #ffffffcc;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.dropBtn {
+  border-top: 1px dashed #4680ff;
+  border-bottom: 1px dashed #4680ff;
+  height: 30px;
+  display: flex;
+  cursor: pointer;
+  transition: 0.1s;
+  align-items: center;
+}
+
+.dropBtn:hover {
+  background-color: #4680ff;
+  color: #fff;
+}
+
+.dropDown {
+  max-height: 30vh;
+  width: 200px;
+  position: absolute;
+  overflow: auto;
+  padding: 5px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgb(0, 0, 0);
+  background-color: #fffffffb;
+  color: #000;
+  display: none;
+}
+
+.dropdownOpen:focus-within , .dropdownOpen:hover .dropDown {
+  display: block;
+}

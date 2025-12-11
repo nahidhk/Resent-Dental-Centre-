@@ -1,12 +1,6 @@
 <?php
-
-
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
-
-$configMySQL = "../../../config.php";
-include_once $configMySQL;
-
 $request = isset($_GET['key']) ? $_GET['key'] : '';
 $get = isset($_GET['get']) ? $_GET['get'] : '';
 
@@ -24,15 +18,15 @@ if ($serverApiKeyData === null) {
 
 
 if (isset($serverApiKeyData['apikey']) && $request === $serverApiKeyData['apikey']) {
-    if($get === "category"){
-       include_once "../../src/category.php";
+    if ($get === null) {
+        include_once "../../src/components/Err/getErr.php";
     }
-    if($get === "users"){
-       include_once "../../src/users.php";
+    if ($get === "category") {
+        include_once "../../src/components/category/get/category.php";
+    }
+    if ($get === "users") {
+        include_once "../../src/components/user/get/users.php";
     }
 } else {
-    $jsonErrorData = file_get_contents('../../src/error.json');
-    $jsonErrorOutput = json_decode($jsonErrorData, true);
-    echo json_encode($jsonErrorOutput, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    include_once "../../src/components/Err/apiErr.php";
 }
-?>

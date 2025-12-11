@@ -63,6 +63,8 @@ export default function MedicineAddPrepction({ onAddMedicine }) {
     }
 
 
+    // setting medichen dropdown 
+
 
     return (
         <>
@@ -93,7 +95,7 @@ export default function MedicineAddPrepction({ onAddMedicine }) {
                     </div>
 
                     {/* Medicine */}
-                    <div className="grap">
+                    <div className="grap dropdownOpen">
                         <label htmlFor="medicine">
                             <TbCategory /> Medicine Name:
                         </label>
@@ -101,11 +103,28 @@ export default function MedicineAddPrepction({ onAddMedicine }) {
                         <input
                             type="text"
                             id="medicine"
-                            className="input w200px"
+                            className="input w200px "
                             placeholder="Type Keyword"
                             value={medicine}
                             onChange={(e) => setMedicine(e.target.value)}
                         />
+                        <div className="dropDown">
+                            <div className="dropBtn" onClick={() => setMedicine("Napa")}>
+                                Napa
+                            </div>
+                            <div className="dropBtn">
+                                Losect
+                            </div>
+                            <div className="dropBtn">
+                                Dexit
+                            </div>
+                            <div className="dropBtn">
+                                Cetofar
+                            </div>
+                            <div className="dropBtn">
+                                Seclo
+                            </div>
+                        </div>
                     </div>
 
                     {/* Time label */}
