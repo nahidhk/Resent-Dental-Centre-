@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import A4page from "../components/system/print/A4page"
+import { loading } from "../components/system/Loading"
 
 
 
 export default function Home() {
-    
+loading(false)
     return (
         <>
-        <A4page />
         </>
     );
 }
+
+

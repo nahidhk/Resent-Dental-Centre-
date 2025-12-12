@@ -18,6 +18,8 @@ import w3 from "./assets/wallpaper/w3.jpg";
 import w4 from "./assets/wallpaper/w4.jpg";
 import w5 from "./assets/wallpaper/w5.jpg";
 import w6 from "./assets/wallpaper/w6.jpg";
+// Loading Add
+import Loading from './components/system/Loading';
 function App() {
   const randomImages = [w1, w2, w3, w4, w5, w6];
   const [randomBG, setRandomBG] = useState(null);
@@ -43,6 +45,7 @@ function App() {
           <Route path='/help' element={<Help />} />
         </Routes>
         <Toast />
+        <Loading />
         <ApiCheck />
       </div>
     );

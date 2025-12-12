@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../api/api.json";
+ import {loading} from "../../components/system/Loading";
 
 
 
@@ -7,24 +8,21 @@ export default function useCategory() {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
+         loading(false)
         const fetchCategories = async () => {
-            const url = `${api.request}://${api.server}${api.getPath}?key=${api.apikey}&get=category`;
+            try {
+                const url = `${api.request}://${api.server}${api.getPath}?key=${api.apikey}&get=category`;
+                const response = await fetch(url);
+                const data = await response.json();
+                setCategories(data);
 
-            fetch(url)
-                .then((response) => response.json())
-                .then((data) => setCategories(data))
-                .catch((error) => console.error(
-                    "Error fetching api data, Page reload and try again!\nThis is a MySQL API Problem:",
-                    error
-                ));
-
-        };
-
-
+            } catch (error) {
+                console.log(error);
+            } finally {
+                loading(true)
+            }
+        }
         fetchCategories();
-
-        const interval = setInterval(fetchCategories, 3000);
-        return () => clearInterval(interval);
 
     }, []);
 

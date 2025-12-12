@@ -5,13 +5,6 @@ import { IoEyeOutline } from "react-icons/io5";
 
 export default function Table({ tableData, title, action }) {
 
-    const [loadTabelData, setLoadTabelData] = useState("Loading....");
-
-    // ⛔ infinite loop বন্ধ করতে অবশ্যই dependency array দিতে হবে
-    useEffect(() => {
-        setLoadTabelData(tableData);
-    }, [tableData]);  // ✅ tableData change হলেই শুধু update হবে
-
     if (!tableData) {
         return <ErrorNote errorText={"সঠিক ভাবে ডাটা কনফিগ করা হইনি ।"} />;
     }
@@ -21,7 +14,6 @@ export default function Table({ tableData, title, action }) {
     }
 
     const headers = Object.keys(tableData[0]);
-console.log(loadTabelData)
     return (
         <>
             <div className="table_component animate__animated animate__fadeIn" role="region" tabIndex={0}>
@@ -36,7 +28,7 @@ console.log(loadTabelData)
                         </tr>
                     </thead>
                     <tbody>
-                        {loadTabelData.map((row, index) => (
+                        {tableData.map((row, index) => (
                             <tr key={index}>
                                 {headers.map((key, i) => (
                                     <td key={i}>{row[key]}</td>

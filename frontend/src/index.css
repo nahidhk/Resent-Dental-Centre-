@@ -908,6 +908,9 @@ details[open] p {
   display: none;
 }
 
-.dropdownOpen:focus-within , .dropdownOpen:hover .dropDown {
+.dropdownOpen:focus-within  .dropDown {
+  display: block;
+}
+.dropDown:hover{
   display: block;
 }

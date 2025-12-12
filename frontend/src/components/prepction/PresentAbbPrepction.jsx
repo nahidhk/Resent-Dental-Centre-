@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import Loading from "../system/Loading";
 //#info- api data load 
 import useUsers from "../../hooks/getjson/useUsers";
 // api
@@ -17,9 +16,8 @@ import { GrLinkNext, GrLinkPrevious } from "react-icons/gr";
 function PresentAbbPrepction({ onAddPatient }) {
     // loading
     const [load, setLoad] = useState(false);
-
+    const [users , setUers] = useState([])
     // user data
-    const users = useUsers();
 
     // steps
     const [step, setStep] = useState(1);
@@ -32,7 +30,14 @@ function PresentAbbPrepction({ onAddPatient }) {
 
 
     // Next Step Button
+    
     const handleNext = () => {
+
+        const userData = useUsers();
+        setUers(userData);
+
+
+
         if (!number) {
             toast.error("Please enter phone number");
             return;

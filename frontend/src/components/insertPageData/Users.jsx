@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Table from "../system/Table/Table";
 import useUsers from "../../hooks/getjson/useUsers";
 
@@ -6,10 +6,10 @@ import useUsers from "../../hooks/getjson/useUsers";
 import { FaSearch } from "react-icons/fa";
 
 export default function Users() {
-    const users = useUsers(null);
     const [searchNumber, setSearchNumber] = useState("");
-
+    const {users} = useUsers();
     // filter logic
+
     const filteredUsers = users.filter(user =>
         user.number.includes(searchNumber)
     );

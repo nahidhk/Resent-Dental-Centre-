@@ -1,19 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function Loading({loading}) {
-  const [loader, setLoader] = useState(false);
+let setGlobalLoader;
+
+export function loading(show = false) {
+  if (setGlobalLoader) setGlobalLoader(show);
+}
+
+export default function Loading() {
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    setLoader(loading);
-  }, [])
+    setGlobalLoader = setLoader; 
+    return () => { setGlobalLoader = null }; 
+  }, []);
 
-  if (loader === true) {
-    return (
-      <>
-        <div className="">
-          <div className="loader"></div>
-        </div>
-      </>
-    )
-  }
+  if (loader === true) return null;
+
+  return(
+    <div className="index">
+      <div className="loader"></div>
+    </div>
+  );
 }
+
+
+
