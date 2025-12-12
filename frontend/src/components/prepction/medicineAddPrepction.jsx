@@ -26,7 +26,6 @@ export default function MedicineAddPrepction({ onAddMedicine }) {
 
     const [prescriptions, setPrescriptions] = useState([]);
 
-
     const addPre = () => {
         if (!medicine) {
             toast.error("Please enter medicine name!");
@@ -45,7 +44,6 @@ export default function MedicineAddPrepction({ onAddMedicine }) {
         };
 
         setPrescriptions([...prescriptions, newPrescription]);
-
         // clear input
         setCategore("");
         setMedicine("");
@@ -55,17 +53,12 @@ export default function MedicineAddPrepction({ onAddMedicine }) {
         setNotes("");
         setSetDay1("");
         setSetDay2("");
-
     };
 
     if (typeof onAddMedicine === "function") {
         onAddMedicine(prescriptions)
     }
-
-
     // setting medichen dropdown 
-
-
     return (
         <>
             <div className="center flex medel wrap">

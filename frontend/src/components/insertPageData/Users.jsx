@@ -6,7 +6,7 @@ import useUsers from "../../hooks/getjson/useUsers";
 import { FaSearch } from "react-icons/fa";
 
 export default function Users() {
-    const users = useUsers();
+    const users = useUsers(null);
     const [searchNumber, setSearchNumber] = useState("");
 
     // filter logic
