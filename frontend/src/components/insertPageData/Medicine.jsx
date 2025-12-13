@@ -1,11 +1,30 @@
-import React from "react";
+import React ,{useEffect , useState} from "react";
 import Table from "../system/Table/Table";
 import useMedicine from "../../hooks/getjson/useMedicine";
 import useCategore from "../../hooks/getjson/useCategore";
 
 export default function Medicine() {
     const medicine = useMedicine();
-    const categore = useCategore();
+    const categ = useCategore();
+    const [mapData, setMapData] = useState([]);
+
+    useEffect(() => {
+
+        if (!medicine.length || !categ.length) return;
+
+        const mergedData = medicine.map(item => {
+            const categData = categ.find(cate => cate.id === item.catg_id);
+
+            return {
+                id: item.id,
+                catg: categData ? categData.name : "N/A",
+                name: item.name
+            };
+        });
+
+        setMapData(mergedData);
+
+    }, [medicine, categ]);
 
     return (
         <>
@@ -22,7 +41,7 @@ export default function Medicine() {
                         </div>
                     </div>
                     <div className="flex">
-                        <Table tableData={medicine} action={{
+                        <Table tableData={mapData} action={{
                             delete: "url",
                             edit: "url"
                         }} />
