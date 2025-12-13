@@ -7,7 +7,7 @@ import { FaSearch } from "react-icons/fa";
 
 export default function Users() {
     const [searchNumber, setSearchNumber] = useState("");
-    const {users} = useUsers();
+    const  users  = useUsers();
     // filter logic
 
     const filteredUsers = users.filter(user =>
@@ -18,30 +18,30 @@ export default function Users() {
         <>
             <blockquote>
                 <div className="flex center medel">
-                    <div>
-                        <div className="grap">
-                            <label>User Data Analise</label>
-                            <br />
+                    <div className="uiBox">
+                        <div className="grap flex center">
+                            <div className="grap">
+                                <label>User Data Analise</label>
+                                <br />
 
-                            <div className="fx">
-                                <input
-                                    type="number"
-                                    className="fxinput"
-                                    placeholder="Filter Mobile Number"
-                                    value={searchNumber}
-                                    onChange={(e) => setSearchNumber(e.target.value)}
-                                />
-
-                                <button className="fxBtn">
-                                    <FaSearch />
-                                </button>
+                                <div className="fx">
+                                    <input
+                                        type="number"
+                                        className="fxinput"
+                                        placeholder="Filter Mobile Number"
+                                        value={searchNumber}
+                                        onChange={(e) => setSearchNumber(e.target.value)}
+                                    />
+                                    <button className="fxBtn">
+                                        <FaSearch />
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
                         <div className="flex">
                             <Table
                                 tableData={filteredUsers}
-                                title={"Present"}
                                 action={{
                                     deleteBtn: "delete",
                                     editBtn: "edit",
@@ -49,6 +49,7 @@ export default function Users() {
                                 }}
                             />
                         </div>
+                        <br /><br />
                     </div>
                 </div>
             </blockquote>

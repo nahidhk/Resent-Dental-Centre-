@@ -2,9 +2,12 @@ import React, { useState } from "react";
 
 import Categ from "../components/insertPageData/Categ";
 import Users from "../components/insertPageData/Users";
+import Medicine from "../components/insertPageData/Medicine";
 
 import UserIcon from "../assets/vector/team.png";
 import CategoryIcon from "../assets/vector/menu.png";
+import DrgusIcon from "../assets/vector/drugs.png"
+
 import UiModiulNav from "../components/ui/components/UiModiulNav";
 import Popup from "../components/popup/Popup";
 
@@ -66,6 +69,20 @@ export default function Insert() {
             <img src={CategoryIcon} className="boxIcon" />
           </span>
           <span>Categorys</span>
+        </div>
+
+        {/* Medicine */}
+
+        <div
+         className="inBox"
+         onClick={() => openPopup(Medicine, "Medicin List Axnd Data")}
+         >
+          <span>
+            <img src={DrgusIcon} className="boxIcon" />
+          </span>
+          <span>
+            Medicine
+          </span>
         </div>
 
       </div>

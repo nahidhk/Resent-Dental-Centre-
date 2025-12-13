@@ -45,28 +45,33 @@ export default function Categ() {
         <>
             <blockquote>
                 <div className="flex center medel w50%">
-                    <div className="w50">
-                        <div className="grap">
-                            <label>Category Type Insert</label>
-                            <br />
-                            <div className="fx">
-                                <input
-                                    id="catValue"
-                                    type="text"
-                                    value={catValue}
-                                    className="fxInput"
-                                    placeholder="e.g."
-                                    onChange={(e) => setCat(e.target.value)}
-                                />
-                                <button onClick={catgPost} className="fxBtn">
-                                    <RiPlayListAddFill /> Add
-                                </button>
+                    <div className="w50 uiBox">
 
+                        <div className="grap w100 flex center">
+                            <div className="grap">
+                                <label>Category Type Insert</label>
+                                <br />
+                                <div className="fx">
+                                    <input
+                                        id="catValue"
+                                        type="text"
+                                        value={catValue}
+                                        className="fxInput"
+                                        placeholder="e.g."
+                                        onChange={(e) => setCat(e.target.value)}
+                                    />
+                                    <button onClick={catgPost} className="fxBtn">
+                                        <RiPlayListAddFill /> Add
+                                    </button>
+
+                                </div>
                             </div>
                         </div>
+
                         <div className="flex">
-                            <Table tableData={categories} title={"Category"} action={{ deleteBtn: "hellourl" }} />
+                            <Table tableData={categories} action={{ deleteBtn: "hellourl" }} />
                         </div>
+                        <br /><br />
                     </div>
                 </div>
 

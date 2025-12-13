@@ -685,8 +685,16 @@ details[open] p {
 }
 
 .err {
+  height: auto;
+  width: 300px;
+  background-color: rgba(255, 0, 0, 0.665);
+  border: 1px solid #fff;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #fff;
-  background-color: #ff0000;
 }
 
 .left {
@@ -764,11 +772,6 @@ details[open] p {
   height: 30px;
   width: 70px;
   text-align: center;
-}
-
-.err {
-  background-color: red;
-  color: #fff;
 }
 
 .appBtn {
@@ -908,9 +911,14 @@ details[open] p {
   display: none;
 }
 
-.dropdownOpen:focus-within  .dropDown {
+.dropdownOpen:focus-within .dropDown {
   display: block;
 }
-.dropDown:hover{
+
+.dropDown:hover {
   display: block;
 }
+.errIcon{
+  font-size: 100px;
+}
+

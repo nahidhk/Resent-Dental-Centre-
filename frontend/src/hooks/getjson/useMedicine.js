@@ -8,7 +8,7 @@ const buildGetUrl = (config) => {
     return `${request}://${server}${getPath}?${queryString}`;
 };
 
-export default function useCategore() {
+export default function useMedicine() {
     const [jsonData, setJsonData] = useState([]);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export default function useCategore() {
                     server: api.server,
                     getPath: api.getPath,
                     key: api.apikey,
-                    get: "category"
+                    get: "medicine"
                 };
 
                 const url = buildGetUrl(getConfig);

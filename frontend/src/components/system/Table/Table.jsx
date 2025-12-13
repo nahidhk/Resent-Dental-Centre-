@@ -3,7 +3,7 @@ import ErrorNote from "../../../hooks/ErrorNote";
 import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
 import { IoEyeOutline } from "react-icons/io5";
 
-export default function Table({ tableData, title, action }) {
+export default function Table({ tableData, action }) {
 
     if (!tableData) {
         return <ErrorNote errorText={"সঠিক ভাবে ডাটা কনফিগ করা হইনি ।"} />;
@@ -18,7 +18,6 @@ export default function Table({ tableData, title, action }) {
         <>
             <div className="table_component animate__animated animate__fadeIn" role="region" tabIndex={0}>
                 <table>
-                    <caption>{title}</caption>
                     <thead>
                         <tr>
                             {headers.map((head, i) => (

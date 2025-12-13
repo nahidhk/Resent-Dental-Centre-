@@ -27,6 +27,9 @@ if (isset($serverApiKeyData['apikey']) && $request === $serverApiKeyData['apikey
     if ($get === "users") {
         include_once "../../src/components/user/get/users.php";
     }
+    if ($get === "medicine") {
+        include_once "../../src//components/medicine/get/medicine.php";
+    }
 } else {
     include_once "../../src/components/Err/apiErr.php";
 }

@@ -3,10 +3,12 @@ import { BiSolidError } from "react-icons/bi";
 export default function ErrorNote({ errorText }) {
     return (
         <>
-            <div className="err w100 flex center index bottom padding medel">
-                <p className="flex medel center">
-                    <BiSolidError className="bigText" />
-                   {errorText}
+            <div className="err index">
+                <p className="flex medel center cloman padding">
+                    <BiSolidError className="errIcon" />
+                   <p className="textCenter">
+                    {errorText}
+                   </p>
                 </p>
             </div>
         </>

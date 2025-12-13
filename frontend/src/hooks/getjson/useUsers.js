@@ -2,25 +2,42 @@ import { useEffect, useState } from "react";
 import api from "../../api/api.json";
 import { loading } from "../../components/system/Loading";
 
-export default function useUsers() {
-    const [users, setUsers] = useState([]);
+const buildGetUrl = (config) => {
+    const { request, server, getPath, ...query } = config;
+    const queryString = new URLSearchParams(query).toString();
+    return `${request}://${server}${getPath}?${queryString}`;
+};
+
+export default function useUsera() {
+    const [jsonData, setJsonData] = useState([]);
+
     useEffect(() => {
         loading(false);
-        const fetchUsers = async () => {
+
+        const fetchJsonData = async () => {
             try {
-                const url = `${api.request}://${api.server}${api.getPath}?key=${api.apikey}&get=users`;
+                const getConfig = {
+                    request: api.request,
+                    server: api.server,
+                    getPath: api.getPath,
+                    key: api.apikey,
+                    get: "users"
+                };
+
+                const url = buildGetUrl(getConfig);
                 const response = await fetch(url);
                 const data = await response.json();
-                setUsers(data);
+
+                setJsonData(data);
             } catch (error) {
-                console.error(error);
+                console.log(error);
             } finally {
                 loading(true);
             }
         };
 
-        fetchUsers();
+        fetchJsonData();
     }, []);
 
-    return { users }; 
+    return jsonData;
 }
