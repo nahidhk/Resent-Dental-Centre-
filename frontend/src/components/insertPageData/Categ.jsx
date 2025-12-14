@@ -69,7 +69,7 @@ export default function Categ() {
                         </div>
 
                         <div className="flex">
-                            <Table tableData={categories} action={{ deleteBtn: "hellourl" }} />
+                            <Table tableData={categories} action={{ deleteBtn:"category" }} />
                         </div>
                         <br /><br />
                     </div>

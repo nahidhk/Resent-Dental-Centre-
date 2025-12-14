@@ -312,6 +312,7 @@ input:focus {
   color: #4680ff;
   border: 1px solid #4680ff;
   outline: none;
+  background-color: #fff;
 }
 
 .iconTab {
