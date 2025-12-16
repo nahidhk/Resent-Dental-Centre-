@@ -1,11 +1,10 @@
-import React ,{useEffect , useState} from "react";
+import React, { useEffect, useState } from "react";
 import Table from "../system/Table/Table";
-import useMedicine from "../../hooks/getjson/useMedicine";
-import useCategore from "../../hooks/getjson/useCategore";
+import { useRestApi } from "../../hooks/getjson/useRestApi";
 
 export default function Medicine() {
-    const medicine = useMedicine();
-    const categ = useCategore();
+    const { jsonData: medicine } = useRestApi('medicine');
+    const { jsonData: categ } = useRestApi('category');
     const [mapData, setMapData] = useState([]);
 
     useEffect(() => {
@@ -38,16 +37,16 @@ export default function Medicine() {
                                 <select name="" id="" className="fxInput">
                                     <option value="" >Select The Categore</option>
                                     {
-                                        categ.map(item => 
-                                            (
-                                                <option key={item.id} value={item.id}>{item.name}</option>
-                                            )
+                                        categ.map(item =>
+                                        (
+                                            <option key={item.id} value={item.id}>{item.name}</option>
+                                        )
                                         )
                                     }
                                 </select>
-                                <input type="text" className="fxInput" placeholder="Input Medecine Name"/>
+                                <input type="text" className="fxInput" placeholder="Input Medecine Name" />
                                 <button className="fxBtn">
-                                   Add +
+                                    Add +
                                 </button>
                             </div>
                         </div>

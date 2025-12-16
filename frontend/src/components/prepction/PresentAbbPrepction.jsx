@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 //#info- api data load 
-import useUsers from "../../hooks/getjson/useUsers";
 // api
 import api from "../../api/api.json";
 
@@ -33,7 +32,7 @@ function PresentAbbPrepction({ onAddPatient }) {
     
     const handleNext = () => {
 
-        const userData = useUsers();
+        const userData ="";
         setUers(userData);
 
 
@@ -134,7 +133,7 @@ function PresentAbbPrepction({ onAddPatient }) {
 
     return (
         <>
-            {load && <Loading />}
+           
             <div className="flex medel center">
                 <div className="flex medel">
 

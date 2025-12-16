@@ -3,7 +3,7 @@ header("Content-Type: application/json");
 
 $file = "../../apikey.json";
 
-// ✅ যদি ফাইল থাকে
+
 if (file_exists($file)) {
 
     $data = json_decode(file_get_contents($file), true);
@@ -18,15 +18,13 @@ if (file_exists($file)) {
     }
 }
 
-// ❌ ফাইল নাই বা key নাই → নতুন key বানাও
-$api_key = bin2hex(random_bytes(20)); // secure key
+$api_key = bin2hex(random_bytes(20)); 
 
 $data = [
     "api_key" => $api_key,
     "created_at" => date("Y-m-d H:i:s")
 ];
 
-// JSON file create
 file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT));
 
 echo json_encode([

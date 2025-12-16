@@ -7,12 +7,12 @@ import { GiMedicines } from "react-icons/gi";
 import { MdAccessTime, MdOutlineEditNote, MdOutlineToday } from "react-icons/md";
 
 // hooks
-import useCategory from "../../hooks/getjson/useCategore";
+
 import { toast } from "react-toastify";
 
 export default function MedicineAddPrepction({ onAddMedicine }) {
 
-    const categories = useCategory();
+    const categories = useState(null);
 
     // form states
     const [categore, setCategore] = useState("");

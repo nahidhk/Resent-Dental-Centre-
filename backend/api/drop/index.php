@@ -7,9 +7,10 @@ include_once "../../config.php";
 $api_key = $_GET['key'] ?? '';
 $table   = $_GET['drop'] ?? '';
 $id      = $_GET['id'] ?? '';
+$apikey = "../../apikey.json";
+$data = json_decode(file_get_contents($apikey), true);
 
-// API KEY check
-$valid_key = "65c607c0ae914e4e87203c11be3784a9eff3f72b";
+$valid_key = $data['api_key'];
 
 if ($api_key !== $valid_key) {
     echo json_encode(["status" => "error", "message" => "Invalid API key"]);

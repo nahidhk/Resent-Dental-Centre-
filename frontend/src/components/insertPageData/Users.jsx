@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Table from "../system/Table/Table";
-import useUsers from "../../hooks/getjson/useUsers";
+
+// restApi
+import { useRestApi } from "../../hooks/getjson/useRestApi";
 
 // icons 
 import { FaSearch } from "react-icons/fa";
 
 export default function Users() {
+    const { jsonData: users  } = useRestApi('users');
     const [searchNumber, setSearchNumber] = useState("");
-    const  users  = useUsers();
-    // filter logic
-
+ 
     const filteredUsers = users.filter(user =>
-        user.number.includes(searchNumber)
+        user.number?.includes(searchNumber)
     );
+
 
     return (
         <>
@@ -23,7 +25,6 @@ export default function Users() {
                             <div className="grap">
                                 <label>User Data Analise</label>
                                 <br />
-
                                 <div className="fx">
                                     <input
                                         type="number"
@@ -38,7 +39,6 @@ export default function Users() {
                                 </div>
                             </div>
                         </div>
-
                         <div className="flex">
                             <Table
                                 tableData={filteredUsers}

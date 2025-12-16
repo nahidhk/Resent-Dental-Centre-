@@ -6,7 +6,6 @@
 .pnp.js
 /backend/config.php
 /backend/apikey.json
-
 # testing
 /coverage
 
@@ -14,7 +13,7 @@
 /build
 /app/vendor
 /app/.env
-/src/api/api.json
+/frontend/src/api/api.json
 # misc
 .DS_Store
 .env.local

@@ -1,5 +1,4 @@
 import react, { useState } from "react";
-import useCategory from "../../hooks/getjson/useCategore";
 import Table from "../system/Table/Table";
 import { toast } from "react-toastify";
 import api from "../../api/api.json";
@@ -7,13 +6,17 @@ import api from "../../api/api.json";
 // icons 
 import { RiPlayListAddFill } from "react-icons/ri";
 
+// RestApi
+import { useRestApi } from "../../hooks/getjson/useRestApi";
 
 
 
 
 export default function Categ() {
-    const categories = useCategory();
+    const {jsonData: categories} = useRestApi('category');
     const [catValue, setCat] = useState("");
+
+
     const fitersUsers = categories.filter(item =>
         item.name.toLowerCase().includes(catValue.toLowerCase())
     );

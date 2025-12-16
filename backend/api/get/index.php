@@ -1,35 +1,36 @@
 <?php
+header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-$request = isset($_GET['key']) ? $_GET['key'] : '';
-$get = isset($_GET['get']) ? $_GET['get'] : '';
+// Include config
+include_once "../../config.php";
+// GET params
+$api_key = $_GET['key'] ?? '';
+$table   = $_GET['get'] ?? '';
 
+$apikey = "../../apikey.json";
 
-$jsonFile = '../../src/server.json';
-if (!file_exists($jsonFile)) {
-    die(json_encode(["error" => "JSON file not found!"]));
+$data = json_decode(file_get_contents($apikey), true);
+
+$valid_key = $data['api_key'];
+
+if ($api_key !== $valid_key) {
+    echo json_encode(["status" => "error", "message" => "Invalid API key"]);
+    exit();
 }
 
-$jsonData = file_get_contents($jsonFile);
-$serverApiKeyData = json_decode($jsonData, true);
-if ($serverApiKeyData === null) {
-    die(json_encode(["error" => "Invalid JSON data!"]));
+// Validation
+if (!$table) {
+    echo json_encode(["status" => "error", "message" => "Missing parameters"]);
+    exit();
 }
 
 
-if (isset($serverApiKeyData['apikey']) && $request === $serverApiKeyData['apikey']) {
-    if ($get === null) {
-        include_once "../../src/components/Err/getErr.php";
-    }
-    if ($get === "category") {
-        include_once "../../src/components/category/get/category.php";
-    }
-    if ($get === "users") {
-        include_once "../../src/components/user/get/users.php";
-    }
-    if ($get === "medicine") {
-        include_once "../../src//components/medicine/get/medicine.php";
-    }
-} else {
-    include_once "../../src/components/Err/apiErr.php";
+$sql = "SELECT * FROM `$table`";
+$result = mysqli_query($conn, $sql);
+
+$outjsondata = [];
+while($row = mysqli_fetch_assoc($result)) {
+    $outjsondata[] = $row;
 }
+
+echo json_encode($outjsondata, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);

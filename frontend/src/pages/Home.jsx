@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
-import useCategore from "../hooks/getjson/useCategore";
-import useMedicine from "../hooks/getjson/useMedicine";
+
+import { useRestApi } from "../hooks/getjson/useRestApi";
 
 export default function Home() {
-   
+    const usersData = useRestApi("users");
+
+
 
     return (
-        <div>
-           
-        </div>
+        <>
+            {
+                JSON.stringify(usersData)
+            }
+        </>
     );
 }
