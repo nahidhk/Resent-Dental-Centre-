@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /backend/config.php
+/backend/apikey.json
 
 # testing
 /coverage
