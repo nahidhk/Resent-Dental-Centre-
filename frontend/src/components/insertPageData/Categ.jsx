@@ -14,6 +14,9 @@ import { RiPlayListAddFill } from "react-icons/ri";
 export default function Categ() {
     const categories = useCategory();
     const [catValue, setCat] = useState("");
+    const fitersUsers = categories.filter(item =>
+        item.name.toLowerCase().includes(catValue.toLowerCase())
+    );
     const catgPost = () => {
         const jsonConvart = { name: catValue };
         if (!catValue) {
@@ -69,7 +72,7 @@ export default function Categ() {
                         </div>
 
                         <div className="flex">
-                            <Table tableData={categories} action={{ deleteBtn:"category" }} />
+                            <Table tableData={fitersUsers} action={{ deleteBtn: "category" }} />
                         </div>
                         <br /><br />
                     </div>
