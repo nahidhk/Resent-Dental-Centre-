@@ -8,43 +8,31 @@ import { RiPlayListAddFill } from "react-icons/ri";
 
 // RestApi
 import { useRestApi } from "../../hooks/getjson/useRestApi";
-
+import { usePostApi } from "../../hooks/post/usePostApi";
 
 
 
 export default function Categ() {
-    const {jsonData: categories} = useRestApi('category');
+    const setUserPostApiData = usePostApi();
+    const db = "category"
+    const {jsonData: categories} = useRestApi(db);
     const [catValue, setCat] = useState("");
 
 
     const fitersUsers = categories.filter(item =>
         item.name.toLowerCase().includes(catValue.toLowerCase())
     );
+    
     const catgPost = () => {
-        const jsonConvart = { name: catValue };
-        if (!catValue) {
-            toast.error("Please enter a category name!");
-            return;
+        const categoryJson = {
+            name:catValue,
+            db_name:db
         }
-        fetch(`${api.request}://${api.server}${api.postPath}?key=${api.apikey}&post=category`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(jsonConvart)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
+        setUserPostApiData(categoryJson);
+    }
 
-                if (data.success) {
-                    setCat("");
-                    // window.location.reload();
-                    toast.success("Category is add success.")
-                } else {
-                    alert("Error: " + data.error);
-                }
-            })
-            .catch(err => console.error(err));
-    };
+
+
 
 
     return (
