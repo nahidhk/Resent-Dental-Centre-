@@ -1,8 +1,0 @@
-{
-    "server":"localhost:8000",
-    "getPath":"/api/get/",
-    "postPath":"/api/post/",
-    "dropPath":"/api/drop/",
-    "request":"http",
-    "apikey":"469e06349c3b3f413020602914ce65dd54097180"
-}

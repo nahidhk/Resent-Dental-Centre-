@@ -13,7 +13,6 @@
 /build
 /app/vendor
 /app/.env
-/frontend/src/api/api.json
 # misc
 .DS_Store
 .env.local
