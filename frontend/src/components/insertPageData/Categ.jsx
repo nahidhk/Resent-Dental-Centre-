@@ -9,9 +9,14 @@ export default function Categ() {
     const db = "category";
 
     const { jsonData: categories } = useRestApi(db);
-
+    const [jsonData, setJsonData] = useState([]);
     const [catValue, setCat] = useState("");
-
+    const handelDataSet = () =>{
+      setJsonData({
+        name: catValue,
+        db_name: db
+    })
+    }
 
 
     const fitersUsers = categories.filter(item =>
@@ -19,10 +24,6 @@ export default function Categ() {
     );
 
 
-    const postData = {
-        name: catValue,
-        db_name: db
-    };
 
 
     return (
@@ -43,7 +44,7 @@ export default function Categ() {
                                         placeholder="e.g."
                                         onChange={(e) => setCat(e.target.value)}
                                     />
-                                    <button onClick={() => postApi(postData)} className="fxBtn">
+                                    <button onClick={handelDataSet} className="fxBtn">
                                         <RiPlayListAddFill /> Add
                                     </button>
                                 </div>
