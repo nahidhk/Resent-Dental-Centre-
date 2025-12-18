@@ -1,9 +1,7 @@
 <?php
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
-// Include config
 include_once "../../config.php";
-// GET params
 $api_key = $_GET['key'] ?? '';
 $table   = $_GET['get'] ?? '';
 
@@ -18,7 +16,6 @@ if ($api_key !== $valid_key) {
     exit();
 }
 
-// Validation
 if (!$table) {
     echo json_encode(["status" => "error", "message" => "Missing parameters"]);
     exit();

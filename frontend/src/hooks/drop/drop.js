@@ -5,16 +5,19 @@ import api from "../../api/api.json";
 export async function drop(JsonData) {
   try {
     const url = `${api.request}://${api.server}${api.dropPath}?key=${api.apikey}&drop=${JsonData.action}&id=${JsonData.id}`;
-    console.log(url)
-
     const res = await fetch(url);
     const data = await res.json();
-
-    // return data; 
-    toast.success(JSON.stringify(data));
-    console.log(data)
+    if (data.success) {
+      toast.success(data.message);
+    } else {
+      toast.error(data.message);
+    }
+   window.location.reload();
+    return data;
   } catch (error) {
-    toast.error("not Deleate")
+    toast.error("Api Problem and try agin!");
+    
     return null;
   }
+
 }

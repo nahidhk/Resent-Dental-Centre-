@@ -7,8 +7,7 @@ const buildGetUrl = (config) => {
   const queryString = new URLSearchParams(query).toString();
   return `${request}://${server}${getPath}?${queryString}`;
 };
-
-export function useRestApi(tableName, interval = 10000) { // interval in ms
+export function useRestApi(tableName) {
   const [jsonData, setJsonData] = useState([]);
   const [error, setError] = useState(null);
 
@@ -43,13 +42,7 @@ export function useRestApi(tableName, interval = 10000) { // interval in ms
 
   useEffect(() => {
     fetchData(); 
+  }, [tableName]);
 
-    const autoReload = setInterval(() => {
-      fetchData(); 
-    }, interval);
-
-    return () => clearInterval(autoReload); 
-  }, [tableName, interval]);
-
-  return { jsonData, error };
+  return { jsonData, error, refetch: fetchData }; 
 }

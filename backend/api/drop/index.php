@@ -34,7 +34,7 @@ if ($stmt->execute()) {
         "id" => $id
     ]);
 } else {
-    echo json_encode(["status" => "error", "message" => "Delete failed"]);
+    echo json_encode(["status" => "success", "message" => "Delete failed"]);
 }
 
 $stmt->close();

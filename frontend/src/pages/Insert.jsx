@@ -11,8 +11,10 @@ import DrgusIcon from "../assets/vector/drugs.png"
 import UiModiulNav from "../components/ui/components/UiModiulNav";
 import Popup from "../components/popup/Popup";
 
-export default function Insert() {
+import { useNavigate } from "react-router-dom";
 
+export default function Insert() {
+  const navigate = useNavigate();
   const [popupData, setPopupData] = useState({
     open: false,
     component: null,
@@ -35,6 +37,13 @@ export default function Insert() {
     });
   }
 
+  // set all handel 
+
+  const handelUser = () =>{
+    navigate("users");
+    openPopup(Users, "Patients List and Data");
+  }
+
   return (
     <div className="uiModiul animate__animated animate__backInUp">
       <UiModiulNav />
@@ -52,7 +61,7 @@ export default function Insert() {
         {/* Patients Box */}
         <div
           className="inBox"
-          onClick={() => openPopup(Users, "Patients List and Data")}
+          onClick={handelUser}
         >
           <span>
             <img src={UserIcon} className="boxIcon" />

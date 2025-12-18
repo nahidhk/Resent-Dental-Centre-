@@ -1,143 +1,42 @@
 <?php
+include_once "../../config.php";
+$api_key = $_GET['key'] ?? '';
 
-// CORS header
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-header("Content-Type: application/json; charset=UTF-8");
+$apikey = "../../apikey.json";
 
-// OPTIONS preflight request (very important for React fetch)
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+$data = json_decode(file_get_contents($apikey), true);
+
+$valid_key = $data['api_key'];
+
+if ($api_key !== $valid_key) {
+    echo json_encode(["status" => "error", "message" => "Invalid API key"]);
     exit();
 }
 
-// Include config
-$configMySQL = "../../../config.php";
-include_once $configMySQL;
+$input = json_decode(file_get_contents("php://input"), true);
 
-// Query inputs
-$request = $_GET['key'] ?? '';
-$post = $_GET['post'] ?? '';
-
-// Load server JSON
-$jsonFile = '../../src/server.json';
-if (!file_exists($jsonFile)) {
-    echo json_encode(["error" => "JSON file not found!"]);
-    exit();
+if (!$input || !isset($input['db_name'])) {
+    echo json_encode(["status"=>false,"message"=>"No data or table name received"]);
+    exit;
 }
 
-$jsonData = file_get_contents($jsonFile);
-$serverApiKeyData = json_decode($jsonData, true);
+$table = $conn->real_escape_string($input['db_name']);
+unset($input['db_name']);
 
-if ($serverApiKeyData === null) {
-    echo json_encode(["error" => "Invalid JSON data!"]);
-    exit();
-}
+$columns = implode(", ", array_keys($input));
+$placeholders = implode(", ", array_fill(0, count($input), "?"));
+$values = array_values($input);
 
-// Validate API Key
-if (isset($serverApiKeyData['apikey']) && $request === $serverApiKeyData['apikey']) {
+$stmt = $conn->prepare("INSERT INTO $table ($columns) VALUES ($placeholders)");
 
-    
-    if ($post === "category") {
+$types = str_repeat("s", count($values));
+$stmt->bind_param($types, ...$values);
 
-        $rawData = file_get_contents("php://input");
-        $inputData = json_decode($rawData, true);
-
-        
-        if ($inputData === null) {
-            echo json_encode(["error" => "Invalid JSON input!", "raw" => $rawData]);
-            exit();
-        }
-
-        if (isset($inputData['name'])) {
-
-            $categoryName = $inputData['name'];
-
-
-            if ($conn->connect_error) {
-                echo json_encode(["error" => "Database connection failed: " . $conn->connect_error]);
-                exit();
-            }
-
-            
-            $stmt = $conn->prepare("INSERT INTO category (name) VALUES (?)");
-            $stmt->bind_param("s", $categoryName);
-
-            if ($stmt->execute()) {
-                echo json_encode([
-                    "success" => true,
-                    "message" => "Category '$categoryName' added successfully."
-                ]);
-            } else {
-                echo json_encode(["error" => "Failed to add category: " . $stmt->error]);
-            }
-
-            $stmt->close();
-            $conn->close();
-            exit();
-        }
-
-        echo json_encode(["error" => "Name field missing!"]);
-        exit();
-    }
-
-   if ($post === "users") {
-
-    $rawData = file_get_contents("php://input");
-    $inputData = json_decode($rawData, true);
-
-    if ($inputData === null) {
-        echo json_encode(["error" => "Invalid JSON input!", "raw" => $rawData]);
-        exit();
-    }
-
-    // Check required fields
-    if (
-        isset($inputData['name']) &&
-        isset($inputData['age']) &&
-        isset($inputData['sex']) &&
-        isset($inputData['number'])
-    ) {
-
-        $name   = $inputData['name'];
-        $age    = $inputData['age'];
-        $sex    = $inputData['sex'];
-        $number = $inputData['number'];
-
-        if ($conn->connect_error) {
-            echo json_encode(["error" => "Database connection failed: " . $conn->connect_error]);
-            exit();
-        }
-
-        $stmt = $conn->prepare("INSERT INTO users (name, age, sex, number) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("siss", $name, $age, $sex, $number);
-
-        if ($stmt->execute()) {
-            echo json_encode([
-                "success" => true,
-                "message" => "User added successfully.",
-                "data" => $inputData
-            ]);
-        } else {
-            echo json_encode(["error" => "Failed to add user: " . $stmt->error]);
-        }
-
-        $stmt->close();
-        $conn->close();
-        exit();
-    } 
-    else {
-        echo json_encode(["error" => "Missing required fields! name, age, sex, number required"]);
-        exit();
-    }
-}
-
-
+if ($stmt->execute()) {
+    echo json_encode(["status"=>"success","message"=>"Data inserted successfully","data"=>$input]);
 } else {
-    // Wrong API key response
-    $jsonErrorData = file_get_contents('../../src/error.json');
-    $jsonErrorOutput = json_decode($jsonErrorData, true);
-    echo json_encode($jsonErrorOutput, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    exit();
+    echo json_encode(["status"=>"error","message"=>"Insert failed: ".$stmt->error]);
 }
-?>
+
+$stmt->close();
+$conn->close();

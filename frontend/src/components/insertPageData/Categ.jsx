@@ -1,22 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Table from "../system/Table/Table";
 import { RiPlayListAddFill } from "react-icons/ri";
-
 import { useRestApi } from "../../hooks/getjson/useRestApi";
-import { usePostApi as postApi } from "../../hooks/post/usePostApi";
+import { postApi } from "../../hooks/post/postApi";
+import { toast } from "react-toastify";
 
 export default function Categ() {
     const db = "category";
 
-    const { jsonData: categories } = useRestApi(db);
-    const [jsonData, setJsonData] = useState([]);
     const [catValue, setCat] = useState("");
-    const handelDataSet = () =>{
-      setJsonData({
-        name: catValue,
-        db_name: db
-    })
+    const { jsonData: categories, refetch } = useRestApi(db);
+    const handelDataSet = () => {
+        if (!catValue) {
+            toast.error("Fild The Category")
+        } else {
+            const jsonData = {
+                name: catValue,
+                db_name: db
+            };
+            postApi(jsonData);
+            refetch();
+        }
     }
+
+
 
 
     const fitersUsers = categories.filter(item =>
@@ -60,4 +67,5 @@ export default function Categ() {
             </blockquote>
         </>
     );
+
 }
