@@ -14,9 +14,9 @@ export default function SideNav() {
 
     // Active class check function
     const isActive = (path) => location.pathname === path;
+    const subIsActive = (path) => location.pathname.startsWith(path);
 
     return (
-
         <div className="flex">
 
             {/* Home */}
@@ -25,7 +25,7 @@ export default function SideNav() {
                 className={`appBtn flex medel center ${isActive("/") ? "active" : ""}`}
             >
                 <AiOutlineHome className="appicon" />
-                <span className="appBtnName">Home</span>
+                <span className="appBtnName animate__fadeInUp animate__animated">Home</span>
             </button>
 
             {/* Prescription */}
@@ -34,16 +34,16 @@ export default function SideNav() {
                 className={`appBtn flex medel center ${isActive("/prescription") ? "active" : ""}`}
             >
                 <LiaFilePrescriptionSolid className="appicon" />
-                <span className="appBtnName">Prescription</span>
+                <span className="appBtnName animate__fadeInUp animate__animated">Prescription</span>
             </button>
 
             {/* Insert Data */}
             <button
                 onClick={() => navigate("/insert")}
-                className={`appBtn flex medel center ${isActive("/insert") ? "active" : ""}`}
+                className={`appBtn flex medel center ${subIsActive("/insert") ? "active" : ""}`}
             >
                 <VscInsert className="appicon" />
-                <span className="appBtnName">Insert Data</span>
+                <span className="appBtnName animate__fadeInUp animate__animated" >Insert</span>
             </button>
 
             {/* Setting */}
@@ -52,7 +52,7 @@ export default function SideNav() {
                 className={`appBtn flex medel center ${isActive("/setting") ? "active" : ""}`}
             >
                 <IoSettingsOutline className="appicon" />
-                <span className="appBtnName">Setting</span>
+                <span className="appBtnName animate__fadeInUp animate__animated">Setting</span>
             </button>
 
             {/* Demo */}
@@ -61,7 +61,7 @@ export default function SideNav() {
                 className={`appBtn flex medel center ${isActive("/help") ? "active" : ""}`}
             >
                 <TbHelpHexagon className="appicon" />
-                <span className="appBtnName">Helps</span>
+                <span className="appBtnName animate__fadeInUp animate__animated">Helps</span>
             </button>
 
         </div>

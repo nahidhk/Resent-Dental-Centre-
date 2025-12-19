@@ -793,7 +793,20 @@ details[open] p {
 }
 
 .appBtnName {
+  color: #ffd369;
+  background: #2c536469;
+  border: 1px dashed #ffd369;
+  padding: 6px 14px;
+  position: absolute;
+  bottom: 70px;
+  border-radius: 14px;
   display: none;
+  font-size: 12pt;
+  backdrop-filter: blur(5px);
+  width: auto;
+}
+.appBtn:hover .appBtnName{
+  display: block;
 }
 
 .appicon {
@@ -922,4 +935,6 @@ details[open] p {
 .errIcon{
   font-size: 100px;
 }
-
+.bigIcon{
+  font-size: larger;
+}

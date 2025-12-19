@@ -91,10 +91,10 @@ function PresentAbbPrepction({ onAddPatient }) {
 
         const isUserExist = users.find(user => user.number === number);
 
-        // Loading START (Always ON)
+       
         setLoad(true);
 
-        // If NOT exist → Save to DB
+     
         if (!isUserExist) {
 
             fetch(`${api.request}://${api.server}${api.postPath}?key=${api.apikey}&post=users`, {
@@ -104,7 +104,7 @@ function PresentAbbPrepction({ onAddPatient }) {
             })
                 .then(res => res.json())
                 .then(data => {
-                    setLoad(false); // Loading OFF
+                    setLoad(false); 
 
                     if (data.success) {
                         toast.success("New patient added to system");
@@ -113,13 +113,13 @@ function PresentAbbPrepction({ onAddPatient }) {
                     }
                 })
                 .catch(err => {
-                    setLoad(false); // Loading OFF on Error
+                    setLoad(false); 
                     console.error(err);
                     toast.error("Server Error");
                 });
 
         } else {
-            setLoad(false); // Loading OFF
+            setLoad(false); 
             toast.info("Patient already exists in the system");
         }
 
@@ -218,10 +218,7 @@ function PresentAbbPrepction({ onAddPatient }) {
                                     value={pSex}
                                     onChange={(e) => setSex(e.target.value)}
                                 >
-                                    <option value="" disabled>Select</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Other">Other</option>
+                                    
                                 </select>
                             </div>
 

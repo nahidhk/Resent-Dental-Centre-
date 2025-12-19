@@ -3,14 +3,17 @@ import Nav from './components/system/Nav';
 import DeviceSizeErr from './components/Err/DeviceSizeErr';
 import Prescription from './pages/Prescription';
 import { Routes, Route } from "react-router-dom";
+
+// pages
 import Home from './pages/Home';
 import Insert from './pages/Insert';
 import Toast from './components/system/Toast';
 import ApiCheck from './components/Err/ApiCheck';
 import MainDesk from './components/ui/desk/MainDesk';
 import Help from './pages/Help';
-import 'animate.css';
-import eruda from "eruda";
+
+// Insers Data Set
+import Users from "./components/insertPageData/Users"
 // Wallpapers
 import w1 from "./assets/wallpaper/w1.jpg";
 import w2 from "./assets/wallpaper/w2.jpg";
@@ -20,6 +23,10 @@ import w5 from "./assets/wallpaper/w5.jpg";
 import w6 from "./assets/wallpaper/w6.jpg";
 // Loading Add
 import Loading from './components/system/Loading';
+// web setting
+import 'animate.css';
+import eruda from "eruda";
+
 function App() {
   const randomImages = [w1, w2, w3, w4, w5, w6];
   const [randomBG, setRandomBG] = useState(null);
@@ -31,7 +38,7 @@ function App() {
     document.body.style.backgroundRepeat = 'no-repeat';
     document.body.style.backgroundPosition = 'center';
     eruda.init();
-  }, []); 
+  }, []);
   const width = document.body.clientWidth;
   if (width >= 960) {
     return (
@@ -43,6 +50,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/insert' element={<Insert />} />
           <Route path='/help' element={<Help />} />
+          {/* Insers Link popup System */}
+          <Route path='/insert/users' element={<Users />} />
         </Routes>
         <Toast />
         <Loading />

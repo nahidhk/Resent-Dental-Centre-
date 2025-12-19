@@ -6,9 +6,7 @@ export default function Help() {
         <>
         <div className="uiModiul animate__animated animate__backInUp">
             <UiModiulNav />
-            <h1>
-                
-            </h1>
+            
         </div>
         </>
     )

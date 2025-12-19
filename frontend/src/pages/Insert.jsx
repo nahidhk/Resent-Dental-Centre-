@@ -1,67 +1,25 @@
 import React, { useState } from "react";
 
-import Categ from "../components/insertPageData/Categ";
-import Users from "../components/insertPageData/Users";
-import Medicine from "../components/insertPageData/Medicine";
-
 import UserIcon from "../assets/vector/team.png";
 import CategoryIcon from "../assets/vector/menu.png";
 import DrgusIcon from "../assets/vector/drugs.png"
 
 import UiModiulNav from "../components/ui/components/UiModiulNav";
-import Popup from "../components/popup/Popup";
-
 import { useNavigate } from "react-router-dom";
 
 export default function Insert() {
   const navigate = useNavigate();
-  const [popupData, setPopupData] = useState({
-    open: false,
-    component: null,
-    title: ""
-  });
-
-  const openPopup = (component, title) => {
-    setPopupData({
-      open: true,
-      component: component,
-      title: title
-    });
-  }
-
-  const closePopup = () => {
-    setPopupData({
-      open: false,
-      component: null,
-      title: ""
-    });
-  }
-
-  // set all handel 
-
-  const handelUser = () =>{
-    navigate("users");
-    openPopup(Users, "Patients List and Data");
-  }
-
   return (
     <div className="uiModiul animate__animated animate__backInUp">
       <UiModiulNav />
       {/* Popup show only when open */}
-      {popupData.open && popupData.component && (
-        <Popup
-          idData={popupData.component}
-          title={popupData.title}
-          onClose={closePopup}
-        />
-      )}
 
       <div className="flex">
 
         {/* Patients Box */}
         <div
           className="inBox"
-          onClick={handelUser}
+          onClick={() => navigate("users")}
         >
           <span>
             <img src={UserIcon} className="boxIcon" />
@@ -72,7 +30,7 @@ export default function Insert() {
         {/* Category Box */}
         <div
           className="inBox"
-          onClick={() => openPopup(Categ, "Categorys List and Data")}
+          onClick={() => ""}
         >
           <span>
             <img src={CategoryIcon} className="boxIcon" />
@@ -83,9 +41,9 @@ export default function Insert() {
         {/* Medicine */}
 
         <div
-         className="inBox"
-         onClick={() => openPopup(Medicine, "Medicin List Axnd Data")}
-         >
+          className="inBox"
+        // onClick={() => openPopup(Medicine, "Medicin List Axnd Data")}
+        >
           <span>
             <img src={DrgusIcon} className="boxIcon" />
           </span>
