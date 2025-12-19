@@ -17,7 +17,7 @@ export default function Loading() {
   if (loader === true) return null;
 
   return(
-    <div className="index">
+    <div className="index fixed">
       <div className="loader"></div>
     </div>
   );

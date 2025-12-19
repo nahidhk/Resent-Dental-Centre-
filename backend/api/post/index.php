@@ -1,41 +1,58 @@
 <?php
 include_once "../../config.php";
+
+// API KEY CHECK
 $api_key = $_GET['key'] ?? '';
-
 $apikey = "../../apikey.json";
+$dataKey = json_decode(file_get_contents($apikey), true);
 
-$data = json_decode(file_get_contents($apikey), true);
-
-$valid_key = $data['api_key'];
-
-if ($api_key !== $valid_key) {
+if ($api_key !== $dataKey['api_key']) {
     echo json_encode(["status" => "error", "message" => "Invalid API key"]);
-    exit();
+    exit;
 }
 
+// INPUT READ
 $input = json_decode(file_get_contents("php://input"), true);
 
-if (!$input || !isset($input['db_name'])) {
-    echo json_encode(["status"=>false,"message"=>"No data or table name received"]);
+if (
+    !$input ||
+    !isset($input['db_name']) ||
+    !isset($input['data']) ||
+    !is_array($input['data'])
+) {
+    echo json_encode([
+        "status" => "error",
+        "message" => "Invalid input format"
+    ]);
     exit;
 }
 
 $table = $conn->real_escape_string($input['db_name']);
-unset($input['db_name']);
+$data = $input['data']; 
 
-$columns = implode(", ", array_keys($input));
-$placeholders = implode(", ", array_fill(0, count($input), "?"));
-$values = array_values($input);
+// BUILD QUERY
+$columns = implode(", ", array_keys($data));
+$placeholders = implode(", ", array_fill(0, count($data), "?"));
+$values = array_values($data);
 
-$stmt = $conn->prepare("INSERT INTO $table ($columns) VALUES ($placeholders)");
+$sql = "INSERT INTO `$table` ($columns) VALUES ($placeholders)";
+$stmt = $conn->prepare($sql);
 
 $types = str_repeat("s", count($values));
 $stmt->bind_param($types, ...$values);
 
+// EXECUTE
 if ($stmt->execute()) {
-    echo json_encode(["status"=>"success","message"=>"Data inserted successfully","data"=>$input]);
+    echo json_encode([
+        "status" => "success",
+        "message" => "Data inserted successfully",
+        "data" => $data
+    ]);
 } else {
-    echo json_encode(["status"=>"error","message"=>"Insert failed: ".$stmt->error]);
+    echo json_encode([
+        "status" => "error",
+        "message" => "Insert failed: " . $stmt->error
+    ]);
 }
 
 $stmt->close();

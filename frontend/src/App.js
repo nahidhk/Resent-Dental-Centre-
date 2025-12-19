@@ -26,6 +26,7 @@ import Loading from './components/system/Loading';
 // web setting
 import 'animate.css';
 import eruda from "eruda";
+import Categ from './components/insertPageData/Categ';
 
 function App() {
   const randomImages = [w1, w2, w3, w4, w5, w6];
@@ -52,6 +53,7 @@ function App() {
           <Route path='/help' element={<Help />} />
           {/* Insers Link popup System */}
           <Route path='/insert/users' element={<Users />} />
+          <Route path='/insert/category' element={<Categ />} />
         </Routes>
         <Toast />
         <Loading />

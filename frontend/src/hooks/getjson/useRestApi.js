@@ -7,9 +7,9 @@ const buildGetUrl = (config) => {
   const queryString = new URLSearchParams(query).toString();
   return `${request}://${server}${getPath}?${queryString}`;
 };
+
 export function useRestApi(tableName) {
   const [jsonData, setJsonData] = useState([]);
-  const [error, setError] = useState(null);
 
   const fetchData = async () => {
     if (!tableName) return;
@@ -34,15 +34,20 @@ export function useRestApi(tableName) {
       setJsonData(data);
     } catch (err) {
       console.error(err);
-      setError(err.message);
     } finally {
       loading(true);
     }
   };
 
   useEffect(() => {
-    fetchData(); 
+    fetchData();
   }, [tableName]);
 
-  return { jsonData, error, refetch: fetchData }; 
+  const handelFacth = () => {
+    setTimeout(() => {
+      fetchData();
+    }, 2500)
+  }
+
+  return { jsonData, refetch: handelFacth };
 }

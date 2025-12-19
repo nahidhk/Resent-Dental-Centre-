@@ -16,11 +16,14 @@ export default function Categ() {
             toast.error("Fild The Category")
         } else {
             const jsonData = {
-                name: catValue,
-                db_name: db
+                db_name: db,
+                data:{
+                    name:catValue
+                }
             };
-            postApi(jsonData);
+            postApi(jsonData); 
             refetch();
+
         }
     }
 
@@ -54,7 +57,7 @@ export default function Categ() {
                                             placeholder="e.g."
                                             onChange={(e) => setCat(e.target.value)}
                                         />
-                                        
+
                                         <button onClick={handelDataSet} className="fxBtn">
                                             <RiPlayListAddFill /> Add
                                         </button>
@@ -63,12 +66,13 @@ export default function Categ() {
                             </div>
 
                             <div className="flex">
-                                <Table tableData={fitersUsers} action={{ deleteBtn: "category" }} />
+                                <Table tableData={fitersUsers} action={{ deleteBtn: db }} />
                             </div>
 
                         </div>
                     </div>
                 </blockquote>
+                <br /><br /><br />
             </div>
         </>
     );

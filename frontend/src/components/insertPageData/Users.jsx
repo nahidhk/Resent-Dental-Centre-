@@ -3,18 +3,63 @@ import Table from "../system/Table/Table";
 import UiModiulNav from "../ui/components/UiModiulNav";
 // restApi
 import { useRestApi } from "../../hooks/getjson/useRestApi";
-import sex from "../../data/present/sex.json"
+import sex from "../../data/present/sex.json";
+import { sessionData } from "../../scripts/sessionData";
+import { postApi } from "../../hooks/post/postApi";
 
 // icons 
 import { IoSaveOutline } from "react-icons/io5";
 
 export default function Users() {
-    const { jsonData: users } = useRestApi('users');
+    const db = 'users';
+    const { jsonData: users, refetch } = useRestApi(db);
     const [searchNumber, setSearchNumber] = useState("");
+    const [nameValue, setName] = useState("");
+    const [ageValue, setAge] = useState("");
+    const [sexValue, setSexValue] = useState("");
+    const [jsonData, setJsonData] = useState("");
+
+
+    useEffect(() => {
+        const getjsonData = sessionData({ get: db });
+        if (getjsonData) {
+            setSearchNumber(getjsonData.number || "");
+            setName(getjsonData.name || "");
+            setAge(getjsonData.age || "");
+            setSexValue(getjsonData.sex || "");
+        }
+    }, []);
+
+
+    useEffect(() => {
+        const inputJsonData = {
+            number: searchNumber,
+            name: nameValue,
+            age: ageValue,
+            sex: sexValue
+        };
+        setJsonData(inputJsonData);
+        sessionData({ set: inputJsonData, setDB: db });
+    }, [searchNumber, nameValue, ageValue, sexValue]);
+
+
     const filteredUsers = users.filter(user =>
-        user.number?.includes(searchNumber)
+        (!searchNumber || user.number?.includes(searchNumber)) &&
+        (!nameValue || user.name?.toLowerCase().includes(nameValue.toLowerCase())) &&
+        (!ageValue || String(user.age).includes(ageValue)) &&
+        (!sexValue || user.sex === sexValue)
     );
 
+    const handelPost = () => {
+
+        const sendDB = {
+            db_name: db,
+            data: jsonData
+        }
+        postApi(sendDB);
+        console.log(sendDB)
+        refetch();
+    }
 
     return (
         <>
@@ -39,25 +84,31 @@ export default function Users() {
                                             type="number"
                                             className="fxInput w50px"
                                             placeholder="Age"
+                                            onChange={(e) => setAge(e.target.value)}
+                                            value={ageValue}
                                         />
                                         <input
                                             type="text"
                                             className="fxInput"
                                             placeholder="Present Name"
+                                            onChange={(e) => setName(e.target.value)}
+                                            value={nameValue}
                                         />
                                         <select
                                             className="fxinput"
+                                            onChange={(e) => setSexValue(e.target.value)}
+                                            value={sexValue}
                                         >
-                                            <option selected> All Sex</option>
+                                            <option value={""} selected> All Sex</option>
                                             {
-                                                sex.map(item=>(
+                                                sex.map(item => (
                                                     <option key={item.id} value={item.id}>
                                                         {item.name}
                                                     </option>
                                                 ))
                                             }
                                         </select>
-                                        <button className="fxBtn">
+                                        <button onClick={handelPost} className="fxBtn">
                                             <IoSaveOutline className="bigIcon" />
                                         </button>
                                     </div>
@@ -67,7 +118,7 @@ export default function Users() {
                                 <Table
                                     tableData={filteredUsers}
                                     action={{
-                                        deleteBtn: "delete",
+                                        deleteBtn: db,
                                         editBtn: "edit",
                                         viewBtn: "view"
                                     }}

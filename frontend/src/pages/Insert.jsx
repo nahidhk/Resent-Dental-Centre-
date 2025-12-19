@@ -30,7 +30,7 @@ export default function Insert() {
         {/* Category Box */}
         <div
           className="inBox"
-          onClick={() => ""}
+          onClick={() => navigate("category")}
         >
           <span>
             <img src={CategoryIcon} className="boxIcon" />

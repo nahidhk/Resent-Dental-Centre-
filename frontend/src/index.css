@@ -40,7 +40,6 @@ button {
 
 .nav {
   height: 70px;
-  position: fixed;
   width: 100%;
   backdrop-filter: blur(5px);
   background-color: #00000033;
@@ -80,9 +79,10 @@ button {
   height: 100vh;
   width: 100%;
 }
-
-.index {
+.fixed{
   position: fixed;
+}
+.index {
   z-index: 1000;
 }
 
@@ -827,16 +827,16 @@ details[open] p {
 }
 
 .uiModiul {
-  background-color: #00000036;
+  background-color: #00000071;
   backdrop-filter: blur(5px);
   border-radius: 10px;
   width: 100%;
   height: 100vh;
   position: fixed;
   z-index: 880;
-  top: 0;
+  bottom: 0;
   left: 0;
-  overflow: auto;
+  overflow: auto; 
 }
 
 .uiBorder {
@@ -937,4 +937,13 @@ details[open] p {
 }
 .bigIcon{
   font-size: larger;
+}
+.back:hover{
+  background-color: #ff9100;
+}
+.reload:hover{
+  background-color: #4680ff;
+}
+.exit:hover{
+  background-color: red;
 }
