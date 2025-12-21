@@ -184,13 +184,7 @@ function PresentAbbPrepction({ onAddPatient }) {
                                 />
 
                                 <datalist id="patientNameData">
-                                    <option value="Md. " />
-                                    <option value="Mst. " />
-                                    <option value="Mr. " />
-                                    <option value="Mis. " />
-                                    <option value="Dr. " />
-                                    <option value="Dev. " />
-                                    <option value="En. " />
+                                   
                                 </datalist>
                             </div>
 

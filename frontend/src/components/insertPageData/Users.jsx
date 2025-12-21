@@ -4,11 +4,13 @@ import UiModiulNav from "../ui/components/UiModiulNav";
 // restApi
 import { useRestApi } from "../../hooks/getjson/useRestApi";
 import sex from "../../data/present/sex.json";
+import nametitle from "../../data/present/nametitle.json"
 import { sessionData } from "../../scripts/sessionData";
 import { postApi } from "../../hooks/post/postApi";
 
 // icons 
 import { IoSaveOutline } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 export default function Users() {
     const db = 'users';
@@ -43,6 +45,8 @@ export default function Users() {
     }, [searchNumber, nameValue, ageValue, sexValue]);
 
 
+
+
     const filteredUsers = users.filter(user =>
         (!searchNumber || user.number?.includes(searchNumber)) &&
         (!nameValue || user.name?.toLowerCase().includes(nameValue.toLowerCase())) &&
@@ -51,15 +55,61 @@ export default function Users() {
     );
 
     const handelPost = () => {
-
+        const numberFilters = users.filter(user => user.number?.includes(searchNumber));
+        if (numberFilters[0]) {
+            toast.error("ফোন নম্বরটি ইতিমধ্যেই রেকর্ড করা আছে।");
+            return;
+        }
+        if (!searchNumber || !nameValue || !ageValue || !sexValue) {
+            let errorMessage = "অনুগ্রহ করে সবগুলো তথ্য দিন:\n";
+            if (!searchNumber) errorMessage += "• নম্বর\n";
+            if (!nameValue) errorMessage += "• নাম\n";
+            if (!ageValue) errorMessage += "• বয়স\n";
+            if (!sexValue) errorMessage += "• লিঙ্গ\n";
+            toast.error(errorMessage);
+            return;
+        }
         const sendDB = {
             db_name: db,
             data: jsonData
         }
+        toast.info("Lodding... , ");
         postApi(sendDB);
-        console.log(sendDB)
         refetch();
     }
+
+    const [patiebtData, setPatientData] = useState([])
+
+    useEffect(() => {
+        // users বা sex array খালি হলে early return
+        if (!users || users.length === 0) {
+            setPatientData([]);
+            return;
+        }
+
+        if (!sex || sex.length === 0) {
+            console.warn("Sex data not loaded yet");
+            return;
+        }
+
+        // ডাটা transform করছি
+        const transformedPatients = users.map(user => {
+            // sex আইডি থেকে sex নাম বের করা
+            const userSex = sex.find(sexItem => sexItem.id === user.sex);
+
+            // ডিফল্ট ভ্যালু সেট করা
+            return {
+                Phone_Number: user.number || "নেই",
+                Patient_Name: user.name || "অজানা",
+                Patient_Age: user.age || "নাই",
+                Patient_sex: userSex?.name || "নির্ধারিত হয়নি",
+                originalId: user.id // প্রয়োজনে original আইডি রাখা
+            };
+        });
+
+        setPatientData(transformedPatients);
+
+    }, [users, sex]); // sex dependency যোগ করা
 
     return (
         <>
@@ -93,7 +143,23 @@ export default function Users() {
                                             placeholder="Present Name"
                                             onChange={(e) => setName(e.target.value)}
                                             value={nameValue}
+                                            list="patientNameData"
                                         />
+
+
+                                        <datalist id="patientNameData">
+                                            {
+                                                nametitle.map(item => (
+                                                    <option key={item.id}>
+                                                        {item.name}.&nbsp;
+                                                    </option>
+                                                ))
+                                            }
+
+                                        </datalist>
+                                        {/* edit data */}
+
+
                                         <select
                                             className="fxinput"
                                             onChange={(e) => setSexValue(e.target.value)}
@@ -116,7 +182,7 @@ export default function Users() {
                             </div>
                             <div className="flex">
                                 <Table
-                                    tableData={filteredUsers}
+                                    tableData={patiebtData}
                                     action={{
                                         deleteBtn: db,
                                         editBtn: "edit",
