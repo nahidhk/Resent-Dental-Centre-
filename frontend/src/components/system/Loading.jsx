@@ -18,7 +18,7 @@ export default function Loading() {
 
   return(
     <div className="index fixed">
-      <div className="loader"></div>
+      <div className="loader animate__animated animate__jackInTheBox"></div>
     </div>
   );
 }

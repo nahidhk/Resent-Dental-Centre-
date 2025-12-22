@@ -39,7 +39,7 @@ export default function Categ() {
 
     return (
         <>
-            <div className="uiModiul animate__animated animate__backInUp">
+            <div className="uiModiul animate__animated animate__flipInX">
                 <UiModiulNav />
                 <blockquote>
                     <div className="flex center medel w50%">

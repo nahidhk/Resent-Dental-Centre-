@@ -30,7 +30,7 @@ export default function Medicine() {
 
     return (
         <>
-            <div className="uiModiul animate__animated animate__backInUp">
+            <div className="uiModiul animate__animated animate__flipInX">
                 <UiModiulNav />
                 <div className="flex center medel">
                     <div className="uiBox w50">

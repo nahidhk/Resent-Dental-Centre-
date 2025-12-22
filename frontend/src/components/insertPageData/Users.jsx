@@ -92,28 +92,30 @@ export default function Users() {
             return;
         }
 
-        // ডাটা transform করছি
         const transformedPatients = users.map(user => {
-            // sex আইডি থেকে sex নাম বের করা
-            const userSex = sex.find(sexItem => sexItem.id === user.sex);
 
-            // ডিফল্ট ভ্যালু সেট করা
+            const userSex = sex.find(sexItem =>
+                 console.log(sex.name)
+            );
+            
             return {
-                Phone_Number: user.number || "নেই",
-                Patient_Name: user.name || "অজানা",
-                Patient_Age: user.age || "নাই",
-                Patient_sex: userSex?.name || "নির্ধারিত হয়নি",
-                originalId: user.id // প্রয়োজনে original আইডি রাখা
+                ID_NO: user.id,
+                Phone_Number: user.number,
+                Patient_Name: user.name,
+                Patient_Age: user.age,
+                Patient_sex: "Unknown"
             };
+
         });
+
 
         setPatientData(transformedPatients);
 
-    }, [users, sex]); // sex dependency যোগ করা
+    }, [users, sex]);
 
     return (
         <>
-            <div className="uiModiul animate__animated animate__backInUp">
+            <div className="uiModiul animate__animated animate__flipInX">
                 <UiModiulNav />
                 <blockquote>
                     <div className="flex center medel">
