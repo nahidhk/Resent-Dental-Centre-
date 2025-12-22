@@ -7,7 +7,7 @@ import sex from "../../data/present/sex.json";
 import nametitle from "../../data/present/nametitle.json"
 import { sessionData } from "../../scripts/sessionData";
 import { postApi } from "../../hooks/post/postApi";
-
+import formatDate from "../../scripts/formatDate";
 // icons 
 import { IoSaveOutline } from "react-icons/io5";
 import { toast } from "react-toastify";
@@ -81,29 +81,21 @@ export default function Users() {
     const [patiebtData, setPatientData] = useState([])
 
     useEffect(() => {
-        // users বা sex array খালি হলে early return
-        if (!users || users.length === 0) {
-            setPatientData([]);
-            return;
-        }
 
-        if (!sex || sex.length === 0) {
-            console.warn("Sex data not loaded yet");
-            return;
-        }
+        const transformedPatients = filteredUsers.map(user => {
 
-        const transformedPatients = users.map(user => {
-
-            const userSex = sex.find(sexItem =>
-                 console.log(sex.name)
+            const userSex = sex.find(sexitm =>
+                JSON.stringify(sexitm.id) === user.sex
             );
-            
+
             return {
-                ID_NO: user.id,
-                Phone_Number: user.number,
-                Patient_Name: user.name,
-                Patient_Age: user.age,
-                Patient_sex: "Unknown"
+                id: user.id,
+                number: user.number,
+                name: user.name,
+                age: user.age,
+                sex: userSex ? userSex.name : "N/A",
+                create: formatDate(user.created_at),
+                update: formatDate(user.updated_at)
             };
 
         });
@@ -111,7 +103,7 @@ export default function Users() {
 
         setPatientData(transformedPatients);
 
-    }, [users, sex]);
+    }, [filteredUsers, sex]);
 
     return (
         <>

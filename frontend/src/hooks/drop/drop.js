@@ -12,7 +12,7 @@ export async function drop(JsonData) {
     if (data.status === "success") {
       toast.success(data.message);
       loading(true);
-      window.location.reload();
+     setTimeout(1000,window.location.reload())
     } else {
       toast.error(data.message);
       loading(true);
