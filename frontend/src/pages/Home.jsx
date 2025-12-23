@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
-
-import { useRestApi } from "../hooks/getjson/useRestApi";
+import Edit from "../components/system/Table/Edit/Edit";
 
 export default function Home() {
-    const usersData = useRestApi("users");
+
 
 
 
     return (
         <>
-            {
-                JSON.stringify(usersData)
-            }
+            <Edit />
         </>
     );
 }

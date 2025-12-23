@@ -24,6 +24,7 @@ export default function Table({ tableData, action }) {
     }
 
     const headers = Object.keys(tableData[0]);
+
     return (
         <>
             <div className="table_component animate__animated animate__fadeIn" role="region" tabIndex={0}>
@@ -33,7 +34,7 @@ export default function Table({ tableData, action }) {
                             {headers.map((head, i) => (
                                 <th key={i}>{head.toUpperCase()}</th>
                             ))}
-                            <th className="textCenter w200px">ACTION</th>
+                            <th>ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,7 +43,7 @@ export default function Table({ tableData, action }) {
                                 {headers.map((key, i) => (
                                     <td key={i}>{row[key]}</td>
                                 ))}
-                                <td>
+                                <td  className="flex center medel">
                                     <div className="flex center medel w100">
                                         {action.deleteBtn && (
                                             <div className="iconBtn" onClick={() => dropData(row.id)}>

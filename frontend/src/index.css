@@ -259,30 +259,31 @@ input:focus {
 .table_component table {
   border: 1px dashed #dededf;
   height: 100%;
-  width: 100%;
+  width: auto;
   table-layout: fixed;
   border-collapse: collapse;
   border-spacing: 1px;
   text-align: left;
 }
 
-.table_component caption {
-  caption-side: top;
-  text-align: center;
-}
-
 .table_component th {
   border: 1px dashed #dededf;
   background-color: #eceff1;
   color: #000000;
-  padding: 5px;
+  padding: 8px;
+  text-align: center;
 }
 
 .table_component td {
   border: 1px dashed #dededf;
   background-color: #ffffff;
   color: #000000;
-  padding: 5px;
+  padding: 8px;
+  transition: all 0.4s;
+}
+.table_component td:hover{
+  background-color: #000;
+  color: #fff;
 }
 
 .w50 {
@@ -840,7 +841,7 @@ details[open] p {
 }
 
 .uiBorder {
-  border-bottom: 1px solid #ffffff1f;
+  border-bottom: 1px solid #ffffff2a;
 }
 
 .rghtNav {
@@ -889,10 +890,12 @@ details[open] p {
 }
 
 .uiBox {
-  background-color: #ffffffcc;
+  background-color: #ffffff9e;
   padding: 10px;
   border-radius: 10px;
   margin: 10px;
+  backdrop-filter: blur(5px);
+  border: 1px solid #ffffff8d;
 }
 
 .dropBtn {

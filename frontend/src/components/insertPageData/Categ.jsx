@@ -26,27 +26,19 @@ export default function Categ() {
 
         }
     }
-
-
-
-
     const fitersUsers = categories.filter(item =>
         item.name.toLowerCase().includes(catValue.toLowerCase())
     );
-
-
-
-
     return (
         <>
             <div className="uiModiul animate__animated animate__flipInX">
                 <UiModiulNav />
                 <blockquote>
-                    <div className="flex center medel w50%">
-                        <div className="w50 uiBox">
+                    <div className="flex center medel">
+                        <div className="uiBox">
 
-                            <div className="grap w100 flex center">
-                                <div className="grap">
+                            <div className="border w100 flex center">
+                                <div className="border">
                                     <label>Category Type Insert</label>
                                     <br />
                                     <div className="fx">
@@ -65,7 +57,7 @@ export default function Categ() {
                                 </div>
                             </div>
 
-                            <div className="flex">
+                            <div className="flex center">
                                 <Table tableData={fitersUsers} action={{ deleteBtn: db }} />
                             </div>
 
