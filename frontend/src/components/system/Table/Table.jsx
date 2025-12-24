@@ -3,7 +3,7 @@ import ErrorNote from "../../../hooks/ErrorNote";
 import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
 import { IoEyeOutline } from "react-icons/io5";
 import { drop } from "../../../hooks/drop/drop";
-
+import Edit from "./Edit/Edit";
 
 export default function Table({ tableData, action }) {
 
@@ -67,6 +67,7 @@ export default function Table({ tableData, action }) {
                     </tbody>
                 </table>
             </div>
+          <Edit inputJsonData={{name:"nahid"}}/>
         </>
     );
 }

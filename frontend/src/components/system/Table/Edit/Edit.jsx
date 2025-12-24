@@ -1,54 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import UiModiulNav from "../../../ui/components/UiModiulNav";
 
-export default function Edit() {
+export default function Edit({inputJsonData}) {
 
-    const editData = [
-        {
-            name: "nahid",
-            age: 20
-        }
-    ];
+    const [formData, setFormData] = useState(inputJsonData);
 
-    const headers = Object.keys(editData[0]);
+    const handleChange = (key, value) => {
+        setFormData(prev => ({
+            ...prev,
+            [key]: value
+        }));
+    };
 
     return (
-        <div className="uiModiul">
-            <UiModiulNav />
+      
+           
+                <div className="uiBox w90 vh80 flex center medel cloman index fixed top ">
 
-            <div className="flex center w100 padding">
-                <div className="uiBox">
-                    <div
-                        className="table_component animate__animated animate__fadeIn"
-                        role="region"
-                        tabIndex={0}
-                    >
-                        <table>
-                            <thead>
-                                <tr>
-                                    {headers.map((head, i) => (
-                                        <th key={i}>{head.toUpperCase()}</th>
-                                    ))}
-                                    <th className="textCenter w200px">ACTION</th>
-                                </tr>
-                            </thead>
+                    {
+                        Object.keys(formData).map((key, index) => (
+                            <div className="grap flex cloman padding" key={index}>
+                                <label>{key}</label>
 
-                            <tbody>
-                                {editData.map((row, index) => (
-                                    <tr key={index}>
-                                        {headers.map((key, i) => (
-                                            <td key={i}>{row[key]}</td>
-                                        ))}
-                                        <td className="textCenter">
-                                            <button>Send</button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+                                <input
+                                    type="text"
+                                    value={formData[key]}
+                                    onChange={(e) => handleChange(key, e.target.value)}
+                                    className="input"
+                                />
+                            </div>
+                        ))
+                    }
+
+                    <pre>{JSON.stringify(formData)}</pre>
+
                 </div>
-            </div>
-        </div>
+         
     );
 }

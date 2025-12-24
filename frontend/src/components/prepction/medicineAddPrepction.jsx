@@ -5,14 +5,15 @@ import { GrAdd } from "react-icons/gr";
 import { TbCategory } from "react-icons/tb";
 import { GiMedicines } from "react-icons/gi";
 import { MdAccessTime, MdOutlineEditNote, MdOutlineToday } from "react-icons/md";
+import { useRestApi } from "../../hooks/getjson/useRestApi";
 
 // hooks
 
 import { toast } from "react-toastify";
-
+ const db = "category"
 export default function MedicineAddPrepction({ onAddMedicine }) {
 
-    const categories = useState(null);
+    const categories = useRestApi(db);
 
     // form states
     const [categore, setCategore] = useState("");
@@ -71,7 +72,7 @@ export default function MedicineAddPrepction({ onAddMedicine }) {
                             <GiMedicines /> Category:
                         </label>
                         <br />
-                        <select
+                        {/* <select
                             id="categore"
                             className="select w100px"
                             value={categore}
@@ -84,7 +85,7 @@ export default function MedicineAddPrepction({ onAddMedicine }) {
                                     {item.name}
                                 </option>
                             ))}
-                        </select>
+                        </select> */}
                     </div>
 
                     {/* Medicine */}
