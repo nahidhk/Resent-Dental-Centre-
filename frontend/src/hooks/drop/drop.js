@@ -20,6 +20,7 @@ export async function drop(JsonData) {
     return data;
   } catch (error) {
     toast.error("Api Problem and try agin!");
+    loading(true);
     return null;
   }
 

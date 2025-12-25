@@ -13,7 +13,9 @@ import MainDesk from './components/ui/desk/MainDesk';
 import Help from './pages/Help';
 
 // Insers Data Set
-import Users from "./components/insertPageData/Users"
+import Users from './components/insertPageData/Users';
+import Categ from './components/insertPageData/Categ';
+import Medicine from './components/insertPageData/Medicine';
 // Wallpapers
 import w1 from "./assets/wallpaper/w1.jpg";
 import w2 from "./assets/wallpaper/w2.jpg";
@@ -26,7 +28,7 @@ import Loading from './components/system/Loading';
 // web setting
 import 'animate.css';
 import eruda from "eruda";
-import Categ from './components/insertPageData/Categ';
+
 
 function App() {
   const randomImages = [w1, w2, w3, w4, w5, w6];
@@ -54,6 +56,7 @@ function App() {
           {/* Insers Link popup System */}
           <Route path='/insert/users' element={<Users />} />
           <Route path='/insert/category' element={<Categ />} />
+          <Route path='/insert/medicine' element={<Medicine />} />
         </Routes>
         <Toast />
         <Loading />

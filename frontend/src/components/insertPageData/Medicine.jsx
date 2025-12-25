@@ -1,68 +1,113 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo, useState } from "react";
 import Table from "../system/Table/Table";
 import { useRestApi } from "../../hooks/getjson/useRestApi";
 import UiModiulNav from "../ui/components/UiModiulNav";
+import { postApi } from "../../hooks/post/postApi";
+import { toast } from "react-toastify";
 
 export default function Medicine() {
-    const { jsonData: medicine } = useRestApi('medicine');
-    const { jsonData: categ } = useRestApi('category');
-    const [mapData, setMapData] = useState([]);
+    const medecineDB = "medicine";
 
-    useEffect(() => {
+    const { jsonData: medicine = [], refetch } = useRestApi(medecineDB);
+    const { jsonData: categ = [] } = useRestApi("category");
 
-        if (!medicine.length || !categ.length) return;
+    const [cateValue, setCateValu] = useState("");
+    const [medecinValue, setMedecinValue] = useState("");
 
-        const mergedData = medicine.map(item => {
-            const categData = categ.find(cate => cate.id === item.catg_id);
+    /* =========================
+       FILTER + MERGE DATA
+    ========================= */
+    const tableData = useMemo(() => {
+        if (!medicine.length) return [];
 
-            return {
-                id: item.id,
-                catg: categData ? categData.name : "N/A",
-                name: item.name
-            };
+        return medicine
+            .filter(item => {
+                const cateMatch = cateValue
+                    ? String(item.catg_id) === String(cateValue)
+                    : true;
+
+                const nameMatch = item.name
+                    ?.toLowerCase()
+                    .includes(medecinValue?.toLowerCase() || "");
+
+                return cateMatch && nameMatch;
+            })
+            .map(item => {
+                const categData = categ.find(c => String(c.id) === String(item.catg_id));
+
+                return {
+                    id: item.id,
+                    catg: categData ? categData.name : "N/A",
+                    name: item.name
+                };
+            });
+    }, [medicine, categ, cateValue, medecinValue]);
+
+    /* =========================
+       ADD MEDICINE
+    ========================= */
+    const tanasfarJson = () => {
+        if (!cateValue || !medecinValue) {
+            toast.error("Not Input Data!")
+            return;
+        }
+        postApi({
+            db_name: medecineDB,
+            data: {
+                catg_id: cateValue,
+                name: medecinValue
+            }
         });
 
-        setMapData(mergedData);
-
-    }, [medicine, categ]);
-
-
+        setMedecinValue("");
+        refetch();
+    };
 
     return (
-        <>
-            <div className="uiModiul animate__animated animate__flipInX">
-                <UiModiulNav />
-                <div className="flex center medel">
-                    <div className="uiBox w50">
-                        <div className="grap flex center medel">
-                            <div className="grap">
-                                <div className="fx">
-                                    <select name="" id="" className="fxInput">
-                                        <option value="" >Select The Categore</option>
-                                        {
-                                            categ.map(item =>
-                                            (
-                                                <option key={item.id} value={item.id}>{item.name}</option>
-                                            )
-                                            )
-                                        }
-                                    </select>
-                                    <input type="text" className="fxInput" placeholder="Input Medecine Name" />
-                                    <button className="fxBtn">
-                                        Add +
-                                    </button>
-                                </div>
+        <div className="uiModiul animate__animated animate__flipInX">
+            <UiModiulNav />
+
+            <div className="flex center medel">
+                <div className="uiBox w50">
+                    <div className="border flex center medel">
+                        <div className="grap">
+                            <div className="fx">
+                                <select
+                                    className="fxInput"
+                                    value={cateValue}
+                                    onChange={e => setCateValu(e.target.value)}
+                                >
+                                    <option value="">All Category</option>
+                                    {categ.map(item => (
+                                        <option key={item.id} value={item.id}>
+                                            {item.name}
+                                        </option>
+                                    ))}
+                                </select>
+
+                                <input
+                                    type="text"
+                                    className="fxInput"
+                                    placeholder="Input Medicine Name"
+                                    value={medecinValue}
+                                    onChange={e => setMedecinValue(e.target.value)}
+                                />
+
+                                <button className="fxBtn" onClick={tanasfarJson}>
+                                    Add +
+                                </button>
                             </div>
                         </div>
-                        <div className="flex">
-                            <Table tableData={mapData} action={{
-                                delete: "url",
-                                edit: "url"
-                            }} />
-                        </div>
+
+                    </div>
+                    <div className="flex center medel border padding">
+                        <Table
+                            tableData={tableData}
+                            action={{ deleteBtn: medecineDB }}
+                        />
                     </div>
                 </div>
             </div>
-        </>
-    )
+        </div>
+    );
 }

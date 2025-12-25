@@ -3,7 +3,7 @@ import api from "../../api/api.json";
 import { loading } from "../../components/system/Loading";
 
 export async function postApi(jsonData) {
-    loading(true);
+    loading(false);
     try {
         const url = `${api.request}://${api.server}${api.postPath}?key=${api.apikey}`;
 
@@ -19,11 +19,11 @@ export async function postApi(jsonData) {
 
         if (data.status === "success") {
             toast.success(data.message);
-            loading(false);
+            loading(true);
         }
         if (data.status === "error") {
             toast.error(data.message);
-            loading(false);
+            loading(true);
         }
         return data;
     } catch (error) {

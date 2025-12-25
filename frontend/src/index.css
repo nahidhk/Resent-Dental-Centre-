@@ -1,18 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sansation:wght@300;400;700&display=swap");
 
 @font-face {
   font-family: banglaFont;
   src: url("fonts/bangla.ttf");
 }
 
+
+/* =========================================
+                Clasic Css
+=============================================*/
+
 :root {
-  --EnglishFont: "Sansation", sans-serif;
-  --dualFont: banglaFont, var(--EnglishFont);
+  --font-en: "Sansation", sans-serif;
+  --font-bn: "BanglaFont";
+  --font-dual: var(--font-en), var(--font-bn);
+
+  --primary: #4680ff;
+  --danger: #ff3b3b;
+  --success: #2ecc71;
+  --warning: #ff9100;
+
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --dark-glass: rgba(0, 0, 0, 0.4);
+
+  --radius: 10px;
+  --blur: blur(6px);
+  --transition: 0.25s ease;
 }
 
 body {
   margin: 0;
-  font-family: var(--dualFont);
+  font-family: var(--font-dual);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #7f7fe4;
@@ -103,6 +121,8 @@ button {
 .btn:hover {
   border: 1px dashed #4680ff;
 }
+
+
 
 .mailholdbox {
   border: 1px solid #0000002a;
@@ -253,7 +273,7 @@ input:focus {
 }
 
 .table_component {
-  width: 100%;
+  width: auto;
 }
 
 .table_component table {
@@ -344,39 +364,6 @@ input:focus {
   margin: 20px;
   border: 2px dotted red;
   width: 100%;
-}
-
-details {
-  background-color: #f0edcc;
-  padding: 5px;
-  cursor: pointer;
-  width: 100%;
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.5s;
-}
-
-details[open] {
-  grid-template-rows: 1fr;
-}
-
-details summary {
-  padding: 10px;
-  font-size: 22px;
-  background-color: purple;
-  color: #fff;
-}
-
-details p {
-  padding-left: 30px;
-  font-size: 18px;
-  line-height: 1.2;
-  margin: 5px;
-  overflow: hidden;
-}
-
-details[open] p {
-  animation: expand 0.5s ease-in-out forwards;
 }
 
 .inBox {
@@ -894,7 +881,7 @@ details[open] p {
   padding: 10px;
   border-radius: 10px;
   margin: 10px;
-  backdrop-filter: blur(5px);
+  /* backdrop-filter: blur(5px); */
   border: 1px solid #ffffff8d;
 }
 
@@ -926,6 +913,7 @@ details[open] p {
   background-color: #fffffffb;
   color: #000;
   display: none;
+  z-index: 1000;
 }
 
 .dropdownOpen:focus-within .dropDown {
@@ -952,11 +940,4 @@ details[open] p {
 }
 .vh80{
 height: 80vh;
-}
-.editDiv{
-  height: 100%;
-  width: 300px;
-  position: absolute;
-  z-index: 1000;
-  top: 20%;
 }

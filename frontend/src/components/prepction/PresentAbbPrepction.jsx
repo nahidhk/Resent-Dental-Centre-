@@ -1,42 +1,27 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-//#info- api data load 
-// api
-import api from "../../api/api.json";
-
+import { useRestApi } from "../../hooks/getjson/useRestApi";
 // icons
 import { FaRegUser } from "react-icons/fa";
 import { PiGenderIntersexLight } from "react-icons/pi";
 import { MdEditCalendar } from "react-icons/md";
 import { HiOutlinePhone } from "react-icons/hi";
 import { GrLinkNext, GrLinkPrevious } from "react-icons/gr";
+import sex from "../../data/present/sex.json";
 
 
 function PresentAbbPrepction({ onAddPatient }) {
-    // loading
-    const [load, setLoad] = useState(false);
-    const [users , setUers] = useState([])
-    // user data
-
+    const users_DB = "users";
+    const { jsonData: users } = useRestApi(users_DB)
     // steps
     const [step, setStep] = useState(1);
-
     // patient info
     const [pName, setName] = useState("");
     const [pxAge, setAge] = useState("");
     const [pSex, setSex] = useState("");
     const [number, setNumber] = useState("");
-
-
     // Next Step Button
-    
     const handleNext = () => {
-
-        const userData ="";
-        setUers(userData);
-
-
-
         if (!number) {
             toast.error("Please enter phone number");
             return;
@@ -52,12 +37,12 @@ function PresentAbbPrepction({ onAddPatient }) {
             setName(user.name);
             setAge(user.age);
             setSex(user.sex);
-            toast.success("User found and data populated");
+            toast.success("User found and data populated.");
         } else {
             setName("");
             setAge("");
             setSex("");
-            toast.info("No user found with this number, please enter details manually");
+            toast.info("No user found with this number, please enter details manually!");
         }
 
         setStep(2);
@@ -91,35 +76,32 @@ function PresentAbbPrepction({ onAddPatient }) {
 
         const isUserExist = users.find(user => user.number === number);
 
-       
-        setLoad(true);
 
-     
+
         if (!isUserExist) {
+            // if server post system 
+            // fetch(`${api.request}://${api.server}${api.postPath}?key=${api.apikey}&post=users`, {
+            //     method: "POST",
+            //     headers: { "Content-Type": "application/json" },
+            //     body: JSON.stringify(newPatient)
+            // })
+            //     .then(res => res.json())
+            //     .then(data => {
+            //         setLoad(false);
 
-            fetch(`${api.request}://${api.server}${api.postPath}?key=${api.apikey}&post=users`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(newPatient)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    setLoad(false); 
-
-                    if (data.success) {
-                        toast.success("New patient added to system");
-                    } else {
-                        toast.error("Error: " + data.error);
-                    }
-                })
-                .catch(err => {
-                    setLoad(false); 
-                    console.error(err);
-                    toast.error("Server Error");
-                });
+            //         if (data.success) {
+            //             toast.success("New patient added to system");
+            //         } else {
+            //             toast.error("Error: " + data.error);
+            //         }
+            //     })
+            //     .catch(err => {
+            //         setLoad(false);
+            //         console.error(err);
+            //         toast.error("Server Error");
+            //     });
 
         } else {
-            setLoad(false); 
             toast.info("Patient already exists in the system");
         }
 
@@ -133,7 +115,7 @@ function PresentAbbPrepction({ onAddPatient }) {
 
     return (
         <>
-           
+
             <div className="flex medel center">
                 <div className="flex medel">
 
@@ -184,7 +166,7 @@ function PresentAbbPrepction({ onAddPatient }) {
                                 />
 
                                 <datalist id="patientNameData">
-                                   
+
                                 </datalist>
                             </div>
 
@@ -212,7 +194,11 @@ function PresentAbbPrepction({ onAddPatient }) {
                                     value={pSex}
                                     onChange={(e) => setSex(e.target.value)}
                                 >
-                                    
+                                    {
+                                        sex.map(item => (
+                                            <option key={item.id} value={item.id}>{item.name}</option>
+                                        ))
+                                    }
                                 </select>
                             </div>
 

@@ -169,8 +169,7 @@ export default function Users() {
                                 tableData={patiebtData}
                                 action={{
                                     deleteBtn: db,
-                                    editBtn: "edit",
-                                    viewBtn: "view"
+                                    viewBtn: "view" //? The user data view call.
                                 }}
                             />
                         </div>

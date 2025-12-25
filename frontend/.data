@@ -1,65 +1,11 @@
-categore
-medicine
-timeL1 timeL2 timeL3
-notes
-setDay1  setDay2
+<!-- USE THE REACT COMPONENTS AND HOOKS DATA DOCUMENTS -->
 
 
-<style>
+<!-- * use the componen tes or use any system table -->
+<!-- import system  -->
+<!-- use the react -->
+components/table
 
-</style>
+<Table tableData={patiebtData} action={{ deleteBtn: "deleate", viewBtn: "view" //? The user data view call. }} />
 
-
-<div class="table_component" role="region" tabindex="0">
-<table>
-    <caption>Table 1</caption>
-    <thead>
-        <tr>
-            <th>Header 1</th>
-            <th>Header 2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
-</div>
-
-
-
-
-
-
-  <div className="flex cloman">
-    <div className="flex">
-      <div className="rayBox borderRB">
-        {/* LT Value*/}
-      </div>
-      <div className="rayBox borderLB">
-        {/* RT Value*/}
-      </div>
-    </div>
-    <div className="flex">
-      <div className="rayBox borderRT">
-        {/* LB Value*/}
-      </div>
-      <div className="rayBox borderLT">
-        {/* RB Value*/}
-      </div>
-    </div>
-  </div>
-  
-
-
-
-
-
-
-
-
-
-
-
+<!-- ------------------------------------------------------------------------------------------------------- -->

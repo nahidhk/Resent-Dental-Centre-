@@ -42,7 +42,7 @@ export default function Insert() {
 
         <div
           className="inBox"
-        // onClick={() => openPopup(Medicine, "Medicin List Axnd Data")}
+        onClick={() => navigate("medicine")}
         >
           <span>
             <img src={DrgusIcon} className="boxIcon" />

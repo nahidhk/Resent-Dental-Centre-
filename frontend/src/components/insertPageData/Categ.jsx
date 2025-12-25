@@ -34,11 +34,11 @@ export default function Categ() {
             <div className="uiModiul animate__animated animate__flipInX">
                 <UiModiulNav />
                 <blockquote>
-                    <div className="flex center medel">
-                        <div className="uiBox">
+                    <div className=" flex center medel">
+                        <div className="uiBox w50">
 
-                            <div className="border w100 flex center">
-                                <div className="border">
+                            <div className="border flex center padding">
+                                <div className="border padding">
                                     <label>Category Type Insert</label>
                                     <br />
                                     <div className="fx">
@@ -57,8 +57,9 @@ export default function Categ() {
                                 </div>
                             </div>
 
-                            <div className="flex center">
-                                <Table tableData={fitersUsers} action={{ deleteBtn: db }} />
+                            <div className="flex center medel padding border">
+                                <Table  tableData={fitersUsers} action={{ deleteBtn: db }} />
+                               
                             </div>
 
                         </div>
