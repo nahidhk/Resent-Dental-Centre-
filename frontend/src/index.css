@@ -953,3 +953,10 @@ details[open] p {
 .vh80{
 height: 80vh;
 }
+.editDiv{
+  height: 100%;
+  width: 300px;
+  position: absolute;
+  z-index: 1000;
+  top: 20%;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import UiModiulNav from "../../../ui/components/UiModiulNav";
 
-export default function Edit({inputJsonData}) {
+export default function Edit({ inputJsonData }) {
 
     const [formData, setFormData] = useState(inputJsonData);
 
@@ -13,28 +13,30 @@ export default function Edit({inputJsonData}) {
     };
 
     return (
-      
-           
-                <div className="uiBox w90 vh80 flex center medel cloman index fixed top ">
 
-                    {
-                        Object.keys(formData).map((key, index) => (
-                            <div className="grap flex cloman padding" key={index}>
-                                <label>{key}</label>
 
-                                <input
-                                    type="text"
-                                    value={formData[key]}
-                                    onChange={(e) => handleChange(key, e.target.value)}
-                                    className="input"
-                                />
-                            </div>
-                        ))
-                    }
 
-                    <pre>{JSON.stringify(formData)}</pre>
+        <div className="uiBox flex center medel cloman editDiv">
 
-                </div>
-         
+            {
+                Object.keys(formData).map((key, index) => (
+                    <div className="grap flex cloman padding" key={index}>
+                        <label>{key}</label>
+
+                        <input
+                            type="text"
+                            value={formData[key]}
+                            onChange={(e) => handleChange(key, e.target.value)}
+                            className="input"
+                        />
+                    </div>
+                ))
+            }
+
+            <pre>{JSON.stringify(formData)}</pre>
+
+
+        </div>
+
     );
 }
