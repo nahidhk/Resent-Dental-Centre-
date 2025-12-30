@@ -54,6 +54,7 @@ li,
 button {
   margin: 0;
   padding: 0;
+  font-family: var(--font-dual);
 }
 
 .nav {
@@ -113,7 +114,6 @@ button {
   padding: 5px;
   width: auto;
   padding: 0 10px 0 10px;
-  border: none;
   cursor: pointer;
   font-family: var(--dabulfont);
 }
@@ -163,7 +163,7 @@ button {
   padding-right: 10px;
   background-color: #4680ff;
   color: #fff;
-  border: none;
+  border: 1px solid #00000000;
   margin: 10px;
   cursor: pointer;
   border-radius: 5px;
@@ -940,4 +940,7 @@ input:focus {
 }
 .vh80{
 height: 80vh;
+}
+.plusTop{
+  font-size: 50px;
 }

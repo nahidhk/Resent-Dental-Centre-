@@ -5,16 +5,17 @@ import { GiMedicines } from "react-icons/gi";
 import { MdAccessTime, MdOutlineEditNote, MdOutlineToday } from "react-icons/md";
 import { useRestApi } from "../../hooks/getjson/useRestApi";
 import { toast } from "react-toastify";
+import { postApi } from "../../hooks/post/postApi";
 
 export default function MedicineAddPrescription({ onAddMedicine }) {
+    const medichenDB = "medicine";
     const { jsonData: categories = [] } = useRestApi("category");
-    const { jsonData: medichenData = [] } = useRestApi("medicine");
-
+    const { jsonData: medichenData = [], refetch } = useRestApi(medichenDB);
     const [categore, setCategore] = useState("");
     const [medicine, setMedicine] = useState("");
-    const [timeL1, setTimeL1] = useState("");
-    const [timeL2, setTimeL2] = useState("");
-    const [timeL3, setTimeL3] = useState("");
+    const [timeL1, setTimeL1] = useState(0);
+    const [timeL2, setTimeL2] = useState(0);
+    const [timeL3, setTimeL3] = useState(0);
     const [notes, setNotes] = useState("");
     const [setDay1, setSetDay1] = useState("");
     const [setDay2, setSetDay2] = useState("");
@@ -45,15 +46,30 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
 
     if (typeof onAddMedicine === "function") onAddMedicine(prescriptions);
 
+
+
+    const handelAddMedecine = () => {
+        toast.warning("Please wait....")
+        postApi({
+            db_name: medichenDB,
+            data: {
+                catg_id: categore,
+                name: medicine
+            }
+        });
+        refetch();
+    }
+
+
     return (
-        <div className="center flex medel wrap gap10">
+        <div className="center flex medel wrap gap10 ">
 
             {/* Category */}
             <div className="grap">
                 <label><GiMedicines /> Category</label>
                 <br />
                 <select className="select w120px" value={categore} onChange={e => setCategore(e.target.value)}>
-                    <option value="">Select</option>
+                    <option value={""}>Select</option>
                     {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
                 </select>
             </div>
@@ -70,11 +86,34 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                     placeholder="Type keyword"
                 />
                 <div className="dropDown">
-                    {filterMedicine.length ? filterMedicine.map(item => (
-                        <div key={item.id} className="dropBtn" onClick={() => setMedicine(item.name)}>
-                            ({item.id}) {item.name}
-                        </div>
-                    )) : <div className="dropBtn">No medicine</div>}
+                    {
+                        categore ? (
+                            filterMedicine.length ? (
+                                filterMedicine.map(item => (
+                                    <div
+                                        key={item.id}
+                                        className="dropBtn"
+                                        onClick={() => setMedicine(item.name)}
+                                    >
+                                        ({item.id}) {item.name}
+                                    </div>
+                                ))
+                            ) : (
+                                <div>
+                                    <div className="textCenter">
+                                        This medicine is not recorded. Save it.
+                                    </div>
+                                    <button onClick={handelAddMedecine} className="btn printBtn">
+                                        Save Recored
+                                    </button>
+                                </div>
+                            )
+                        ) : (
+                            <div className="textCenter">
+                                Please select the medicine category.
+                            </div>
+                        )
+                    }
                 </div>
             </div>
 
@@ -83,21 +122,28 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                 <label><MdAccessTime /> Time Label</label>
                 <br />
 
-                <div className="flex gap5">
-                    <input type="number" className="input w50px" placeholder="সকাল" value={timeL1} onChange={e => setTimeL1(e.target.value)} />
-                    +
-                    <input type="number" className="input w50px" placeholder="দুপুর" value={timeL2} onChange={e => setTimeL2(e.target.value)} />
-                    +
-                    <input type="number" className="input w50px" placeholder="রাত" value={timeL3} onChange={e => setTimeL3(e.target.value)} />
+                <div className="flex gap5 medel center">
+                    <input type="number" onClick={() => setTimeL1(timeL1 + 1)} className="input w50px inputScroll" placeholder="সকাল" value={timeL1} onChange={e => setTimeL1(e.target.value)} />
+                    <span className="plusTop">
+                        +
+                    </span>
+                    <input type="number" onClick={() => setTimeL2(timeL2 + 1)} className="input w50px inputScroll" placeholder="দুপুর" value={timeL2} onChange={e => setTimeL2(e.target.value)} />
+                    <span className="plusTop">
+                        +
+                    </span>
+                    <input type="number" onClick={() => setTimeL3(timeL3 + 1)} className="input w50px inputScroll" placeholder="রাত" value={timeL3} onChange={e => setTimeL3(e.target.value)} />
                 </div>
             </div>
 
             {/* Notes */}
-            <div className="grap">
+            <div className="grap dropdownOpen">
                 <label><MdOutlineEditNote /> Notes</label>
                 <br />
-
                 <input type="text" className="input w150px" placeholder="খাবার পর" value={notes} onChange={e => setNotes(e.target.value)} />
+
+                <div className="dropDown">
+
+                </div>
             </div>
 
             {/* Set Day */}
@@ -106,7 +152,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                 <br />
 
                 <div className="flex gap5">
-                    <input type="number" className="input w50px" placeholder="00" value={setDay1} onChange={e => setSetDay1(e.target.value)} />
+                    <input type="number" className="input w50px inputScroll" placeholder="00" value={setDay1} onChange={e => setSetDay1(e.target.value)} />
                     -
                     <select className="select w80px" value={setDay2} onChange={e => setSetDay2(e.target.value)}>
                         <option value="">day</option>

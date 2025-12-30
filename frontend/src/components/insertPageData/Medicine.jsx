@@ -64,7 +64,7 @@ export default function Medicine() {
     };
 
     return (
-        <div className="uiModiul animate__animated animate__flipInX">
+        <div className="hScroll uiModiul  animate__animated animate__flipInX">
             <UiModiulNav />
 
             <div className="flex center medel">
