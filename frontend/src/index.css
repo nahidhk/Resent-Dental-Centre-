@@ -806,8 +806,9 @@ input:focus {
 }
 
 .title {
-  font-size: 55px;
+  font-size: clamp(3rem, 8vw, 7rem);
   color: #fff;
+  font-weight: 800;
 }
 
 .colorFFF {

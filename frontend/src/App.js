@@ -11,7 +11,7 @@ import Toast from './components/system/Toast';
 import ApiCheck from './components/Err/ApiCheck';
 import MainDesk from './components/ui/desk/MainDesk';
 import Help from './pages/Help';
-
+import NUi from './components/ui/components/NUi/NUi'
 // Insers Data Set
 import Users from './components/insertPageData/Users';
 import Categ from './components/insertPageData/Categ';
@@ -33,6 +33,10 @@ import eruda from "eruda";
 function App() {
   const randomImages = [w1, w2, w3, w4, w5, w6];
   const [randomBG, setRandomBG] = useState(null);
+  const [wonuiopen, setwonuiopen] = useState(true);
+  setTimeout(() => {
+    setwonuiopen(false);
+  }, 15000);
   useEffect(() => {
     const bg = randomImages[Math.floor(Math.random() * randomImages.length)];
     setRandomBG(bg);
@@ -45,23 +49,31 @@ function App() {
   const width = document.body.clientWidth;
   if (width >= 960) {
     return (
-      <div className='wallpaper'>
-        <Nav />
-        <MainDesk />
-        <Routes>
-          <Route path='/prescription' element={<Prescription />} />
-          <Route path='/' element={<Home />} />
-          <Route path='/insert' element={<Insert />} />
-          <Route path='/help' element={<Help />} />
-          {/* Insers Link popup System */}
-          <Route path='/insert/users' element={<Users />} />
-          <Route path='/insert/category' element={<Categ />} />
-          <Route path='/insert/medicine' element={<Medicine />} />
-        </Routes>
-        <Toast />
-        <Loading />
-        <ApiCheck />
-      </div>
+      <>
+      {
+        wonuiopen ? (
+           <NUi />
+        ):""
+      }
+     
+        <div className='wallpaper'>
+          <Nav />
+          <MainDesk />
+          <Routes>
+            <Route path='/prescription' element={<Prescription />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/insert' element={<Insert />} />
+            <Route path='/help' element={<Help />} />
+            {/* Insers Link popup System */}
+            <Route path='/insert/users' element={<Users />} />
+            <Route path='/insert/category' element={<Categ />} />
+            <Route path='/insert/medicine' element={<Medicine />} />
+          </Routes>
+          <Toast />
+          <Loading />
+          <ApiCheck />
+        </div>
+      </>
     );
   } else {
     return <DeviceSizeErr widthx={width} />;
