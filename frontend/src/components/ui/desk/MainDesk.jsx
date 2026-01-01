@@ -7,23 +7,21 @@ export default function MainDesk() {
 
     return (
         <>
-            <br />
-            <br />
-            <br />
-            <div className="flex around">
-                <div>
-                    <blockquote>
+            <blockquote>
+                <br />
+                <br />
+                <br />
+                <div className="flex around">
+                    <div className="w100">
                         <b className="title">
                             <SiteName />
                         </b>
-                    </blockquote>
-
+                    </div>
+                    <div className="w100">
+                        <Clock />
+                    </div>
                 </div>
-                {/* clock */}
-                <div>
-                    <Clock />
-                </div>
-            </div>
+            </blockquote>
         </>
     );
 }
