@@ -44,12 +44,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
         setPrescriptions(prev => [...prev, newPrescription]);
         setCategore(""); setMedicine(""); setTimeL1(""); setTimeL2(""); setTimeL3(""); setNotes(""); setSetDay1(""); setSetDay2("");
     };
-
     if (typeof onAddMedicine === "function") onAddMedicine(prescriptions);
-
-
- 
-
     const handelAddMedecine = () => {
         toast.warning("Please wait....")
         postApi({
@@ -61,7 +56,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
         });
         refetch();
     }
-
+    console.log(mnote)
     return (
         <div className="center flex medel wrap gap10 ">
 
@@ -86,7 +81,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                     onChange={e => setMedicine(e.target.value)}
                     placeholder="Type keyword"
                 />
-                <div className="dropDown">
+                <div className="dropDown w200px">
                     {
                         categore ? (
                             filterMedicine.length ? (
@@ -124,15 +119,35 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                 <br />
 
                 <div className="flex gap5 medel center">
-                    <input type="number" onClick={() => setTimeL1(timeL1 + 1)} className="input w50px inputScroll" placeholder="সকাল" value={timeL1} onChange={e => setTimeL1(e.target.value)} />
+                    <input
+                        type="number"
+                        onClick={() => setTimeL1(timeL1 + 1)}
+                        className="input w50px inputScroll"
+                        placeholder="সকাল" value={timeL1}
+                        onChange={e => setTimeL1(e.target.value)}
+                    />
                     <span className="plusTop">
                         +
                     </span>
-                    <input type="number" onClick={() => setTimeL2(timeL2 + 1)} className="input w50px inputScroll" placeholder="দুপুর" value={timeL2} onChange={e => setTimeL2(e.target.value)} />
+                    <input
+                        type="number"
+                        onClick={() => setTimeL2(timeL2 + 1)}
+                        className="input w50px inputScroll"
+                        placeholder="দুপুর"
+                        value={timeL2}
+                        onChange={e =>
+                            setTimeL2(e.target.value)}
+                    />
                     <span className="plusTop">
                         +
                     </span>
-                    <input type="number" onClick={() => setTimeL3(timeL3 + 1)} className="input w50px inputScroll" placeholder="রাত" value={timeL3} onChange={e => setTimeL3(e.target.value)} />
+                    <input
+                        type="number"
+                        onClick={() => setTimeL3(timeL3 + 1)}
+                        className="input w50px inputScroll"
+                        placeholder="রাত"
+                        value={timeL3}
+                        onChange={e => setTimeL3(e.target.value)} />
                 </div>
             </div>
 
@@ -140,20 +155,18 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
             <div className="grap dropdownOpen">
                 <label><MdOutlineEditNote /> Notes</label>
                 <br />
-                <input type="text" className="input w150px" placeholder="খাবার পর" value={notes} onChange={e => setNotes(e.target.value)} />
+                <input type="text" className="input w200px" placeholder="খাবার পর" value={notes} onChange={e => setNotes(e.target.value)} />
 
-                <div className="dropDown">
+                <div className="dropDown w200px">
                     {
                         mnote.map(item => (
-                            <div className="dropBtn" key={item.id}>
-                                {item.note}
-
+                            <div className="dropBtn" onClick={() => setNotes(item.note)} key={item.id}>
+                                {`(${item.id})`} {item.note}
                             </div>
                         ))
                     }
                 </div>
             </div>
-
             {/* Set Day */}
             <div className="grap">
                 <label><MdOutlineToday /> Set Day</label>
