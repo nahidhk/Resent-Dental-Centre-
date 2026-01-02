@@ -9,6 +9,7 @@ import { postApi } from "../../hooks/post/postApi";
 
 export default function MedicineAddPrescription({ onAddMedicine }) {
     const medichenDB = "medicine";
+    const { jsonData: mnote = [] } = useRestApi("mnote");
     const { jsonData: categories = [] } = useRestApi("category");
     const { jsonData: medichenData = [], refetch } = useRestApi(medichenDB);
     const [categore, setCategore] = useState("");
@@ -47,6 +48,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
     if (typeof onAddMedicine === "function") onAddMedicine(prescriptions);
 
 
+ 
 
     const handelAddMedecine = () => {
         toast.warning("Please wait....")
@@ -59,7 +61,6 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
         });
         refetch();
     }
-
 
     return (
         <div className="center flex medel wrap gap10 ">
@@ -142,7 +143,14 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                 <input type="text" className="input w150px" placeholder="খাবার পর" value={notes} onChange={e => setNotes(e.target.value)} />
 
                 <div className="dropDown">
+                    {
+                        mnote.map(item => (
+                            <div className="dropBtn" key={item.id}>
+                                {item.note}
 
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
 

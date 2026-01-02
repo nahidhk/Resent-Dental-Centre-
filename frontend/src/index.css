@@ -903,7 +903,7 @@ input:focus {
 
 .dropDown {
   max-height: 30vh;
-  width: 200px;
+  max-width: 200px;
   position: absolute;
   overflow: auto;
   padding: 5px;
@@ -913,7 +913,7 @@ input:focus {
   border: 1px solid rgb(0, 0, 0);
   background-color: #fffffffb;
   color: #000;
-  display: none;
+  display: none; 
   z-index: 1000;
 }
 
