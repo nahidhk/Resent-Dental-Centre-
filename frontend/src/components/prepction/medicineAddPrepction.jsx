@@ -121,7 +121,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                 <div className="flex gap5 medel center">
                     <input
                         type="number"
-                        onClick={() => setTimeL1(timeL1 + 1)}
+                        onClick={() => setTimeL1("")}
                         className="input w50px inputScroll"
                         placeholder="সকাল" value={timeL1}
                         onChange={e => setTimeL1(e.target.value)}
@@ -131,7 +131,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                     </span>
                     <input
                         type="number"
-                        onClick={() => setTimeL2(timeL2 + 1)}
+                        onClick={() => setTimeL2("")}
                         className="input w50px inputScroll"
                         placeholder="দুপুর"
                         value={timeL2}
@@ -143,7 +143,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                     </span>
                     <input
                         type="number"
-                        onClick={() => setTimeL3(timeL3 + 1)}
+                        onClick={() => setTimeL3("")}
                         className="input w50px inputScroll"
                         placeholder="রাত"
                         value={timeL3}

@@ -44,6 +44,24 @@ export default function Prescription() {
                 </div>
 
                 <div className="uiBox">
+                    <div>
+                        {
+                            medicineData && medicineData.length > 0 ? (
+                                <div>
+                                    <h3>Medicine List:</h3>
+                                    <ul>
+                                        {medicineData.map((med, index) => (
+                                            <li key={index}>
+                                                {med.medicine} - {med.timeL} - {med.setDay} - {med.notes}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ) : (
+                                <p>No medicines added.</p>
+                            )       
+                        }
+                    </div>
                     <MainContent pageData={prepctionAllData} />
                 </div>
                 <div className="uiBox w200px">

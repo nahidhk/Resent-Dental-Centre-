@@ -15,7 +15,7 @@ export default function DevUi() {
         })
             .type("NdSQL ")
             .pause(1000)
-            .type("nui")
+            .type("UI")
             .go();
         // 6s পরে fade out
         const fadeTimer = setTimeout(() => {
