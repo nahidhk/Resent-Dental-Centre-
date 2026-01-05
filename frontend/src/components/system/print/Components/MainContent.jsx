@@ -1,31 +1,68 @@
 import React from "react";
 import BarCodeSvg from "../../../barcode/BarCodeSvg";
 import { FaPrescription } from "react-icons/fa6";
+import { useRestApi } from "../../../../hooks/getjson/useRestApi";
+
+
+export default function MainContent({ pageData }) {
+    const { jsonData: users = [] } = useRestApi("users");
+    const numbertp = pageData?.userNumber;
+
+
+    const patientInfo = users.find(user => String(user.number) === String(numbertp));
+    console.log(patientInfo);
 
 
 
-export default function MainContent({pageData}) {
     return (
         <>
-            <div className="nameBox flex around medel w100">
-                <span>
-                    <b>Name : </b>
-                    <i>{"____________________"}</i>
-                </span>
-                <span>
-                    <b>Sex : </b>
-                    <i>{"______"}</i>
-                </span>
-                <span>
-                    <b>Age : </b>
-                    <i>{"____"}Y</i>
-                </span>
-                <span>
-                    <b>Date : </b>
-                    <span>
-                        {pageData?.date}
-                    </span>
-                </span>
+            <div className="nameBox w100 ">
+                <div className="flex around ">
+
+
+
+                    <div>
+                        <span className="margin">
+                            <b>Name : </b>
+                            <i>{patientInfo?.name || "____________________"}</i>
+                        </span>
+                        <br />
+                        <span className="margin">
+                            <b>Patient ID : </b>
+                            <span>{pageData?.rpid || "____________________"}</span>
+                        </span>
+                    </div>
+
+                    <div>
+                        <span className="margin">
+                            <b>Sex : </b>
+                            <i>{patientInfo?.sex || "______"}</i>
+                        </span>
+                        <br />
+                        <span className="margin">
+                            <b>Phone : </b>
+                            <span>{pageData?.userNumber || "____________________"}</span>
+                        </span>
+                    </div>
+
+
+                    <div>
+                        <span className="margin">
+                            <b>Age : </b>
+                            <i>{patientInfo?.age || "____"}Y</i>
+                        </span>
+                        <br />
+                        <span className="margin">
+                            <b>Date : </b>
+                            <span>
+                                {pageData?.date}
+                            </span>
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
 
 

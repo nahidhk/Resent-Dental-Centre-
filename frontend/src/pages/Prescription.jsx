@@ -28,12 +28,10 @@ export default function Prescription() {
         };
         setPrepctionAllData(alldata);
     }
-
-
     return (
         <div className="uiModiul animate__animated animate__backInUp">
             <UiModiulNav />
-            <div>{JSON.stringify(prepctionAllData)}</div>
+            {/* <div>{JSON.stringify(prepctionAllData)}</div> */}
             <div className="uiBox">
                 <PresentAbbPrepction onAddPatient={setNewPatient} />
                 <MedicineAddPrepction onAddMedicine={setMedicineData} />

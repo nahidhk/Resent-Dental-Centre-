@@ -56,7 +56,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
         });
         refetch();
     }
-    console.log(mnote)
+    //console.log(mnote)
     return (
         <div className="center flex medel wrap gap10 ">
 
