@@ -44,8 +44,6 @@ export default function MainContent({ pageData }) {
                             <span>{pageData?.userNumber || "____________________"}</span>
                         </span>
                     </div>
-
-
                     <div>
                         <span className="margin">
                             <b>Age : </b>
@@ -58,9 +56,7 @@ export default function MainContent({ pageData }) {
                                 {pageData?.date}
                             </span>
                         </span>
-
                     </div>
-
                 </div>
 
             </div>
