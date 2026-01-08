@@ -2,16 +2,17 @@ import React from "react";
 import BarCodeSvg from "../../../barcode/BarCodeSvg";
 import { FaPrescription } from "react-icons/fa6";
 import { useRestApi } from "../../../../hooks/getjson/useRestApi";
+import sexType from "../../../../data/present/sex.json";
+import { convertToBangla } from "../../../../scripts/banglaConvart"
 
 
 export default function MainContent({ pageData }) {
     const { jsonData: users = [] } = useRestApi("users");
     const numbertp = pageData?.userNumber;
-
-
     const patientInfo = users.find(user => String(user.number) === String(numbertp));
-    console.log(patientInfo);
+    const cruccetSex = sexType.find(sexX => String(sexX.id) === String(patientInfo?.sex))?.name || "______";
 
+    //console.log(pageData?.medicineData)
 
 
     return (
@@ -22,43 +23,41 @@ export default function MainContent({ pageData }) {
 
 
                     <div>
-                        <span className="margin">
+                        <p className="margin">
                             <b>Name : </b>
                             <i>{patientInfo?.name || "____________________"}</i>
-                        </span>
-                        <br />
-                        <span className="margin">
+                        </p>
+                        <p className="margin">
                             <b>Patient ID : </b>
                             <span>{pageData?.rpid || "____________________"}</span>
-                        </span>
+                        </p>
                     </div>
 
                     <div>
-                        <span className="margin">
+                        <p className="margin">
                             <b>Sex : </b>
-                            <i>{patientInfo?.sex || "______"}</i>
-                        </span>
-                        <br />
-                        <span className="margin">
+                            <i>{cruccetSex}</i>
+                        </p>
+
+                        <p className="margin">
                             <b>Phone : </b>
                             <span>{pageData?.userNumber || "____________________"}</span>
-                        </span>
+                        </p>
                     </div>
                     <div>
-                        <span className="margin">
+                        <p className="margin">
                             <b>Age : </b>
                             <i>{patientInfo?.age || "____"}Y</i>
-                        </span>
-                        <br />
-                        <span className="margin">
+                        </p>
+
+                        <p className="margin">
                             <b>Date : </b>
                             <span>
                                 {pageData?.date}
                             </span>
-                        </span>
+                        </p>
                     </div>
                 </div>
-
             </div>
 
 
@@ -218,9 +217,11 @@ export default function MainContent({ pageData }) {
                     </div>
                 </div>
 
-                <div className="w100 borderset">
-                    <div className="flex medel beet ">
-                        <FaPrescription className="iconr" />
+                <div className="w100 borderset ">
+                    <div className="flex medel beet">
+                        <span>
+                            <FaPrescription className="iconr" />
+                        </span>
                         <span>
                             <BarCodeSvg code={pageData?.rpid} />
                         </span>
@@ -229,25 +230,35 @@ export default function MainContent({ pageData }) {
 
 
 
-                    {/* <blockquote>
-                                                {medicineData?.length > 0 ? (
-                                                    medicineData.map((item, index) => (
-                                                        <div key={index} className="flex beet lineStyle">
-                                                            <div>
-                                                                <span className="captext">
-                                                                    {item.categore} {item.medicine}
-                                                                </span>
-                                                                <br />
-                                                                {convertToBangla(item.timeL)} {item.notes}
-                                                            </div>
-                                                            <div>{convertToBangla(item.setDay)}</div>
-                                                        </div>
-                                                    ))
-                                                ) : (
-                                                    <p className="textCenter">No prescription added yet.</p>
-                                                )}
+                    <blockquote>
+                        <ol>
+                            {pageData?.medicineData?.length > 0 ? (
+                                pageData?.medicineData.map((item, index) => (
 
-                                            </blockquote> */}
+                                    <li key={index}>
+                                        <div className="flex beet lineStyle">
+                                            <div>
+                                                <span className="captext">
+                                                    {item.categore} {item.medicine}
+                                                </span>
+                                                <br />
+                                                <p className="medicineNotes">
+                                                    {convertToBangla(item.timeL)} ---------------- {item.notes}--------------
+                                                </p>
+                                            </div>
+                                            <div className="medicineNotes flex center medel">
+                                                {convertToBangla(item.setDay)}
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                ))
+                            ) : (
+                                <p className="textCenter">No prescription added yet.</p>
+                            )}
+                        </ol>
+
+                    </blockquote>
 
 
 
