@@ -8,12 +8,12 @@ import { convertToBangla } from "../../../../scripts/banglaConvart"
 
 export default function MainContent({ pageData }) {
     const { jsonData: users = [] } = useRestApi("users");
+    const {jsonData: categories = []} = useRestApi("category");
+    // Loand and find Mobile number to user Data //
     const numbertp = pageData?.userNumber;
     const patientInfo = users.find(user => String(user.number) === String(numbertp));
     const cruccetSex = sexType.find(sexX => String(sexX.id) === String(patientInfo?.sex))?.name || "______";
-
-    //console.log(pageData?.medicineData)
-
+ 
 
     return (
         <>
@@ -239,7 +239,9 @@ export default function MainContent({ pageData }) {
                                         <div className="flex beet lineStyle">
                                             <div>
                                                 <span className="captext">
-                                                    {item.categore} {item.medicine}
+                                                    {
+                                                        categories.find(cat => String(cat.id) === String(item.categore))?.name ||  " "
+                                                    } {item.medicine}
                                                 </span>
                                                 <br />
                                                 <p className="medicineNotes">

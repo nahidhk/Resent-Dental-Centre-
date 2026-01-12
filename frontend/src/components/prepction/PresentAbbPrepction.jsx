@@ -8,11 +8,13 @@ import { MdEditCalendar } from "react-icons/md";
 import { HiOutlinePhone } from "react-icons/hi";
 import { GrLinkNext, GrLinkPrevious } from "react-icons/gr";
 import sex from "../../data/present/sex.json";
+import { postApi } from "../../hooks/post/postApi"
+import nameTitle from "../../data/present/nametitle.json"
 
 
 function PresentAbbPrepction({ onAddPatient }) {
     const users_DB = "users";
-    const { jsonData: users } = useRestApi(users_DB)
+    const { jsonData: users, refetch } = useRestApi(users_DB)
     // steps
     const [step, setStep] = useState(1);
     // patient info
@@ -42,7 +44,7 @@ function PresentAbbPrepction({ onAddPatient }) {
             setName("");
             setAge("");
             setSex("");
-            toast.info("No user found with this number, please enter details manually!");
+            toast.warning("No user found with this number, please enter details manually!");
         }
 
         setStep(2);
@@ -101,10 +103,14 @@ function PresentAbbPrepction({ onAddPatient }) {
             //         toast.error("Server Error");
             //     });
 
-        } else {
-            toast.info("Patient already exists in the system");
-        }
+            postApi({
+                db_name: users_DB,
+                data: newPatient
+            });
+            toast.info("Lodding....");
+            refetch();
 
+        }
         // Reset Fields
         setName("");
         setAge("");
@@ -166,7 +172,11 @@ function PresentAbbPrepction({ onAddPatient }) {
                                 />
 
                                 <datalist id="patientNameData">
-
+                                    {
+                                        nameTitle.map(item => (
+                                            <option key={item.id}>{item.name}.&nbsp;</option>
+                                        ))
+                                    }
                                 </datalist>
                             </div>
 

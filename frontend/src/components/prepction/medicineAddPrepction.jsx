@@ -176,7 +176,6 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                     <input type="number" className="input w50px inputScroll" placeholder="00" value={setDay1} onChange={e => setSetDay1(e.target.value)} />
                     -
                     <select className="select w80px" value={setDay2} onChange={e => setSetDay2(e.target.value)}>
-                        <option value="">day</option>
                         <option value="দিন">দিন</option>
                         <option value="সপ্তাহ">সপ্তাহ</option>
                         <option value="মাস">মাস</option>
