@@ -81,28 +81,6 @@ function PresentAbbPrepction({ onAddPatient }) {
 
 
         if (!isUserExist) {
-            // if server post system 
-            // fetch(`${api.request}://${api.server}${api.postPath}?key=${api.apikey}&post=users`, {
-            //     method: "POST",
-            //     headers: { "Content-Type": "application/json" },
-            //     body: JSON.stringify(newPatient)
-            // })
-            //     .then(res => res.json())
-            //     .then(data => {
-            //         setLoad(false);
-
-            //         if (data.success) {
-            //             toast.success("New patient added to system");
-            //         } else {
-            //             toast.error("Error: " + data.error);
-            //         }
-            //     })
-            //     .catch(err => {
-            //         setLoad(false);
-            //         console.error(err);
-            //         toast.error("Server Error");
-            //     });
-
             postApi({
                 db_name: users_DB,
                 data: newPatient
