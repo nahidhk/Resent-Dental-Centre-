@@ -8,20 +8,17 @@ import { convertToBangla } from "../../../../scripts/banglaConvart"
 
 export default function MainContent({ pageData }) {
     const { jsonData: users = [] } = useRestApi("users");
-    const {jsonData: categories = []} = useRestApi("category");
+    const { jsonData: categories = [] } = useRestApi("category");
     // Loand and find Mobile number to user Data //
     const numbertp = pageData?.userNumber;
     const patientInfo = users.find(user => String(user.number) === String(numbertp));
     const cruccetSex = sexType.find(sexX => String(sexX.id) === String(patientInfo?.sex))?.name || "______";
- 
+
 
     return (
         <>
             <div className="nameBox w100 ">
                 <div className="flex around ">
-
-
-
                     <div>
                         <p className="margin">
                             <b>Name : </b>
@@ -32,13 +29,11 @@ export default function MainContent({ pageData }) {
                             <span>{pageData?.rpid || "____________________"}</span>
                         </p>
                     </div>
-
                     <div>
                         <p className="margin">
                             <b>Sex : </b>
                             <i>{cruccetSex}</i>
                         </p>
-
                         <p className="margin">
                             <b>Phone : </b>
                             <span>{pageData?.userNumber || "____________________"}</span>
@@ -49,7 +44,6 @@ export default function MainContent({ pageData }) {
                             <b>Age : </b>
                             <i>{patientInfo?.age || "____"}Y</i>
                         </p>
-
                         <p className="margin">
                             <b>Date : </b>
                             <span>
@@ -59,8 +53,6 @@ export default function MainContent({ pageData }) {
                     </div>
                 </div>
             </div>
-
-
             {/* MODIUL 2 */}
             <div className="flex beet w100 modiul2">
                 <div className="sideBar">
@@ -77,7 +69,7 @@ export default function MainContent({ pageData }) {
                                     {pageData?.cc_oe_avd_xry?.cc.notes || ""}
                                 </div>
                                 <div>
-                                    {/* ===========C/C Graph ================ */}
+                                    {/* ================ C/C Graph ================ */}
                                     {
                                         pageData?.cc_oe_avd_xry?.cc?.graphOn === true ?
                                             (
@@ -102,7 +94,6 @@ export default function MainContent({ pageData }) {
                                             ) : ("")
                                     }
                                     {/* ================================================= */}
-
                                 </div>
                             </div>
                         </div>
@@ -216,7 +207,6 @@ export default function MainContent({ pageData }) {
                         </div>
                     </div>
                 </div>
-
                 <div className="w100 borderset ">
                     <div className="flex medel beet">
                         <span>
@@ -226,10 +216,6 @@ export default function MainContent({ pageData }) {
                             <BarCodeSvg code={pageData?.rpid} />
                         </span>
                     </div>
-
-
-
-
                     <blockquote>
                         <ol>
                             {pageData?.medicineData?.length > 0 ? (
@@ -240,7 +226,7 @@ export default function MainContent({ pageData }) {
                                             <div>
                                                 <span className="captext">
                                                     {
-                                                        categories.find(cat => String(cat.id) === String(item.categore))?.name ||  " "
+                                                        categories.find(cat => String(cat.id) === String(item.categore))?.name || " "
                                                     } {item.medicine}
                                                 </span>
                                                 <br />
@@ -259,10 +245,7 @@ export default function MainContent({ pageData }) {
                                 <p className="textCenter">No prescription added yet.</p>
                             )}
                         </ol>
-
                     </blockquote>
-
-
 
                 </div>
             </div>

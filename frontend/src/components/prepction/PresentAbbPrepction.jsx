@@ -94,7 +94,7 @@ function PresentAbbPrepction({ onAddPatient }) {
         setAge("");
         setSex("");
         setNumber("");
-        setStep(2);
+        setStep("");
     };
 
     return (

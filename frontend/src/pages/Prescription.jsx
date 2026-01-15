@@ -28,15 +28,24 @@ export default function Prescription() {
         };
         setPrepctionAllData(alldata);
     }
+    
     return (
         <div className="uiModiul animate__animated animate__backInUp">
             <UiModiulNav />
             {/* <div>{JSON.stringify(prepctionAllData)}</div> */}
-            <div className="uiBox">
+            <div className="uiBox" onClick={handelApppageData}>
                 <PresentAbbPrepction onAddPatient={setNewPatient} />
-                <MedicineAddPrepction onAddMedicine={setMedicineData} />
+
+                {
+                    pNumber && (
+                        <MedicineAddPrepction onAddMedicine={setMedicineData} />
+                    )
+                }
+
+
             </div>
             <div className="flex center w100">
+
                 <div className="uiBox">
                     <CcOeADVX_ray on_CC_OE_ADV_XRY={set_ON_CC_OE_ADV_XRY} />
                 </div>
@@ -50,14 +59,14 @@ export default function Prescription() {
                                     <ul>
                                         {medicineData.map((med, index) => (
                                             <li key={index}>
-                                                {med.medicine} - {med.timeL} - {med.setDay} - {med.notes}
+                                                {med.medicine} ------ {med.timeL} ------- {med.notes} --------- {med.setDay}
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
                             ) : (
                                 <p>No medicines added.</p>
-                            )       
+                            )
                         }
                     </div>
                     <MainContent pageData={prepctionAllData} />
