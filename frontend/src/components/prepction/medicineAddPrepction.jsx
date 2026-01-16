@@ -42,7 +42,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
             setDay: `${setDay1 || ""} ${setDay2 || ""}`
         };
         setPrescriptions(prev => [...prev, newPrescription]);
-        setCategore(""); setMedicine(""); setTimeL1(""); setTimeL2(""); setTimeL3(""); setNotes(""); setSetDay1(""); setSetDay2("");
+        setCategore(""); setMedicine(""); setTimeL1(0); setTimeL2(0); setTimeL3(0); setNotes(""); setSetDay1(""); setSetDay2("");
     };
     if (typeof onAddMedicine === "function") onAddMedicine(prescriptions);
     const handelAddMedecine = () => {

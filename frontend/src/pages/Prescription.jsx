@@ -28,12 +28,12 @@ export default function Prescription() {
         };
         setPrepctionAllData(alldata);
     }
-    
+
     return (
         <div className="uiModiul animate__animated animate__backInUp">
             <UiModiulNav />
             {/* <div>{JSON.stringify(prepctionAllData)}</div> */}
-            <div className="uiBox" onClick={handelApppageData}>
+            <div className="uiBox" >
                 <PresentAbbPrepction onAddPatient={setNewPatient} />
 
                 {
@@ -45,7 +45,6 @@ export default function Prescription() {
 
             </div>
             <div className="flex center w100">
-
                 <div className="uiBox">
                     <CcOeADVX_ray on_CC_OE_ADV_XRY={set_ON_CC_OE_ADV_XRY} />
                 </div>
@@ -77,7 +76,7 @@ export default function Prescription() {
                     </button>
                 </div>
             </div>
-
+            <br /><br /><br /><br /><br />
         </div>
     );
 }

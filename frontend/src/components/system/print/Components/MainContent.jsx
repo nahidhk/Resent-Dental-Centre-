@@ -58,45 +58,49 @@ export default function MainContent({ pageData }) {
                 <div className="sideBar">
                     <div className="flex cloman">
                         {/* C/C setting */}
-                        <div datatype="C/C">
-                            <div>
-                                <p className="bigText">
-                                    C/C:
-                                </p>
-                            </div>
-                            <div className="flex beet">
-                                <div>
-                                    {pageData?.cc_oe_avd_xry?.cc.notes || ""}
+                        {
+                            pageData?.cc_oe_avd_xry?.cc && (
+                                <div datatype="C/C">
+                                    <div>
+                                        <p className="bigText">
+                                            C/C:
+                                        </p>
+                                    </div>
+                                    <div className="flex beet">
+                                        <div>
+                                            {pageData?.cc_oe_avd_xry?.cc.notes || ""}
+                                        </div>
+                                        <div>
+                                            {/* ================ C/C Graph ================ */}
+                                            {
+                                                pageData?.cc_oe_avd_xry?.cc?.graphOn === true ?
+                                                    (
+                                                        <div className="flex cloman animation">
+                                                            <div className="flex">
+                                                                <div className="rayBox borderRB set">
+                                                                    {/* LT Value*/}
+                                                                </div>
+                                                                <div className="rayBox borderLB set">
+                                                                    {/* RT Value*/}
+                                                                </div>
+                                                            </div>
+                                                            <div className="flex">
+                                                                <div className="rayBox borderRT set">
+                                                                    {/* LB Value*/}
+                                                                </div>
+                                                                <div className="rayBox borderLT set">
+                                                                    {/* RB Value*/}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ) : ("")
+                                            }
+                                            {/* ================================================= */}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    {/* ================ C/C Graph ================ */}
-                                    {
-                                        pageData?.cc_oe_avd_xry?.cc?.graphOn === true ?
-                                            (
-                                                <div className="flex cloman animation">
-                                                    <div className="flex">
-                                                        <div className="rayBox borderRB set">
-                                                            {/* LT Value*/}
-                                                        </div>
-                                                        <div className="rayBox borderLB set">
-                                                            {/* RT Value*/}
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex">
-                                                        <div className="rayBox borderRT set">
-                                                            {/* LB Value*/}
-                                                        </div>
-                                                        <div className="rayBox borderLT set">
-                                                            {/* RB Value*/}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ) : ("")
-                                    }
-                                    {/* ================================================= */}
-                                </div>
-                            </div>
-                        </div>
+                            )
+                        }
                         {/* O/E Setting */}
                         <div>
                             <div>
