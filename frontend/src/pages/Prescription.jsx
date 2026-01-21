@@ -45,7 +45,7 @@ export default function Prescription() {
 
             </div>
             <div className="flex center w100">
-                <div className="uiBox">
+                <div className="uiBox scroll animate__fadeIn animate__animated">
                     <CcOeADVX_ray on_CC_OE_ADV_XRY={set_ON_CC_OE_ADV_XRY} />
                 </div>
 
@@ -68,11 +68,18 @@ export default function Prescription() {
                             )
                         }
                     </div>
-                    <MainContent pageData={prepctionAllData} />
+
+                    {
+                        demoShow && (
+                            <div className="popup">
+                                <MainContent pageData={prepctionAllData} />
+                            </div>
+                        )
+                    }
                 </div>
                 <div className="uiBox w200px">
                     <button onClick={handelApppageData} className="btn printBtn">
-                        Show
+                        View Graphic
                     </button>
                 </div>
             </div>

@@ -232,30 +232,30 @@ export default function MainContent({ pageData }) {
                                 <div>
                                     {/* ================IOPA Graph =============== */}
                                     {
-                                        pageData?.cc_oe_avd_xry?.x_ray?.graphOn === true ?
+                                        pageData?.cc_oe_avd_xry?.x_ray?.iopa?.graphOn === true ?
                                             (
                                                 <div className="flex cloman animation">
                                                     <div className="flex">
                                                         <div className="rayBox borderRB set">
                                                             {
-                                                                pageData?.cc_oe_avd_xry?.avd?.graph?.LT
+                                                                pageData?.cc_oe_avd_xry?.x_ray?.iopa?.graph?.LT
                                                             }
                                                         </div>
                                                         <div className="rayBox borderLB set">
                                                             {
-                                                                pageData?.cc_oe_avd_xry?.avd?.graph?.RT
+                                                                pageData?.cc_oe_avd_xry?.x_ray?.iopa?.graph?.RT
                                                             }
                                                         </div>
                                                     </div>
                                                     <div className="flex">
                                                         <div className="rayBox borderRT set">
                                                             {
-                                                                pageData?.cc_oe_avd_xry?.avd?.graph?.LB
+                                                                pageData?.cc_oe_avd_xry?.x_ray?.iopa?.graph?.LB
                                                             }
                                                         </div>
                                                         <div className="rayBox borderLT set">
                                                             {
-                                                                pageData?.cc_oe_avd_xry?.avd?.graph?.LR
+                                                                pageData?.cc_oe_avd_xry?.x_ray?.iopa?.graph?.LR
                                                             }
                                                         </div>
                                                     </div>
@@ -292,7 +292,7 @@ export default function MainContent({ pageData }) {
                                                 </span>
                                                 <br />
                                                 <p className="medicineNotes">
-                                                    {convertToBangla(item.timeL)} ---------------- {item.notes}--------------
+                                                    {convertToBangla(item.timeL)} --------- {item.notes}---------
                                                 </p>
                                             </div>
                                             <div className="medicineNotes flex center medel">

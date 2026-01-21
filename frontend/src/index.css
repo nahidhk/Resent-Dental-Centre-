@@ -864,7 +864,7 @@ input:focus {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-track {
@@ -959,4 +959,28 @@ li{
   padding: 0;
   font-size: 16px;
   color: #000;
+}
+.popupBG{
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+.popup{
+  height: auto;
+  width: 800px;
+  background-color: #ffffff8d;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00000075;
+  padding: 20px;
+}
+.scroll{
+  overflow: auto;
+  height: 70vh;
 }
