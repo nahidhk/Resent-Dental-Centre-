@@ -176,7 +176,7 @@ export default function MainContent({ pageData }) {
                                 </div>
                                 <div>
                                     {/* ================== AVD =============== */}
-                                   {
+                                    {
                                         pageData?.cc_oe_avd_xry?.avd?.graphOn === true ?
                                             (
                                                 <div className="flex cloman animation">
@@ -219,32 +219,49 @@ export default function MainContent({ pageData }) {
                                 </p>
                             </div>
                             <div>
-                                * OPG X-Ray
+                                {
+                                    pageData?.cc_oe_avd_xry?.x_ray?.opg
+                                }
                             </div>
                             <div className="flex beet">
                                 <div>
-                                    * IOPA View
+                                    {
+                                        pageData?.cc_oe_avd_xry?.x_ray?.iopa?.title
+                                    }
                                 </div>
                                 <div>
                                     {/* ================IOPA Graph =============== */}
-                                    <div className="flex cloman">
-                                        <div className="flex">
-                                            <div className="rayBox borderRB set">
-                                                {/* LT Value*/}
-                                            </div>
-                                            <div className="rayBox borderLB set">
-                                                {/* RT Value*/}
-                                            </div>
-                                        </div>
-                                        <div className="flex">
-                                            <div className="rayBox borderRT set">
-                                                {/* LB Value*/}
-                                            </div>
-                                            <div className="rayBox borderLT set">
-                                                {/* RB Value*/}
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {
+                                        pageData?.cc_oe_avd_xry?.x_ray?.graphOn === true ?
+                                            (
+                                                <div className="flex cloman animation">
+                                                    <div className="flex">
+                                                        <div className="rayBox borderRB set">
+                                                            {
+                                                                pageData?.cc_oe_avd_xry?.avd?.graph?.LT
+                                                            }
+                                                        </div>
+                                                        <div className="rayBox borderLB set">
+                                                            {
+                                                                pageData?.cc_oe_avd_xry?.avd?.graph?.RT
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex">
+                                                        <div className="rayBox borderRT set">
+                                                            {
+                                                                pageData?.cc_oe_avd_xry?.avd?.graph?.LB
+                                                            }
+                                                        </div>
+                                                        <div className="rayBox borderLT set">
+                                                            {
+                                                                pageData?.cc_oe_avd_xry?.avd?.graph?.LR
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ) : ("")
+                                    }
                                     {/* =============================================== */}
                                 </div>
                             </div>
