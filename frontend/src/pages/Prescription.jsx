@@ -78,6 +78,7 @@ export default function Prescription() {
                     }
                 </div>
                 <div className="uiBox w200px">
+                    {/* Add the coustonbutton and setup now */}
                     <button onClick={handelApppageData} className="btn printBtn">
                         View Graphic
                     </button>
