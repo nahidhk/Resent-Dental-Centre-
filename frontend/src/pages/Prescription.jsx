@@ -79,6 +79,7 @@ export default function Prescription() {
                 </div>
                 <div className="uiBox w200px">
                     {/* Add the coustonbutton and setup now */}
+                    {/* today is veribad so do not cool this update  */}
                     <button onClick={handelApppageData} className="btn printBtn">
                         View Graphic
                     </button>
