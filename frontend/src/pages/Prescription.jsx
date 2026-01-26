@@ -6,6 +6,7 @@ import { brCodeID } from "../components/barcode/brCodeID";
 import { todayDate } from "../scripts/todayDate";
 import UiModiulNav from "../components/ui/components/UiModiulNav";
 import MainContent from "../components/system/print/Components/MainContent";
+import { CgClose } from "react-icons/cg";
 
 export default function Prescription() {
     const [medicineData, setMedicineData] = useState(null);
@@ -17,6 +18,7 @@ export default function Prescription() {
     const pNumber = newPatient ? newPatient.number : null;
     const [today] = useState(todayDate())
 
+    const [demoShow, setDemoShow] = useState(false);
 
     const handelApppageData = () => {
         const alldata = {
@@ -27,6 +29,7 @@ export default function Prescription() {
             cc_oe_avd_xry: on_CC_OE_ADV_XRY_Data,
         };
         setPrepctionAllData(alldata);
+        setDemoShow(true);
     }
 
     return (
@@ -71,8 +74,16 @@ export default function Prescription() {
 
                     {
                         demoShow && (
-                            <div className="popup">
-                                <MainContent pageData={prepctionAllData} />
+                            <div className="popupBG">
+                                <div className="popup">
+                                    <div className="flex beet">
+                                        <div></div>
+                                        <div onClick={() => setDemoShow(false)} className="closeButton">
+                                            <CgClose className="iconx"/>
+                                        </div>
+                                    </div>
+                                    <MainContent pageData={prepctionAllData} />
+                                </div>
                             </div>
                         )
                     }

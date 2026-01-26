@@ -964,7 +964,6 @@ li{
   position: fixed;
   height: 100vh;
   width: 100%;
-  background-color: rgba(0,0,0,0.5);
   top: 0;
   left: 0;
   display: flex;
@@ -975,12 +974,30 @@ li{
 .popup{
   height: auto;
   width: 800px;
-  background-color: #ffffff8d;
+  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 0 10px #00000075;
+  box-shadow: 0 0 50px #00000075;
   padding: 20px;
+  animation: xpoint 0.4s;
+}
+@keyframes xpoint {
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
 }
 .scroll{
   overflow: auto;
   height: 70vh;
+}
+.closeButton{
+  padding: 10px;
+  transition: all 0.3s;
+}
+.closeButton:hover{
+  cursor: pointer;
+  background-color: red;
+  color: #fff;
 }
