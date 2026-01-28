@@ -60,7 +60,7 @@ export default function Prescription() {
                                     <h3>Medicine List:</h3>
                                     <ul>
                                         {medicineData.map((med, index) => (
-                                            <li key={index}>
+                                            <li className="list" key={index}>
                                                 {med.medicine} ------ {med.timeL} ------- {med.notes} --------- {med.setDay}
                                             </li>
                                         ))}

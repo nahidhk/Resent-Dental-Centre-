@@ -156,7 +156,6 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                 <label><MdOutlineEditNote /> Notes</label>
                 <br />
                 <input type="text" className="input w200px" placeholder="খাবার পর" value={notes} onChange={e => setNotes(e.target.value)} />
-
                 <div className="dropDown w200px">
                     {
                         mnote.map(item => (
