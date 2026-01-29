@@ -19,17 +19,24 @@ export default function Prescription() {
     const [today] = useState(todayDate())
 
     const [demoShow, setDemoShow] = useState(false);
-
+    const alldata = {
+        date: today,
+        rpid: barcode,
+        userNumber: pNumber,
+        medicineData: medicineData,
+        cc_oe_avd_xry: on_CC_OE_ADV_XRY_Data,
+    };
     const handelApppageData = () => {
-        const alldata = {
-            date: today,
-            rpid: barcode,
-            userNumber: pNumber,
-            medicineData: medicineData,
-            cc_oe_avd_xry: on_CC_OE_ADV_XRY_Data,
-        };
         setPrepctionAllData(alldata);
         setDemoShow(true);
+    }
+
+    const handelSaveToServerData = () => {
+        if (alldata.userNumber) {
+            alert(true)
+        } else {
+            alert(false)
+        }
     }
 
     return (
@@ -79,7 +86,7 @@ export default function Prescription() {
                                     <div className="flex beet">
                                         <div></div>
                                         <div onClick={() => setDemoShow(false)} className="closeButton">
-                                            <CgClose className="iconx"/>
+                                            <CgClose className="iconx" />
                                         </div>
                                     </div>
                                     <MainContent pageData={prepctionAllData} />
@@ -93,6 +100,9 @@ export default function Prescription() {
                     {/* today is veribad so do not cool this update  */}
                     <button onClick={handelApppageData} className="btn printBtn">
                         View Graphic
+                    </button>
+                    <button onClick={handelSaveToServerData} className="btn printBtn">
+                        Save and Print
                     </button>
                 </div>
             </div>

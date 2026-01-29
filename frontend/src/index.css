@@ -1004,3 +1004,8 @@ li{
 .list{
   padding: 10px;
 }
+.box{
+  padding: 10px;
+  background-color: #ffffff8f;
+  border-radius: 10px;
+}

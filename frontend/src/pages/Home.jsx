@@ -6,9 +6,13 @@ export default function Home() {
 
 
 
-    return (
-        <>
+  return (
+    <>
+      <div className="flex around">
+        <div className="box">
           <PieDonutChart />
-        </>
-    );
+        </div>
+      </div>
+    </>
+  );
 }

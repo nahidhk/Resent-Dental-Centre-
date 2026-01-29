@@ -27,7 +27,7 @@ export default function OnlineCheck() {
         }
       } catch (err) {
         if (err.name === "AbortError") {
-          setStatus("network"); 
+        console.log("Network Error!")
         } else {
           setStatus("dataError");
         }
@@ -42,9 +42,7 @@ export default function OnlineCheck() {
 
   return (
     <>
-      {status === "network" && (
-        <ErrorNote errorText="নেটওয়ার্ক সংযোগ নেই! অনুগ্রহ করে ইন্টারনেট সংযোগ চেক করুন।" />
-      )}
+      
       {status === "dataError" && (
         <ErrorNote errorText="দুঃখিত পিএইচপি সার্ভের থেকে কোনো পাওয়া যাচ্ছেনা । অনুগ্রহ করে রিলোড করুন আবার চেষ্টা করুন !" />
       )}
