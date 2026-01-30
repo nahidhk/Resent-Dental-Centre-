@@ -21,14 +21,17 @@ export async function postApi(jsonData) {
             toast.success(data.message);
             loading(true);
         }
+
         if (data.status === "error") {
-            toast.error(data.message);
             loading(true);
+            toast.error(data.message);
         }
+        
         return data;
     } catch (error) {
         console.log(error)
         toast.error("API problem, try again!");
+        loading(true);
         return null;
     }
 }

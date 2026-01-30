@@ -3,15 +3,14 @@ include_once "../../config.php";
 
 // API KEY CHECK
 $api_key = $_GET['key'] ?? '';
-$apikey = "../../apikey.json";
-$dataKey = json_decode(file_get_contents($apikey), true);
+$dataKey = json_decode(file_get_contents("../../apikey.json"), true);
 
 if ($api_key !== $dataKey['api_key']) {
     echo json_encode(["status" => "error", "message" => "Invalid API key"]);
     exit;
 }
 
-// INPUT READ
+// INPUT
 $input = json_decode(file_get_contents("php://input"), true);
 
 if (
@@ -28,7 +27,14 @@ if (
 }
 
 $table = $conn->real_escape_string($input['db_name']);
-$data = $input['data']; 
+$data  = $input['data'];
+
+// 🔥 FIX: encode array → JSON
+foreach ($data as $key => $value) {
+    if (is_array($value)) {
+        $data[$key] = json_encode($value, JSON_UNESCAPED_UNICODE);
+    }
+}
 
 // BUILD QUERY
 $columns = implode(", ", array_keys($data));
@@ -45,13 +51,12 @@ $stmt->bind_param($types, ...$values);
 if ($stmt->execute()) {
     echo json_encode([
         "status" => "success",
-        "message" => "Data inserted successfully",
-        "data" => $data
+        "message" => "Data inserted successfully"
     ]);
 } else {
     echo json_encode([
         "status" => "error",
-        "message" => "Insert failed: " . $stmt->error
+        "message" => $stmt->error
     ]);
 }
 

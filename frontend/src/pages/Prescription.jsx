@@ -37,7 +37,7 @@ export default function Prescription() {
     const handelSaveToServerData = () => {
         if (alldata.userNumber) {
             postApi({
-                db_name: recordsMedicen_DB,
+                db_name: "patient_records",
                 data: alldata
             });
             toast.info("Lodding....");

@@ -619,18 +619,19 @@ input:focus {
 }
 
 .loader {
-  width: 50px;
+  width: 70px;
   aspect-ratio: 1;
   display: grid;
-  background-color: rgb(237, 237, 237);
+  background-color: rgb(255, 255, 255);
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-  transform: rotateZ(45deg);
+  /* transform: rotateZ(88deg); */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px 0 #000;
 }
 
 .loader::before,
