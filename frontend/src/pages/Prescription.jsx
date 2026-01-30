@@ -7,8 +7,11 @@ import { todayDate } from "../scripts/todayDate";
 import UiModiulNav from "../components/ui/components/UiModiulNav";
 import MainContent from "../components/system/print/Components/MainContent";
 import { CgClose } from "react-icons/cg";
+import { postApi } from "../hooks/post/postApi";
+import { toast } from "react-toastify";
 
 export default function Prescription() {
+    const recordsMedicen_DB = "patient_records"
     const [medicineData, setMedicineData] = useState(null);
     const [newPatient, setNewPatient] = useState(null);
     const [prepctionAllData, setPrepctionAllData] = useState(null);
@@ -33,7 +36,13 @@ export default function Prescription() {
 
     const handelSaveToServerData = () => {
         if (alldata.userNumber) {
-            alert(true)
+            postApi({
+                db_name: recordsMedicen_DB,
+                data: alldata
+            });
+            toast.info("Lodding....");
+          
+
         } else {
             alert(false)
         }
@@ -45,7 +54,6 @@ export default function Prescription() {
             {/* <div>{JSON.stringify(prepctionAllData)}</div> */}
             <div className="uiBox" >
                 <PresentAbbPrepction onAddPatient={setNewPatient} />
-
                 {
                     pNumber && (
                         <MedicineAddPrepction onAddMedicine={setMedicineData} />
