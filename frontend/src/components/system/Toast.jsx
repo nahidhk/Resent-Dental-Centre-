@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function Toast() {
   return (
     <ToastContainer
-      position="top-center"
+      position="top-right"
       autoClose={2000}
       theme="colored"
     />

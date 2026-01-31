@@ -6,7 +6,7 @@ import siteinfo from "../../../../data/setting/siteDetels.json";
 export default function Bottom() {
     return (
         <>
-            <div className="modiul3 mt-auto" >
+            <div className="" >
                 <div className="segestBox flex beet w100">
                     <div className="t16">
                         <ul>
@@ -17,7 +17,7 @@ export default function Bottom() {
                     </div>
                     <div>
                         <div className="flex">
-                            <p className="mark">চেম্বার :</p>
+                           চেম্বার :
                         </div>
                         <p>
                             {siteinfo.fullName} <br />
@@ -26,7 +26,7 @@ export default function Bottom() {
                             </span>
                         </p>
                         <div className="flex">
-                            <p className="mark">রোগী দেখার সময়:</p>
+                          রোগী দেখার সময়:
                         </div>
                         <p className="t16">{DoctorData.chamber_time}</p>
                     </div>

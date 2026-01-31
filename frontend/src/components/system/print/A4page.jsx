@@ -20,7 +20,7 @@ export default function A4page({ pageData }) {
                 <div>
                     <div className="contBox flex" ref={componentRef}>
                         {/* HEADER + MODIUL 1 */}
-                        <div className="modiul1">
+                        <div>
                            <Head />
                            <MainContent pageData={pageData} />
                         </div>
@@ -32,9 +32,12 @@ export default function A4page({ pageData }) {
                     </div >
                 </div >
             </div >
-            <button onClick={handlePrint}>
-                print
+
+           <div className="flex center">
+             <button className="fullBtn" onClick={handlePrint}>
+               <IoMdPrint /> Print Prepction for A4 Page
             </button>
+           </div>
 
         </>
     );

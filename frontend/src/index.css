@@ -597,7 +597,7 @@ input:focus {
   }
 
   .contBox {
-    height: 1100px;
+    height: 1050px;
     overflow: hidden;
     justify-content: space-between;
     flex-direction: column;
@@ -1009,4 +1009,17 @@ li{
   padding: 10px;
   background-color: #ffffff8f;
   border-radius: 10px;
+}
+.t16{
+  font-size: 10px;
+}
+.fullBtn{
+  padding: 10px;
+  width: 80%;
+  margin: 10px;
+  background-color: #4680ff;
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }

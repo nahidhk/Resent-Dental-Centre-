@@ -9,6 +9,7 @@ import MainContent from "../components/system/print/Components/MainContent";
 import { CgClose } from "react-icons/cg";
 import { postApi } from "../hooks/post/postApi";
 import { toast } from "react-toastify";
+import A4page from "../components/system/print/A4page";
 
 export default function Prescription() {
     const recordsMedicen_DB = "patient_records"
@@ -22,6 +23,7 @@ export default function Prescription() {
     const [today] = useState(todayDate())
 
     const [demoShow, setDemoShow] = useState(false);
+    const [printOk, setPrintOk] = useState(false);
     const alldata = {
         date: today,
         rpid: barcode,
@@ -41,10 +43,10 @@ export default function Prescription() {
                 data: alldata
             });
             toast.info("Lodding....");
-          
-
+            setPrintOk(true);
+            setPrepctionAllData(alldata);
         } else {
-            alert(false)
+            toast.error("else the Number!");
         }
     }
 
@@ -102,6 +104,22 @@ export default function Prescription() {
                             </div>
                         )
                     }
+                    {
+                        printOk && (
+                            <div className="popupBG">
+                                <div className="popup">
+                                    <div className="flex beet">
+                                        <div></div>
+                                        <div onClick={() => setPrintOk(false)} className="closeButton">
+                                            <CgClose className="iconx" />
+                                        </div>
+                                    </div>
+                                    <A4page pageData={prepctionAllData} />
+                                </div>
+                            </div>
+                        )
+                    }
+                   
                 </div>
                 <div className="uiBox w200px">
                     {/* Add the coustonbutton and setup now */}
