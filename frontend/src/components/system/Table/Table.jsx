@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ErrorNote from "../../../hooks/ErrorNote";
-import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
-import { IoEyeOutline } from "react-icons/io5";
-import { drop } from "../../../hooks/drop/drop";
 
 export default function Table({ tableData, action }) {
 

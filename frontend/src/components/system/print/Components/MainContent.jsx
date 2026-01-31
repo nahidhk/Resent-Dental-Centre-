@@ -105,9 +105,6 @@ export default function MainContent({ pageData }) {
                                                         </div>
                                                     ) : ("")
                                             }
-
-
-
                                             {/* ================================================= */}
                                         </div>
                                     </div>
@@ -292,7 +289,7 @@ export default function MainContent({ pageData }) {
                                                 </span>
                                                 <br />
                                                 <p className="medicineNotes">
-                                                    {convertToBangla(item.timeL)} --------- {item.notes}---------
+                                                    {convertToBangla(item.timeL)} --------- {item.notes} ---------
                                                 </p>
                                             </div>
                                             <div className="medicineNotes flex center medel">
@@ -302,9 +299,7 @@ export default function MainContent({ pageData }) {
                                     </li>
 
                                 ))
-                            ) : (
-                                <p className="textCenter">No prescription added yet.</p>
-                            )}
+                            ) : ""}
                         </ol>
                     </blockquote>
 

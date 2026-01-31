@@ -4,7 +4,7 @@ import MedicineAddPrepction from "../components/prepction/medicineAddPrepction";
 import CcOeADVX_ray from "../components/prepction/CcOeADVX_ray";
 import { brCodeID } from "../components/barcode/brCodeID";
 import { todayDate } from "../scripts/todayDate";
-import UiModiulNav from "../components/ui/components/UiModiulNav";
+import UiModiul from "../components/ui/UiModiul";
 import MainContent from "../components/system/print/Components/MainContent";
 import { CgClose } from "react-icons/cg";
 import { postApi } from "../hooks/post/postApi";
@@ -17,11 +17,9 @@ export default function Prescription() {
     const [newPatient, setNewPatient] = useState(null);
     const [prepctionAllData, setPrepctionAllData] = useState(null);
     const [on_CC_OE_ADV_XRY_Data, set_ON_CC_OE_ADV_XRY] = useState(null);
-
     const [barcode] = useState(brCodeID());
     const pNumber = newPatient ? newPatient.number : null;
     const [today] = useState(todayDate())
-
     const [demoShow, setDemoShow] = useState(false);
     const [printOk, setPrintOk] = useState(false);
     const alldata = {
@@ -35,7 +33,6 @@ export default function Prescription() {
         setPrepctionAllData(alldata);
         setDemoShow(true);
     }
-
     const handelSaveToServerData = () => {
         if (alldata.userNumber) {
             postApi({
@@ -49,10 +46,9 @@ export default function Prescription() {
             toast.error("else the Number!");
         }
     }
-
     return (
-        <div className="uiModiul animate__animated animate__backInUp">
-            <UiModiulNav />
+        <UiModiul>
+            
             {/* <div>{JSON.stringify(prepctionAllData)}</div> */}
             <div className="uiBox" >
                 <PresentAbbPrepction onAddPatient={setNewPatient} />
@@ -61,14 +57,11 @@ export default function Prescription() {
                         <MedicineAddPrepction onAddMedicine={setMedicineData} />
                     )
                 }
-
-
             </div>
             <div className="flex center w100">
-                <div className="uiBox scroll animate__fadeIn animate__animated">
+                <div className="uiBox scroll">
                     <CcOeADVX_ray on_CC_OE_ADV_XRY={set_ON_CC_OE_ADV_XRY} />
                 </div>
-
                 <div className="uiBox">
                     <div>
                         {
@@ -133,6 +126,6 @@ export default function Prescription() {
                 </div>
             </div>
             <br /><br /><br /><br /><br />
-        </div>
+        </UiModiul>
     );
 }

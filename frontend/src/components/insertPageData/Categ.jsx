@@ -4,7 +4,7 @@ import { RiPlayListAddFill } from "react-icons/ri";
 import { useRestApi } from "../../hooks/getjson/useRestApi";
 import { postApi } from "../../hooks/post/postApi";
 import { toast } from "react-toastify";
-import UiModiulNav from "../ui/components/UiModiulNav";
+import UiModiul from "../ui/UiModiul";
 
 export default function Categ() {
     const db = "category";
@@ -31,8 +31,8 @@ export default function Categ() {
     );
     return (
         <>
-            <div className="uiModiul animate__animated animate__flipInX">
-                <UiModiulNav />
+            <UiModiul>
+                
                 <blockquote>
                     <div className=" flex center medel">
                         <div className="uiBox w50">
@@ -66,7 +66,7 @@ export default function Categ() {
                     </div>
                 </blockquote>
                 <br /><br /><br />
-            </div>
+            </UiModiul>
         </>
     );
 

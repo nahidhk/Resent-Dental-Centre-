@@ -10,8 +10,8 @@ import Insert from './pages/Insert';
 import Toast from './components/system/Toast';
 import ApiCheck from './components/Err/ApiCheck';
 import MainDesk from './components/ui/desk/MainDesk';
-import Help from './pages/Help';
-import NUi from './components/ui/components/NUi/NUi'
+import NUi from './components/ui/components/NUi/NUi';
+import Memo from './pages/Memo';
 // Insers Data Set
 import Users from './components/insertPageData/Users';
 import Categ from './components/insertPageData/Categ';
@@ -63,7 +63,7 @@ function App() {
             <Route path='/prescription' element={<Prescription />} />
             <Route path='/' element={<Home />} />
             <Route path='/insert' element={<Insert />} />
-            <Route path='/help' element={<Help />} />
+            <Route path='/memo' element={<Memo />} />
             {/* Insers Link popup System */}
             <Route path='/insert/users' element={<Users />} />
             <Route path='/insert/category' element={<Categ />} />

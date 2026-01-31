@@ -2,16 +2,15 @@ import React, { useState } from "react";
 
 import UserIcon from "../assets/vector/team.png";
 import CategoryIcon from "../assets/vector/menu.png";
-import DrgusIcon from "../assets/vector/drugs.png"
-
-import UiModiulNav from "../components/ui/components/UiModiulNav";
+import DrgusIcon from "../assets/vector/drugs.png";
+import UiModiul from "../components/ui/UiModiul";
 import { useNavigate } from "react-router-dom";
 
 export default function Insert() {
   const navigate = useNavigate();
   return (
-    <div className="uiModiul animate__animated animate__backInUp">
-      <UiModiulNav />
+    <UiModiul>
+      
       {/* Popup show only when open */}
 
       <div className="flex">
@@ -53,6 +52,6 @@ export default function Insert() {
         </div>
 
       </div>
-    </div>
+    </UiModiul>
   );
 }

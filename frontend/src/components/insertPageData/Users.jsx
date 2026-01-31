@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Table from "../system/Table/Table";
-import UiModiulNav from "../ui/components/UiModiulNav";
 // restApi
 import { useRestApi } from "../../hooks/getjson/useRestApi";
 import sex from "../../data/present/sex.json";
@@ -11,6 +10,7 @@ import formatDate from "../../scripts/formatDate";
 // icons 
 import { IoSaveOutline } from "react-icons/io5";
 import { toast } from "react-toastify";
+import UiModiul from "../ui/UiModiul";
 
 export default function Users() {
     const db = 'users';
@@ -23,7 +23,7 @@ export default function Users() {
     const [jsonData, setJsonData] = useState({});
     const [patiebtData, setPatientData] = useState([]);
 
-    // প্রথমবার component mount হলে session data load করো
+   
     useEffect(() => {
         const getjsonData = sessionData({ get: db });
         if (getjsonData) {
@@ -34,7 +34,7 @@ export default function Users() {
         }
     }, []);
 
-    // searchNumber, nameValue, ageValue, sexValue change হলে sessionData update হবে
+   
     useEffect(() => {
         const inputJsonData = {
             number: searchNumber,
@@ -43,14 +43,13 @@ export default function Users() {
             sex: sexValue
         };
 
-        // আগের state এর সাথে তুলনা, change না হলে setState হবে না
+    
         if (JSON.stringify(inputJsonData) !== JSON.stringify(jsonData)) {
             setJsonData(inputJsonData);
             sessionData({ set: inputJsonData, setDB: db });
         }
     }, [searchNumber, nameValue, ageValue, sexValue, jsonData]);
 
-    // filtered users তৈরি করা
     const filteredUsers = users.filter(user =>
         (!searchNumber || user.number?.includes(searchNumber)) &&
         (!nameValue || user.name?.toLowerCase().includes(nameValue.toLowerCase())) &&
@@ -58,7 +57,7 @@ export default function Users() {
         (!sexValue || user.sex === sexValue)
     );
 
-    // filtered users কে table format এ convert করা
+    
     useEffect(() => {
         const transformedPatients = filteredUsers.map(user => {
             const userSex = sex.find(sexitm => JSON.stringify(sexitm.id) === user.sex);
@@ -105,8 +104,7 @@ export default function Users() {
     };
 
     return (
-        <div className="uiModiul animate__animated animate__flipInX">
-            <UiModiulNav />
+        <UiModiul>
             <blockquote>
                 <div className="flex center medel">
                     <div className="uiBox">
@@ -177,6 +175,6 @@ export default function Users() {
                     </div>
                 </div>
             </blockquote>
-        </div>
+        </UiModiul>
     );
 }

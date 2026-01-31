@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import Table from "../system/Table/Table";
 import { useRestApi } from "../../hooks/getjson/useRestApi";
-import UiModiulNav from "../ui/components/UiModiulNav";
+import UiModiul from "../ui/UiModiul";
 import { postApi } from "../../hooks/post/postApi";
 import { toast } from "react-toastify";
 
@@ -64,8 +64,8 @@ export default function Medicine() {
     };
 
     return (
-        <div className="hScroll uiModiul  animate__animated animate__flipInX">
-            <UiModiulNav />
+        <UiModiul >
+            
 
             <div className="flex center medel">
                 <div className="uiBox w50">
@@ -108,6 +108,6 @@ export default function Medicine() {
                     </div>
                 </div>
             </div>
-        </div>
+        </UiModiul>
     );
 }
