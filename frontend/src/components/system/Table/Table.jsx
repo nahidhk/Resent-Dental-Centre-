@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ErrorNote from "../../../hooks/ErrorNote";
+import { MdDeleteForever } from "react-icons/md";
+import { MdOutlineModeEditOutline } from "react-icons/md";
+import { drop } from "../../../hooks/drop/drop"
 
 export default function Table({ tableData, action }) {
 
@@ -11,12 +14,16 @@ export default function Table({ tableData, action }) {
     if (tableData.length === 0) {
         return "No Records Found!";
     }
-    const dropData = (data) =>{
+    const dropData = (data) => {
         const dropJson = {
-            action: action.deleteBtn,
+            action: action.delete,
             id: data
         }
         drop(dropJson);
+    }
+
+    const editData = (data) => {
+        alert(JSON.stringify(data));
     }
 
     const headers = Object.keys(tableData[0]);
@@ -40,23 +47,18 @@ export default function Table({ tableData, action }) {
                                     <td key={i}>{row[key]}</td>
                                 ))}
                                 <td  className="flex center medel">
-                                    <div className="flex center medel w100">
-                                        {action.deleteBtn && (
-                                            <div className="iconBtn" onClick={() => dropData(row.id)}>
-                                                <RiDeleteBin5Fill className="iconTab deleteBtn" />
+                                     <div className="flex center medel w100">
+                                        {action.delete && (
+                                            <div className="iconBtn deleteBtn" onClick={() => dropData(row.id)}>
+                                               <MdDeleteForever />
                                             </div>
                                         )}
-                                        {action.editBtn && (
-                                            <div className="iconBtn">
-                                                <RiEditBoxLine className="iconTab editBtn" />
+                                        {action.edit && (
+                                            <div onClick={() => editData(row)} className="iconBtn editBtn">
+                                             <MdOutlineModeEditOutline />
                                             </div>
                                         )}
-                                        {action.viewBtn && (
-                                            <div className="iconBtn">
-                                                <IoEyeOutline className="iconTab viewBtn" />
-                                            </div>
-                                        )}
-                                    </div>
+                                        </div>
                                 </td>
                             </tr>
                         ))}

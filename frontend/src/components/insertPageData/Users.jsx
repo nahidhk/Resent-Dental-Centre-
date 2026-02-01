@@ -166,8 +166,7 @@ export default function Users() {
                             <Table
                                 tableData={patiebtData}
                                 action={{
-                                    deleteBtn: db,
-                                    viewBtn: "view" //? The user data view call.
+                                    deleteBtn: db
                                 }}
                             />
                         </div>

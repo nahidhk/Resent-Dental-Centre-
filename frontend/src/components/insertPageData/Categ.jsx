@@ -58,7 +58,7 @@ export default function Categ() {
                             </div>
 
                             <div className="flex center medel padding border">
-                                <Table  tableData={fitersUsers} action={{ deleteBtn: db }} />
+                                <Table  tableData={fitersUsers} action={{ delete: db }} />
                                
                             </div>
 

@@ -6,6 +6,7 @@ export default function UiModiul(props) {
     <div className="uiModiul">
       <UiModiulNav />
       <div>{props.children}</div>
+      <br /><br /><br /><br />
     </div>
   );
 }

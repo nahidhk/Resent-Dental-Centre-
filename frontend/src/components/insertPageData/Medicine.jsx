@@ -103,7 +103,7 @@ export default function Medicine() {
                     <div className="flex center medel border padding">
                         <Table
                             tableData={tableData}
-                            action={{ deleteBtn: medecineDB }}
+                            action={{ delete: medecineDB , edit: medecineDB}}
                         />
                     </div>
                 </div>

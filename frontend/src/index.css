@@ -354,15 +354,14 @@ input:focus {
 
 .deleteBtn {
   background-color: red;
+  color: #fff;
 }
 
 .editBtn {
+  color: #fff;
   background-color: orange;
 }
 
-.viewBtn {
-  background-color: green;
-}
 
 .error {
   color: red;
@@ -1062,4 +1061,11 @@ li {
   border-radius: 10px;
   border: none;
   cursor: pointer;
+}
+.iconBtn{
+  padding: 3px;
+  border: none;
+  cursor: pointer;
+  margin: 3px;
+  font-size: 17px;
 }
