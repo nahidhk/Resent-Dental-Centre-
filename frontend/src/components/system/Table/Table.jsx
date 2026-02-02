@@ -3,10 +3,10 @@ import ErrorNote from "../../../hooks/ErrorNote";
 import { MdDeleteForever } from "react-icons/md";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { drop } from "../../../hooks/drop/drop"
-
+import Edit from "../edit/Edit";
 export default function Table({ tableData, action }) {
-
-
+    const [openEdit, setOpenEdit] = useState(false);
+    const [sendEditData, setSendEditData] = useState([]);
     if (!tableData) {
         return <ErrorNote errorText={"সঠিক ভাবে ডাটা কনফিগ করা হইনি ।"} />;
     }
@@ -23,13 +23,20 @@ export default function Table({ tableData, action }) {
     }
 
     const editData = (data) => {
-        alert(JSON.stringify(data));
+        setOpenEdit(true);
+         setSendEditData([data]);
+       // alert(JSON.stringify(sendEditData))
     }
 
     const headers = Object.keys(tableData[0]);
 
     return (
         <>
+            {
+                openEdit && (
+                    <Edit onCloseEdit={setOpenEdit} receveData={sendEditData} />
+                )
+            }
             <div className="table_component animate__animated animate__fadeIn" role="region" tabIndex={0}>
                 <table>
                     <thead>
@@ -46,19 +53,19 @@ export default function Table({ tableData, action }) {
                                 {headers.map((key, i) => (
                                     <td key={i}>{row[key]}</td>
                                 ))}
-                                <td  className="flex center medel">
-                                     <div className="flex center medel w100">
+                                <td className="flex center medel">
+                                    <div className="flex center medel w100">
                                         {action.delete && (
                                             <div className="iconBtn deleteBtn" onClick={() => dropData(row.id)}>
-                                               <MdDeleteForever />
+                                                <MdDeleteForever />
                                             </div>
                                         )}
                                         {action.edit && (
                                             <div onClick={() => editData(row)} className="iconBtn editBtn">
-                                             <MdOutlineModeEditOutline />
+                                                <MdOutlineModeEditOutline />
                                             </div>
                                         )}
-                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         ))}

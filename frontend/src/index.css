@@ -679,6 +679,9 @@ input:focus {
 .bottom {
   bottom: 0;
 }
+.right{
+  right: 0;
+}
 
 .err {
   height: auto;
@@ -1043,7 +1046,7 @@ li {
 }
 .box {
   padding: 10px;
-  background-color: #ffffff8f;
+  background-color: #ffffffe9;
   border-radius: 10px;
 }
 .t16 {
