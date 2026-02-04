@@ -161,6 +161,10 @@ button {
   height: auto;
 }
 
+.clomanC {
+  flex-direction: column;
+}
+
 
 
 .printBtn {
@@ -679,7 +683,8 @@ input:focus {
 .bottom {
   bottom: 0;
 }
-.right{
+
+.right {
   right: 0;
 }
 
@@ -838,7 +843,7 @@ input:focus {
 }
 
 .uiModiul {
-  background-color: #00000071;
+  background-color: #00000099;
   backdrop-filter: blur(5px);
   border-radius: 10px;
   width: 100%;
@@ -960,6 +965,13 @@ input:focus {
   background-color: #ff9100;
 }
 
+.orange {
+  color: #ff9100;
+}
+.fff{
+  color: #fff;
+}
+
 .reload:hover {
   background-color: #4680ff;
 }
@@ -1044,14 +1056,17 @@ li {
 .list {
   padding: 10px;
 }
+
 .box {
   padding: 10px;
   background-color: #ffffffe9;
   border-radius: 10px;
 }
+
 .t16 {
   font-size: 10px;
 }
+
 .fullBtn {
   padding: 10px;
   width: 80%;
@@ -1062,10 +1077,18 @@ li {
   border: none;
   cursor: pointer;
 }
-.iconBtn{
+
+.iconBtn {
   padding: 3px;
   border: none;
   cursor: pointer;
   margin: 3px;
   font-size: 17px;
+}
+.userimg{
+  height: 150px;
+  width: 150px;
+  padding: 5px;
+  border: 5px solid #4680ff;
+  border-radius: 150px;
 }
