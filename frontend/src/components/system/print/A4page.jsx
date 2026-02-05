@@ -16,7 +16,7 @@ export default function A4page({ pageData }) {
 
     return (
         <>
-            <div className="mainBox flex center">
+            <div className="flex center">
                 <div>
                     <div className="contBox flex" ref={componentRef}>
                         {/* HEADER + MODIUL 1 */}

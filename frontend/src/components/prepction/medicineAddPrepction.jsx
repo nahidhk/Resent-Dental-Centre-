@@ -32,6 +32,16 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
         });
     }, [medichenData, categore, medicine]);
 
+    const filterNotes = useMemo(
+        () =>
+            mnote.filter(item =>
+                notes
+                    ? item.note.toLowerCase().includes(notes.toLowerCase())
+                    : true
+            ),
+        [mnote, notes]
+    );
+
     const addPrescription = () => {
         if (!medicine) return toast.error("Please enter medicine name!");
         const newPrescription = {
@@ -56,10 +66,19 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
         });
         refetch();
     }
+    const setAnotes = () => {
+        toast.warning("Please wait....")
+        postApi({
+            db_name: "mnote",
+            data: {
+                note: notes
+            }
+        })
+        refetch();
+    }
     //console.log(mnote)
     return (
-        <div className="center flex medel wrap gap10 ">
-
+        <div className="center flex medel wrap gap10 animation">
             {/* Category */}
             <div className="grap">
                 <label><GiMedicines /> Category</label>
@@ -76,6 +95,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                 <br />
 
                 <input
+                    type="text"
                     className="input w200px"
                     value={medicine}
                     onChange={e => setMedicine(e.target.value)}
@@ -155,14 +175,28 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
             <div className="grap dropdownOpen">
                 <label><MdOutlineEditNote /> Notes</label>
                 <br />
-                <input type="text" className="input w200px" placeholder="খাবার পর" value={notes} onChange={e => setNotes(e.target.value)} />
+                <input
+                    type="text"
+                    className="input w200px"
+                    placeholder="খাবার পর"
+                    value={notes}
+                    onChange={e => setNotes(e.target.value)}
+                />
                 <div className="dropDown w200px">
                     {
-                        mnote.map(item => (
-                            <div className="dropBtn" onClick={() => setNotes(item.note)} key={item.id}>
-                                {`(${item.id})`} {item.note}
-                            </div>
-                        ))
+                        filterNotes.length ? (
+                            filterNotes.map(item => (
+                                <div className="dropBtn" onClick={() => setNotes(item.note)} key={item.id}>
+                                    {`(${item.id})`} {item.note}
+                                </div>
+                            ))
+                        ) : (
+                            <p className="flex center medel">
+                               <button onClick={setAnotes} className="btn printBtn">
+                                Save this Record
+                               </button>
+                            </p>
+                        )
                     }
                 </div>
             </div>

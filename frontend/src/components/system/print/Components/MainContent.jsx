@@ -59,63 +59,60 @@ export default function MainContent({ pageData }) {
                 <div className="sideBar">
                     <div className="flex cloman">
                         {/* C/C setting */}
-                        {
-                            pageData?.cc_oe_avd_xry?.cc && (
-                                <div datatype="C/C">
-                                    <div>
-                                        <p className="bigText">
-                                            C/C:
-                                        </p>
-                                    </div>
-                                    <div className="flex beet">
-                                        <div>
-                                            {pageData?.cc_oe_avd_xry?.cc.notes || ""}
-                                        </div>
-                                        <div>
-                                            {/* ================ C/C Graph ================ */}
-
-                                            {
-                                                pageData?.cc_oe_avd_xry?.cc?.graphOn === true ?
-                                                    (
-                                                        <div className="flex cloman animation">
-                                                            <div className="flex">
-                                                                <div className="rayBox borderRB set">
-                                                                    {
-                                                                        pageData?.cc_oe_avd_xry?.cc?.graph?.LT ? (<GiCheckMark />) : ("")
-                                                                    }
-                                                                </div>
-                                                                <div className="rayBox borderLB set">
-                                                                    {
-                                                                        pageData?.cc_oe_avd_xry?.cc?.graph?.RT ? (<GiCheckMark />) : ("")
-                                                                    }
-                                                                </div>
-                                                            </div>
-                                                            <div className="flex">
-                                                                <div className="rayBox borderRT set">
-                                                                    {
-                                                                        pageData?.cc_oe_avd_xry?.cc?.graph?.LB ? (<GiCheckMark />) : ("")
-                                                                    }
-                                                                </div>
-                                                                <div className="rayBox borderLT set">
-                                                                    {
-                                                                        pageData?.cc_oe_avd_xry?.cc?.graph?.RB ? (<GiCheckMark />) : ("")
-                                                                    }
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    ) : ("")
-                                            }
-                                            {/* ================================================= */}
-                                        </div>
-                                    </div>
+                        <div datatype="C/C">
+                            <div>
+                                <p className="bigText">
+                                    Chief Complaint
+                                </p>
+                            </div>
+                            <div className="flex beet">
+                                <div>
+                                    {pageData?.cc_oe_avd_xry?.cc.notes || ""}
                                 </div>
-                            )
-                        }
+                                <div>
+                                    {/* ================ C/C Graph ================ */}
+
+                                    {
+                                        pageData?.cc_oe_avd_xry?.cc?.graphOn === true ?
+                                            (
+                                                <div className="flex cloman animation">
+                                                    <div className="flex">
+                                                        <div className="rayBox borderRB set">
+                                                            {
+                                                                pageData?.cc_oe_avd_xry?.cc?.graph?.LT ? (<GiCheckMark />) : ("")
+                                                            }
+                                                        </div>
+                                                        <div className="rayBox borderLB set">
+                                                            {
+                                                                pageData?.cc_oe_avd_xry?.cc?.graph?.RT ? (<GiCheckMark />) : ("")
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex">
+                                                        <div className="rayBox borderRT set">
+                                                            {
+                                                                pageData?.cc_oe_avd_xry?.cc?.graph?.LB ? (<GiCheckMark />) : ("")
+                                                            }
+                                                        </div>
+                                                        <div className="rayBox borderLT set">
+                                                            {
+                                                                pageData?.cc_oe_avd_xry?.cc?.graph?.RB ? (<GiCheckMark />) : ("")
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ) : ("")
+                                    }
+                                    {/* ================================================= */}
+                                </div>
+                            </div>
+                        </div>
+
                         {/* O/E Setting */}
                         <div>
                             <div>
                                 <p className="bigText">
-                                    O/E:
+                                    On Examination
                                 </p>
                             </div>
                             <div className="flex beet">
@@ -164,7 +161,7 @@ export default function MainContent({ pageData }) {
                         <div>
                             <div>
                                 <p className="bigText">
-                                    AVD:
+                                    Advice
                                 </p>
                             </div>
                             <div className="flex beet">
@@ -266,7 +263,7 @@ export default function MainContent({ pageData }) {
                     </div>
                 </div>
                 <div className="w100 borderset ">
-                    <div className="flex medel beet">
+                    <div className="flex beet">
                         <span>
                             <FaPrescription className="iconr" />
                         </span>
@@ -274,11 +271,10 @@ export default function MainContent({ pageData }) {
                             <BarCodeSvg code={pageData?.rpid} />
                         </span>
                     </div>
-                    <blockquote>
+                    <div>
                         <ol>
                             {pageData?.medicineData?.length > 0 ? (
                                 pageData?.medicineData.map((item, index) => (
-
                                     <li key={index}>
                                         <div className="flex beet lineStyle">
                                             <div>
@@ -301,9 +297,11 @@ export default function MainContent({ pageData }) {
                                 ))
                             ) : ""}
                         </ol>
-                    </blockquote>
-
+                    </div>
                 </div>
+
+
+
             </div>
         </>
     )
