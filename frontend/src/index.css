@@ -118,11 +118,13 @@ button {
   padding: 0 10px 0 10px;
   cursor: pointer;
   font-family: var(--dabulfont);
+  background-color: #4680ff;
+  border-radius: 3px;
+  border: none; 
+  color: #fff;
 }
 
-.btn:hover {
-  border: 1px dashed #4680ff;
-}
+
 
 
 
@@ -253,7 +255,7 @@ input:focus {
 }
 
 .ccOg {
-  width: 260px;
+  width: 320px;
 }
 
 

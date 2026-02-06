@@ -28,7 +28,7 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
   // create C/C json
   const cC_Data = {
     notes: ccNotesData,
-    graphOn:ccgraps,
+    graphOn: ccgraps,
     graph: cCGrapa
   }
   // C/C data export vareable (cC_Data)
@@ -55,7 +55,7 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
   // create O/E json
   const oE_Data = {
     notes: oeNotesData,
-    graphOn:oeGrapsSetup,
+    graphOn: oeGrapsSetup,
     graph: oeGraph
   }
   // O/E data export vareable (oE_Data)
@@ -80,7 +80,7 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
   }
   const avd_Data = {
     notes: avdNotes,
-    graphOn:avdGraphSetup,
+    graphOn: avdGraphSetup,
     graph: avdGraph
   }
   // avd data export vareable (avd_Data)
@@ -107,7 +107,7 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
   // create iopaData 
   const iopaData = {
     title: iopa,
-    graphOn:iopaSetuo,
+    graphOn: iopaSetuo,
     graph: iopaGraphData
   }
   // Create Xray Data 
@@ -135,6 +135,13 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
 
   setTimeout(handelRun, 1000)
 
+
+  const handelJsonCC = () => {
+    alert(ccNotesData);
+  }
+
+
+
   return (
     <>
 
@@ -157,7 +164,12 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
               </p>
               {
                 ccnotes === true ? (
-                  <input className="input animation" type="text" placeholder="C/C Input Value" onInput={(e) => setCcNotesData(e.target.value)} />
+                  <div className="fx animation">
+                    <input className="fxInput" type="text" placeholder="C/C Input Value" onInput={(e) => setCcNotesData(e.target.value)} />
+                    <butto  onClick={handelJsonCC}  className="fxBtn flex center medel">
+                      Add
+                    </butto>
+                  </div>
                 ) : ("")
               }
             </div>
