@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
 
@@ -31,6 +32,19 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
     graphOn: ccgraps,
     graph: cCGrapa
   }
+
+  // loop try function data in json
+  const [ccjsonData, setCcJsonData] = useState([]);
+  const handelJsonCC = () => {
+    const newCcNoteData = ccNotesData;
+    if (ccNotesData) {
+      setCcJsonData(prev => [...prev, newCcNoteData]);
+      setCcNotesData("");
+    } else {
+      toast.error("invalid Data!....")
+    }
+  }
+
   // C/C data export vareable (cC_Data)
   //==========================================
 
@@ -58,6 +72,18 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
     graphOn: oeGrapsSetup,
     graph: oeGraph
   }
+
+  // loop try function data in json
+  const [oeJsonData, setOeJsonData] = useState("");
+  const handelOeGobalCreate = () => {
+    if (oeNotesData) {
+      setOeJsonData(prev => [...prev, oeNotesData]);
+      setOeData("");
+    } else {
+      toast.error("invalid Data!");
+    }
+  }
+
   // O/E data export vareable (oE_Data)
   // =========================================
 
@@ -136,9 +162,6 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
   setTimeout(handelRun, 1000)
 
 
-  const handelJsonCC = () => {
-    alert(ccNotesData);
-  }
 
 
 
@@ -154,7 +177,7 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
           </legend>
           <div>
             <div className="border padding">
-              <p className="flex medel opction">
+              <p className=" opction">
                 Enable Notes
                 <input
                   type="checkbox"
@@ -165,13 +188,23 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
               {
                 ccnotes === true ? (
                   <div className="fx animation">
-                    <input className="fxInput" type="text" placeholder="C/C Input Value" onInput={(e) => setCcNotesData(e.target.value)} />
-                    <butto  onClick={handelJsonCC}  className="fxBtn flex center medel">
+                    <input className="fxInput" type="text" placeholder="C/C Input Value" value={ccNotesData} onInput={(e) => setCcNotesData(e.target.value)} />
+                    <butto onClick={handelJsonCC} className="fxBtn flex center medel">
                       Add
                     </butto>
                   </div>
                 ) : ("")
               }
+              <ol type="i">
+                {
+                  ccjsonData.map((item, index) => (
+                    <li key={index}>
+                      {item}
+                    </li>
+                  ))
+                }
+              </ol>
+
             </div>
 
             <div className="border padding">
@@ -235,7 +268,25 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
             {
               oeNotesSetup === true ?
                 (
-                  <input type="text" placeholder="O/E Inputs Value" className="input animation" onInput={(e) => setOeData(e.target.value)} />
+                  <div>
+                    <div className="flex mdel">
+                      <div className="fx animation">
+                        <input value={oeNotesData} type="text" placeholder="O/E Inputs Value" className="fxInput" onInput={(e) => setOeData(e.target.value)} />
+                        <button onClick={handelOeGobalCreate} className="fxBtn">
+                          Add
+                        </button>
+                      </div>
+                    </div>
+                    <div>
+                     <ol type="i">
+                      {
+                        oeJsonData.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))
+                      }
+                     </ol>
+                    </div>
+                  </div>
                 )
                 : ("")
             }
