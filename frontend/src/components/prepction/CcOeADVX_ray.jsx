@@ -28,7 +28,7 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
   }
   // create C/C json
   const cC_Data = {
-    notes: ccNotesData,
+    notes: ccjsonData,
     graphOn: ccgraps,
     graph: cCGrapa
   }
@@ -68,13 +68,13 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
   }
   // create O/E json
   const oE_Data = {
-    notes: oeNotesData,
+    notes: oeJsonData,
     graphOn: oeGrapsSetup,
     graph: oeGraph
   }
 
   // loop try function data in json
-  const [oeJsonData, setOeJsonData] = useState("");
+  const [oeJsonData, setOeJsonData] = useState([]);
   const handelOeGobalCreate = () => {
     if (oeNotesData) {
       setOeJsonData(prev => [...prev, oeNotesData]);
@@ -105,10 +105,20 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
     LR: avdRB
   }
   const avd_Data = {
-    notes: avdNotes,
+    notes: advJsonData,
     graphOn: avdGraphSetup,
     graph: avdGraph
   }
+    // loop try function data in json
+    const [advJsonData, setAdvJsonData] = useState([]);
+const handelAdvJsonData = () =>{
+  if (avdNotes) {
+   setAdvJsonData(prev => [...prev, avdNotes]) ;
+   setAvdNotes("");
+  }else{
+    toast.error("invalid Data!....");
+  }
+}
   // avd data export vareable (avd_Data)
   // =========================================
 
@@ -342,12 +352,29 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
             {
               avdInputSetup === true ?
                 (
-                  <input
+                  <div>
+                    <div className="fx animation">
+                      <input
                     type="text"
                     placeholder="AVD Input Notes"
                     onInput={(e) => setAvdNotes(e.target.value)}
-                    className="input animation"
+                    className="fxInput"
+                    value={avdNotes}
                   />
+                  <button onClick={handelAdvJsonData} className="fxBtn">
+                    Add
+                  </button>
+                    </div>
+                    <div>
+                      <ol type="i">
+                        {
+                          advJsonData.map((item, index)=>(
+                          <li key={index}>{item}</li>
+                          ))
+                        }
+                      </ol>
+                    </div>
+                  </div>
                 ) : ("")
             }
           </div>
