@@ -10,7 +10,7 @@ export default function Home() {
 
       <div className="flex around">
         <div className="box animation">
-          <PieDonutChart />
+          {/* <PieDonutChart /> */}
         </div>
       </div>
     </>

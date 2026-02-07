@@ -4,6 +4,7 @@ import UserIcon from "../assets/vector/team.png";
 import CategoryIcon from "../assets/vector/menu.png";
 import DrgusIcon from "../assets/vector/drugs.png";
 import NoteIcon from "../assets/vector/note.png";
+import RecordIcon from "../assets/vector/record.png"
 
 import UiModiul from "../components/ui/UiModiul";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +16,7 @@ export default function Insert() {
 
       {/* Popup show only when open */}
 
-      <div className="flex">
+      <div className="flex center medel fullPage">
 
         {/* Patients Box */}
         <div
@@ -67,6 +68,16 @@ export default function Insert() {
           </p>
         </div>
 
+        {/* Recodrs */}
+
+        <div onClick={() => navigate("records")} className="inBox flex center medel">
+          <span>
+            <img src={RecordIcon} className="boxIcon" />
+            </span>
+            <p className="textCenter">
+              Records
+            </p>
+        </div>
 
       </div>
     </UiModiul>

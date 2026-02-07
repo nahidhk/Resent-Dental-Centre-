@@ -3,6 +3,7 @@ import { IoMdClose } from "react-icons/io";
 import { IoReloadOutline } from "react-icons/io5";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { useLocation, useNavigate } from "react-router-dom";
+import { FcFolder } from "react-icons/fc";
 
 export default function UiModiulNav() {
     const navigate = useNavigate();
@@ -11,8 +12,8 @@ export default function UiModiulNav() {
         <>
             <div className="flex beet cente medel uiBorder w100 uiTopNav">
                 <div className="ccOg medel flex center">
-                   <span className="bigText colorFFF">
-                   {location.pathname}
+                   <span className="bigText colorFFF flex center medel">
+                  <FcFolder /> {location.pathname}
                    </span>
                 </div>
                 <div className="rghtNav flex center medel">

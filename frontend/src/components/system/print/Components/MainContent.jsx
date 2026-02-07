@@ -67,7 +67,13 @@ export default function MainContent({ pageData }) {
                             </div>
                             <div className="flex beet">
                                 <div>
-                                    {pageData?.cc_oe_avd_xry?.cc.notes || ""}
+                                    <ul>
+                                        {
+                                            pageData?.cc_oe_avd_xry?.cc.notes.map((item, index) => (
+                                                <li key={index}>{item}</li>
+                                            ))
+                                        }
+                                    </ul>
                                 </div>
                                 <div>
                                     {/* ================ C/C Graph ================ */}
@@ -117,7 +123,13 @@ export default function MainContent({ pageData }) {
                             </div>
                             <div className="flex beet">
                                 <div>
-                                    {pageData?.cc_oe_avd_xry?.oe.notes || ""}
+                                    <ul>
+                                        {
+                                            pageData?.cc_oe_avd_xry?.oe.notes.map((item, index) => (
+                                                <li key={index}>{item}</li>
+                                            ))
+                                        }
+                                    </ul>
                                 </div>
                                 <div>
                                     {/* ================ O/E ================= */}
@@ -166,7 +178,13 @@ export default function MainContent({ pageData }) {
                             </div>
                             <div className="flex beet">
                                 <div>
-                                    {pageData?.cc_oe_avd_xry?.avd.notes || ""}
+                                    <ul>
+                                        {
+                                            pageData?.cc_oe_avd_xry?.avd.notes.map((item, index) => (
+                                                <li key={index}>{item}</li>
+                                            ))
+                                        }
+                                    </ul>
                                 </div>
                                 <div>
                                     {/* ================== AVD =============== */}
@@ -209,7 +227,7 @@ export default function MainContent({ pageData }) {
                         <div>
                             <div>
                                 <p className="bigText">
-                                    X-Ray:
+                                    X-Ray
                                 </p>
                             </div>
                             <div>

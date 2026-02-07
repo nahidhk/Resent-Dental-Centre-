@@ -4,8 +4,8 @@
         "english_name": "Dr. Md. Ariful Islam"
     },
     "doctor_subname": {
-        "bangla_subname": "ওড়াল অ্যান্ড ডেন্টাল সার্জন",
-        "english_subname": "Oral and Dental Surgeon"
+        "bangla_subname": "ওরান এন্ড ডেন্টাল সার্জন",
+        "english_subname": "Oral & Dental Surgeon"
     },
     "doctor_degree": {
         "bangla_degree": "বিডিএস, রংপুর মেডিকেল কলেজ",
@@ -27,5 +27,5 @@
         ]
     },
     "bottomtext": "পরিবর্তী সাক্ষাতের সময় বাবস্তাপত্র সঙ্গে আনবেন। * নীরোগ দাঁত, সুন্দর হাসি, সুস্ত জীবন *",
-    "chamber_time": "প্রতিদিন সকাল ৯ টা থেকে রাত ৮ টা পর্যন্ত এবং শুক্রবার সকাল ৯ টা থেকে দুপুর ১২ টা পর্যন্ত।"
+    "chamber_time": "প্রতিদিন সকাল ৯ টা থেকে রাত ৮ টা পর্যন্ত এবং শুক্রবার বন্ধ ।"
 }

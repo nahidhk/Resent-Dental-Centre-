@@ -7,6 +7,7 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
   //#info- The C/C setup System
   const [ccnotes, setCcNotes] = useState(false);
   const [ccgraps, setccgraps] = useState(false);
+  const [ccjsonData, setCcJsonData] = useState([]);
   const handleCcNotesChange = (e) => {
     setCcNotes(e.target.checked);
   };
@@ -34,7 +35,7 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
   }
 
   // loop try function data in json
-  const [ccjsonData, setCcJsonData] = useState([]);
+
   const handelJsonCC = () => {
     const newCcNoteData = ccNotesData;
     if (ccNotesData) {
@@ -53,6 +54,7 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
   //#info- The O/E setup System
   const [oeNotesSetup, setOENotesSetup] = useState(false);
   const [oeGrapsSetup, setOEGrapsSetup] = useState(false);
+  const [oeJsonData, setOeJsonData] = useState([]);
   //  O/E Inputs
   const [oeNotesData, setOeData] = useState("");
   // O/E Graps 
@@ -74,7 +76,7 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
   }
 
   // loop try function data in json
-  const [oeJsonData, setOeJsonData] = useState([]);
+
   const handelOeGobalCreate = () => {
     if (oeNotesData) {
       setOeJsonData(prev => [...prev, oeNotesData]);
@@ -91,8 +93,9 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
   // #info- The AVD setup system
   const [avdInputSetup, setAvdInputSetup] = useState(false);
   const [avdGraphSetup, setAvdGraphSetup] = useState(false);
+  const [advJsonData, setAdvJsonData] = useState([]);
   // AVD inputs Setup
-  const [avdNotes, setAvdNotes] = useState(false);
+  const [avdNotes, setAvdNotes] = useState("");
   // AVD Graph Setup
   const [avdLT, setAvdLT] = useState("");
   const [avdRT, setAvdRT] = useState("");
@@ -109,16 +112,16 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
     graphOn: avdGraphSetup,
     graph: avdGraph
   }
-    // loop try function data in json
-    const [advJsonData, setAdvJsonData] = useState([]);
-const handelAdvJsonData = () =>{
-  if (avdNotes) {
-   setAdvJsonData(prev => [...prev, avdNotes]) ;
-   setAvdNotes("");
-  }else{
-    toast.error("invalid Data!....");
+  // loop try function data in json
+  
+  const handelAdvJsonData = () => {
+    if (avdNotes) {
+      setAdvJsonData(prev => [...prev, avdNotes]);
+      setAvdNotes("");
+    } else {
+      toast.error("invalid Data!....");
+    }
   }
-}
   // avd data export vareable (avd_Data)
   // =========================================
 
@@ -288,13 +291,13 @@ const handelAdvJsonData = () =>{
                       </div>
                     </div>
                     <div>
-                     <ol type="i">
-                      {
-                        oeJsonData.map((item, index) => (
-                          <li key={index}>{item}</li>
-                        ))
-                      }
-                     </ol>
+                      <ol type="i">
+                        {
+                          oeJsonData.map((item, index) => (
+                            <li key={index}>{item}</li>
+                          ))
+                        }
+                      </ol>
                     </div>
                   </div>
                 )
@@ -355,21 +358,21 @@ const handelAdvJsonData = () =>{
                   <div>
                     <div className="fx animation">
                       <input
-                    type="text"
-                    placeholder="AVD Input Notes"
-                    onInput={(e) => setAvdNotes(e.target.value)}
-                    className="fxInput"
-                    value={avdNotes}
-                  />
-                  <button onClick={handelAdvJsonData} className="fxBtn">
-                    Add
-                  </button>
+                        type="text"
+                        placeholder="AVD Input Notes"
+                        onInput={(e) => setAvdNotes(e.target.value)}
+                        className="fxInput"
+                        value={avdNotes}
+                      />
+                      <button onClick={handelAdvJsonData} className="fxBtn">
+                        Add
+                      </button>
                     </div>
                     <div>
                       <ol type="i">
                         {
-                          advJsonData.map((item, index)=>(
-                          <li key={index}>{item}</li>
+                          advJsonData.map((item, index) => (
+                            <li key={index}>{item}</li>
                           ))
                         }
                       </ol>
