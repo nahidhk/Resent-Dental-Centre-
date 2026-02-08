@@ -164,7 +164,7 @@ function PresentAbbPrepction({ onAddPatient }) {
                                 </label>
                                 <br />
                                 <input
-                                    type="number"
+                                    type="text"
                                     className="input w50px"
                                     onChange={(e) => setAge(e.target.value)}
                                     placeholder="00"
@@ -182,6 +182,7 @@ function PresentAbbPrepction({ onAddPatient }) {
                                     value={pSex}
                                     onChange={(e) => setSex(e.target.value)}
                                 >
+                                    <option value=""> Select Sex</option>
                                     {
                                         sex.map(item => (
                                             <option key={item.id} value={item.id}>{item.name}</option>

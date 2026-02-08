@@ -12,11 +12,13 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
     const { jsonData: mnote = [] } = useRestApi("mnote");
     const { jsonData: categories = [] } = useRestApi("category");
     const { jsonData: medichenData = [], refetch } = useRestApi(medichenDB);
+    const { jsonData: typem} = useRestApi("typem");
     const [categore, setCategore] = useState("");
     const [medicine, setMedicine] = useState("");
     const [timeL1, setTimeL1] = useState(0);
     const [timeL2, setTimeL2] = useState(0);
     const [timeL3, setTimeL3] = useState(0);
+    const [typeo, setTypeo] = useState(0);
     const [notes, setNotes] = useState("");
     const [setDay1, setSetDay1] = useState("");
     const [setDay2, setSetDay2] = useState("");
@@ -47,11 +49,11 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
         const newPrescription = {
             categore,
             medicine,
-            timeL: `${timeL1 || 0} + ${timeL2 || 0} + ${timeL3 || 0}`,
+            timeL: `${timeL1 || 0} + ${timeL2 || 0} + ${timeL3 || 0 } ${typeo}`,
             notes,
             setDay: `${setDay1 || ""} ${setDay2 || ""}`
         };
-        
+
         setPrescriptions(prev => [...prev, newPrescription]);
 
         setCategore(""); setMedicine(""); setTimeL1(0); setTimeL2(0); setTimeL3(0); setNotes(""); setSetDay1(""); setSetDay2("");
@@ -137,12 +139,14 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
 
             {/* Time Label */}
             <div className="grap">
-                <label><MdAccessTime /> Time Label</label>
+                <label>
+                    <MdAccessTime />
+                    Time Label
+                </label>
                 <br />
-
                 <div className="flex gap5 medel center">
                     <input
-                        type="number"
+                        type="text"
                         onClick={() => setTimeL1("")}
                         className="input w50px inputScroll"
                         placeholder="সকাল" value={timeL1}
@@ -152,7 +156,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                         +
                     </span>
                     <input
-                        type="number"
+                        type="text"
                         onClick={() => setTimeL2("")}
                         className="input w50px inputScroll"
                         placeholder="দুপুর"
@@ -164,12 +168,21 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                         +
                     </span>
                     <input
-                        type="number"
+                        type="text"
                         onClick={() => setTimeL3("")}
                         className="input w50px inputScroll"
                         placeholder="রাত"
                         value={timeL3}
                         onChange={e => setTimeL3(e.target.value)} />
+                    -
+                   <select onChange={(e) => setTypeo(e.target.value)} className="input">
+                    <option value="">Type...</option>
+                  {
+                    typem.map(item => (
+                        <option key={item.id}>{item.name}</option>
+                    ))
+                  }
+                   </select>
                 </div>
             </div>
 
@@ -180,7 +193,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                 <input
                     type="text"
                     className="input w200px"
-                    placeholder="খাবার পর"
+                    placeholder="Focus to set"
                     value={notes}
                     onChange={e => setNotes(e.target.value)}
                 />
@@ -194,9 +207,9 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                             ))
                         ) : (
                             <p className="flex center medel">
-                               <button onClick={setAnotes} className="btn printBtn">
-                                Save this Record
-                               </button>
+                                <button onClick={setAnotes} className="btn printBtn">
+                                    Save this Record
+                                </button>
                             </p>
                         )
                     }
@@ -208,10 +221,11 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
                 <br />
 
                 <div className="flex gap5">
-                    <input type="number" className="input w50px inputScroll" placeholder="00" value={setDay1} onChange={e => setSetDay1(e.target.value)} />
+                    <input type="text" className="input w50px inputScroll" placeholder="00" value={setDay1} onChange={e => setSetDay1(e.target.value)} />
                     -
                     <select className="select w80px" value={setDay2} onChange={e => setSetDay2(e.target.value)}>
                         <option value="">Types</option>
+                        <option value="চলবে">চলবে</option>
                         <option value="দিন">দিন</option>
                         <option value="সপ্তাহ">সপ্তাহ</option>
                         <option value="মাস">মাস</option>

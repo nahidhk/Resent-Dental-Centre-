@@ -18,6 +18,7 @@ import Categ from './components/insertPageData/Categ';
 import Medicine from './components/insertPageData/Medicine';
 import Mnotes from './components/insertPageData/Mnotes';
 import Records from './components/insertPageData/record/Record';
+import Typem from './components/insertPageData/Typem';
 // Wallpapers
 import w1 from "./assets/wallpaper/w1.jpg";
 import w2 from "./assets/wallpaper/w2.jpg";
@@ -81,6 +82,7 @@ function App() {
                 <Route path='/insert/medicine' element={<Medicine />} />
                 <Route path='/insert/mNotes' element={<Mnotes />} />
                 <Route path='/insert/records' element={<Records />} />
+                <Route path='/insert/typem' element={<Typem />} />
               </Routes>
               <Toast />
               <Loading />

@@ -5,6 +5,7 @@ import { useRestApi } from "../../../../hooks/getjson/useRestApi";
 import sexType from "../../../../data/present/sex.json";
 import { convertToBangla } from "../../../../scripts/banglaConvart";
 import { GiCheckMark } from "react-icons/gi";
+import { capitalLetar } from "../../../../scripts/capitalLetar";
 
 
 export default function MainContent({ pageData }) {
@@ -298,8 +299,8 @@ export default function MainContent({ pageData }) {
                                             <div>
                                                 <span className="captext">
                                                     {
-                                                        categories.find(cat => String(cat.id) === String(item.categore))?.name || " "
-                                                    } {item.medicine}
+                                                        capitalLetar(categories.find(cat => String(cat.id) === String(item.categore))?.name || " ")
+                                                    } {capitalLetar(item.medicine)}
                                                 </span>
                                                 <br />
                                                 <p className="medicineNotes">

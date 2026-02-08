@@ -316,18 +316,18 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
                 <div className="flex medel center cloman animation w100">
                   <div className="flex">
                     <div className="rayBox borderRB">
-                      <input type="number" className="false" onInput={(e) => setOeLT(e.target.value)} />
+                      <input type="text" className="false" onInput={(e) => setOeLT(e.target.value)} />
                     </div>
                     <div className="rayBox borderLB">
-                      <input type="number" className="false" onInput={(e) => setOeRT(e.target.value)} />
+                      <input type="text" className="false" onInput={(e) => setOeRT(e.target.value)} />
                     </div>
                   </div>
                   <div className="flex">
                     <div className="rayBox borderRT">
-                      <input type="number" className="false" onInput={(e) => setOeLB(e.target.value)} />
+                      <input type="text" className="false" onInput={(e) => setOeLB(e.target.value)} />
                     </div>
                     <div className="rayBox borderLT">
-                      <input type="number" className="false" onInput={(e) => setOeRB(e.target.value)} />
+                      <input type="text" className="false" onInput={(e) => setOeRB(e.target.value)} />
                     </div>
                   </div>
                 </div>
@@ -397,18 +397,18 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
                   <div className="flex medel center cloman animation w100">
                     <div className="flex">
                       <div className="rayBox borderRB">
-                        <input type="number" className="false" onInput={(e) => setAvdLT(e.target.value)} />
+                        <input type="text" className="false" onInput={(e) => setAvdLT(e.target.value)} />
                       </div>
                       <div className="rayBox borderLB">
-                        <input type="number" className="false" onInput={(e) => setAvdRT(e.target.value)} />
+                        <input type="text" className="false" onInput={(e) => setAvdRT(e.target.value)} />
                       </div>
                     </div>
                     <div className="flex">
                       <div className="rayBox borderRT">
-                        <input type="number" className="false" onInput={(e) => setAvdLB(e.target.value)} />
+                        <input type="text" className="false" onInput={(e) => setAvdLB(e.target.value)} />
                       </div>
                       <div className="rayBox borderLT">
-                        <input type="number" className="false" onInput={(e) => setAvdRB(e.target.value)} />
+                        <input type="text" className="false" onInput={(e) => setAvdRB(e.target.value)} />
                       </div>
                     </div>
                   </div>
@@ -443,18 +443,18 @@ export default function CcOeADVX_ray({ on_CC_OE_ADV_XRY }) {
                   <div className="flex medel center cloman animation w100">
                     <div className="flex">
                       <div className="rayBox borderRB">
-                        <input type="number" className="false" onInput={(e) => setIopaLT(e.target.value)} />
+                        <input type="text" className="false" onInput={(e) => setIopaLT(e.target.value)} />
                       </div>
                       <div className="rayBox borderLB">
-                        <input type="number" className="false" onInput={(e) => setIopaRT(e.target.value)} />
+                        <input type="text" className="false" onInput={(e) => setIopaRT(e.target.value)} />
                       </div>
                     </div>
                     <div className="flex">
                       <div className="rayBox borderRT">
-                        <input type="number" className="false" onInput={(e) => setIopaLB(e.target.value)} />
+                        <input type="text" className="false" onInput={(e) => setIopaLB(e.target.value)} />
                       </div>
                       <div className="rayBox borderLT">
-                        <input type="number" className="false" onInput={(e) => setIopaRB(e.target.value)} />
+                        <input type="text" className="false" onInput={(e) => setIopaRB(e.target.value)} />
                       </div>
                     </div>
                   </div>

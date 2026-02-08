@@ -4,8 +4,8 @@ import UserIcon from "../assets/vector/team.png";
 import CategoryIcon from "../assets/vector/menu.png";
 import DrgusIcon from "../assets/vector/drugs.png";
 import NoteIcon from "../assets/vector/note.png";
-import RecordIcon from "../assets/vector/record.png"
-
+import RecordIcon from "../assets/vector/record.png";
+import TypeIcon from "../assets/vector/file.png";
 import UiModiul from "../components/ui/UiModiul";
 import { useNavigate } from "react-router-dom";
 
@@ -77,6 +77,17 @@ export default function Insert() {
             <p className="textCenter">
               Records
             </p>
+        </div>
+
+        {/* typeM */}
+
+        <div onClick={() => navigate("typem")} className="inBox felx center medel">
+          <span>
+            <img src={TypeIcon} className="boxIcon" />
+          </span>
+          <p className="textCenter">
+            Type Records
+          </p>
         </div>
 
       </div>

@@ -10,6 +10,8 @@ import { CgClose } from "react-icons/cg";
 import { postApi } from "../hooks/post/postApi";
 import { toast } from "react-toastify";
 import A4page from "../components/system/print/A4page";
+import { MdOutlineDeleteForever } from "react-icons/md";
+
 
 export default function Prescription() {
     const recordsMedicen_DB = "patient_records"
@@ -48,7 +50,7 @@ export default function Prescription() {
     }
     return (
         <UiModiul>
-            
+
             {/* <div>{JSON.stringify(prepctionAllData)}</div> */}
             <div className="uiBox" >
                 <PresentAbbPrepction onAddPatient={setNewPatient} />
@@ -71,7 +73,10 @@ export default function Prescription() {
                                     <ul>
                                         {medicineData.map((med, index) => (
                                             <li className="list" key={index}>
-                                                {med.medicine} ------ {med.timeL} ------- {med.notes} --------- {med.setDay}
+                                                <button className="iconBtn deleteBtn">
+                                                    <MdOutlineDeleteForever className="useIcon" />
+                                                </button>
+                                                {med.medicine} ---{med.timeL} --- {med.notes} ---{med.setDay} ---
                                             </li>
                                         ))}
                                     </ul>
@@ -112,7 +117,7 @@ export default function Prescription() {
                             </div>
                         )
                     }
-                   
+
                 </div>
                 <div className="uiBox w200px">
                     {/* Add the coustonbutton and setup now */}

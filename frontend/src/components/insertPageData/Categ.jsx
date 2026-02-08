@@ -5,6 +5,7 @@ import { useRestApi } from "../../hooks/getjson/useRestApi";
 import { postApi } from "../../hooks/post/postApi";
 import { toast } from "react-toastify";
 import UiModiul from "../ui/UiModiul";
+import Edit from "../system/edit/Edit";
 
 export default function Categ() {
     const db = "category";
@@ -58,7 +59,7 @@ export default function Categ() {
                             </div>
 
                             <div className="flex center medel padding border">
-                                <Table  tableData={fitersUsers} action={{ delete: db }} />
+                                <Table  tableData={fitersUsers} action={{ edit: db }} />
                                
                             </div>
 
