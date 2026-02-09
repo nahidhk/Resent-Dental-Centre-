@@ -18,7 +18,7 @@ export default function MedicineAddPrescription({ onAddMedicine }) {
     const [timeL1, setTimeL1] = useState(0);
     const [timeL2, setTimeL2] = useState(0);
     const [timeL3, setTimeL3] = useState(0);
-    const [typeo, setTypeo] = useState(0);
+    const [typeo, setTypeo] = useState("");
     const [notes, setNotes] = useState("");
     const [setDay1, setSetDay1] = useState("");
     const [setDay2, setSetDay2] = useState("");

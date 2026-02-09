@@ -1122,3 +1122,11 @@ li {
 .blankPrintAutoFill {
   height: 150px;
 }
+.dashG{
+  height: 1px;
+  border: 1px dashed #000;
+  width: 100px;
+}
+.evenly{
+  justify-content: space-evenly;
+}

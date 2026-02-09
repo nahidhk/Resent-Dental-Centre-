@@ -16,7 +16,6 @@ export default function MainContent({ pageData }) {
     const patientInfo = users.find(user => String(user.number) === String(numbertp));
     const cruccetSex = sexType.find(sexX => String(sexX.id) === String(patientInfo?.sex))?.name || "______";
 
-
     return (
         <>
             <div className="nameBox w100 ">
@@ -295,22 +294,45 @@ export default function MainContent({ pageData }) {
                             {pageData?.medicineData?.length > 0 ? (
                                 pageData?.medicineData.map((item, index) => (
                                     <li key={index}>
-                                        <div className="flex beet lineStyle">
-                                            <div>
+                                        <div className="lineStyle">
+
+
+
+
+
+                                            <span>
                                                 <span className="captext">
                                                     {
                                                         capitalLetar(categories.find(cat => String(cat.id) === String(item.categore))?.name || " ")
-                                                    } {capitalLetar(item.medicine)}
+                                                    }
+                                                    {capitalLetar(item.medicine)}
                                                 </span>
-                                                <br />
-                                                <p className="medicineNotes">
-                                                    {convertToBangla(item.timeL)} --------- {item.notes} ---------
-                                                </p>
-                                            </div>
-                                            <div className="medicineNotes flex center medel">
-                                                {convertToBangla(item.setDay)}
-                                            </div>
+                                            </span>
+
+                                            
+                                                <span className="medicineNotes flex beet w100 medel">
+                                                    <p>
+                                                        {convertToBangla(item.timeL)}
+                                                    </p>
+                                                    <p className="dashG">
+                                                        
+                                                    </p>
+                                                    <p>
+                                                        {item.notes}
+                                                    </p>
+                                                    <p className="dashG">
+                                                        
+                                                    </p>
+                                                    <p>
+                                                        {convertToBangla(item.setDay)}
+                                                    </p>
+                                                </span>
+                                            
+
+
+
                                         </div>
+
                                     </li>
 
                                 ))
