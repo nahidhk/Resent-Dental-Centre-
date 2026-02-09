@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import "./NUi.css";
 import nUiImg from "./NUi.png";
 import TypeIt from "typeit";
+import siteDatels from "../../../../data/setting/siteDetels.json";
+
 export default function DevUi() {
     const asyncRef = useRef(null);
     const titleRef = useRef(null);
@@ -25,7 +27,7 @@ export default function DevUi() {
         const titleTimer = setTimeout(() => {
             setShowTitle(true);
             new TypeIt(titleRef.current, {
-                strings: "রিসেন্ট ডেন্টাল সার্জারি এন্ড ডেন্টাল এক্সরে",
+                strings: siteDatels.fullName,
                 speed: 50,
                 waitUntilVisible: true,
             }).go();

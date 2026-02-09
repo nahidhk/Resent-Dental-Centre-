@@ -38,7 +38,7 @@ import Login from './components/security/login/Login';
 
 function App() {
   const randomImages = [w1, w2, w3, w4, w5, w6];
-  const [randomBG, setRandomBG] = useState(null);
+  // const [randomBG, setRandomBG] = useState(null);
   const [wonuiopen, setwonuiopen] = useState(true);
   const uipopupGetData = sessionData({ get: "uipopup" });
 
@@ -53,7 +53,7 @@ function App() {
   }, 15000);
   useEffect(() => {
     const bg = randomImages[Math.floor(Math.random() * randomImages.length)];
-    setRandomBG(bg);
+    // setRandomBG(bg);
     document.body.style.backgroundImage = `url(${bg})`;
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundRepeat = 'no-repeat';

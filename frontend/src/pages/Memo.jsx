@@ -5,7 +5,7 @@ import A4page from "../components/system/print/A4page";
 export default function Memo() {
   return (
     <UiModiul>
-      <div className="center flex medel w100 fullPage">
+      <div className="center flex medel w100">
         <div>
           <A4page />
         </div>

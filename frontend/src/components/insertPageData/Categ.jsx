@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Table from "../system/Table/Table";
 import { RiPlayListAddFill } from "react-icons/ri";
 import { useRestApi } from "../../hooks/getjson/useRestApi";
 import { postApi } from "../../hooks/post/postApi";
 import { toast } from "react-toastify";
 import UiModiul from "../ui/UiModiul";
-import Edit from "../system/edit/Edit";
 
 export default function Categ() {
     const db = "category";
@@ -24,7 +23,6 @@ export default function Categ() {
             };
             postApi(jsonData); 
             refetch();
-
         }
     }
     const fitersUsers = categories.filter(item =>
@@ -33,11 +31,9 @@ export default function Categ() {
     return (
         <>
             <UiModiul>
-                
                 <blockquote>
                     <div className=" flex center medel">
                         <div className="uiBox w50">
-
                             <div className="border flex center padding">
                                 <div className="border padding">
                                     <label>Category Type Insert</label>
@@ -50,19 +46,15 @@ export default function Categ() {
                                             placeholder="e.g."
                                             onChange={(e) => setCat(e.target.value)}
                                         />
-
                                         <button onClick={handelDataSet} className="fxBtn">
                                             <RiPlayListAddFill /> Add
                                         </button>
                                     </div>
                                 </div>
                             </div>
-
                             <div className="flex center medel padding border">
                                 <Table  tableData={fitersUsers} action={{ edit: db }} />
-                               
                             </div>
-
                         </div>
                     </div>
                 </blockquote>
@@ -70,5 +62,4 @@ export default function Categ() {
             </UiModiul>
         </>
     );
-
 }

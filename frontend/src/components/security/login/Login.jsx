@@ -36,7 +36,7 @@ export default function Login() {
                     <div className="filok  orange">
                         <div>
                             <div>Powered By</div>
-                            <img src={nUiImg} className="nuiimg_img" />
+                            <img src={nUiImg} className="nuiimg_img" alt="NdSQL"/>
                             <div>Database management network server!</div>
                         </div>
                     </div>

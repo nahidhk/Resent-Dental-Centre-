@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ErrorNote from "../../../hooks/ErrorNote";
 import { MdDeleteForever } from "react-icons/md";
 import { MdOutlineModeEditOutline } from "react-icons/md";

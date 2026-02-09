@@ -66,7 +66,7 @@ export default function MainContent({ pageData }) {
                                     Chief Complaint
                                 </p>
                             </div>
-                            <div className="flex beet">
+                            <div className="flex beet blankPrintAutoFill">
                                 <div>
                                     <ul>
                                         {
@@ -122,7 +122,7 @@ export default function MainContent({ pageData }) {
                                     On Examination
                                 </p>
                             </div>
-                            <div className="flex beet">
+                            <div className="flex beet blankPrintAutoFill">
                                 <div>
                                     <ul>
                                         {
@@ -177,7 +177,7 @@ export default function MainContent({ pageData }) {
                                     Advice
                                 </p>
                             </div>
-                            <div className="flex beet">
+                            <div className="flex beet blankPrintAutoFill">
                                 <div>
                                     <ul>
                                         {
@@ -236,7 +236,7 @@ export default function MainContent({ pageData }) {
                                     pageData?.cc_oe_avd_xry?.x_ray?.opg
                                 }
                             </div>
-                            <div className="flex beet">
+                            <div className="flex beet blankPrintAutoFill">
                                 <div>
                                     {
                                         pageData?.cc_oe_avd_xry?.x_ray?.iopa?.title
