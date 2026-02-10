@@ -37,7 +37,7 @@ export default function Medicine() {
 
                 return {
                     id: item.id,
-                    catg: categData ? categData.name : "N/A",
+                    catg: categData ? `(${categData.id}) ` + categData.name  : "N/A",
                     name: item.name
                 };
             });

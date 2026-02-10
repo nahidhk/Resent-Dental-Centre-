@@ -297,7 +297,6 @@ input:focus {
   border-spacing: 1px;
   text-align: left;
 }
-
 .table_component th {
   border: 1px dashed #dededf;
   background-color: #eceff1;
@@ -307,7 +306,7 @@ input:focus {
 }
 
 .table_component td {
-  border: 1px dashed #dededf;
+  border: 1px dashed #dededf66;
   background-color: #ffffff;
   color: #000000;
   padding: 8px;
@@ -365,7 +364,7 @@ input:focus {
 
 .editBtn {
   color: #fff;
-  background-color: orange;
+  background-color: sandybrown;
 }
 
 

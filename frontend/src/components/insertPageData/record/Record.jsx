@@ -4,6 +4,8 @@ import { useRestApi } from "../../../hooks/getjson/useRestApi";
 import { GrPrint } from "react-icons/gr";
 import A4page from "../../system/print/A4page";
 import { BsSearch } from "react-icons/bs";
+import { AiOutlineShareAlt } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 export default function Records() {
     const db = "patient_records";
@@ -25,6 +27,12 @@ export default function Records() {
         item.userNumber.toLowerCase().includes(phone.toLowerCase()) &&
         item.rpid.toLowerCase().includes(ridValue.toLowerCase())
     )
+  const navigate = useNavigate();
+
+const sCall = (myData) => {
+    const calurl = `/pub?id=${myData}`;
+    navigate(calurl);
+}
     return (
         <UiModiul>
 
@@ -79,10 +87,13 @@ export default function Records() {
                                                     <td>{item.date}</td>
                                                     <td>{item.rpid}</td>
                                                     <td>{item.userNumber}</td>
-                                                    <td>
-                                                        <div onClick={() => printData(item)} className="iconBtn printBtn">
+                                                    <td className="flex center medel">
+                                                        <button onClick={() => printData(item)} className="printBtn">
                                                             <GrPrint />
-                                                        </div>
+                                                        </button>
+                                                        <button onClick={() => sCall(item.rpid)} className="styleBtn printBtn">
+                                                            <AiOutlineShareAlt/>
+                                                        </button>
                                                     </td>
                                                 </tr>
                                             ))

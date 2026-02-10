@@ -23,11 +23,11 @@ export default function MainContent({ pageData }) {
                     <div>
                         <p className="margin">
                             <b>Name : </b>
-                            <i>{patientInfo?.name || "____________________"}</i>
+                            <i>{capitalLetar(patientInfo?.name) || "                 "}</i>
                         </p>
                         <p className="margin">
                             <b>Patient ID : </b>
-                            <span>{pageData?.rpid || "____________________"}</span>
+                            <span>{pageData?.rpid || "               "}</span>
                         </p>
                     </div>
                     <div>
@@ -37,13 +37,13 @@ export default function MainContent({ pageData }) {
                         </p>
                         <p className="margin">
                             <b>Phone : </b>
-                            <span>{pageData?.userNumber || "____________________"}</span>
+                            <span>{pageData?.userNumber || "                 "}</span>
                         </p>
                     </div>
                     <div>
                         <p className="margin">
                             <b>Age : </b>
-                            <i>{patientInfo?.age || "____"}Y</i>
+                            <i>{patientInfo?.age || "_____"}Y</i>
                         </p>
                         <p className="margin">
                             <b>Date : </b>
@@ -295,21 +295,14 @@ export default function MainContent({ pageData }) {
                                 pageData?.medicineData.map((item, index) => (
                                     <li key={index}>
                                         <div className="lineStyle">
-
-
-
-
-
                                             <span>
                                                 <span className="captext">
                                                     {
                                                         capitalLetar(categories.find(cat => String(cat.id) === String(item.categore))?.name || " ")
-                                                    }
+                                                    }.&nbsp;
                                                     {capitalLetar(item.medicine)}
                                                 </span>
                                             </span>
-
-                                            
                                                 <span className="medicineNotes flex beet w100 medel">
                                                     <p>
                                                         {convertToBangla(item.timeL)}
@@ -327,10 +320,6 @@ export default function MainContent({ pageData }) {
                                                         {convertToBangla(item.setDay)}
                                                     </p>
                                                 </span>
-                                            
-
-
-
                                         </div>
 
                                     </li>

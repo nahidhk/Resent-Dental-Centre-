@@ -56,12 +56,12 @@ export default function Table({ tableData, action }) {
                                 <td className="flex center medel">
                                     <div className="flex center medel w100">
                                         {action.delete && (
-                                            <div className="iconBtn deleteBtn" onClick={() => dropData(row.id)}>
+                                            <div className="printBtn deleteBtn" onClick={() => dropData(row.id)}>
                                                 <MdDeleteForever />
                                             </div>
                                         )}
                                         {action.edit && (
-                                            <div onClick={() => editData(row)} className="iconBtn editBtn">
+                                            <div onClick={() => editData(row)} className="printBtn editBtn">
                                                 <MdOutlineModeEditOutline />
                                             </div>
                                         )}

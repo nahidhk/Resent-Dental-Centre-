@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Nav from './components/system/Nav';
 import DeviceSizeErr from './components/Err/DeviceSizeErr';
 import Prescription from './pages/Prescription';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 // pages
 import Home from './pages/Home';
@@ -36,7 +36,24 @@ import { sessionData } from './scripts/sessionData';
 // login page 
 import Login from './components/security/login/Login';
 
+// public page
+import Pub from './components/pub/Pub';
+
 function App() {
+
+  // public page system 
+  const location = useLocation();
+  const pathName = location.pathname;
+  // query parameter ধরলাম
+  const queryParams = new URLSearchParams(location.search);
+  const locid = queryParams.get("id");
+
+
+
+
+
+
+
   const randomImages = [w1, w2, w3, w4, w5, w6];
   // const [randomBG, setRandomBG] = useState(null);
   const [wonuiopen, setwonuiopen] = useState(true);
@@ -61,41 +78,46 @@ function App() {
     eruda.init();
   }, []);
   const width = document.body.clientWidth;
-  if (width >= 960) {
-    if (wonuiopen) {
-      return <NUi />
-    } else {
-      if (sessionData({ get: "login" })) {
-        return (
-          <>
-            <div className='wallpaper'>
-              <Nav />
-              <MainDesk />
-              <Routes>
-                <Route path='/prescription' element={<Prescription />} />
-                <Route path='/' element={<Home />} />
-                <Route path='/insert' element={<Insert />} />
-                <Route path='/memo' element={<Memo />} />
-                {/* Insers Link popup System */}
-                <Route path='/insert/users' element={<Users />} />
-                <Route path='/insert/category' element={<Categ />} />
-                <Route path='/insert/medicine' element={<Medicine />} />
-                <Route path='/insert/mNotes' element={<Mnotes />} />
-                <Route path='/insert/records' element={<Records />} />
-                <Route path='/insert/typem' element={<Typem />} />
-              </Routes>
-              <Toast />
-              <Loading />
-              <ApiCheck />
-            </div>
-          </>
-        );
-      } else {
-        return (<> <Login />  <Toast /> </>)
-      }
-    }
+
+  if (pathName === "/pub") {
+    return <Pub idData={locid} />
   } else {
-    return <DeviceSizeErr widthx={width} />;
+    if (width >= 960) {
+      if (wonuiopen) {
+        return <NUi />
+      } else {
+        if (sessionData({ get: "login" })) {
+          return (
+            <>
+              <div className='wallpaper'>
+                <Nav />
+                <MainDesk />
+                <Routes>
+                  <Route path='/prescription' element={<Prescription />} />
+                  <Route path='/' element={<Home />} />
+                  <Route path='/insert' element={<Insert />} />
+                  <Route path='/memo' element={<Memo />} />
+                  {/* Insers Link popup System */}
+                  <Route path='/insert/users' element={<Users />} />
+                  <Route path='/insert/category' element={<Categ />} />
+                  <Route path='/insert/medicine' element={<Medicine />} />
+                  <Route path='/insert/mNotes' element={<Mnotes />} />
+                  <Route path='/insert/records' element={<Records />} />
+                  <Route path='/insert/typem' element={<Typem />} />
+                </Routes>
+                <Toast />
+                <Loading />
+                <ApiCheck />
+              </div>
+            </>
+          );
+        } else {
+          return (<> <Login />  <Toast /> </>)
+        }
+      }
+    } else {
+      return <DeviceSizeErr widthx={width} />;
+    }
   }
 }
 export default App;

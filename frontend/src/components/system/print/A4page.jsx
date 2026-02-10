@@ -28,6 +28,7 @@ export default function A4page({ pageData }) {
                         <div>
                             {/* MODIUL 3 — ALWAYS BOTTOM */}
                           <Bottom />
+                        <sub>Software: www.ndsql.top</sub>
                         </div >
                     </div >
                 </div >

@@ -70,16 +70,32 @@ export default function Prescription() {
                             medicineData && medicineData.length > 0 ? (
                                 <div>
                                     <h3>Medicine List:</h3>
-                                    <ul>
+                                    <table className="table_component animate__animated animate__fadeIn" role="region" >
+                                        <tr>
+                                            <th>Medicine Name</th>
+                                            <th>Label</th>
+                                            <th>Time</th>
+                                            <th>Action</th>
+                                        </tr>
                                         {medicineData.map((med, index) => (
-                                            <li className="list" key={index}>
-                                                <button className="iconBtn deleteBtn">
-                                                    <MdOutlineDeleteForever className="useIcon" />
-                                                </button>
-                                                {med.medicine} ---{med.timeL} --- {med.notes} ---{med.setDay} ---
-                                            </li>
+                                            <tr className="list animate__animated animate__fadeIn" key={index}>
+                                                <td>
+                                                    {med.medicine}
+                                                </td>
+                                                <td>
+                                                    {med.timeL} --- {med.notes}
+                                                </td>
+                                                <td>
+                                                    {med.setDay}
+                                                </td>
+                                                <td>
+                                                    <button className="iconBtn deleteBtn">
+                                                        <MdOutlineDeleteForever className="useIcon" />
+                                                    </button>
+                                                </td>
+                                            </tr>
                                         ))}
-                                    </ul>
+                                    </table>
                                 </div>
                             ) : (
                                 <p>No medicines added.</p>
