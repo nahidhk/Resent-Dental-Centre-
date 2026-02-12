@@ -297,6 +297,7 @@ input:focus {
   border-spacing: 1px;
   text-align: left;
 }
+
 .table_component th {
   border: 1px dashed #dededf;
   background-color: #eceff1;
@@ -1121,20 +1122,52 @@ li {
 .blankPrintAutoFill {
   height: 150px;
 }
-.dashG{
+
+.dashG {
   height: 1px;
   border: 1px dashed #000;
   width: 100px;
 }
-.evenly{
+
+.evenly {
   justify-content: space-evenly;
 }
-.ppBox{
+
+.scrollTip {
   overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.stmybtn{
+
+.stmybtn {
   background-color: #fff;
   border-radius: 100px;
-  height: 35px;
+  height: 40px;
   width: 300px;
+  display: flex;
+}
+
+.myBtn {
+  height: 100%;
+  width: 50%;
+  color: #000;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.myActive {
+  background-color: #4680ff;
+  color: #fff;
+}
+
+pre {
+  background-color: #212121;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
 }
