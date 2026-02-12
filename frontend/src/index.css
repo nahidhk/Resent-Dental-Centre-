@@ -1129,3 +1129,12 @@ li {
 .evenly{
   justify-content: space-evenly;
 }
+.ppBox{
+  overflow: auto;
+}
+.stmybtn{
+  background-color: #fff;
+  border-radius: 100px;
+  height: 35px;
+  width: 300px;
+}
