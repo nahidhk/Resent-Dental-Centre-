@@ -3,10 +3,11 @@ import ErrorNote from "../../../hooks/ErrorNote";
 import { MdDeleteForever } from "react-icons/md";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { drop } from "../../../hooks/drop/drop"
-import Edit from "../edit/Edit";
+import Popup from "../../popup/Popup";
 export default function Table({ tableData, action }) {
-    const [openEdit, setOpenEdit] = useState(false);
-    const [sendEditData, setSendEditData] = useState([]);
+    const [show, setShow] = useState(false);
+    const [gavirData , setGivarData] = useState({});
+
     if (!tableData) {
         return <ErrorNote errorText={"সঠিক ভাবে ডাটা কনফিগ করা হইনি ।"} />;
     }
@@ -23,20 +24,24 @@ export default function Table({ tableData, action }) {
     }
 
     const editData = (data) => {
-        setOpenEdit(true);
-         setSendEditData([data]);
-       // alert(JSON.stringify(sendEditData))
+        setGivarData(data);
+        setShow(true);
     }
 
     const headers = Object.keys(tableData[0]);
-
     return (
         <>
-            {
-                openEdit && (
-                    <Edit onCloseEdit={setOpenEdit} receveData={sendEditData} />
-                )
-            }
+            <Popup show={show} onClose={() => setShow(false)}>
+                {Object.entries(gavirData).map(([key, value], i) => (
+                    <div key={i}>
+                        <label className="padding">{key}:</label> <br />
+                        <input className="input" defaultValue={value} type="text" />
+                    </div>
+                ))}
+                <p>
+                    its working
+                </p>
+            </Popup>
             <div className="table_component animate__animated animate__fadeIn" role="region" tabIndex={0}>
                 <table>
                     <thead>

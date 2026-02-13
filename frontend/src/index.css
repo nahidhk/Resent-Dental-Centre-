@@ -1139,3 +1139,40 @@ pre {
   padding: 10px;
   border-radius: 10px;
 }
+.socialBtn {
+  background-color: rgb(223, 223, 223);
+  color: #fff;
+  margin: 5px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  position: relative; 
+}
+
+.socialIcon {
+  font-size: 23px;
+}
+
+.socialTitle {
+  position: absolute;
+  bottom: 50px;
+  background-color: #e2e2e2;
+  color: #000;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: 0.2s ease;
+  pointer-events: none;
+}
+
+.socialBtn:hover .socialTitle {
+  opacity: 1;
+  transform: translateY(0);
+}
