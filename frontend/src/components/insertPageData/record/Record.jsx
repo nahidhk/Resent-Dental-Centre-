@@ -79,13 +79,10 @@ export default function Records() {
 
     return (
         <UiModiul>
-
             <Popup show={showShare} onClose={() => setShowShare(false)}>
                 <div className="flex medel around clomanC">
-
                     <div className="flex center medel clomanC">
                         <canvas ref={canvasRef}></canvas>
-
                         <div className="fx">
                             <input
                                 readOnly
@@ -109,9 +106,8 @@ export default function Records() {
 
            
             <div className="flex center w100">
-                <div className="uiBox padding w100">
-
-                    <div className="border padding">
+                <div className="uiBox padding w50">
+                    <div className="border padding ">
                         <div className="border flex center medel">
                             <div>
 
@@ -126,7 +122,6 @@ export default function Records() {
                                         <BsSearch />
                                     </button>
                                 </div>
-
                                 <div className="fx">
                                     <input
                                         onChange={(e) => setRIDValue(e.target.value)}
@@ -142,9 +137,7 @@ export default function Records() {
                             </div>
                         </div>
                     </div>
-
-                    <div className="padding flex w90 border around">
-                        <div className="table_component w100" role="region">
+                        <div className="table_component flex center medel" role="region">
                             <table>
                                 <thead>
                                     <tr>
@@ -185,7 +178,7 @@ export default function Records() {
                     </div>
 
                 </div>
-            </div>
+            
 
         </UiModiul>
     );

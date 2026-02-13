@@ -1,5 +1,6 @@
 import React from "react";
 import PieDonutChart from "../components/D3JS/PieDonutChart";
+
 export default function Home() {
 
 
@@ -11,6 +12,7 @@ export default function Home() {
       <div className="flex around">
         <div className="box animation">
           {/* <PieDonutChart /> */}
+         
         </div>
       </div>
     </>
