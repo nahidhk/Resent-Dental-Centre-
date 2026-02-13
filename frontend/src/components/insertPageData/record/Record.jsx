@@ -6,13 +6,16 @@ import A4page from "../../system/print/A4page";
 import { BsSearch } from "react-icons/bs";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import Popup from "../../popup/Popup";
 
 export default function Records() {
     const db = "patient_records";
     const { jsonData: recordData } = useRestApi(db);
     const [mainData, setMainData] = useState("");
     const [ridValue, setRIDValue] = useState("");
-    const [phone, setPhone] =useState("");
+    const [phone, setPhone] = useState("");
+    const [show, setShow] = useState(false);
+    const [showPrint, setShowPrint] = useState(false);
     const printData = (dataP) => {
         const formateJson = {
             date: dataP.date,
@@ -22,20 +25,27 @@ export default function Records() {
             cc_oe_avd_xry: JSON.parse(dataP.cc_oe_avd_xry) || "{}"
         }
         setMainData(formateJson);
+        setShowPrint(true);
     }
-    const filterData = recordData.filter(item => 
+    const filterData = recordData.filter(item =>
         item.userNumber.toLowerCase().includes(phone.toLowerCase()) &&
         item.rpid.toLowerCase().includes(ridValue.toLowerCase())
     )
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-const sCall = (myData) => {
-    const calurl = `/pub?id=${myData}`;
-    navigate(calurl);
-}
+    const sCall = (myData) => {
+        const calurl = `/pub?id=${myData}`;
+        setShow(true)
+        // navigate(calurl);
+    }
     return (
         <UiModiul>
-
+            <Popup show={show} onClose={() => setShow(false)}>
+                <h1>Hello modal</h1>
+            </Popup>
+            <Popup show={showPrint} onClose={() => setShowPrint(false)}>
+                <A4page pageData={mainData} />
+            </Popup>
             <div className="flex center w100">
                 <div className="uiBox padding w100">
                     <div className="border padding">
@@ -62,21 +72,11 @@ const sCall = (myData) => {
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>
-                                                ID
-                                            </th>
-                                            <th>
-                                                Date
-                                            </th>
-                                            <th>
-                                                Record ID
-                                            </th>
-                                            <th>
-                                                Mobile Number
-                                            </th>
-                                            <th>
-                                                Print
-                                            </th>
+                                            <th> ID </th>
+                                            <th> Date </th>
+                                            <th> Record ID </th>
+                                            <th> Mobile Number </th>
+                                            <th> Print </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -92,7 +92,7 @@ const sCall = (myData) => {
                                                             <GrPrint />
                                                         </button>
                                                         <button onClick={() => sCall(item.rpid)} className="styleBtn printBtn">
-                                                            <AiOutlineShareAlt/>
+                                                            <AiOutlineShareAlt />
                                                         </button>
                                                     </td>
                                                 </tr>
@@ -101,10 +101,6 @@ const sCall = (myData) => {
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
-
-                        <div className="popup">
-                            <A4page pageData={mainData} />
                         </div>
                     </div>
                 </div>
