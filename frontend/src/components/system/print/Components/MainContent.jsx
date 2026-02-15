@@ -70,7 +70,7 @@ export default function MainContent({ pageData }) {
                                     <ul>
                                         {
                                             pageData?.cc_oe_avd_xry?.cc.notes.map((item, index) => (
-                                                <li key={index}>{item}</li>
+                                                <li key={index}>{capitalLetar(item)}</li>
                                             ))
                                         }
                                     </ul>
@@ -126,7 +126,7 @@ export default function MainContent({ pageData }) {
                                     <ul>
                                         {
                                             pageData?.cc_oe_avd_xry?.oe.notes.map((item, index) => (
-                                                <li key={index}>{item}</li>
+                                                <li key={index}>{capitalLetar(item)}</li>
                                             ))
                                         }
                                     </ul>
@@ -181,7 +181,7 @@ export default function MainContent({ pageData }) {
                                     <ul>
                                         {
                                             pageData?.cc_oe_avd_xry?.avd.notes.map((item, index) => (
-                                                <li key={index}>{item}</li>
+                                                <li key={index}>{capitalLetar(item)}</li>
                                             ))
                                         }
                                     </ul>
@@ -303,23 +303,23 @@ export default function MainContent({ pageData }) {
                                                     {capitalLetar(item.medicine)}
                                                 </span>
                                             </span>
-                                                <span className="medicineNotes flex beet w100 medel">
-                                                    <p>
-                                                        {convertToBangla(item.timeL)}
-                                                    </p>
-                                                    <p className="dashG">
-                                                        
-                                                    </p>
-                                                    <p>
-                                                        {item.notes}
-                                                    </p>
-                                                    <p className="dashG">
-                                                        
-                                                    </p>
-                                                    <p>
-                                                        {convertToBangla(item.setDay)}
-                                                    </p>
-                                                </span>
+                                            <span className="medicineNotes flex beet w100 medel">
+                                                <p>
+                                                    {convertToBangla(item.timeL)}
+                                                </p>
+                                                <p className="dashG">
+
+                                                </p>
+                                                <p>
+                                                    {item.notes}
+                                                </p>
+                                                <p className="dashG">
+
+                                                </p>
+                                                <p>
+                                                    {convertToBangla(item.setDay)}
+                                                </p>
+                                            </span>
                                         </div>
 
                                     </li>

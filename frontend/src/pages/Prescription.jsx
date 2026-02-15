@@ -11,7 +11,7 @@ import { postApi } from "../hooks/post/postApi";
 import { toast } from "react-toastify";
 import A4page from "../components/system/print/A4page";
 import { MdOutlineDeleteForever } from "react-icons/md";
-
+import Popup from "../components/popup/Popup"
 
 export default function Prescription() {
     const recordsMedicen_DB = "patient_records"
@@ -105,34 +105,16 @@ export default function Prescription() {
 
                     {
                         demoShow && (
-                            <div className="popupBG">
-                                <div className="popup">
-                                    <div className="flex beet">
-                                        <div></div>
-                                        <div onClick={() => setDemoShow(false)} className="closeButton">
-                                            <CgClose className="iconx" />
-                                        </div>
-                                    </div>
-                                    <MainContent pageData={prepctionAllData} />
-                                </div>
-                            </div>
+                            <Popup show={demoShow} onClose={() => setDemoShow(false)}>
+                                <MainContent pageData={prepctionAllData} />
+                            </Popup>
                         )
                     }
-                    {
-                        printOk && (
-                            <div className="popupBG">
-                                <div className="popup">
-                                    <div className="flex beet">
-                                        <div></div>
-                                        <div onClick={() => setPrintOk(false)} className="closeButton">
-                                            <CgClose className="iconx" />
-                                        </div>
-                                    </div>
-                                    <A4page pageData={prepctionAllData} />
-                                </div>
-                            </div>
-                        )
-                    }
+                   
+                            <Popup show={printOk} onClose={() => setPrintOk(false)}>
+                                <A4page pageData={prepctionAllData} />
+                            </Popup>
+                     
 
                 </div>
                 <div className="uiBox w200px">

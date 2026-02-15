@@ -40,7 +40,7 @@ export default function Weather() {
   return (
     <div style={{
       fontFamily: "Segoe UI, sans-serif",
-      background: "#ffffff84",
+      background: "#ffffffcf",
       width: "320px",
       padding: "20px",
       borderRadius: "16px",

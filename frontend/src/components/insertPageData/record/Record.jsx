@@ -5,7 +5,6 @@ import { GrPrint } from "react-icons/gr";
 import A4page from "../../system/print/A4page";
 import { BsSearch } from "react-icons/bs";
 import { AiOutlineShareAlt } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
 import Popup from "../../popup/Popup";
 import Social from "../../system/social/Social";
 import QRCode from "qrcode";
@@ -25,7 +24,7 @@ export default function Records() {
 
     const canvasRef = useRef(null);
 
-    const navigate = useNavigate();
+
 
  
     const printData = (dataP) => {
