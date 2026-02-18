@@ -18,10 +18,11 @@ export default function MainDesk() {
                         </b>
                     </div>
                     <div>
-                        <Weather />
+                       
                     </div>
                     <div className="w100">
                         <Clock />
+                         <Weather />
                     </div>
                 </div>
             </blockquote>
