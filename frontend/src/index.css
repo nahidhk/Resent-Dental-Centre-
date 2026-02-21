@@ -1025,7 +1025,8 @@ li {
   overflow: auto;
   height: 70vh;
 }
-.scroll1{
+
+.scroll1 {
   overflow: auto;
   max-height: 620px;
 }
@@ -1139,6 +1140,7 @@ pre {
   padding: 10px;
   border-radius: 10px;
 }
+
 .socialBtn {
   background-color: rgb(223, 223, 223);
   color: #fff;
@@ -1150,7 +1152,7 @@ pre {
   height: 40px;
   width: 40px;
   cursor: pointer;
-  position: relative; 
+  position: relative;
 }
 
 .socialIcon {
@@ -1177,15 +1179,78 @@ pre {
   transform: translateY(0);
 }
 
-.website{
+.website {
   height: 100vh;
   width: 100%;
   background-color: #e5e5e5;
 }
-.web-nav{
+
+.web-nav {
   height: 80px;
 }
-.webNavLogo{
+
+.webNavLogo {
   height: 50px;
   border-radius: 100px;
+}
+
+.roundBtn {
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  height: 35px;
+  border: none;
+  outline: none;
+  border-radius: 100px;
+  padding: 0 20px 0 20px;
+}
+
+.nav-link {
+  display: flex;
+  list-style: none;
+}
+
+.nav-link li {
+  margin: 15px;
+  cursor: pointer;
+}
+
+.web-box {
+  height: 90vh;
+  width: 90%;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.menuIcon{
+  display: none;
+}
+.web-name{
+  font-size: 5vw;
+  font-weight: bold;
+}
+.web-homeImg{
+  height: 45vw;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+
+@media (max-width: 800px) {
+  .nav-link {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    position: absolute;
+    background-color: #e5e5e5;
+    border-radius: 0 0 10px 10px;
+    top: 150px;
+    transform: translate(-50%,-50%);
+  }
+  .menuIcon{
+    display: block;
+  }
 }
