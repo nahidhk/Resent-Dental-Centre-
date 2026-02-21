@@ -33,7 +33,7 @@ body {
   font-family: var(--font-dual);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #7f7fe4;
+  background-color: #fff;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1175,4 +1175,17 @@ pre {
 .socialBtn:hover .socialTitle {
   opacity: 1;
   transform: translateY(0);
+}
+
+.website{
+  height: 100vh;
+  width: 100%;
+  background-color: #e5e5e5;
+}
+.web-nav{
+  height: 80px;
+}
+.webNavLogo{
+  height: 50px;
+  border-radius: 100px;
 }

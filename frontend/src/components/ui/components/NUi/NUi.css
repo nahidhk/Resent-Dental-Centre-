@@ -225,7 +225,7 @@ h1{
 
   .breathe-animation span {
     font-family: 'TheFont';
-    font-size: 100px;
+    font-size: 5vw;
     color: rgb(255, 255, 255);
     text-align: center; 
     animation: letter-breathe 3s ease-in-out infinite;
