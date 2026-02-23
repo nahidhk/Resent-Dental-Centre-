@@ -1250,27 +1250,45 @@ pre {
   font-size: 30px;
 }
 
-.web-card{
+.web-card {
   border-radius: 20px;
   height: 220px;
   width: 100%;
   margin: 10px;
 }
-.workTimeBox{
-  background-color: #c7c7c7;
+
+.workTimeBox {
+  background-color: #ffdddd;
   height: 170px;
   width: 100%;
   border-radius: 20px;
 }
-.tofay{
+
+.tofay {
   height: 45px;
   width: 100%;
   border: 1px solid #000;
   border-radius: 100px;
   margin-top: 8px;
 }
-.pinBtn{
+
+.pinBtn {
   background-color: #00e1ff62;
+}
+
+.clickRound {
+  background-color: #fff;
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+}
+
+.similr {
+  margin-top: 10px;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 @media (max-width: 800px) {
@@ -1290,5 +1308,9 @@ pre {
 
   .menuIcon {
     display: block;
+  }
+
+  .mbColumn {
+    flex-direction: column;
   }
 }

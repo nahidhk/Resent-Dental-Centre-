@@ -1,12 +1,18 @@
 import React from "react";
 import Box from "../components/porpos/Box";
-import HomeImg from "../assets/588302125_3973849302913489_5961459030279599930_n.jpg"
+import HomeImg from "../assets/588302125_3973849302913489_5961459030279599930_n.jpg";
+import { GoArrowUpRight } from "react-icons/go";
+
+
+
+
+
 
 export default function Home() {
     return (
         <>
             <Box>
-                <div className="flex beet medel">
+                <div className="flex beet medel mbColumn">
                     <div>
                         <div className="web-name">
                             <span className="vw5">
@@ -26,26 +32,26 @@ export default function Home() {
                                             </h2>
                                             <br />
                                             <p>
-                                                Monday-Friday 
+                                                Monday-Friday
                                                 9AM-9PM <br />
-                                                Saturday, Sunday 
+                                                Saturday, Sunday
                                                 10AM-6PM
                                             </p>
                                         </div>
                                     </div>
                                     <div>
-                                       <div className="tofay flex medel center">
-                                        today
-                                       </div>
+                                        <div className="tofay flex medel center">
+                                            today
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div className="web-card flex center medel clomanC pinBtn">
-                                    <span>
-                                        Icon
-                                    </span>
-                                    <p>
-                                        This is smaill text
+                                <div className="web-card flex center medel clomanC pinBtn pointer">
+                                    <div className="clickRound flex center medel">
+                                        <GoArrowUpRight />
+                                    </div>
+                                    <p className="similr">
+                                        Book an Appointment
                                     </p>
                                 </div>
                             </div>
