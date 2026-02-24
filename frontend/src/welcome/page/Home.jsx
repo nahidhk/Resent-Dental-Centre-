@@ -52,7 +52,7 @@ export default function Home() {
         <>
             <Box>
                 <div className="flex beet medel mbColumn mobileStup">
-                    <div>
+                    <div className="idol">
                         <div className="web-name">
                             <span className="vw5">
                                 Your Perfect Smile Starts with <span style={{color: "#4680ff"}}>Resent Dental</span>

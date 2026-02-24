@@ -1,13 +1,14 @@
 import React from "react";
-import siteLogo from "../../assets/img/logo.jpg"
+import siteLogo from "../../assets/img/logo.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function Nav() {
-
+const navigate = useNavigate();
 
     return (
         <>
             <div className="flex around medel web-nav">
-                <div className="flex center medel ">
+                <div onClick={() => navigate("/")} className="flex center medel pointer">
                     <img src={siteLogo} alt="" className="webNavLogo" />
                     <h2>
                         &nbsp; Resent Dental
@@ -18,16 +19,16 @@ export default function Nav() {
                         Icon
                     </span>
                     <ul className="nav-link">
-                        <li>
+                        <li onClick={() => navigate("service")}>
                             Service
                         </li>
-                        <li>
+                        <li onClick={() => navigate("doctors")}>
                             Doctors
                         </li>
-                        <li>
+                        <li onClick={() => navigate("pricing")}>
                             Pricing
                         </li>
-                        <li>
+                        <li onClick={() => navigate("contacts")}>
                             Contacts
                         </li>
                     </ul>

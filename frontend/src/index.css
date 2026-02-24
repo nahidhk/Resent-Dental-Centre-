@@ -792,7 +792,12 @@ input:focus {
   animation: anitiple 0.2s;
 }
 
+.idol {
+  width: 50%;
+}
+
 @keyframes anitiple {
+
   0% {
     transform: scale(0);
   }
@@ -1258,7 +1263,10 @@ pre {
 
 .web-homeImg {
   height: 100%;
+  width: 100%;
   border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .smailTitle {
@@ -1348,6 +1356,7 @@ pre {
   position: relative;
   transform: rotate(45deg);
 }
+
 .loader3:before,
 .loader3:after {
   content: "";
@@ -1355,15 +1364,22 @@ pre {
   inset: 0;
   border-radius: 50% 50% 0 50%;
   background: #514b82;
-  -webkit-mask: radial-gradient(circle 7px at 50% 50%,#0000 94%,#000);
+  -webkit-mask: radial-gradient(circle 7px at 50% 50%, #0000 94%, #000);
 }
+
 .loader3:after {
   animation: l46 1s infinite;
   transform: perspective(300px) translateZ(0px)
 }
+
 @keyframes l46 {
-  to {transform: perspective(300px) translateZ(150px);opacity:0}
+  to {
+    transform: perspective(300px) translateZ(150px);
+    opacity: 0
+  }
 }
+
+
 
 @media (max-width: 800px) {
   .nav-link {
@@ -1412,5 +1428,9 @@ pre {
   .tofay {
     color: #fff;
     border: 1px solid #ffff;
+  }
+
+  .idol {
+    width: 100%;
   }
 }
