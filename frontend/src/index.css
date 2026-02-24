@@ -1208,11 +1208,26 @@ pre {
 .nav-link {
   display: flex;
   list-style: none;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-link li {
   margin: 15px;
   cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-link li:hover {
+  transform: scale(1.1);
+  background-color: #000;
+  color: #fff;
+  border-radius: 100px;
+  padding: 0 20px 0 20px;
+  height: 35px;
 }
 
 .web-box {
@@ -1291,6 +1306,65 @@ pre {
   cursor: pointer;
 }
 
+
+
+/* HTML: */
+.loader2 {
+  width: 10px;
+  aspect-ratio: 1;
+  border-radius: 100px;
+  background: #4680ff;
+  box-shadow: 0 0 0 0 #4680ff;
+  animation: l22 1.5s infinite linear;
+  position: relative;
+}
+
+.loader2:before,
+.loader2:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 #0004;
+  animation: inherit;
+  animation-delay: -0.5s;
+}
+
+.loader2:after {
+  animation-delay: -1s;
+}
+
+@keyframes l22 {
+  100% {
+    box-shadow: 0 0 0 50px #0000
+  }
+}
+
+
+/* HTML:  */
+.loader3 {
+  width: 30px;
+  aspect-ratio: 1;
+  position: relative;
+  transform: rotate(45deg);
+}
+.loader3:before,
+.loader3:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50% 50% 0 50%;
+  background: #514b82;
+  -webkit-mask: radial-gradient(circle 7px at 50% 50%,#0000 94%,#000);
+}
+.loader3:after {
+  animation: l46 1s infinite;
+  transform: perspective(300px) translateZ(0px)
+}
+@keyframes l46 {
+  to {transform: perspective(300px) translateZ(150px);opacity:0}
+}
+
 @media (max-width: 800px) {
   .nav-link {
     display: flex;
@@ -1304,6 +1378,7 @@ pre {
     border-radius: 0 0 10px 10px;
     top: 150px;
     transform: translate(-50%, -50%);
+    z-index: 10000;
   }
 
   .menuIcon {
@@ -1312,5 +1387,30 @@ pre {
 
   .mbColumn {
     flex-direction: column;
+  }
+
+  .mobileStup {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.834), rgba(0, 0, 0, 0.892)),
+      url("./welcome/assets/588302125_3973849302913489_5961459030279599930_n.jpg");
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 90vh;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .web-homeImg {
+    display: none;
+  }
+
+  .tofay {
+    color: #fff;
+    border: 1px solid #ffff;
   }
 }
