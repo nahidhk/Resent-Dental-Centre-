@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import nUiImg from "../../ui/components/NUi/NUi.png"
 import { toast } from "react-toastify";
-import { sessionData } from "../../../scripts/sessionData"
+import { sessionData } from "../../../../scripts/sessionData";
 import pass from "../password/password.json";
-import Box from "../../../welcome/components/porpos/Box";
-import LoginImage from "../../../welcome/assets/image.png"
+import Box from "../../porpos/Box";
 
 export default function Login() {
     const [inputPassword, setInputPassword] = useState("");

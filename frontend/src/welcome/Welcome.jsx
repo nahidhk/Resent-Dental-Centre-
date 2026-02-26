@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "./components/Nav";
 import Home from "./page/Home";
 import { Routes, Route } from "react-router-dom";
-import Login from "../components/security/login/Login";
+import Login from "./components/security/login/Login"
 
 export default function Welcome() {
     return (

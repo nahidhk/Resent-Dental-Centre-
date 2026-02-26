@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Box from "../components/porpos/Box";
-import HomeImg from "../assets/588302125_3973849302913489_5961459030279599930_n.jpg";
 import { GoArrowUpRight } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
 import siteData from "../../data/setting/siteDetels.json"
 import { capitalLetar } from "../../scripts/capitalLetar";
+import homeImg from "../assets/pageImg/homeImg.png";
 
 
 
@@ -57,74 +57,76 @@ export default function Home() {
     return (
         <>
             <Box>
-                <div  className="flex beet medel mbColumn mobileStup">
-                <div className="idol">
-                    <div className="web-name">
-                        <span className="vw5">
-                            Your Perfect Smile Starts with <span style={{ color: "#4680ff" }}>{capitalLetar(siteData.siteName_en)}</span>
-                        </span>
-                        <p className="smailTitle">
-                            Advanced dental care with a gentle touch. <br />
-                            Book your appointment today.
-                        </p>
-                        <br /><br />
-                        <div className="flex center beet mbColumn">
-                            <div className="web-card">
-                                <div className="workTimeBox flex center medel ">
-                                    <div>
-                                        <h2>
-                                            Working Time
-                                        </h2>
-                                        <br />
+                <div className="flex beet medel mbColumn mobileStup" style={{
+                    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.834), rgba(0, 0, 0, 0.892)),url("${homeImg}")`
+                }}>
+                    <div className="idol">
+                        <div className="web-name">
+                            <span className="vw5">
+                                Your Perfect Smile Starts with <span style={{ color: "#4680ff" }}>{capitalLetar(siteData.siteName_en)}</span>
+                            </span>
+                            <p className="smailTitle">
+                                Advanced dental care with a gentle touch. <br />
+                                Book your appointment today.
+                            </p>
+                            <br /><br />
+                            <div className="flex center beet mbColumn">
+                                <div className="web-card">
+                                    <div className="workTimeBox flex center medel ">
                                         <div>
-                                            <div className="flex around">
-                                                <div className="padding">Saturday - Thursday </div>
-                                                <div className="padding"> 9AM - 8PM</div>
-                                            </div>
-                                            <div className="flex beet medel">
-                                                <div>
-                                                    <div class="loader3"></div>
+                                            <h2>
+                                                Working Time
+                                            </h2>
+                                            <br />
+                                            <div>
+                                                <div className="flex around">
+                                                    <div className="padding">Saturday - Thursday </div>
+                                                    <div className="padding"> 9AM - 8PM</div>
                                                 </div>
-                                                <div>
-                                                    Master Plaza (2nd Floor),
-                                                    <br /> next to Square Market,
-                                                    <br />  Ataikula Bazar, Pabna.
+                                                <div className="flex beet medel">
+                                                    <div>
+                                                        <div class="loader3"></div>
+                                                    </div>
+                                                    <div>
+                                                        Master Plaza (2nd Floor),
+                                                        <br /> next to Square Market,
+                                                        <br />  Ataikula Bazar, Pabna.
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <div className="tofay flex medel center">
-                                        {
-                                            dateString
-                                        } &nbsp;&nbsp;
-                                        <div className="loader2"></div> &nbsp;&nbsp;
-                                        {
-                                            timeString
-                                        }
+                                    <div>
+                                        <div className="tofay flex medel center">
+                                            {
+                                                dateString
+                                            } &nbsp;&nbsp;
+                                            <div className="loader2"></div> &nbsp;&nbsp;
+                                            {
+                                                timeString
+                                            }
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div onClick={() => native("login")} className="web-card flex center medel clomanC pinBtn pointer">
-                                <div className="clickRound flex center medel">
-                                    <GoArrowUpRight />
+                                <div onClick={() => native("login")} className="web-card flex center medel clomanC pinBtn pointer">
+                                    <div className="clickRound flex center medel">
+                                        <GoArrowUpRight />
+                                    </div>
+                                    <p className="similr">
+                                        Book an Appointment
+                                    </p>
                                 </div>
-                                <p className="similr">
-                                    Book an Appointment
-                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
-                <div className="flex center medel imgBox">
-                    <img src={HomeImg} alt="" className="web-homeImg" />
+                    <div className="flex center medel imgBox">
+                        <img src={HomeImg} alt="" className="web-homeImg" />
+                    </div>
                 </div>
-            </div>
-        </Box >
+            </Box >
         </>
     )
 }

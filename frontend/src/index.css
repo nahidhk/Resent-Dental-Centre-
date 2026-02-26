@@ -1406,10 +1406,6 @@ pre {
   }
 
   .mobileStup {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.834), rgba(0, 0, 0, 0.892)),
-      url("./welcome/assets/588302125_3973849302913489_5961459030279599930_n.jpg");
-
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
