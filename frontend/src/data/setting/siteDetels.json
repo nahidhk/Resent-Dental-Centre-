@@ -1,6 +1,7 @@
 {
   "siteName": "রিসেন্ট ডেন্টাল সার্জারী",
   "fullName": "রিসেন্ট ডেন্টাল সার্জারী এন্ড ডেন্টাল এক্সরে",
+  "siteName_en" : "RECENT DENTAL SURGERY ",
   "errNote": [
     {
       "deviceErr": {
@@ -9,5 +10,6 @@
         "helpText": "Please resize your window to continue."
       }
     }
-  ]
+  ],
+  "short_en_name":"RDS"
 }

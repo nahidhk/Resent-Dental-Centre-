@@ -37,10 +37,19 @@ import { sessionData } from './scripts/sessionData';
 // Welcome
 import Welcome from "./welcome/Welcome"
 
-// public page
-import Pub from './components/pub/Pub';
+// data 
+import siteData from './data/setting/siteDetels.json';
+
 
 function App() {
+
+
+
+  useEffect(() => {
+    document.title =  siteData.siteName_en;
+  })
+
+
 
   // public page system 
   const location = useLocation();

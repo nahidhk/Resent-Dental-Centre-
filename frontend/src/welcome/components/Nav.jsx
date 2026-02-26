@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import siteLogo from "../../assets/img/logo.jpg";
 import { useNavigate } from "react-router-dom";
+import siteData from "../../data/setting/siteDetels.json";
+import { capitalLetar } from "../../scripts/capitalLetar";
 
 export default function Nav() {
-const navigate = useNavigate();
-
+    const navigate = useNavigate();
+    useEffect(() => {
+        document.title = "Rds - Login";
+    })
     return (
         <>
             <div className="flex around medel web-nav">
                 <div onClick={() => navigate("/")} className="flex center medel pointer">
                     <img src={siteLogo} alt="" className="webNavLogo" />
                     <h2>
-                        &nbsp; Resent Dental
+                        &nbsp; {capitalLetar(siteData.siteName_en)}
                     </h2>
                 </div>
                 <div>
@@ -34,7 +38,7 @@ const navigate = useNavigate();
                     </ul>
                 </div>
                 <div>
-                    <button className="roundBtn">
+                    <button onClick={() => navigate("login")} className="roundBtn">
                         Join Appointment
                     </button>
                 </div>
