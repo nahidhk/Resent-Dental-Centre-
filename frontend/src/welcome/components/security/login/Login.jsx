@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { sessionData } from "../../../../scripts/sessionData";
 import pass from "../password/password.json";
-import Box from "../../porpos/Box";
 
 export default function Login() {
     const [inputPassword, setInputPassword] = useState("");
@@ -42,9 +41,7 @@ export default function Login() {
                     </div>
                 </div>
             </div> */}
-            <Box>
-           
-            </Box >
+         
         </>
 
     )
