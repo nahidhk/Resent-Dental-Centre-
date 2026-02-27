@@ -3,6 +3,8 @@ import siteLogo from "../../assets/img/logo.jpg";
 import { useNavigate } from "react-router-dom";
 import siteData from "../../data/setting/siteDetels.json";
 import { capitalLetar } from "../../scripts/capitalLetar";
+import { IoMenu } from "react-icons/io5";
+
 
 export default function Nav() {
     const navigate = useNavigate();
@@ -20,7 +22,7 @@ export default function Nav() {
                 </div>
                 <div>
                     <span className="menuIcon">
-                        Icon
+                        <IoMenu className="icon"/>
                     </span>
                     <ul className="nav-link">
                         <li onClick={() => navigate("service")}>

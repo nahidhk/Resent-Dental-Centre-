@@ -1426,7 +1426,7 @@ pre {
     background-image: linear-gradient(rgba(255, 255, 255, 0.834), rgba(0, 0, 0, 0.892)), url("./welcome/assets/pageImg/loginImg.png");
   }
 
-  .web-homeImg {
+  .imgBox {
     display: none;
   }
 
