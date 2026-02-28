@@ -1379,11 +1379,15 @@ pre {
   }
 }
 
+.web-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
 
 
 @media (max-width: 800px) {
   .nav-link {
-    display: flex;
+    display: none;
     list-style: none;
     justify-content: center;
     flex-direction: column;
@@ -1392,9 +1396,14 @@ pre {
     position: absolute;
     background-color: #e5e5e5;
     border-radius: 0 0 10px 10px;
-    top: 150px;
+    top: 175px;
     transform: translate(-50%, -50%);
     z-index: 10000;
+    width: 300px;
+  }
+
+  .nav-link.active {
+    display: flex;
   }
 
   .menuIcon {
@@ -1406,7 +1415,6 @@ pre {
   }
 
   .mobileStup {
-
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

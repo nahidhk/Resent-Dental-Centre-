@@ -13,7 +13,6 @@ export default function Login() {
     return (
         <>
             <Box>
-
                 <div className="flex beet medel mbColumn mobileStup loginPage">
                     <div className="flex center medel imgBox">
                         <img src={loginphoto} alt="" className="web-homeImg" />
@@ -37,9 +36,6 @@ export default function Login() {
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </Box >
         </>
