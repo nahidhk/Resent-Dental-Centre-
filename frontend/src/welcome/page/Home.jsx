@@ -21,7 +21,7 @@ export default function Home() {
 
     useEffect(() => {
         document.title = "Rds - Home"
-    })
+    },[])
     const two = (n) => String(n).padStart(2, "0");
 
     const hours24 = now.getHours();

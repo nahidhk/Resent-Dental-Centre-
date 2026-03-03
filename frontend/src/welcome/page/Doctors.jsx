@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Box from "../components/porpos/Box";
 import doctors from "../assets/pageImg/docotors.png";
 
 
 
+
 export default function Doctors() {
+useEffect(() => {
+    document.title = "Rds - Doctors"
+}, [])
     return (
         <>
             <Box>
@@ -13,7 +17,9 @@ export default function Doctors() {
                         <img src={doctors} alt="" className="web-homeImg" />
                     </div>
                     <div className="idol">
-                        
+                        <h1>
+                            Dr. md nahidul islam
+                        </h1>
                     </div>
                 </div>
             </Box>

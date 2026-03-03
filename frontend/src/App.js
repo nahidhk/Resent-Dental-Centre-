@@ -71,22 +71,6 @@ function App() {
     sessionData({ setDB: "uipopup", set: false })
     setwonuiopen(false);
   }, 15000);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   if (sessionData({ get: "login" })) {
     const bg = randomImages[Math.floor(Math.random() * randomImages.length)];
     // setRandomBG(bg);
