@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Box from "../components/porpos/Box";
 import doctors from "../assets/pageImg/docotors.png";
-import Head from "../../components/system/print/Components/Head";
+import Card from "../components/porpos/Card";
 
 
 
@@ -17,7 +17,7 @@ useEffect(() => {
                         <img src={doctors} alt="" className="web-homeImg" />
                     </div>
                     <div className="idol">
-                       <Head />
+                      <Card />
                     </div>
                 </div>
             </Box>

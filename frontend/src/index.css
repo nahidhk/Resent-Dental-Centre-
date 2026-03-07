@@ -1384,6 +1384,10 @@ pre {
   cursor: pointer;
 }
 
+.boxCard{
+  height: auto;
+  width: 300px;
+}
 
 @media (max-width: 800px) {
   .nav-link {
