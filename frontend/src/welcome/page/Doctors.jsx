@@ -24,7 +24,7 @@ useEffect(() => {
                             Dr. Name last name 
                         </h2>
                         <p>
-                            
+                                
                         </p>
                       </Card>
                     </div>
