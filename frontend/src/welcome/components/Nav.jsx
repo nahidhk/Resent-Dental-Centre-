@@ -43,7 +43,6 @@ export default function Nav() {
 
                 {/* Nav Links (toggle controlled) */}
                 <ul className={`nav-link ${togelApp ? "active" : ""}`}>
-                    <li onClick={() => navigate("service")}>Service</li>
                     <li onClick={() => navigate("doctors")}>Doctors</li>
                     <li onClick={() => navigate("pricing")}>Pricing</li>
                     <li onClick={() => navigate("contacts")}>Contacts</li>
