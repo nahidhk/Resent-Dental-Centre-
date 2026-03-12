@@ -59,7 +59,7 @@ export default function Home() {
             <Box>
                 <div className="flex beet medel mbColumn mobileStup homePage">
                     <div className="idol">
-                        <div className="web-name">
+                        <div className="web-name animate__animated animate__fadeIn">
                             <span className="vw5">
                                 Your Perfect Smile Starts with <span style={{ color: "#4680ff" }}>{capitalLetar(siteData.siteName_en)}</span>
                             </span>
@@ -68,7 +68,7 @@ export default function Home() {
                                 Book your appointment today.
                             </p>
                             <br /><br />
-                            <div className="flex center beet mbColumn">
+                            <div className="flex center beet mbColumn animate__animated animate__bounceIn">
                                 <div className="web-card">
                                     <div className="workTimeBox flex center medel ">
                                         <div>
@@ -95,7 +95,7 @@ export default function Home() {
                                         </div>
                                     </div>
                                     <div>
-                                        <div className="tofay flex medel center">
+                                        <div className="tofay flex medel center animate__animated animate__bounceIn">
                                             {
                                                 dateString
                                             } &nbsp;&nbsp;
@@ -107,7 +107,7 @@ export default function Home() {
                                     </div>
                                 </div>
 
-                                <div onClick={() => native("login")} className="web-card flex center medel clomanC pinBtn pointer">
+                                <div onClick={() => native("login")} className="web-card flex center medel clomanC pinBtn pointer animate__animated animate__bounceIn">
                                     <div className="clickRound flex center medel">
                                         <GoArrowUpRight />
                                     </div>

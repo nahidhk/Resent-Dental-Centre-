@@ -45,7 +45,7 @@ export default function Login() {
                     <div className="flex center medel imgBox">
                         <img src={loginphoto} alt="" className="web-homeImg" />
                     </div>
-                    <div className="idol">
+                    <div className="idol animate__animated animate__fadeInUp">
                         <div className="flex center medel clomanC">
                             <div className="textCenter">
                                 <h1>

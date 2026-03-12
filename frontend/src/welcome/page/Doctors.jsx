@@ -20,8 +20,13 @@ export default function Doctors() {
                     <div className="idol flex center medel">
                         <Card>
                             <img src={arif} className="userImg" />
-                         
+                            <h2>{DoctorData.doctor_name.english_name}</h2>
                             <p>
+                                <br />
+                                <b>
+                                    English
+                                </b>
+                                <hr />
                                 <h2>{DoctorData.doctor_name.english_name}</h2>
                                 <h3>{DoctorData.doctor_subname.english_subname}</h3>
                                 <p>
@@ -30,6 +35,22 @@ export default function Doctors() {
                                     BMDC Reg. No.-{DoctorData.mbdc_no}
                                     <br />
                                     Mobile: {DoctorData.doctor_phone}
+                                </p>
+                            </p>
+                            <p>
+                                <br />
+                                <b>
+                                    Bangla
+                                </b>
+                                <hr />
+                                <h2>{DoctorData.doctor_name.bangla_name}</h2>
+                                <h3>{DoctorData.doctor_subname.bangla_subname}</h3>
+                                <p>
+                                    {DoctorData.doctor_degree.bangla_degree}
+                                    <br />
+                                    বিএমডিসি রেজিঃ নং-{DoctorData.mbdc_no}
+                                    <br />
+                                    মোবাইল: {DoctorData.doctor_phone}
                                 </p>
                             </p>
                         </Card>

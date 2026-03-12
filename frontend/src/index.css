@@ -1219,7 +1219,6 @@ pre {
 
 .nav-link {
   display: flex;
-  list-style: none;
   justify-content: center;
   align-items: center;
 }
@@ -1401,25 +1400,24 @@ pre {
 }
 
 @media (max-width: 800px) {
-  .nav-link {
-    display: none;
-    list-style: none;
-    justify-content: center;
-    flex-direction: column;
-    height: auto;
-    padding: 10px;
-    position: absolute;
+  .bottomNav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-color: #e5e5e5;
-    border-radius: 0 0 10px 10px;
-    top: 175px;
-    transform: translate(-50%, -50%);
     z-index: 10000;
-    width: 300px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .nav-link.active {
     display: flex;
   }
+
 
   .menuIcon {
     display: block;

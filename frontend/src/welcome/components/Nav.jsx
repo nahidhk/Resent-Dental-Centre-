@@ -17,10 +17,10 @@ export default function Nav() {
 
     return (
         <div className="flex around medel web-nav">
-            
+
             {/* Logo Section */}
-            <div 
-                onClick={() => navigate("/")} 
+            <div
+                onClick={() => navigate("/")}
                 className="flex center medel pointer"
             >
                 <img src={siteLogo} alt="logo" className="webNavLogo" />
@@ -29,30 +29,22 @@ export default function Nav() {
 
             {/* Menu Section */}
             <div>
-                <span className="menuIcon">
-                    <div onClick={() => setTogelApp(prev => !prev)}>
-                        {
-                            togelApp ? (
-                                <RiCloseLargeFill className="web-icon" />
-                            ) : (
-                                <IoMenu className="web-icon" />
-                            )
-                        }
-                    </div>
-                </span>
+
 
                 {/* Nav Links (toggle controlled) */}
-                <ul className={`nav-link ${togelApp ? "active" : ""}`}>
-                    <li onClick={() => navigate("doctors")}>Doctors</li>
-                    <li onClick={() => navigate("pricing")}>Pricing</li>
-                    <li onClick={() => navigate("contacts")}>Contacts</li>
-                </ul>
+                <div className="bottomNav">
+                    <div className={`nav-link `}>
+                        <li onClick={() => navigate("doctors")}>Doctors</li>
+                        <li onClick={() => navigate("pricing")}>Pricing</li>
+                        <li onClick={() => navigate("contacts")}>Contacts</li>
+                    </div>
+                </div>
             </div>
 
             {/* Button Section */}
             <div>
-                <button 
-                    onClick={() => navigate("login")} 
+                <button
+                    onClick={() => navigate("login")}
                     className="roundBtn"
                 >
                     Join Appointment
