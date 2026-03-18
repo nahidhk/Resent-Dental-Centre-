@@ -34,9 +34,8 @@ export default function Nav() {
                 {/* Nav Links (toggle controlled) */}
                 <div className="bottomNav">
                     <div className={`nav-link `}>
+                        <li onClick={() => navigate("/")}>Home</li>
                         <li onClick={() => navigate("doctors")}>Doctors</li>
-                        <li onClick={() => navigate("pricing")}>Pricing</li>
-                        <li onClick={() => navigate("contacts")}>Contacts</li>
                     </div>
                 </div>
             </div>

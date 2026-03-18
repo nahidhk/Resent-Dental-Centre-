@@ -4,7 +4,6 @@ import Home from "./page/Home";
 import { Routes, Route } from "react-router-dom";
 import Login from "./page/Login";
 import Doctors from "./page/Doctors";
-import Price from "./page/Price";
 
 export default function Welcome() {
     return (
@@ -14,7 +13,6 @@ export default function Welcome() {
                 <Route path="/" element={<Home />} />
                 <Route path="login" element={<Login />} />
                 <Route path="doctors" element={<Doctors />} />
-                <Route path="pricing" element={<Price />} />
             </Routes>
         </div>
     )

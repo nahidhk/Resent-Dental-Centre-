@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import Box from "../components/porpos/Box";
 import loginphoto from "../assets/pageImg/loginImg.png";
 import userData from "../components/security/data.json";
 import { toast } from "react-toastify";
 import { sessionData } from "../../scripts/sessionData";
+import { useRestApi } from "../../hooks/getjson/useRestApi";
 
 
 
@@ -15,10 +16,23 @@ export default function Login() {
     }, [])
     const [usernumber, setusernumber] = useState("");
     const [createAdmin, setCreateAdmin] = useState(false);
-    const loginif = () => {
+    const bdUsers = "users";
+    const { jsonData: users } = useRestApi(bdUsers);
 
+
+    const loginif = () => {
+        if (!usernumber) {
+            toast.error("Please input your phone number!");
+            return;
+        }
         if (usernumber === userData.u) {
             setCreateAdmin(true);
+        } else {
+            const corectUser = users.find(user => user.number === usernumber) || null;
+            if (corectUser) {
+                sessionData({ setDB: "ppp", set: true });
+                sessionData({ setDB: "userData", set: corectUser });
+            }
         }
     }
     const [inputPassword, setInputPassword] = useState("");
@@ -46,43 +60,53 @@ export default function Login() {
                         <img src={loginphoto} alt="" className="web-homeImg" />
                     </div>
                     <div className="idol animate__animated animate__fadeInUp">
-                        <div className="flex center medel clomanC">
-                            <div className="textCenter">
-                                <h1>
-                                    Book an Appointment
-                                </h1>
-                            </div>
-                            <div>
-                                <label htmlFor="phone">Phone Number: &nbsp;&nbsp;</label>
-                                <br />
-                                <input type="text" onChange={(e) => setusernumber(e.target.value)} className="input w100" placeholder="018xxxxxxxx" />
-                                <br />
-                                {
-                                    createAdmin ? (
-                                        <>
-                                            <label htmlFor="phone">Admin password: &nbsp;&nbsp;</label>
-                                            <br />
-                                            <input onChange={(e) => setInputPassword(e.target.value)} type="password" className="input w100" placeholder="input admin password" />
-                                        </>
-                                    ) : ""
-                                }
-                            </div>
-                            <div className="padding">
-                                {
-                                    createAdmin ? (
-                                        <button onClick={chechLogin} className="roundBtn">
-                                            Login
-                                        </button>
-                                    ) : (
-                                        <button onClick={loginif} className="roundBtn">
-                                            Join and Book the Appointment
-                                        </button>
-                                    )
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        {
+                            sessionData({ get: "ppp" }) ? (
+                               <>
+                               <div className="flex center medel clomanC">
+                                 <h1>Hello, {sessionData({ get: "userData" })?.name || "User"}</h1>
+                               </div>
+                               </>
+                            ) : (
+                                <div className="flex center medel clomanC">
+                                    <div className="textCenter">
+                                        <h1>
+                                            Book an Appointment
+                                        </h1>
+                                    </div>
+                                    <div>
+                                        <label htmlFor="phone">Phone Number: &nbsp;&nbsp;</label>
+                                        <br />
+                                        <input type="text" onChange={(e) => setusernumber(e.target.value)} className="input w100" placeholder="018xxxxxxxx" />
+                                        <br />
+                                        {
+                                            createAdmin ? (
+                                                <>
+                                                    <label htmlFor="phone">Admin password: &nbsp;&nbsp;</label>
+                                                    <br />
+                                                    <input onChange={(e) => setInputPassword(e.target.value)} type="password" className="input w100" placeholder="input admin password" />
+                                                </>
+                                            ) : ""
+                                        }
+                                    </div>
+                                    <div className="padding">
+                                        {
+                                            createAdmin ? (
+                                                <button onClick={chechLogin} className="roundBtn">
+                                                    Login
+                                                </button>
+                                            ) : (
+                                                <button onClick={loginif} className="roundBtn">
+                                                    Join and Book the Appointment
+                                                </button>
+                                            )
+                                        }
+                                    </div>
+                                </div>
+                            )
+                        }
+                    </div >
+                </div >
             </Box >
         </>
     )
