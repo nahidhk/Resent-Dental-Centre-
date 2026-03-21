@@ -5,7 +5,9 @@ import userData from "../components/security/data.json";
 import { toast } from "react-toastify";
 import { sessionData } from "../../scripts/sessionData";
 import { useRestApi } from "../../hooks/getjson/useRestApi";
-
+import  formatDate  from "../../scripts/formatDate";
+import userImg from "../../assets/vector/user.png";
+import sex from "../../data/present/sex.json";
 
 
 
@@ -18,7 +20,7 @@ export default function Login() {
     const [createAdmin, setCreateAdmin] = useState(false);
     const bdUsers = "users";
     const { jsonData: users } = useRestApi(bdUsers);
-
+    const [btnText, setBtnText] = useState("Join and Book the Appointment");
 
     const loginif = () => {
         if (!usernumber) {
@@ -30,8 +32,10 @@ export default function Login() {
         } else {
             const corectUser = users.find(user => user.number === usernumber) || null;
             if (corectUser) {
+                setBtnText("checking...");
                 sessionData({ setDB: "ppp", set: true });
                 sessionData({ setDB: "userData", set: corectUser });
+                window.location.reload();
             }
         }
     }
@@ -51,7 +55,7 @@ export default function Login() {
             toast.error("Please input a password!");
         }
     }
-
+    const myUserData = sessionData({ get: "userData" });
     return (
         <>
             <Box>
@@ -62,11 +66,54 @@ export default function Login() {
                     <div className="idol animate__animated animate__fadeInUp">
                         {
                             sessionData({ get: "ppp" }) ? (
-                               <>
-                               <div className="flex center medel clomanC">
-                                 <h1>Hello, {sessionData({ get: "userData" })?.name || "User"}</h1>
-                               </div>
-                               </>
+                                <>
+                                    <div className="flex center medel clomanC ">
+                                        <div className="flex medel beet">
+                                            <div className="flex center medel clomanC web-fastDiv">
+                                                <img className="userImg" src={userImg} alt="user Data" />
+                                                <div className="web-sapCard">
+                                                    <br />
+                                                    <h2 className="textCenter">
+                                                        {myUserData.name}
+                                                    </h2>
+                                                    <br />
+                                                    <table className="table_component">
+                                                        <tr>
+                                                            <td> Age:</td>
+                                                            <td>{myUserData.age}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Last update:</td>
+                                                            <td>{formatDate(myUserData.updated_at)}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Join Date:</td>
+                                                            <td>{formatDate(myUserData.created_at)}</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div className="flex center medel">
+                                                <div className="web-sapCard flex center medel">
+                                                    <table className="table_component">
+                                                        <tr>
+                                                            <td>ID:</td>
+                                                            <td>{myUserData.id}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Phone Number:</td>
+                                                            <td>{myUserData.number}</td>
+                                                        </tr>
+                                                        <tr>    
+                                                            <td>Gender:</td>
+                                                            <td>{sex.find(s => s.id === myUserData.sex)?.name}</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </>
                             ) : (
                                 <div className="flex center medel clomanC">
                                     <div className="textCenter">
@@ -97,7 +144,9 @@ export default function Login() {
                                                 </button>
                                             ) : (
                                                 <button onClick={loginif} className="roundBtn">
-                                                    Join and Book the Appointment
+                                                    {
+                                                        btnText
+                                                    }
                                                 </button>
                                             )
                                         }

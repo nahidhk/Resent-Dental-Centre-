@@ -1398,6 +1398,19 @@ pre {
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
+.web-fastDiv{
+  height: auto;
+  width: 100%;
+  border-right: 2px solid #000;
+}
+.web-sapCard{
+  height: auto;
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #e6e6e6;
+  border-radius: 10px;
+}
 
 @media (max-width: 800px) {
   .bottomNav {
