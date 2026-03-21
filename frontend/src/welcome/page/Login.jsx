@@ -5,7 +5,7 @@ import userData from "../components/security/data.json";
 import { toast } from "react-toastify";
 import { sessionData } from "../../scripts/sessionData";
 import { useRestApi } from "../../hooks/getjson/useRestApi";
-import  formatDate  from "../../scripts/formatDate";
+import formatDate from "../../scripts/formatDate";
 import userImg from "../../assets/vector/user.png";
 import sex from "../../data/present/sex.json";
 
@@ -104,9 +104,9 @@ export default function Login() {
                                                             <td>Phone Number:</td>
                                                             <td>{myUserData.number}</td>
                                                         </tr>
-                                                        <tr>    
+                                                        <tr>
                                                             <td>Gender:</td>
-                                                            <td>{sex.find(s => s.id === myUserData.sex)?.name}</td>
+                                                            <td>{sex.find(sexitm => JSON.stringify(sexitm.id) === myUserData.sex)?.name || "Not specified"}</td>
                                                         </tr>
                                                     </table>
                                                 </div>

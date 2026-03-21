@@ -1472,4 +1472,10 @@ pre {
   .idol {
     width: 100%;
   }
+  .vw5 {
+    font-size: 1.3em;
+  }
+  .smailTitle{
+    font-size: 12pt;
+  }
 }
