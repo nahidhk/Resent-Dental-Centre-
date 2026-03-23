@@ -19,7 +19,9 @@ export default function Login() {
     const [usernumber, setusernumber] = useState("");
     const [createAdmin, setCreateAdmin] = useState(false);
     const bdUsers = "users";
+    const dbPacent = "patient_records";
     const { jsonData: users } = useRestApi(bdUsers);
+    const { jsonData: pacentRecords } = useRestApi(dbPacent);
     const [btnText, setBtnText] = useState("Join and Book the Appointment");
 
     const loginif = () => {
@@ -93,7 +95,7 @@ export default function Login() {
                                                     </table>
                                                 </div>
                                             </div>
-                                            <div className="flex center medel">
+                                            <div className="flex center medel clomanC">
                                                 <div className="web-sapCard flex center medel">
                                                     <table className="table_component">
                                                         <tr>
@@ -108,6 +110,36 @@ export default function Login() {
                                                             <td>Gender:</td>
                                                             <td>{sex.find(sexitm => JSON.stringify(sexitm.id) === myUserData.sex)?.name || "Not specified"}</td>
                                                         </tr>
+                                                    </table>
+                                                </div>
+                                                <div>
+                                                    <br />
+                                                    <br />
+                                                </div>
+                                                <div className="web-sapCard flex center medel">
+                                                    <table className="table_component">
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>RP ID</th>
+                                                            <th>Date</th>
+                                                            <th>Action</th>
+                                                        </tr>
+
+                                                        {
+                                                            pacentRecords.filter(record => record.userNumber === myUserData.number).map((record, index) => (
+                                                                <tr key={index}>
+                                                                    <td>{index + 1}</td>
+                                                                    <td>{record.rpid}</td>
+                                                                    <td>{formatDate(record.created_at)}</td>
+                                                                    <td>
+                                                                        <button onClick={() => window.location.href = `/record/${record.id}`} className="roundBtn">
+                                                                            View
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            ))
+                                                        }
+
                                                     </table>
                                                 </div>
                                             </div>

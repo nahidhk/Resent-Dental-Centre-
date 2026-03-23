@@ -1412,6 +1412,8 @@ pre {
   border-radius: 10px;
 }
 
+
+
 @media (max-width: 800px) {
   .bottomNav {
     display: flex;
