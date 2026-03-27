@@ -14,7 +14,7 @@ export default function Pub({ idData }) {
     const navigate = useNavigate();
     const pdfRef = useRef();
 
-    const apiurl = `https://api.ndsql.top/rds/api/p/?id=${idData}`;
+    const apiurl = `https://api.ndsql.top/rds/api/p/?id=10022602314909`;
 
     const [dataP, setAPiData] = useState(null);
     const [loading, setLoading] = useState(true);

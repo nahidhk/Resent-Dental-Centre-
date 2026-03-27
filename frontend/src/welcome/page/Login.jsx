@@ -120,8 +120,7 @@ export default function Login() {
                                                     <table className="table_component">
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>RP ID</th>
-                                                            <th>Date</th>
+                                                            <th>Detels</th>
                                                             <th>Action</th>
                                                         </tr>
 
@@ -129,10 +128,12 @@ export default function Login() {
                                                             pacentRecords.filter(record => record.userNumber === myUserData.number).map((record, index) => (
                                                                 <tr key={index}>
                                                                     <td>{index + 1}</td>
-                                                                    <td>{record.rpid}</td>
-                                                                    <td>{formatDate(record.created_at)}</td>
                                                                     <td>
-                                                                        <button onClick={() => window.location.href = `/record/${record.id}`} className="roundBtn">
+                                                                        {record.rpid}
+                                                                        {formatDate(record.created_at)}
+                                                                    </td>
+                                                                    <td>
+                                                                        <button onClick={() => window.location.href = `/record/${record.rpid}`} className="roundBtn">
                                                                             View
                                                                         </button>
                                                                     </td>

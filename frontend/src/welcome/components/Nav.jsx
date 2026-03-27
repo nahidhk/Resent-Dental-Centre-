@@ -5,15 +5,22 @@ import siteData from "../../data/setting/siteDetels.json";
 import { capitalLetar } from "../../scripts/capitalLetar";
 import { IoMenu } from "react-icons/io5";
 import { RiCloseLargeFill } from "react-icons/ri";
+import { sessionData } from "../../scripts/sessionData";
 
 export default function Nav() {
     const navigate = useNavigate();
     const [togelApp, setTogelApp] = useState(false);
-
+    const myloginsession = sessionData({ get: "userData" }) || false;
     // Page title set (run only once)
     useEffect(() => {
         document.title = "Rds - Login";
     }, []);
+
+
+    const handelLogout = () => {
+        sessionStorage.clear();
+        window.location.reload();
+    }
 
     return (
         <div className="flex around medel web-nav">
@@ -36,20 +43,39 @@ export default function Nav() {
                     <div className={`nav-link `}>
                         <li onClick={() => navigate("/")}>Home</li>
                         <li onClick={() => navigate("doctors")}>Doctors</li>
+                        <li onClick={() => navigate("record")}>Record</li>
+                        {
+                            myloginsession ? (
+                                <li onClick={() => navigate("login")}>Profile</li>
+                            ) : (
+                                ""
+                            )
+                        }
                     </div>
                 </div>
             </div>
 
             {/* Button Section */}
             <div>
-                <button
-                    onClick={() => navigate("login")}
-                    className="roundBtn"
-                >
-                    Join Appointment
-                </button>
+                {
+                    myloginsession ? (
+                        <button
+                            onClick={handelLogout}
+                            className="roundBtn"
+                        >
+                            Logout
+                        </button>
+                    ) : (
+                        <button
+                            onClick={() => navigate("login")}
+                            className="roundBtn"
+                        >
+                            Join Appointment
+                        </button>
+                    )
+                }
             </div>
 
-        </div>
+        </div >
     );
 }
