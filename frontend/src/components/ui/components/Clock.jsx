@@ -17,21 +17,22 @@ export default function Clock() {
   const seconds = two(now.getSeconds());
   const timeString = `${two(hours12)}:${minutes}:${seconds} ${ampm}`;
 
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
+const days = ["রবি", "সোম", "মঙ্গল", "বুধ", "বৃহস্পতি", "শুক্র", "শনি"];
+
+const months = [
+    "জানুয়ারি",
+    "ফেব্রুয়ারি",
+    "মার্চ",
+    "এপ্রিল",
+    "মে",
+    "জুন",
+    "জুলাই",
+    "আগস্ট",
+    "সেপ্টেম্বর",
+    "অক্টোবর",
+    "নভেম্বর",
+    "ডিসেম্বর",
+];
 
   const dayName = days[now.getDay()];
   const date = now.getDate();
@@ -40,13 +41,14 @@ export default function Clock() {
   const dateString = `${dayName} ${date} ${monthName} ${year2}`;
 
   return (
-    <div className="textCenter">
-     <span className="title">
+    <div className="wach">
+     <span className="clock ">
         {timeString}
-     </span>\<br />
-     <span className="colorFFF">
+     </span><br />
+     <h2 className="colorFFF">
         {dateString}
-     </span>
+     </h2>
+     <br />
     </div>
   );
 }

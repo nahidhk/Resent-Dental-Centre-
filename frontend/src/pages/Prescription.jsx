@@ -52,7 +52,7 @@ export default function Prescription() {
         <UiModiul>
 
             {/* <div>{JSON.stringify(prepctionAllData)}</div> */}
-            <div className="uiBox" >
+            <div className="diman" >
                 <PresentAbbPrepction onAddPatient={setNewPatient} />
                 {
                     pNumber && (

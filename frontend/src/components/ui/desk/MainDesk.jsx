@@ -1,7 +1,7 @@
 import React from "react";
 import SiteName from "../../../hooks/SiteName"
 import Clock from "../components/Clock";
-import Weather from "../../wathear/Weather";
+
 
 
 export default function MainDesk() {
@@ -11,18 +11,17 @@ export default function MainDesk() {
             <blockquote>
                 <br />
                 
-                <div className="flex around medel">
-                    <div className="w100">
+                <div className="flex center cloman medel">
+                    <div>
                         <b className="title">
                             <SiteName />
                         </b>
                     </div>
                     <div>
-                       
+                       <br />
                     </div>
                     <div className="w100">
                         <Clock />
-                         <Weather />
                     </div>
                 </div>
             </blockquote>

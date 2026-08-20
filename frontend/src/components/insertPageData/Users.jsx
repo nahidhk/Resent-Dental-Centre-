@@ -162,7 +162,7 @@ export default function Users() {
                             </div>
                         </div>
 
-                        <div className="flex">
+                        <div className="userstabl">
                             <Table
                                 tableData={patiebtData}
                                 action={{

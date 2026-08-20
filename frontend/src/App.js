@@ -9,7 +9,6 @@ import Home from './pages/Home';
 import Insert from './pages/Insert';
 import Toast from './components/system/Toast';
 import ApiCheck from './components/Err/ApiCheck';
-import MainDesk from './components/ui/desk/MainDesk';
 import NUi from './components/ui/components/NUi/NUi';
 import Memo from './pages/Memo';
 // Insers Data Set
@@ -35,7 +34,6 @@ import eruda from "eruda";
 // Sessoin Data Setup
 import { sessionData } from './scripts/sessionData';
 // Welcome
-import Welcome from "./welcome/Welcome"
 
 // data 
 import siteData from './data/setting/siteDetels.json';
@@ -46,7 +44,7 @@ function App() {
 
 
   useEffect(() => {
-    document.title =  siteData.siteName_en;
+    document.title = siteData.siteName_en;
   })
 
 
@@ -71,24 +69,19 @@ function App() {
     sessionData({ setDB: "uipopup", set: false })
     setwonuiopen(false);
   }, 15000);
-  if (sessionData({ get: "login" })) {
-    const bg = randomImages[Math.floor(Math.random() * randomImages.length)];
-    // setRandomBG(bg);
-    document.body.style.backgroundImage = `url(${bg})`;
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundRepeat = 'no-repeat';
-    document.body.style.backgroundPosition = 'center';
-    eruda.init();
-    const width = document.body.clientWidth;
-    if (width >= 960) {
-      if (wonuiopen) {
-        return <NUi />
-      } else {
+
+
+
+  if (wonuiopen) {
+    return <NUi />
+  } else{
+      const width = document.body.clientWidth;
+      if (width >= 960) {
         return (
           <>
-            <div className='wallpaper'>
+
+            <div className='wallpaper flex'>
               <Nav />
-              <MainDesk />
               <Routes>
                 <Route path='/prescription' element={<Prescription />} />
                 <Route path='/' element={<Home />} />
@@ -108,12 +101,11 @@ function App() {
             </div>
           </>
         );
+
+      } else {
+        return <DeviceSizeErr widthx={width} />;
       }
-    } else {
-      return <DeviceSizeErr widthx={width} />;
     }
-  } else {
-    return (<> <Welcome />  <Toast /> </>)
-  }
+
 }
 export default App;

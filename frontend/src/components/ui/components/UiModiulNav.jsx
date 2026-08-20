@@ -1,32 +1,21 @@
 import react from "react";
-import { IoMdClose } from "react-icons/io";
-import { IoReloadOutline } from "react-icons/io5";
-import { IoChevronBackOutline } from "react-icons/io5";
+import { FaArrowLeftLong } from "react-icons/fa6";
+
 import { useLocation, useNavigate } from "react-router-dom";
-import { FcFolder } from "react-icons/fc";
 
 export default function UiModiulNav() {
     const navigate = useNavigate();
     const location = useLocation();
     return (
         <>
-            <div className="flex beet cente medel uiBorder w100 uiTopNav">
-                <div className="ccOg medel flex center">
-                   <span className="bigText colorFFF flex center medel">
-                  <FcFolder /> {location.pathname}
-                   </span>
-                </div>
-                <div className="rghtNav flex center medel">
-                    <button onClick={() => window.history.back()} className="back uiNavBtn">
-                        <IoChevronBackOutline className="navIcon" />
-                    </button>
-                    <button title="Reload" onClick={() => window.location.reload()} className="reload uiNavBtn" >
-                        <IoReloadOutline className="navIcon" />
-                    </button>
-                    <button title="Exit" onClick={() => navigate("/")} className="exit uiNavBtn">
-                        <IoMdClose className="navIcon" />
-                    </button>
-                </div>
+            <div className="uiTopNav flex medel">
+               
+                    <div onClick={() => window.history.back()} className="uiNavBtn">
+                        <FaArrowLeftLong className="navIcon" />
+                    </div>
+                    <h1 className="unpear">
+                       &nbsp;&nbsp; {location.pathname.split("/").filter(Boolean).pop()}
+                    </h1>
             </div>
         </>
     )

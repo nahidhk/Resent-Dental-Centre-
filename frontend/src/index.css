@@ -5,6 +5,11 @@
   src: url("fonts/bangla.ttf");
 }
 
+@font-face {
+  font-family: clockFont;
+  src: url("fonts/clock.ttf");
+}
+
 
 /* =========================================
                 Clasic Css
@@ -28,12 +33,28 @@
   --transition: 0.25s ease;
 }
 
+.clock{
+  font-family: clockFont;
+  font-size: 10rem;
+  color: #fff;
+}
+.wach{
+  background-color: #ffffff36;
+  color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: right;
+}
+.diman{
+  color: #fff;
+}
+
 body {
   margin: 0;
   font-family: var(--font-dual);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fff;
+  background-color: #a304ff;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -284,40 +305,87 @@ input:focus {
   transform: rotate(45deg);
 }
 
+
+
 .table_component {
+  width: 100%;
+  overflow-x: auto;
+  /* font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; */
+}
+
+.left {
+  left: 0;
+}
+
+.sidenav {
+  height: 100vh;
   width: auto;
+  padding: 10px;
+  backdrop-filter: blur(5px);
+  background-color: #00000033;
+
 }
 
 .table_component table {
-  border: 1px dashed #dededf;
-  height: 100%;
-  width: auto;
-  table-layout: fixed;
+  width: 100%;
   border-collapse: collapse;
-  border-spacing: 1px;
+  border-spacing: 0;
+  table-layout: fixed;
   text-align: left;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .table_component th {
-  border: 1px dashed #dededf;
-  background-color: #eceff1;
-  color: #000000;
-  padding: 8px;
-  text-align: center;
+  background-color: #1e293b;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  border: none;
+  text-align: left;
 }
 
 .table_component td {
-  border: 1px dashed #dededf66;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 8px;
-  transition: all 0.4s;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #1e293b;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-.table_component td:hover {
-  background-color: #ebebeb;
-  color: #000;
+/* জেব্রা স্ট্রাইপ */
+.table_component tbody tr:nth-child(even) td {
+  background-color: #f8fafc;
 }
+
+/* হোভার ইফেক্ট */
+.table_component tbody tr:hover td {
+  background-color: #e0f2fe;
+  color: #0f172a;
+}
+
+/* শেষ রো-এর বর্ডার বাদ */
+.table_component tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* স্ক্রলবার একটু স্লিক করা (optional) */
+.table_component::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table_component::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+
+
+
 
 .w50 {
   width: 50%;
@@ -765,14 +833,16 @@ input:focus {
 
 .appBtn {
   height: 50px;
-  width: 50px;
+  width: auto;
   background-color: #00000073;
-  margin-left: 5px;
+  margin: 5px;
   border: none;
   color: #FFF;
   border-radius: 8px;
   cursor: pointer;
   backdrop-filter: blur(5px);
+  display: flex;
+
 }
 
 .active {
@@ -781,18 +851,8 @@ input:focus {
 }
 
 .appBtnName {
-  color: #ffd369;
-  background: #2c536469;
-  border: 1px dashed #ffd369;
   padding: 6px 14px;
-  position: absolute;
-  bottom: 70px;
-  border-radius: 14px;
-  display: none;
   font-size: 12pt;
-  backdrop-filter: blur(5px);
-  width: auto;
-  animation: anitiple 0.2s;
 }
 
 .idol {
@@ -810,12 +870,11 @@ input:focus {
   }
 }
 
-.appBtn:hover .appBtnName {
-  display: block;
-}
+
 
 .appicon {
   font-size: 28px;
+  margin: 0px 10px 0px 10px;
 }
 
 .eve {
@@ -835,13 +894,8 @@ input:focus {
 .uiModiul {
   background-color: #00000099;
   backdrop-filter: blur(5px);
-  border-radius: 10px;
   width: 100%;
   height: 100vh;
-  position: fixed;
-  z-index: 880;
-  bottom: 0;
-  left: 0;
   overflow: auto;
   animation: xpoint 0.3s;
 }
@@ -857,25 +911,37 @@ input:focus {
 }
 
 .uiNavBtn {
-  height: 40px;
-  width: 40px;
-  background-color: #ffffff00;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
   border: none;
   outline: none;
   cursor: pointer;
-  border-right: 1px solid #ffffff4f;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navIcon {
   font-size: 24px;
-  color: #ffffff8a;
+}
+.unpear{
+  color: #fff;
+    text-transform: uppercase;
+}
+.tixo{
+  height: 100vh;
+  width: 100%;
 }
 
+
 .uiTopNav {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  backdrop-filter: blur(3px);
+  padding: 15px;
+background-color: #ffffff23;
+  margin: 10px;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar {
@@ -900,7 +966,7 @@ input:focus {
   padding: 10px;
   border-radius: 10px;
   margin: 10px;
-  /* backdrop-filter: blur(5px); */
+  backdrop-filter: blur(5px);
   border: 1px solid #ffffff8d;
 }
 
@@ -917,6 +983,10 @@ input:focus {
 .dropBtn:hover {
   background-color: #4680ff;
   color: #fff;
+}
+
+.userstabl {
+  width: 900px;
 }
 
 .dropDown {
@@ -1398,12 +1468,14 @@ pre {
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
-.web-fastDiv{
+
+.web-fastDiv {
   height: auto;
   width: 100%;
   border-right: 2px solid #000;
 }
-.web-sapCard{
+
+.web-sapCard {
   height: auto;
   width: 300px;
   padding: 10px;
@@ -1454,13 +1526,6 @@ pre {
     justify-content: center;
   }
 
-  .homePage {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.834), rgba(0, 0, 0, 0.892)), url("./welcome/assets/pageImg/homeImg.png");
-  }
-
-  .loginPage {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.834), rgba(0, 0, 0, 0.892)), url("./welcome/assets/pageImg/loginImg.png");
-  }
 
   .imgBox {
     display: none;
@@ -1474,10 +1539,12 @@ pre {
   .idol {
     width: 100%;
   }
+
   .vw5 {
     font-size: 1.3em;
   }
-  .smailTitle{
+
+  .smailTitle {
     font-size: 12pt;
   }
 }

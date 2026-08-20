@@ -7,8 +7,11 @@ const PieDonutChart = () => {
 
   useEffect(() => {
     const data = [
-      { label: "Users", value: 30 },
-      { label: "B", value: 70 }
+      { label: "Use Disk", value: 11 },
+      { label: "Free Disk", value: 22 },
+      { label: "Other File", value: 33 },
+      { label: "NdSQL Data", value: 19 },
+      { label: "MySQL Server Data", value: 13 }
     ];
 
     const width = 300;
